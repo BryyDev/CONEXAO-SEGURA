@@ -1,0 +1,127 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Inter";
+}
+
+label{
+    font-size: .75rem;
+    color: white;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* minimo de altura e a tela toda (viewer height) */
+  background-image: url("../assets/create-account-screen/bg.png");
+  background-position: center; /* posiciona o bg no centro */
+  background-size: cover; /* faz que o bg cubra a tela */
+  background-repeat: no-repeat;
+  & .container {
+    width: 29.875rem;
+    background-color: transparent;
+    border: 2px solid #FFFFFF;
+    border-radius: 2.5rem;
+    color: #fff;
+    padding: 1.5625rem 7.375rem;
+    box-shadow:
+      rgba(0, 0, 0, 0.25) 0px 54px 55px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px,
+      rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px,
+      rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    backdrop-filter: blur(2px);
+
+    & form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        & .imgDiv{
+
+            & img{
+                width: 7.75rem;
+                height: 4.1875rem;
+            }
+        }
+
+        & h1{
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 21px;
+            margin-top: 21px;
+
+        }
+
+        & div.containerr{
+            display: flex;
+            flex-direction: column;
+            gap: 21px;
+            & .inputs{
+                display: flex;
+                flex-direction: column;
+                gap: 17px;
+
+                & > div{
+                    display: flex;
+                    flex-direction: column;
+                    gap: .5rem;
+                }
+
+                & .input{
+                    position: relative;
+
+                    & img{
+                        position: absolute;
+                        left: .75rem;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        width: 1.25rem;
+                        height: 1.25rem;
+                        pointer-events: none;
+                    }
+
+                    & input{
+                        width: 15.125rem;
+                        height: 2.3125rem;
+                        padding: 0 .75rem 0 2.75rem;
+                        background: white;
+                        border: 1px solid white;
+                        border-radius: .625rem;
+                    }
+                }
+            }
+        }
+    }
+
+    & .btoes{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        & button{
+
+            width: 15rem;
+            height: 2.875rem;
+            background: white;
+            border: none;
+            padding: 0 1rem;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            font-weight: 700;
+            font-size: 15px;
+            white-space: nowrap;
+        }
+
+        & .btnverde{
+            background: #1E9E6B;
+            color: white;
+        }
+    }
+  }
+
+}
