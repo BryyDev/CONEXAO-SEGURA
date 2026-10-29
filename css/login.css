@@ -1,0 +1,95 @@
+/* Remove os espaçamentos padrão e inclui padding e borda nas dimensões. */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    /* Garante que o fundo ocupe pelo menos a altura da tela. */
+    min-height: 100vh;
+
+    /* O caminho parte da pasta css, por isso usamos ../. */
+    background-image: url("../assets/login-screen/background-desktop.png");
+
+    /* Preenche a tela; partes da imagem podem ser cortadas. */
+    background-size: cover;
+
+    /* Centraliza a imagem de fundo. */
+    background-position: center;
+
+    /* Impede que a imagem se repita. */
+    background-repeat: no-repeat;/* Faz com que o fundo não se repita e cubra a tela toda */
+    align-items: center;/* Centraliza na vertical */
+    display: flex;/* Permite organizar e alinhar os elementos filhos */
+  justify-content: center;/* 
+  Justifica no eixo X */
+  
+
+    
+}
+.container{
+    border: solid .125rem white;
+    height: 625px;
+    width: 462px;
+    border: solid .125rem #fff ;/* Adiciona borda */
+    border-radius: 2.5rem;/* Arredonda a imagem */
+    color: #fff;
+
+}
+
+/*
+    Seletores sem aninhamento para facilitar a leitura.
+    Mantida a posição original do formulário na página.
+*/
+.container .nome label {
+    /* Coloca o rótulo em uma linha acima do campo. */
+    display: block;
+}
+
+.container .input {
+    /* Faz o ícone absoluto usar esta caixa como referência. */
+    position: relative;
+
+    /* Mantém a largura original, limitada ao espaço disponível. */
+    width: 15.125rem;
+    max-width: 100%;
+}
+
+.container .input img {
+    /* Permite posicionar o ícone dentro da caixa. */
+    position: absolute;
+
+    /* Distância da lateral esquerda. */
+    left: .75rem;
+
+    /* Posiciona o topo do ícone no meio da altura da caixa. */
+    top: 50%;
+
+    /* Sobe metade da altura do ícone para centralizá-lo. */
+    transform: translateY(-50%);
+
+    /* Dimensões do ícone. */
+    width: 1.25rem;
+    height: 1.25rem;
+
+    /* Permite clicar no campo mesmo sobre o ícone. */
+    pointer-events: none;
+}
+
+.container .input input {
+    /* Ocupa toda a largura da caixa .input. */
+    width: 100%;
+    height: 2.3125rem;
+
+    /* Mantém a aparência original do campo. */
+    border: .0625rem solid white;
+    border-radius: .625rem;
+    background-color: white;
+
+    /*
+        Reserva espaço à esquerda para o ícone.
+        O padding vertical fica zerado porque a altura já está definida.
+    */
+    padding: 0 .75rem 0 2.75rem;
+}

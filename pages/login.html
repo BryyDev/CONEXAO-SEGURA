@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <!-- Permite exibir corretamente acentos e caracteres especiais. -->
+    <meta charset="UTF-8">
+
+    <!-- Ajusta a largura da página ao dispositivo. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Caminho relativo à localização deste HTML. -->
+    <link rel="stylesheet" href="../css/login.css">
+
+    <title>Login</title>
+</head>
+
+<body>
+    <!-- Conteúdo principal da página. -->
+    <main class="container">
+        <!--
+            Mantido o destino original.
+            action="formulario" aponta para uma rota chamada formulario;
+            isso, sozinho, não implementa o processamento dos dados.
+        -->
+        <form action="formulario">
+            <!-- Caixa principal do formulário. -->
+            <div class="pai-de-todos">
+                <!-- Agrupa os campos do formulário. -->
+                <div class="inputs">
+                    <!-- Agrupa o rótulo e o campo de nome. -->
+                    <div class="nome">
+                        <!-- O for corresponde ao id do input. -->
+                        <label for="nome">Nome</label>
+                        
+                    <!-- Referência para o posicionamento do ícone. -->
+                    <div class="input">
+                        <!--
+                            Caminho considerando a pasta assets na raiz.
+                            alt vazio porque o ícone é decorativo.
+                            -->
+                        <img src="assets/login-screen/Name.png" alt="">
+
+                        <!--
+                                id: associa o campo ao label.
+                                name: identifica o valor no envio.
+                                autocomplete: permite sugerir o nome salvo.
+                                -->
+                                <input type="text" id="nome" name="nome" placeholder="Insira seu nome" autocomplete="name">
+                                <div class="input-email">
+                                    <label for="email">Email</label>
+                                    <div class="email">
+                                        <input type="email" placeholder="Insira seu Email" autocomplete="email">
+                                    </div>
+                                </div>
+                                <div class="input-senha">
+                                    <label for="password">Senha</label>
+                                    <div class="senha">
+                                        
+                                        
+                                        <input type="password" placeholder="Insira sua senha" i autocomplete="current-password">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="lembrar-senha">
+                    <label>
+                        <input type="checkbox" name="checkbox" id="senha lembrar">
+                        Lembrar de mim
+                    </label>
+                    <a href="#">Esqueci senha</a>
+                </div>
+                <button class="entrar" type="submit"> Entrar</button>
+                <button class="entrar-google" type="submit">Entrar com Google</button>
+                <button class="criar-conta" type="submit">Criar conta</button>
+        </form>
+    </main>
+</body>
+
+</html>
