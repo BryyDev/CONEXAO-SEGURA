@@ -1,0 +1,176 @@
+/* As equivalências em pixels abaixo consideram a fonte do elemento raiz em 16px (1rem = 16px). */
+* { /* Seleciona todos os elementos da página. */
+  box-sizing: border-box; /* Inclui o preenchimento e a borda nas dimensões definidas para cada elemento. */
+  padding: 0; /* Remove o preenchimento interno padrão dos elementos. */
+  margin: 0; /* Remove as margens externas padrão dos elementos. */
+  font-family: "Inter", Arial, sans-serif; /* Usa Inter e mantém fontes alternativas disponíveis caso ela não carregue. */
+} /* Encerra a regra geral dos elementos. */
+
+body { /* Define o fundo e o posicionamento do conteúdo da página. */
+  display: flex; /* Organiza o cartão principal com Flexbox. */
+  justify-content: center; /* Centraliza o cartão na horizontal. */
+  align-items: center; /* Centraliza o cartão na vertical dentro da área disponível. */
+  min-height: 100vh; /* Usa a altura da área de visualização como altura mínima da página. */
+  min-height: 100svh; /* Considera a menor área visível do navegador para acomodar as barras de navegação em celulares. */
+  padding: 2.125rem 1rem 0; /* Adiciona espaço acima e nas laterais para reproduzir a posição do cartão no Figma (2.125rem = 34px; 1rem = 16px). */
+  color: #fff; /* Define a cor branca como padrão para os textos. */
+  background-image: url("../assets/create-account-screen/bg.png"); /* Reutiliza a mesma imagem de fundo encontrada no projeto e no Figma. */
+  background-position: center; /* Mantém a imagem de fundo centralizada. */
+  background-size: cover; /* Faz a imagem cobrir todo o fundo, com recorte proporcional quando necessário. */
+  background-repeat: no-repeat; /* Impede a repetição da imagem de fundo. */
+} /* Encerra a regra do corpo da página. */
+
+.container { /* Seleciona o cartão principal de recuperação de senha. */
+  width: 29.875rem; /* Define a largura do cartão conforme o Figma (29.875rem = 478px). */
+  max-width: 100%; /* Impede que o cartão ultrapasse a largura disponível dentro da página. */
+  min-height: 19.375rem; /* Preserva a altura mínima do cartão indicada no layout (19.375rem = 310px). */
+  padding: 1.5625rem 7.375rem; /* Define o preenchimento vertical e horizontal do cartão, respectivamente (1.5625rem = 25px; 7.375rem = 118px). */
+  border: 1px solid #fff; /* Desenha a borda branca de 1 pixel mostrada no Figma. */
+  border-radius: 2.5rem; /* Arredonda os cantos do cartão (2.5rem = 40px). */
+  background-color: transparent; /* Mantém a imagem da cidade visível através do cartão. */
+  -webkit-backdrop-filter: blur(0); /* Mantém o fundo sem desfoque no estado normal em navegadores que utilizam o prefixo WebKit. */
+  backdrop-filter: blur(0); /* Mantém a imagem da cidade nítida enquanto o ponteiro está fora do cartão. */
+  transition: backdrop-filter 180ms ease, -webkit-backdrop-filter 180ms ease; /* Suaviza a aplicação e a remoção do desfoque de fundo. */
+} /* Encerra a regra do cartão principal. */
+
+@media (hover: hover) and (pointer: fine) { /* Aplica o efeito apenas em dispositivos com ponteiro preciso e suporte a passar o mouse. */
+  .container:hover { /* Seleciona o cartão enquanto o ponteiro está sobre ele. */
+    -webkit-backdrop-filter: blur(7.5px); /* Aplica o desfoque no hover em navegadores que utilizam o prefixo WebKit. */
+    backdrop-filter: blur(2px); /* Desfoca apenas a imagem atrás do cartão enquanto o mouse está sobre ele. */
+  } /* Encerra a regra de hover do cartão. */
+} /* Encerra a condição de suporte ao efeito de hover. */
+
+.container form { /* Seleciona o formulário dentro do cartão. */
+  display: flex; /* Organiza os grupos do formulário com Flexbox. */
+  flex-direction: column; /* Distribui o logo, o campo, o botão e o link em uma coluna. */
+  align-items: center; /* Centraliza os grupos na horizontal. */
+  gap: 1.3125rem; /* Define o espaço entre os quatro grupos do formulário (1.3125rem = 21px). */
+  width: 100%; /* Faz o formulário ocupar a largura interna do cartão. */
+} /* Encerra a regra do formulário. */
+
+.imgDiv { /* Seleciona o espaço reservado para o logo. */
+  width: 7.75rem; /* Define a largura do grupo do logo (7.75rem = 124px). */
+  height: 4.1875rem; /* Define a altura do grupo do logo (4.1875rem = 67px). */
+  flex-shrink: 0; /* Impede que o Flexbox reduza o espaço do logo. */
+} /* Encerra a regra do grupo do logo. */
+
+.imgDiv a, .imgDiv img { /* Seleciona o link e a imagem do logo. */
+  display: block; /* Remove o espaço de linha que uma imagem em linha pode deixar abaixo de si. */
+} /* Encerra a regra do link e da imagem do logo. */
+
+.containerr { /* Seleciona o grupo de conteúdo que contém o campo de e-mail. */
+  width: 100%; /* Mantém o grupo alinhado à largura interna do formulário. */
+} /* Encerra a regra do grupo de conteúdo. */
+
+.inputEmail { /* Seleciona o conjunto do rótulo e do campo de e-mail. */
+  display: flex; /* Organiza o rótulo e o campo com Flexbox. */
+  flex-direction: column; /* Posiciona o rótulo acima do campo. */
+  gap: 1rem; /* Define a distância entre o rótulo e o campo conforme o Figma (1rem = 16px). */
+} /* Encerra a regra do grupo de e-mail. */
+
+label { /* Seleciona o rótulo do campo de e-mail. */
+  padding-left: .125rem; /* Desloca o rótulo levemente para a direita, como no Figma (0.125rem = 2px). */
+  font-size: .75rem; /* Define o tamanho do texto do rótulo (0.75rem = 12px). */
+  line-height: .9375rem; /* Define a altura da linha do rótulo (0.9375rem = 15px). */
+  font-weight: 400; /* Usa o peso regular da fonte. */
+  color: #fff; /* Mantém o rótulo branco sobre o fundo escuro. */
+} /* Encerra a regra do rótulo. */
+
+.input { /* Seleciona o contêiner do campo e do ícone de e-mail. */
+  position: relative; /* Torna este contêiner a referência de posicionamento absoluto do ícone. */
+  width: 15.125rem; /* Define a largura do campo conforme o Figma (15.125rem = 242px). */
+  height: 2.3125rem; /* Define a altura do campo conforme o Figma (2.3125rem = 37px). */
+  border-radius: .625rem; /* Define o arredondamento do contêiner e de seu indicador de foco (0.625rem = 10px). */
+} /* Encerra a regra do contêiner do campo. */
+
+.input img { /* Seleciona o ícone decorativo de e-mail. */
+  position: absolute; /* Posiciona o ícone sobre a área interna do campo sem ocupar espaço no fluxo. */
+  left: .375rem; /* Posiciona o ícone próximo da borda esquerda do campo (0.375rem = 6px). */
+  top: 50%; /* Posiciona o topo do ícone na metade da altura do contêiner. */
+  transform: translateY(-50%); /* Compensa metade da altura do próprio ícone para centralizá-lo verticalmente. */
+  pointer-events: none; /* Permite que cliques sobre o ícone alcancem o campo abaixo dele. */
+} /* Encerra a regra do ícone de e-mail. */
+
+.input input { /* Seleciona a entrada de e-mail. */
+  width: 100%; /* Faz a entrada ocupar toda a largura de seu contêiner. */
+  height: 100%; /* Faz a entrada ocupar toda a altura de seu contêiner. */
+  padding: 0 .75rem 0 2.0625rem; /* Define o preenchimento direito e esquerdo, reservando espaço para o ícone (0.75rem = 12px; 2.0625rem = 33px). */
+  border: 1px solid #eadbd0; /* Aplica a borda bege clara especificada no Figma. */
+  border-radius: .625rem; /* Arredonda os cantos do campo (0.625rem = 10px). */
+  background-color: #fff8f0; /* Aplica o fundo claro e levemente quente do campo no Figma. */
+  color: #76665f; /* Define a cor do texto digitado. */
+  font-size: .75rem; /* Define o tamanho do texto do campo (0.75rem = 12px). */
+  font-weight: 400; /* Usa o peso regular da fonte para a entrada de e-mail. */
+} /* Encerra a regra da entrada de e-mail. */
+
+.input input::placeholder { /* Seleciona o texto de orientação exibido no campo vazio. */
+  color: #76665f; /* Usa a cor do placeholder indicada no Figma. */
+  opacity: 1; /* Evita que o navegador reduza a opacidade da cor do placeholder. */
+} /* Encerra a regra do texto de orientação. */
+
+.input input:focus-visible { /* Seleciona o campo quando o navegador deve destacar seu foco. */
+  outline: 2px solid #1e9e6b; /* Adiciona um contorno verde para indicar o campo em foco. */
+  outline-offset: 3px; /* Afasta o contorno de foco da borda do campo. */
+} /* Encerra a regra de foco do campo. */
+
+.btoes { /* Seleciona o grupo do botão de recuperação de senha. */
+  width: 100%; /* Faz o grupo ocupar a mesma largura interna do formulário. */
+} /* Encerra a regra do grupo do botão. */
+
+.btnverde { /* Seleciona o botão verde de recuperação. */
+  display: flex; /* Organiza o texto do botão com Flexbox. */
+  justify-content: center; /* Centraliza o texto do botão na horizontal. */
+  align-items: center; /* Centraliza o texto do botão na vertical. */
+  width: 100%; /* Faz o botão ocupar toda a largura de seu grupo. */
+  height: 2.875rem; /* Define a altura do botão conforme o Figma (2.875rem = 46px). */
+  padding: 0 .625rem; /* Adiciona preenchimento nas laterais do texto do botão (0.625rem = 10px). */
+  border: none; /* Remove a borda padrão do navegador. */
+  border-radius: .75rem; /* Arredonda os cantos do botão (0.75rem = 12px). */
+  background-color: #1e9e6b; /* Aplica o verde especificado no Figma. */
+  color: #fff; /* Define a cor branca para o texto do botão. */
+  font-size: .6875rem; /* Define o tamanho do texto do botão (0.6875rem = 11px). */
+  font-weight: 700; /* Exibe o texto do botão em negrito. */
+  line-height: 1rem; /* Define a altura da linha do texto do botão (1rem = 16px). */
+  white-space: nowrap; /* Mantém a frase do botão em uma única linha. */
+  cursor: pointer; /* Exibe o cursor de interação ao passar sobre o botão. */
+  transition: background-color 150ms ease; /* Suaviza a mudança da cor de fundo ao interagir com o botão. */
+} /* Encerra a regra do botão verde. */
+
+.btnverde:hover { /* Seleciona o botão enquanto o ponteiro está sobre ele. */
+  background-color: #187f56; /* Escurece o verde para indicar a interação. */
+} /* Encerra a regra de interação do botão. */
+
+.login-link { /* Seleciona o link de retorno ao login. */
+  color: #fff; /* Mantém o link branco, como no Figma. */
+  font-size: .6875rem; /* Define o tamanho do texto do link (0.6875rem = 11px). */
+  font-weight: 800; /* Usa o peso extranegrito indicado no layout. */
+  line-height: .875rem; /* Define a altura da linha do link (0.875rem = 14px). */
+  text-align: center; /* Centraliza o texto do link. */
+  text-decoration: none; /* Remove o sublinhado no estado normal do link. */
+  white-space: nowrap; /* Mantém o texto do link em uma única linha. */
+} /* Encerra a regra do link de login. */
+
+.login-link:hover { /* Seleciona o link de login enquanto o ponteiro está sobre ele. */
+  text-decoration: underline; /* Sublinha o link para indicar a interação. */
+} /* Encerra a regra de interação do link. */
+
+.container a:focus-visible, .btnverde:focus-visible { /* Seleciona os links e o botão quando precisam de indicação visual de foco. */
+  outline: 2px solid #fff; /* Exibe um contorno branco para facilitar a navegação por teclado. */
+  outline-offset: 4px; /* Afasta o contorno de foco dos elementos. */
+} /* Encerra a regra de foco dos links e do botão. */
+
+@media (max-width: 30rem) { /* Ajusta o cartão para telas menores (30rem = 480px). */
+  body { /* Seleciona o corpo da página em telas menores. */
+    padding: 1rem; /* Mantém espaço em todos os lados do cartão em celulares (1rem = 16px). */
+  } /* Encerra o ajuste do corpo da página. */
+  .container { /* Seleciona o cartão em telas menores. */
+    padding: 1.5625rem 1.5rem; /* Reduz o preenchimento lateral e mantém o vertical (1.5625rem = 25px; 1.5rem = 24px). */
+  } /* Encerra o ajuste do cartão. */
+  .container form { /* Seleciona o formulário em telas menores. */
+    max-width: 15.125rem; /* Limita a largura dos controles para preservar suas proporções (15.125rem = 242px). */
+    margin-inline: auto; /* Centraliza o formulário dentro do cartão. */
+  } /* Encerra o ajuste do formulário. */
+  .input { /* Seleciona o contêiner do campo em telas menores. */
+    width: 100%; /* Permite que o campo acompanhe a largura disponível do formulário. */
+  } /* Encerra o ajuste do campo. */
+} /* Encerra as regras específicas para telas menores. */

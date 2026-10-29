@@ -1,127 +1,128 @@
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    font-family: "Inter";
-}
+/* As equivalências em pixels abaixo consideram a fonte do elemento raiz em 16px (1rem = 16px). */
+* { /* Seleciona todos os elementos da página. */
+    box-sizing: border-box; /* Inclui o preenchimento e a borda na largura e na altura definidas. */
+    padding: 0; /* Remove o preenchimento interno padrão dos elementos. */
+    margin: 0; /* Remove as margens externas padrão dos elementos. */
+    font-family: "Inter"; /* Define Inter como a fonte dos elementos. */
+} /* Encerra a regra aplicada a todos os elementos. */
 
-label{
-    font-size: .75rem;
-    color: white;
-}
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh; /* minimo de altura e a tela toda (viewer height) */
-  background-image: url("../assets/create-account-screen/bg.png");
-  background-position: center; /* posiciona o bg no centro */
-  background-size: cover; /* faz que o bg cubra a tela */
-  background-repeat: no-repeat;
-  & .container {
-    width: 29.875rem;
-    background-color: transparent;
-    border: 2px solid #FFFFFF;
-    border-radius: 2.5rem;
-    color: #fff;
-    padding: 1.5625rem 7.375rem;
-    box-shadow:
-      rgba(0, 0, 0, 0.25) 0px 54px 55px,
-      rgba(0, 0, 0, 0.12) 0px -12px 30px,
-      rgba(0, 0, 0, 0.12) 0px 4px 6px,
-      rgba(0, 0, 0, 0.17) 0px 12px 13px,
-      rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    backdrop-filter: blur(2px);
+label{ /* Seleciona os rótulos dos campos do formulário. */
+    font-size: .75rem; /* Define o tamanho do texto como 0,75 vez o tamanho da fonte do elemento raiz (0.75rem = 12px). */
+    color: white; /* Define a cor do texto dos rótulos como branca. */
+} /* Encerra a regra dos rótulos. */
+body { /* Seleciona o corpo da página e agrupa as regras aninhadas de seus elementos. */
+  display: flex; /* Organiza os filhos diretos do corpo com Flexbox. */
+  justify-content: center; /* Centraliza os filhos no eixo principal, horizontal nesta configuração. */
+  align-items: center; /* Centraliza os filhos no eixo transversal, vertical nesta configuração. */
+  min-height: 100vh; /* Define uma altura mínima equivalente a 100% da altura da área de visualização. */
+  background-image: url("../assets/create-account-screen/bg.png"); /* Usa a imagem indicada como fundo da página. */
+  background-position: center; /* Centraliza a imagem de fundo. */
+  background-size: cover; /* Redimensiona a imagem para cobrir todo o fundo, com recorte quando necessário. */
+  background-repeat: no-repeat; /* Impede a repetição da imagem de fundo. */
+  & .container { /* Seleciona os elementos com a classe container que estão dentro do body. */
+    width: 29.875rem; /* Define a largura do contêiner em unidades relativas à fonte do elemento raiz (29.875rem = 478px). */
+    background-color: transparent; /* Deixa o fundo do contêiner transparente. */
+    border: 2px solid #FFFFFF; /* Adiciona uma borda branca contínua de 2 pixels. */
+    border-radius: 2.5rem; /* Arredonda os cantos do contêiner (2.5rem = 40px). */
+    color: #fff; /* Define a cor branca para o texto, herdada pelos descendentes quando aplicável. */
+    padding: 1.5625rem 7.375rem; /* Define o preenchimento vertical e horizontal, respectivamente (1.5625rem = 25px; 7.375rem = 118px). */
+    box-shadow: /* Inicia uma sombra composta pelas cinco camadas descritas nas próximas linhas. */
+      rgba(0, 0, 0, 0.25) 0px 54px 55px, /* Adiciona uma sombra preta com 25% de opacidade, deslocada 54 pixels para baixo e com desfoque de 55 pixels. */
+      rgba(0, 0, 0, 0.12) 0px -12px 30px, /* Adiciona uma sombra preta com 12% de opacidade, deslocada 12 pixels para cima e com desfoque de 30 pixels. */
+      rgba(0, 0, 0, 0.12) 0px 4px 6px, /* Adiciona uma sombra preta com 12% de opacidade, deslocada 4 pixels para baixo e com desfoque de 6 pixels. */
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, /* Adiciona uma sombra preta com 17% de opacidade, deslocada 12 pixels para baixo e com desfoque de 13 pixels. */
+      rgba(0, 0, 0, 0.09) 0px -3px 5px; /* Adiciona a última sombra, com 9% de opacidade, deslocada 3 pixels para cima e com desfoque de 5 pixels. */
+    backdrop-filter: blur(2px); /* Aplica um desfoque de 2 pixels ao conteúdo que aparece atrás do contêiner. */
 
-    & form{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+    & form{ /* Seleciona os formulários que estão dentro do contêiner. */
+        display: flex; /* Organiza os filhos diretos do formulário com Flexbox. */
+        flex-direction: column; /* Distribui os filhos do formulário em uma coluna. */
+        justify-content: center; /* Centraliza os filhos no eixo principal, vertical nesta configuração. */
+        align-items: center; /* Centraliza os filhos no eixo transversal, horizontal nesta configuração. */
 
-        & .imgDiv{
+        & .imgDiv{ /* Seleciona o grupo da imagem dentro do formulário. */
 
-            & img{
-                width: 7.75rem;
-                height: 4.1875rem;
-            }
-        }
+            & img{ /* Seleciona as imagens que estão dentro do grupo imgDiv. */
+                width: 7.75rem; /* Define a largura da imagem (7.75rem = 124px). */
+                height: 4.1875rem; /* Define a altura da imagem (4.1875rem = 67px). */
+            } /* Encerra a regra das imagens do grupo imgDiv. */
+        } /* Encerra a regra do grupo imgDiv. */
 
-        & h1{
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 21px;
-            margin-top: 21px;
+        & h1{ /* Seleciona os títulos de nível 1 dentro do formulário. */
+            font-size: 2rem; /* Define o tamanho do título como duas vezes o tamanho da fonte do elemento raiz (2rem = 32px). */
+            font-weight: 800; /* Define um peso de fonte forte para o título. */
+            margin-bottom: 21px; /* Adiciona 21 pixels de margem abaixo do título. */
+            margin-top: 21px; /* Adiciona 21 pixels de margem acima do título. */
 
-        }
+        } /* Encerra a regra dos títulos de nível 1. */
 
-        & div.containerr{
-            display: flex;
-            flex-direction: column;
-            gap: 21px;
-            & .inputs{
-                display: flex;
-                flex-direction: column;
-                gap: 17px;
+        & div.containerr{ /* Seleciona as divs com a classe containerr que estão dentro do formulário. */
+            display: flex; /* Organiza os filhos desse grupo com Flexbox. */
+            flex-direction: column; /* Distribui os filhos desse grupo em uma coluna. */
+            gap: 21px; /* Define 21 pixels de espaço entre os filhos desse grupo. */
+            & .inputs{ /* Seleciona o grupo de campos dentro de containerr. */
+                display: flex; /* Organiza os grupos de campos com Flexbox. */
+                flex-direction: column; /* Distribui os grupos de campos em uma coluna. */
+                gap: 17px; /* Define 17 pixels de espaço entre os grupos de campos. */
 
-                & > div{
-                    display: flex;
-                    flex-direction: column;
-                    gap: .5rem;
-                }
+                & > div{ /* Seleciona somente as divs que são filhas diretas do grupo inputs. */
+                    display: flex; /* Organiza o rótulo e o contêiner de entrada com Flexbox. */
+                    flex-direction: column; /* Posiciona o rótulo acima do contêiner de entrada. */
+                    gap: .5rem; /* Define o espaço entre o rótulo e o contêiner de entrada (0.5rem = 8px). */
+                } /* Encerra a regra das divs filhas diretas de inputs. */
 
-                & .input{
-                    position: relative;
+                & .input{ /* Seleciona os contêineres com a classe input dentro do grupo inputs. */
+                    position: relative; /* Faz deste contêiner a referência para o posicionamento absoluto do ícone. */
 
-                    & img{
-                        position: absolute;
-                        left: .75rem;
-                        top: 50%;
-                        transform: translateY(-50%);
-                        width: 1.25rem;
-                        height: 1.25rem;
-                        pointer-events: none;
-                    }
+                    & img{ /* Seleciona os ícones que estão dentro de cada contêiner input. */
+                        position: absolute; /* Retira o ícone do fluxo normal e permite posicioná-lo dentro do contêiner. */
+                        left: .75rem; /* Posiciona o ícone a 0,75 rem da borda esquerda de sua referência (0.75rem = 12px). */
+                        top: 50%; /* Posiciona o topo do ícone na metade da altura de sua referência. */
+                        transform: translateY(-50%); /* Move o ícone para cima em metade da própria altura para centralizá-lo verticalmente. */
+                        width: 1.25rem; /* Define a largura do ícone (1.25rem = 20px). */
+                        height: 1.25rem; /* Define a altura do ícone (1.25rem = 20px). */
+                        pointer-events: none; /* Faz os eventos de ponteiro atravessarem o ícone e alcançarem o elemento abaixo dele. */
+                    } /* Encerra a regra dos ícones dos campos. */
 
-                    & input{
-                        width: 15.125rem;
-                        height: 2.3125rem;
-                        padding: 0 .75rem 0 2.75rem;
-                        background: white;
-                        border: 1px solid white;
-                        border-radius: .625rem;
-                    }
-                }
-            }
-        }
-    }
+                    & input{ /* Seleciona os campos de entrada dentro dos contêineres input. */
+                        width: 15.125rem; /* Define a largura dos campos de entrada (15.125rem = 242px). */
+                        height: 2.3125rem; /* Define a altura dos campos de entrada (2.3125rem = 37px). */
+                        padding: 0 .75rem 0 2.75rem; /* Define o preenchimento superior, direito, inferior e esquerdo, reservando espaço para o ícone (0.75rem = 12px; 2.75rem = 44px). */
+                        background: white; /* Define o fundo dos campos como branco. */
+                        border: 1px solid white; /* Adiciona uma borda branca contínua de 1 pixel. */
+                        border-radius: .625rem; /* Arredonda os cantos dos campos de entrada (0.625rem = 10px). */
+                    } /* Encerra a regra dos campos de entrada. */
+                } /* Encerra a regra dos contêineres input. */
+            } /* Encerra a regra do grupo inputs. */
+        } /* Encerra a regra das divs com a classe containerr. */
+    } /* Encerra a regra do formulário. */
 
-    & .btoes{
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-        & button{
+    & .btoes{ /* Seleciona o grupo de botões dentro do contêiner principal. */
+        display: flex; /* Organiza os botões com Flexbox. */
+        flex-direction: column; /* Distribui os botões em uma coluna. */
+        gap: 30px; /* Define 30 pixels de espaço entre os botões. */
+        & button{ /* Seleciona os botões que estão dentro do grupo btoes. */
 
-            width: 15rem;
-            height: 2.875rem;
-            background: white;
-            border: none;
-            padding: 0 1rem;
-            border-radius: 12px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0;
-            font-weight: 700;
-            font-size: 15px;
-            white-space: nowrap;
-        }
+            width: 15rem; /* Define a largura dos botões (15rem = 240px). */
+            height: 2.875rem; /* Define a altura dos botões (2.875rem = 46px). */
+            background: white; /* Define o fundo padrão dos botões como branco. */
+            border: none; /* Remove a borda dos botões. */
+            padding: 0 1rem; /* Remove o preenchimento vertical e adiciona 1 rem de preenchimento em cada lado (1rem = 16px). */
+            border-radius: 12px; /* Arredonda os cantos dos botões com um raio de 12 pixels. */
+            display: flex; /* Organiza o conteúdo dos botões com Flexbox. */
+            justify-content: center; /* Centraliza o conteúdo dos botões na horizontal. */
+            align-items: center; /* Centraliza o conteúdo dos botões na vertical. */
+            margin: 0; /* Remove as margens externas dos botões. */
+            font-weight: 700; /* Define o texto dos botões em negrito. */
+            font-size: 15px; /* Define o tamanho do texto dos botões como 15 pixels. */
+            white-space: nowrap; /* Impede que o texto dos botões seja dividido em várias linhas. */
+        } /* Encerra a regra geral dos botões. */
 
-        & .btnverde{
-            background: #1E9E6B;
-            color: white;
-        }
-    }
-  }
+        & .btnverde{ /* Seleciona o botão com a classe btnverde dentro do grupo btoes. */
+            background: #1E9E6B; /* Define o fundo desse botão com a cor verde indicada. */
+            color: white; /* Define a cor do texto desse botão como branca. */
+        } /* Encerra a regra do botão verde. */
+    } /* Encerra a regra do grupo de botões. */
+  } /* Encerra a regra do contêiner principal. */
 
-}
+} /* Encerra a regra do corpo da página. */

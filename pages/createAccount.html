@@ -1,78 +1,68 @@
-<!doctype html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="shortcut icon"
-      href="../assets/create-account-screen/logo.svg"
-      type="image/x-icon"
-    />
-    <link rel="stylesheet" href="../css/creacteAccount.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <title>Conexão Segura</title>
-  </head>
-  <body>
-    <main class="container">
-      <form>
-        <div class="imgDiv">
-          <img
-            src="../assets/create-account-screen/logo.svg"
-            alt="Logo Conexão Segura"
-          />
-        </div>
+<!doctype html> <!-- Declara que o documento utiliza HTML5. -->
+<html lang="pt-br"> <!-- Inicia o documento e informa que seu idioma é português do Brasil. -->
+  <head> <!-- Inicia a seção de metadados e recursos da página. -->
+    <meta charset="UTF-8" /> <!-- Define a codificação UTF-8 para exibir corretamente acentos e outros caracteres. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Ajusta a largura da área de visualização à do dispositivo e define a escala inicial como 1. -->
+    <link rel="shortcut icon" href="../assets/create-account-screen/logo.svg" type="image/x-icon" /> <!-- Usa o logo indicado como ícone da aba; rel identifica sua função, href informa o caminho e type declara o tipo do recurso. -->
+    <link rel="stylesheet" href="../css/creacteAccount.css" /> <!-- Carrega a folha de estilos da tela de cadastro. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" /> <!-- Solicita a preparação antecipada da conexão com o servidor de estilos do Google Fonts. -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /> <!-- Prepara a conexão com o servidor de arquivos de fontes usando o modo de acesso entre origens indicado por crossorigin. -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" /> <!-- Carrega os estilos da fonte Inter, incluindo versões normais e itálicas, e solicita a troca da fonte quando ela estiver disponível. -->
+    <title>Conexão Segura</title> <!-- Define o título exibido na aba do navegador. -->
+  </head> <!-- Encerra a seção de metadados e recursos. -->
+  <body> <!-- Inicia o conteúdo visível da página. -->
+    <main class="container"> <!-- Define o conteúdo principal e aplica a classe container usada pelo CSS. -->
+      <form> <!-- Inicia o formulário que agrupa os campos e os botões de cadastro. -->
+        <div class="imgDiv"> <!-- Agrupa o logo para permitir sua seleção pelos estilos. -->
+          <img src="../assets/create-account-screen/logo.svg" alt="Logo Conexão Segura" /> <!-- Exibe o logo pelo caminho de src e fornece sua descrição textual em alt. -->
+        </div> <!-- Encerra o grupo do logo. -->
 
-        <h1>Crie sua conta</h1>
+        <h1>Crie sua conta</h1> <!-- Exibe o título principal da tela de cadastro. -->
 
-        <div class="containerr">
+        <div class="containerr"> <!-- Agrupa os campos e os botões para organizar seu posicionamento pelo CSS. -->
 
-          <div class="inputs">
-            <div class="Nome">
-              <label for="name">Nome:</label>
-              <div class="input">
-                <img src="../assets/create-account-screen/Name.svg" alt="" />
-                <input id="name" type="text" placeholder="Insira o seu nome" />
-              </div>
-            </div>
+          <div class="inputs"> <!-- Inicia o grupo de todos os campos de entrada. -->
+            <div class="Nome"> <!-- Agrupa o rótulo e a entrada do nome. -->
+              <label for="name">Nome:</label> <!-- Exibe o rótulo Nome e o associa ao campo cujo id é name. -->
+              <div class="input"> <!-- Cria o contêiner que posiciona o ícone junto ao campo de nome. -->
+                <img src="../assets/create-account-screen/Name.svg" alt="" /> <!-- Exibe o ícone decorativo de nome; o alt vazio indica que ele não precisa de descrição. -->
+                <input id="name" type="text" placeholder="Insira o seu nome" /> <!-- Cria uma entrada de texto com o id name e uma orientação exibida enquanto estiver vazia. -->
+              </div> <!-- Encerra o contêiner do ícone e do campo de nome. -->
+            </div> <!-- Encerra o grupo do nome. -->
 
-            <div class="inputEmail">
-              <label for="email">Email:</label>
-              <div class="input">
-                <img src="../assets/create-account-screen/Email.svg" alt="" />
-                <input id="email" type="email" placeholder="Insira o seu email" />
-              </div>
-            </div>
+            <div class="inputEmail"> <!-- Agrupa o rótulo e a entrada do e-mail. -->
+              <label for="email">Email:</label> <!-- Exibe o rótulo Email e o associa ao campo cujo id é email. -->
+              <div class="input"> <!-- Cria o contêiner que posiciona o ícone junto ao campo de e-mail. -->
+                <img src="../assets/create-account-screen/Email.svg" alt="" /> <!-- Exibe o ícone decorativo de e-mail, sem descrição alternativa. -->
+                <input id="email" type="email" placeholder="Insira o seu email" /> <!-- Cria uma entrada de e-mail com verificação de formato pelo navegador quando preenchida e uma orientação no campo vazio. -->
+              </div> <!-- Encerra o contêiner do ícone e do campo de e-mail. -->
+            </div> <!-- Encerra o grupo do e-mail. -->
 
-            <div>
-              <label for="password">Senha:</label>
-              <div class="input">
-                <img src="../assets/create-account-screen/Lock.svg" alt="" />
-                <input id="password" type="password" placeholder="Insira a sua senha" />
-              </div>
-            </div>
+            <div> <!-- Agrupa o rótulo e a entrada da senha. -->
+              <label for="password">Senha:</label> <!-- Exibe o rótulo Senha e o associa ao campo cujo id é password. -->
+              <div class="input"> <!-- Cria o contêiner que posiciona o ícone junto ao campo de senha. -->
+                <img src="../assets/create-account-screen/Lock.svg" alt="" /> <!-- Exibe o ícone decorativo de cadeado, sem descrição alternativa. -->
+                <input id="password" type="password" placeholder="Insira a sua senha" /> <!-- Cria uma entrada que oculta visualmente os caracteres digitados e mostra uma orientação enquanto estiver vazia. -->
+              </div> <!-- Encerra o contêiner do ícone e do campo de senha. -->
+            </div> <!-- Encerra o grupo da senha. -->
 
-            <div>
-              <label for="confirm-password">Confirmar senha:</label>
-              <div class="input">
-                <img src="../assets/create-account-screen/Lock.svg" alt="" />
-                <input id="confirm-password" type="password" placeholder="Confirme a sua senha" />
-                
-              </div>
-            </div>
-          </div>
+            <div> <!-- Agrupa o rótulo e a entrada de confirmação da senha. -->
+              <label for="confirm-password">Confirmar senha:</label> <!-- Exibe o rótulo de confirmação e o associa ao campo cujo id é confirm-password. -->
+              <div class="input"> <!-- Cria o contêiner que posiciona o ícone junto ao campo de confirmação. -->
+                <img src="../assets/create-account-screen/Lock.svg" alt="" /> <!-- Exibe o ícone decorativo de cadeado no campo de confirmação. -->
+                <input id="confirm-password" type="password" placeholder="Confirme a sua senha" /> <!-- Cria outra entrada com caracteres ocultos para repetir a senha; a comparação dos valores exige lógica adicional. -->
 
-          <div class="btoes">
-            <button>Criar Conta</button>
-            <button class="btnverde">Ja tenho uma conta</button>
-          </div>
+              </div> <!-- Encerra o contêiner do ícone e do campo de confirmação. -->
+            </div> <!-- Encerra o grupo de confirmação da senha. -->
+          </div> <!-- Encerra o grupo de todos os campos de entrada. -->
 
-        </div>
-      </form>
-    </main>
-  </body>
-</html>
+          <div class="btoes"> <!-- Agrupa os botões para aplicar o alinhamento e o espaçamento definidos no CSS. -->
+            <button>Criar Conta</button> <!-- Exibe o botão Criar Conta; dentro do formulário, a ausência de type faz seu tipo padrão ser submit. -->
+            <button class="btnverde">Ja tenho uma conta</button> <!-- Exibe o botão com o estilo verde; sem type definido, ele também envia o formulário por padrão. -->
+          </div> <!-- Encerra o grupo de botões. -->
+
+        </div> <!-- Encerra o grupo que reúne os campos e os botões. -->
+      </form> <!-- Encerra o formulário de cadastro. -->
+    </main> <!-- Encerra o conteúdo principal da página. -->
+  </body> <!-- Encerra o conteúdo visível da página. -->
+</html> <!-- Encerra o documento HTML. -->
