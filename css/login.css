@@ -28,15 +28,25 @@ body {
 
     
 }
-.container{
-    border: solid .125rem white;
-    height: 625px;
-    width: 462px;
-    border: solid .125rem #fff ;/* Adiciona borda */
-    border-radius: 2.5rem;/* Arredonda a imagem */
-    color: #fff;
+.container { /* Seleciona o cartão principal de recuperação de senha. */
+  width: 29.875rem; /* Define a largura do cartão conforme o Figma (29.875rem = 478px). */
+  max-width: 100%; /* Impede que o cartão ultrapasse a largura disponível dentro da página. */
+  min-height: 19.375rem; /* Preserva a altura mínima do cartão indicada no layout (19.375rem = 310px). */
+  padding: 1.5625rem 7.375rem; /* Define o preenchimento vertical e horizontal do cartão, respectivamente (1.5625rem = 25px; 7.375rem = 118px). */
+  border: 1px solid #fff; /* Desenha a borda branca de 1 pixel mostrada no Figma. */
+  border-radius: 2.5rem; /* Arredonda os cantos do cartão (2.5rem = 40px). */
+  background-color: transparent; /* Mantém a imagem da cidade visível através do cartão. */
+  -webkit-backdrop-filter: blur(0); /* Mantém o fundo sem desfoque no estado normal em navegadores que utilizam o prefixo WebKit. */
+  backdrop-filter: blur(0); /* Mantém a imagem da cidade nítida enquanto o ponteiro está fora do cartão. */
+  transition: backdrop-filter 180ms ease, -webkit-backdrop-filter 180ms ease; /* Suaviza a aplicação e a remoção do desfoque de fundo. */
+} /* Encerra a regra do cartão principal. */
 
-}
+@media (hover: hover) and (pointer: fine) { /* Aplica o efeito apenas em dispositivos com ponteiro preciso e suporte a passar o mouse. */
+  .container:hover { /* Seleciona o cartão enquanto o ponteiro está sobre ele. */
+    -webkit-backdrop-filter: blur(7.5px); /* Aplica o desfoque no hover em navegadores que utilizam o prefixo WebKit. */
+    backdrop-filter: blur(2px); /* Desfoca apenas a imagem atrás do cartão enquanto o mouse está sobre ele. */
+  } /* Encerra a regra de hover do cartão. */
+} /* Encerra a condição de suporte ao efeito de hover. */
 
 /*
     Seletores sem aninhamento para facilitar a leitura.
