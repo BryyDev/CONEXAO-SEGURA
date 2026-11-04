@@ -52,7 +52,7 @@ body {
     Seletores sem aninhamento para facilitar a leitura.
     Mantida a posição original do formulário na página.
 */
-.container .nome label {
+.container .inputs label {
     /* Coloca o rótulo em uma linha acima do campo. */
     display: block;
 }
@@ -66,7 +66,7 @@ body {
     max-width: 100%;
 }
 
-.container .input img {
+.container .input > img {
     /* Permite posicionar o ícone dentro da caixa. */
     position: absolute;
 
@@ -87,7 +87,9 @@ body {
     pointer-events: none;
 }
 
-.container .input input {
+.container .input > input {
+    /* Remove o espaço de linha para alinhar o ícone ao centro do campo. */
+    display: block;
     /* Ocupa toda a largura da caixa .input. */
     width: 100%;
     height: 2.3125rem;

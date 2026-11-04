@@ -1,0 +1,560 @@
+* { /* Seleciona todos os elementos para padronizar o cálculo dos tamanhos. */
+    box-sizing: border-box; /* Inclui bordas e espaçamentos internos nas medidas dos elementos. */
+    padding: 0; /* Remove o preenchimento interno padrão dos elementos. */
+    margin: 0; /* Remove as margens externas padrão dos elementos. */
+} /* Encerra o ajuste geral de tamanhos. */
+
+
+
+html { /* Seleciona a raiz da página, que serve como referência para as medidas em rem. */
+    font-size: 100%; /* Respeita o tamanho de fonte escolhido no navegador, normalmente equivalente a 1rem de 16 pixels. */
+} /* Encerra os ajustes da raiz. */
+body { /* Seleciona o corpo da página. */
+    margin: 0; /* Remove o espaço padrão ao redor da página. */
+    color: #0e3361; /* Define o azul escuro dos textos principais. */
+    background-color: #f6f8fb; /* Aplica o fundo claro apresentado no Figma. */
+    font-family: "Inter", Arial, sans-serif; /* Usa Inter nos textos e mantém fontes alternativas disponíveis. */
+    font-size: 0.875rem; /* Define o tamanho padrão dos textos menores. */
+    line-height: 1.5; /* Mantém um espaçamento confortável entre as linhas de texto. */
+} /* Encerra os estilos do corpo da página. */
+button, input { /* Seleciona os botões e os campos de entrada. */
+    font: inherit; /* Faz os controles seguirem a fonte e o tamanho de texto da página. */
+} /* Encerra a padronização das fontes dos controles. */
+button, a, input { /* Seleciona os controles que podem receber foco pelo teclado. */
+    -webkit-tap-highlight-color: transparent; /* Remove o destaque de toque que interfere no desenho dos controles. */
+    &:focus-visible { /* Aplica um destaque somente quando o navegador precisa indicar o foco. */
+        outline: 0.1875rem solid #1268f6; /* Cria um contorno azul visível para navegação pelo teclado. */
+        outline-offset: 0.25rem; /* Afasta o contorno do controle para facilitar sua identificação. */
+    } /* Encerra o destaque de foco dos controles. */
+} /* Encerra os ajustes dos controles interativos. */
+.somente-leitor, .pular-conteudo { /* Seleciona os textos auxiliares que não devem ocupar espaço no desenho. */
+    position: absolute; /* Retira o texto auxiliar da organização visual da página. */
+    width: 0.0625rem; /* Mantém uma largura mínima para preservar o acesso por leitores de tela. */
+    height: 0.0625rem; /* Mantém uma altura mínima para preservar o acesso por leitores de tela. */
+    padding: 0; /* Remove o espaço interno dos textos auxiliares. */
+    overflow: hidden; /* Esconde a parte visual do texto auxiliar. */
+    clip-path: inset(50%); /* Recorta visualmente o texto sem retirá-lo da leitura acessível. */
+    white-space: nowrap; /* Evita a quebra de linha dos textos auxiliares. */
+    border: 0; /* Remove qualquer borda dos textos auxiliares. */
+} /* Encerra a ocultação visual dos textos auxiliares. */
+.pular-conteudo { /* Seleciona o atalho de acesso direto ao conteúdo. */
+    &:focus { /* Mostra o atalho quando ele recebe foco pelo teclado. */
+        position: fixed; /* Mantém o atalho visível no topo da janela. */
+        top: 1rem; /* Afasta o atalho da borda superior. */
+        left: 1rem; /* Afasta o atalho da borda esquerda. */
+        z-index: 2; /* Coloca o atalho acima do restante da página. */
+        width: auto; /* Permite que o atalho tenha a largura de seu texto. */
+        height: auto; /* Permite que o atalho tenha a altura de seu conteúdo. */
+        padding: 0.75rem 1rem; /* Cria uma área confortável para usar o atalho. */
+        clip-path: none; /* Remove o recorte que escondia o atalho. */
+        color: #0e3361; /* Define um texto azul escuro para o atalho. */
+        background-color: #fff; /* Cria um fundo branco para facilitar a leitura. */
+        border-radius: 0.5rem; /* Arredonda os cantos do atalho. */
+    } /* Encerra a apresentação do atalho com foco. */
+} /* Encerra os estilos do atalho de conteúdo. */
+.conta-layout { /* Organiza a barra lateral e o conteúdo principal da conta. */
+    display: flex; /* Coloca a barra lateral e a área principal lado a lado. */
+    min-height: 100vh; /* Garante que o conjunto ocupe pelo menos a altura da janela. */
+    & .avatar { /* Seleciona os avatares usados na barra lateral e no perfil. */
+        display: grid; /* Permite centralizar as iniciais dentro do círculo. */
+        place-items: center; /* Centraliza as iniciais nas duas direções. */
+        flex-shrink: 0; /* Impede que o círculo fique estreito quando houver pouco espaço. */
+        color: #0e3361; /* Define o azul das iniciais. */
+        background-color: #edf4ff; /* Aplica o fundo azul claro dos avatares. */
+        border-radius: 50%; /* Transforma o avatar em um círculo. */
+        font-weight: 700; /* Destaca as iniciais do usuário. */
+    } /* Encerra os estilos compartilhados pelos avatares. */
+    & .sidebar { /* Seleciona a barra lateral da conta. */
+        width: 17.5rem; /* Reproduz a largura da barra lateral do Figma. */
+        flex-shrink: 0; /* Impede que a barra lateral seja comprimida pelo conteúdo. */
+        padding: 2.625rem 1.5rem; /* Define o espaço acima e nas laterais da navegação. */
+        color: #fff; /* Define os textos da barra lateral como brancos. */
+        background-color: #0e3361; /* Aplica o fundo azul escuro da barra lateral. */
+        & .marca { /* Seleciona a identificação do projeto no topo da barra. */
+            display: flex; /* Organiza o nome e o slogan do projeto. */
+            flex-direction: column; /* Coloca o slogan abaixo do nome. */
+            height: 4.1875rem;
+            width: 7.75rem;
+            
+        }
+        & .resumo-usuario { /* Seleciona as informações resumidas do usuário. */
+            margin-top: 1.375rem; /* Separa o avatar da identificação do projeto. */
+            padding-bottom: 1.375rem; /* Cria espaço antes da linha abaixo do resumo. */
+            border-bottom: 0.0625rem solid #dfe6ef; /* Desenha a primeira divisória da barra lateral. */
+            & .avatar-sidebar { /* Seleciona o avatar da barra lateral. */
+                width: 4rem; /* Define a largura do círculo do usuário. */
+                height: 4rem; /* Define a mesma altura para manter o círculo. */
+                font-size: 1.375rem; /* Define o tamanho das iniciais na barra lateral. */
+            } /* Encerra os estilos do avatar lateral. */
+            & .nome-usuario { /* Seleciona o nome apresentado abaixo do avatar. */
+                margin: 0.625rem 0 0; /* Separa o nome do avatar e remove outras margens. */
+                font-size: 1.125rem; /* Destaca o nome do usuário. */
+                font-weight: 700; /* Apresenta o nome em negrito. */
+            } /* Encerra os estilos do nome do usuário. */
+            & .tipo-conta { /* Seleciona o texto Conta gratuita. */
+                margin: 0.5rem 0 0; /* Separa o tipo de conta do nome. */
+                font-size: 0.75rem; /* Mantém o tipo de conta em tamanho menor. */
+            } /* Encerra os estilos do tipo de conta. */
+        } /* Encerra os estilos do resumo do usuário. */
+        & .menu-conta { /* Seleciona a navegação entre as seções da conta. */
+            margin-top: 1.375rem; /* Separa o menu da primeira divisória. */
+            & ul { /* Seleciona a lista de opções da navegação. */
+                display: grid; /* Distribui as opções em linhas organizadas. */
+                gap: 1.375rem; /* Mantém a distância entre as opções da barra lateral. */
+                margin: 0; /* Remove a margem padrão da lista. */
+                padding: 0; /* Remove o recuo padrão da lista. */
+                list-style: none; /* Retira os marcadores da lista. */
+            } /* Encerra os ajustes da lista de navegação. */
+            & a { /* Seleciona os acessos às seções da conta. */
+                display: block; /* Faz cada acesso ocupar a largura disponível. */
+                padding: 0.75rem; /* Cria uma área de clique confortável ao redor do texto. */
+                color: inherit; /* Mantém os acessos com a cor branca da barra. */
+                border-radius: 0.5rem; /* Arredonda os cantos dos acessos do menu. */
+                font-size: 0.8125rem; /* Define o tamanho dos textos de navegação. */
+                text-decoration: none; /* Remove o sublinhado dos acessos do menu. */
+                &:hover { /* Seleciona um acesso quando o ponteiro está sobre ele. */
+                    background-color: #244a77; /* Destaca discretamente o acesso sob o ponteiro. */
+                } /* Encerra o destaque de passagem do ponteiro. */
+                &.link-ativo { /* Seleciona o acesso Meu perfil, destacado no protótipo. */
+                    color: #1268f6; /* Aplica azul vivo ao texto da opção ativa. */
+                    background-color: #edf4ff; /* Aplica azul claro ao fundo da opção ativa. */
+                    font-weight: 700; /* Destaca o texto da opção ativa. */
+                } /* Encerra os estilos da opção ativa. */
+            } /* Encerra os estilos dos acessos do menu. */
+        } /* Encerra os estilos da navegação lateral. */
+        & .acoes-sidebar { /* Seleciona as ações de saída e retorno ao site. */
+            display: flex; /* Organiza as ações finais da barra lateral. */
+            flex-direction: column; /* Coloca uma ação abaixo da outra. */
+            align-items: flex-start; /* Alinha as ações pela esquerda. */
+            gap: 1.25rem; /* Separa as duas ações finais. */
+            margin-top: 1.375rem; /* Separa as ações do último acesso do menu. */
+            padding-top: 1.375rem; /* Cria espaço abaixo da segunda divisória. */
+            border-top: 0.0625rem solid #dfe6ef; /* Desenha a divisória antes das ações finais. */
+            & .sair-conta { /* Seleciona o botão de saída da conta. */
+                padding: 0; /* Retira o espaço padrão do botão de texto. */
+                color: #ffb2b2; /* Destaca a saída com o tom rosado da referência. */
+                background: none; /* Retira o fundo padrão do botão. */
+                border: 0; /* Retira a borda padrão do botão. */
+                font-weight: 700; /* Destaca o texto de saída. */
+                cursor: pointer; /* Indica que o elemento é um botão. */
+            } /* Encerra os estilos do botão de saída. */
+            & .voltar-site { /* Seleciona o acesso de retorno à página inicial. */
+                color: inherit; /* Mantém o texto branco da barra lateral. */
+                font-size: 0.8125rem; /* Define o tamanho do acesso de retorno. */
+                text-decoration: none; /* Remove o sublinhado do acesso de retorno. */
+                &:hover { /* Seleciona o retorno quando o ponteiro passa sobre ele. */
+                    text-decoration: underline; /* Evidencia o acesso ao passar o ponteiro. */
+                } /* Encerra o destaque do acesso de retorno. */
+            } /* Encerra os estilos do retorno ao site. */
+        } /* Encerra os estilos das ações laterais. */
+    } /* Encerra os estilos da barra lateral. */
+    & .conteudo { /* Seleciona a área principal à direita da barra lateral. */
+        flex: 1; /* Faz a área principal ocupar o espaço restante da tela. */
+        min-width: 0; /* Permite reduzir o conteúdo sem ultrapassar a tela. */
+        padding: 5rem 5.25rem 2rem; /* Reproduz os espaços superior, laterais e inferior da referência. */
+        & .area-configuracoes { /* Seleciona o conjunto de informações da conta. */
+            max-width: 62rem; /* Limita a largura para manter a leitura confortável em telas grandes. */
+            margin-inline: auto; /* Centraliza as configurações quando sobra espaço horizontal. */
+        } /* Encerra o limite da área de configurações. */
+        & h1, & h2 { /* Seleciona os títulos principais das configurações. */
+            margin: 0; /* Remove as margens padrão dos títulos. */
+            font-family: "Poppins", Arial, sans-serif; /* Usa a fonte arredondada dos títulos do Figma. */
+            font-weight: 600; /* Mantém o destaque dos títulos da referência. */
+        } /* Encerra os estilos compartilhados pelos títulos. */
+        & h2 { /* Seleciona os títulos dos blocos de configurações. */
+            font-size: 1.5rem; /* Define o tamanho dos títulos dos blocos. */
+            line-height: 1.5; /* Mantém o espaçamento vertical dos títulos dos blocos. */
+            letter-spacing: -0.0375rem; /* Ajusta a distância entre as letras dos títulos menores. */
+        } /* Encerra os estilos dos títulos dos blocos. */
+        & .cabecalho-pagina { /* Seleciona a apresentação acima do formulário. */
+            margin-bottom: 1.5rem; /* Separa a apresentação do primeiro bloco. */
+            & h1 { /* Seleciona o título Seu perfil. Seu caminho. */
+                font-size: 2.25rem; /* Define o tamanho do título principal. */
+                line-height: 1.25; /* Mantém a altura do título próxima à referência. */
+                letter-spacing: -0.05rem; /* Aproxima as letras do título principal. */
+            } /* Encerra os estilos do título principal. */
+            & p { /* Seleciona a descrição abaixo do título principal. */
+                margin: 1rem 0 0; /* Separa a descrição do título e remove as outras margens. */
+                color: #65758a; /* Aplica a cor suave dos textos explicativos. */
+                font-size: 0.9375rem; /* Define o tamanho da descrição da página. */
+            } /* Encerra os estilos da descrição da página. */
+        } /* Encerra os estilos da apresentação da página. */
+        & .formulario-conta { /* Seleciona o formulário das configurações. */
+            display: grid; /* Organiza as seções em uma sequência vertical. */
+            gap: 1.5rem; /* Define a distância entre os blocos principais. */
+        } /* Encerra a organização geral do formulário. */
+        & .bloco { /* Seleciona cada cartão de configurações. */
+            min-width: 0; /* Permite que o cartão se ajuste à sua coluna. */
+            padding: 1.75rem; /* Adiciona o espaço interno dos cartões do Figma. */
+            background-color: #fff; /* Define o fundo branco dos cartões. */
+            border: 0.0625rem solid #dfe6ef; /* Desenha a borda azul clara dos cartões. */
+            border-radius: 1rem; /* Arredonda os cantos dos cartões. */
+            scroll-margin-top: 1.5rem; /* Deixa espaço acima da seção ao acessá-la pelo menu. */
+        } /* Encerra os estilos compartilhados pelos cartões. */
+        & .botao { /* Seleciona os botões de foto, senha e ações do formulário. */
+            display: inline-flex; /* Permite centralizar o texto dentro dos botões. */
+            justify-content: center; /* Centraliza o texto na horizontal. */
+            align-items: center; /* Centraliza o texto na vertical. */
+            min-height: 2.75rem; /* Define a altura mínima dos botões da referência. */
+            padding: 0.625rem 1.5rem; /* Cria espaço interno para os textos dos botões. */
+            color: #0e3361; /* Define o azul escuro dos botões claros. */
+            background-color: #fff; /* Aplica o fundo branco dos botões secundários. */
+            border: 0.0625rem solid #dfe6ef; /* Desenha a borda discreta dos botões. */
+            border-radius: 0.5rem; /* Arredonda os cantos dos botões. */
+            font-weight: 700; /* Destaca o texto das ações. */
+            text-align: center; /* Centraliza textos que precisarem de mais de uma linha. */
+            cursor: pointer; /* Indica que o elemento pode ser acionado. */
+            &:hover { /* Seleciona os botões quando o ponteiro passa sobre eles. */
+                background-color: #f0f5fd; /* Aplica um destaque suave aos botões claros. */
+            } /* Encerra o destaque dos botões claros. */
+        } /* Encerra os estilos gerais dos botões. */
+        & .cabecalho-perfil { /* Seleciona a primeira linha do cartão de perfil. */
+            display: flex; /* Coloca avatar, apresentação e botão na mesma linha. */
+            align-items: center; /* Centraliza verticalmente os elementos do cabeçalho. */
+            gap: 1.5rem; /* Separa o avatar dos textos e do botão. */
+            padding-bottom: 1.25rem; /* Separa o cabeçalho da divisória. */
+            border-bottom: 0.0625rem solid #dfe6ef; /* Desenha a divisória antes dos campos. */
+            & .avatar-perfil { /* Seleciona o avatar do cartão principal. */
+                width: 4.5rem; /* Define a largura do avatar maior. */
+                height: 4.5rem; /* Mantém o formato circular do avatar maior. */
+                font-size: 1.5rem; /* Define o tamanho das iniciais no cartão. */
+            } /* Encerra os estilos do avatar principal. */
+            & .apresentacao-perfil { /* Seleciona o título e a descrição do perfil. */
+                flex: 1; /* Faz os textos ocuparem o espaço entre o avatar e o botão. */
+                min-width: 0; /* Permite a quebra dos textos quando necessário. */
+                & p { /* Seleciona a descrição do perfil. */
+                    margin: 0.125rem 0 0; /* Mantém a descrição próxima ao título. */
+                    color: #65758a; /* Aplica a cor dos textos de apoio. */
+                } /* Encerra os estilos da descrição do perfil. */
+            } /* Encerra os estilos da apresentação do perfil. */
+            & .botao-foto { /* Seleciona a ação Alterar foto. */
+                width: 12.5rem; /* Reproduz a largura do botão de foto. */
+                flex-shrink: 0; /* Evita que o botão comprima seu texto. */
+                align-self: flex-start; /* Alinha o botão à parte superior do cabeçalho. */
+            } /* Encerra os estilos do botão de foto. */
+        } /* Encerra os estilos do cabeçalho do perfil. */
+        & .campos-perfil { /* Seleciona a organização dos campos pessoais. */
+            display: grid; /* Distribui os campos em uma grade. */
+            grid-template-columns: repeat(2, minmax(0, 1fr)); /* Cria duas colunas com a mesma largura. */
+            gap: 1.25rem 1.5rem; /* Define a separação vertical e horizontal dos campos. */
+            margin-top: 1.25rem; /* Separa os campos da divisória do cabeçalho. */
+            & .campo { /* Seleciona o grupo de cada rótulo com sua entrada. */
+                display: flex; /* Organiza o rótulo e a entrada. */
+                flex-direction: column; /* Mantém o rótulo acima da entrada. */
+                gap: 0.5rem; /* Define a distância entre rótulo e entrada. */
+                & label { /* Seleciona os rótulos dos dados pessoais. */
+                    color: #132c49; /* Destaca o nome dos campos com azul escuro. */
+                    font-size: 0.875rem; /* Define o tamanho dos rótulos. */
+                    font-weight: 700; /* Apresenta os rótulos em negrito. */
+                    line-height: 1.25; /* Mantém os rótulos compactos como na referência. */
+                } /* Encerra os estilos dos rótulos. */
+                & input { /* Seleciona as entradas dos dados pessoais. */
+                    width: 100%; /* Faz cada entrada preencher sua coluna. */
+                    min-width: 0; /* Permite que a entrada se ajuste em telas pequenas. */
+                    height: 3.125rem; /* Define a altura dos campos do Figma. */
+                    padding: 0 0.9375rem; /* Afasta o texto das bordas laterais da entrada. */
+                    color: #132c49; /* Define a cor dos valores digitados. */
+                    background-color: #fafbfd; /* Aplica o fundo quase branco dos campos. */
+                    border: 0.0625rem solid #dfe6ef; /* Desenha a borda azul clara das entradas. */
+                    border-radius: 0.5rem; /* Arredonda os cantos das entradas. */
+                    &::placeholder { /* Seleciona os exemplos exibidos nos campos vazios. */
+                        color: #65758a; /* Aplica a cor dos textos de exemplo. */
+                        opacity: 1; /* Mantém a mesma intensidade dos exemplos entre navegadores. */
+                    } /* Encerra os estilos dos textos de exemplo. */
+                } /* Encerra os estilos das entradas. */
+            } /* Encerra os estilos dos grupos de campos. */
+        } /* Encerra os estilos da grade de dados pessoais. */
+        & .aviso-telefone { /* Seleciona a explicação abaixo dos campos pessoais. */
+            margin: 1.25rem 0 0; /* Separa o aviso da última linha de campos. */
+            color: #65758a; /* Mantém o aviso na cor dos textos de apoio. */
+            font-size: 0.75rem; /* Define o tamanho menor do aviso de telefone. */
+        } /* Encerra os estilos do aviso de telefone. */
+        & .grade-preferencias { /* Seleciona os dois cartões intermediários. */
+            display: grid; /* Organiza os cartões em colunas. */
+            grid-template-columns: repeat(2, minmax(0, 1fr)); /* Mantém os dois cartões com a mesma largura. */
+            align-items: start; /* Preserva a altura individual de cada cartão, como no Figma. */
+            gap: 1.5rem; /* Separa os cartões de trajeto e notificações. */
+        } /* Encerra a organização dos cartões intermediários. */
+        & .descricao-bloco { /* Seleciona as explicações dos cartões intermediários. */
+            margin: 1rem 0 0; /* Separa a descrição do título do cartão. */
+            color: #65758a; /* Aplica a cor dos textos explicativos. */
+            font-size: 0.8125rem; /* Define o tamanho da descrição dos cartões. */
+        } /* Encerra os estilos das descrições dos cartões. */
+        & .opcoes-transporte { /* Seleciona o grupo de alternativas de transporte. */
+            display: flex; /* Coloca as alternativas lado a lado. */
+            flex-wrap: wrap; /* Permite levar alternativas para outra linha quando faltar espaço. */
+            gap: 0.5rem; /* Separa as alternativas de transporte. */
+            min-width: 0; /* Permite que o grupo se ajuste à largura do cartão. */
+            margin: 1.25rem 0 0; /* Separa as alternativas da descrição do cartão. */
+            padding: 0; /* Remove o preenchimento padrão do grupo de campos. */
+            border: 0; /* Remove a borda padrão do grupo de campos. */
+            & .opcao-transporte { /* Seleciona cada alternativa de transporte. */
+                position: relative; /* Mantém a entrada de seleção sobre sua alternativa visual. */
+                cursor: pointer; /* Indica que a alternativa pode ser selecionada. */
+                & input { /* Seleciona a entrada nativa de escolha exclusiva. */
+                    position: absolute; /* Posiciona a entrada sobre toda a alternativa visual. */
+                    inset: 0; /* Faz a entrada cobrir a área da alternativa. */
+                    width: 100%; /* Preenche toda a largura da alternativa. */
+                    height: 100%; /* Preenche toda a altura da alternativa. */
+                    margin: 0; /* Remove a margem padrão da entrada. */
+                    opacity: 0; /* Esconde o círculo nativo sem remover a navegação pelo teclado. */
+                    cursor: pointer; /* Mantém o indicador de seleção na área da entrada. */
+                    &:checked + span { /* Seleciona o texto da alternativa marcada. */
+                        color: #1268f6; /* Destaca o transporte selecionado em azul vivo. */
+                        background-color: #edf4ff; /* Aplica o fundo azul claro da alternativa ativa. */
+                        font-weight: 700; /* Apresenta a alternativa ativa em negrito. */
+                    } /* Encerra os estilos do transporte selecionado. */
+                    &:focus-visible + span { /* Seleciona a alternativa que recebe foco pelo teclado. */
+                        outline: 0.1875rem solid #1268f6; /* Desenha um contorno visível na alternativa. */
+                        outline-offset: 0.1875rem; /* Afasta o contorno da alternativa. */
+                    } /* Encerra o destaque de foco do transporte. */
+                } /* Encerra os estilos das entradas de transporte. */
+                & span { /* Seleciona a parte visual de cada alternativa. */
+                    display: block; /* Permite aplicar preenchimento ao texto da alternativa. */
+                    padding: 0.75rem; /* Define o espaço interno das alternativas de transporte. */
+                    color: #65758a; /* Aplica a cor das alternativas não selecionadas. */
+                    background-color: #f5f7fa; /* Aplica o fundo cinza claro das alternativas não selecionadas. */
+                    border-radius: 0.5rem; /* Arredonda os cantos das alternativas. */
+                    font-size: 0.75rem; /* Mantém os nomes de transporte compactos. */
+                } /* Encerra os estilos visuais das alternativas. */
+            } /* Encerra os estilos de cada alternativa de transporte. */
+        } /* Encerra os estilos do grupo de transportes. */
+        & .lista-ajustes { /* Seleciona os grupos de preferências e segurança. */
+            margin-top: 1.25rem; /* Separa os ajustes do conteúdo anterior. */
+        } /* Encerra os estilos dos grupos de ajustes. */
+        & .ajuste { /* Seleciona cada linha de preferência ou configuração. */
+            display: flex; /* Posiciona a descrição e o controle na mesma linha. */
+            justify-content: space-between; /* Mantém os textos à esquerda e o controle à direita. */
+            align-items: center; /* Centraliza o controle na altura dos textos. */
+            gap: 1.25rem; /* Evita que os textos encostem nos controles. */
+            padding-bottom: 1.25rem; /* Separa a linha da próxima preferência. */
+            cursor: pointer; /* Indica que a linha com rótulo permite alterar a preferência. */
+            & + .ajuste { /* Seleciona uma linha de ajuste que vem após outra. */
+                padding-top: 1.25rem; /* Separa a linha do ajuste anterior. */
+                border-top: 0.0625rem solid #dfe6ef; /* Desenha a divisória entre os ajustes. */
+            } /* Encerra os estilos das divisórias dos ajustes. */
+            &:last-child { /* Seleciona o último ajuste de cada grupo. */
+                padding-bottom: 0; /* Evita espaço extra abaixo do último ajuste. */
+            } /* Encerra o ajuste de espaço da última linha. */
+            &.ajuste-senha { /* Seleciona a linha que contém o botão de senha. */
+                cursor: default; /* Mantém o ponteiro comum na descrição que não é um rótulo. */
+            } /* Encerra o ajuste de ponteiro da linha da senha. */
+            & .texto-ajuste { /* Seleciona o nome e a descrição de uma configuração. */
+                display: flex; /* Organiza o título e a descrição da configuração. */
+                flex-direction: column; /* Coloca a descrição abaixo do título. */
+                gap: 0.25rem; /* Separa o título da explicação. */
+                min-width: 0; /* Permite que textos longos quebrem dentro do cartão. */
+                & strong { /* Seleciona o nome de cada ajuste. */
+                    color: #132c49; /* Destaca os nomes com azul escuro. */
+                    font-size: 0.875rem; /* Define o tamanho dos nomes dos ajustes. */
+                    font-weight: 700; /* Apresenta os nomes em negrito. */
+                    line-height: 1.25; /* Mantém a altura dos nomes próxima à referência. */
+                } /* Encerra os estilos dos nomes dos ajustes. */
+                & > span, & > p { /* Seleciona as explicações de cada ajuste. */
+                    margin: 0; /* Remove margens que alterariam a organização dos textos. */
+                    color: #65758a; /* Aplica o tom suave das descrições. */
+                    font-size: 0.8125rem; /* Define o tamanho das explicações dos ajustes. */
+                } /* Encerra os estilos das explicações dos ajustes. */
+            } /* Encerra a organização dos textos de cada ajuste. */
+            & .botao-senha { /* Seleciona a ação Alterar senha. */
+                width: 13.25rem; /* Reproduz a largura do botão de senha do Figma. */
+                flex-shrink: 0; /* Impede que o botão fique estreito em relação ao texto. */
+            } /* Encerra os estilos do botão de senha. */
+        } /* Encerra os estilos das linhas de configuração. */
+        & .interruptor { /* Seleciona o controle de ligar e desligar uma preferência. */
+            position: relative; /* Define a referência para a entrada invisível do controle. */
+            display: block; /* Reserva a área visual completa do interruptor. */
+            width: 2.75rem; /* Define a largura dos interruptores do Figma. */
+            height: 1.625rem; /* Define a altura dos interruptores do Figma. */
+            flex-shrink: 0; /* Impede que o controle seja comprimido pelos textos. */
+            & input { /* Seleciona a caixa de seleção que controla o interruptor. */
+                position: absolute; /* Coloca a entrada sobre o desenho do controle. */
+                inset: 0; /* Preenche toda a área do interruptor. */
+                z-index: 1; /* Mantém a entrada disponível para receber cliques. */
+                width: 100%; /* Faz a entrada ocupar toda a largura do controle. */
+                height: 100%; /* Faz a entrada ocupar toda a altura do controle. */
+                margin: 0; /* Remove a margem padrão da caixa de seleção. */
+                opacity: 0; /* Esconde apenas o desenho nativo, preservando teclado e leitores de tela. */
+                cursor: pointer; /* Indica que o controle pode ser acionado. */
+                &:checked + .trilho { /* Seleciona o trilho quando a preferência está ligada. */
+                    background-color: #1268f6; /* Mostra o estado ligado em azul vivo. */
+                    &::before { /* Seleciona a bolinha do controle ligado. */
+                        transform: translateX(1.125rem); /* Desloca a bolinha para a direita sem JavaScript. */
+                    } /* Encerra o deslocamento da bolinha ligada. */
+                } /* Encerra os estilos do interruptor ligado. */
+                &:focus-visible + .trilho { /* Seleciona o trilho quando a entrada recebe foco pelo teclado. */
+                    outline: 0.1875rem solid #0e3361; /* Destaca o controle em uso pelo teclado. */
+                    outline-offset: 0.25rem; /* Afasta o contorno do desenho do interruptor. */
+                } /* Encerra o destaque de foco do interruptor. */
+            } /* Encerra os estilos da entrada do interruptor. */
+            & .trilho { /* Seleciona o fundo arredondado do interruptor. */
+                display: block; /* Faz o fundo preencher a área do controle. */
+                width: 100%; /* Preenche toda a largura do interruptor. */
+                height: 100%; /* Preenche toda a altura do interruptor. */
+                background-color: #cbd5e1; /* Mostra o estado desligado em cinza azulado. */
+                border-radius: 2rem; /* Arredonda completamente as pontas do trilho. */
+                &::before { /* Cria a bolinha branca dentro do interruptor. */
+                    content: ""; /* Permite desenhar a bolinha sem acrescentar conteúdo ao HTML. */
+                    position: absolute; /* Posiciona a bolinha dentro do trilho. */
+                    top: 0.1875rem; /* Afasta a bolinha da borda superior do controle. */
+                    left: 0.1875rem; /* Define a posição inicial da bolinha à esquerda. */
+                    width: 1.25rem; /* Define a largura da bolinha do interruptor. */
+                    height: 1.25rem; /* Define a altura da bolinha do interruptor. */
+                    background-color: #fff; /* Aplica branco à bolinha do controle. */
+                    border-radius: 50%; /* Deixa a bolinha perfeitamente circular. */
+                } /* Encerra os estilos da bolinha do interruptor. */
+            } /* Encerra os estilos do trilho do interruptor. */
+        } /* Encerra os estilos dos interruptores. */
+        & .aviso-privacidade { /* Seleciona a faixa informativa sobre o uso dos dados. */
+            padding: 1.3125rem 1.375rem; /* Define o espaço interno da faixa de privacidade. */
+            background-color: #ede9de; /* Aplica o fundo bege claro da referência. */
+            border-radius: 0.75rem; /* Arredonda os cantos da faixa informativa. */
+            & strong { /* Seleciona a frase principal do aviso. */
+                display: block; /* Mantém a frase principal em sua própria linha. */
+                font-weight: 700; /* Destaca a informação de controle dos dados. */
+            } /* Encerra os estilos da frase principal do aviso. */
+            & p { /* Seleciona a explicação sobre a política de privacidade. */
+                margin: 0.25rem 0 0; /* Separa a explicação da frase principal. */
+                color: #65758a; /* Aplica o tom dos textos de apoio. */
+                font-size: 0.8125rem; /* Define o tamanho da explicação de privacidade. */
+            } /* Encerra os estilos da explicação de privacidade. */
+        } /* Encerra os estilos da faixa de privacidade. */
+        & .acoes-formulario { /* Seleciona os botões Cancelar e Salvar alterações. */
+            display: flex; /* Coloca os dois botões lado a lado. */
+            justify-content: flex-end; /* Alinha as ações à direita do conteúdo. */
+            gap: 0.75rem; /* Define a separação entre os botões finais. */
+            & .botao-cancelar { /* Seleciona o botão que restaura os valores iniciais. */
+                min-width: 8.125rem; /* Reproduz a largura mínima do botão Cancelar. */
+            } /* Encerra os estilos do botão Cancelar. */
+            & .botao-salvar { /* Seleciona o botão principal do formulário. */
+                min-width: 12rem; /* Reproduz a largura mínima do botão Salvar alterações. */
+                color: #fff; /* Define o texto branco do botão principal. */
+                background-color: #1268f6; /* Aplica o azul vivo da ação principal. */
+                border-color: #1268f6; /* Mantém a borda na mesma cor do fundo. */
+                &:hover { /* Seleciona o botão principal quando o ponteiro passa sobre ele. */
+                    background-color: #0d55d9; /* Escurece o botão principal para indicar a passagem do ponteiro. */
+                    border-color: #0d55d9; /* Mantém a borda alinhada à cor do destaque. */
+                } /* Encerra o destaque do botão principal. */
+            } /* Encerra os estilos do botão Salvar alterações. */
+        } /* Encerra os estilos das ações finais do formulário. */
+        & .rodape { /* Seleciona as informações finais da página. */
+            display: flex; /* Organiza a identificação e as ações institucionais na mesma linha. */
+            align-items: center; /* Alinha os textos do rodapé verticalmente. */
+            flex-wrap: wrap; /* Permite quebrar o rodapé em telas menores. */
+            gap: 1rem 5rem; /* Separa as linhas e os grupos de informações do rodapé. */
+            margin-top: 4rem; /* Mantém o espaço entre as ações e o rodapé do Figma. */
+            color: #65758a; /* Aplica a cor suave dos textos finais. */
+            font-size: 0.8125rem; /* Define o tamanho dos textos do rodapé. */
+            & p { /* Seleciona a identificação do projeto no rodapé. */
+                margin: 0; /* Remove a margem padrão do parágrafo final. */
+            } /* Encerra os estilos da identificação do rodapé. */
+            & .links-rodape { /* Seleciona as ações institucionais do rodapé. */
+                display: flex; /* Coloca as ações e seus separadores na mesma linha. */
+                align-items: center; /* Centraliza os separadores na altura dos textos. */
+                flex-wrap: wrap; /* Permite quebrar as ações em telas estreitas. */
+                gap: 0.5rem 1.25rem; /* Separa os textos e os pontos do rodapé. */
+            } /* Encerra a organização das ações institucionais. */
+            & .link-rodape { /* Seleciona os botões com aparência de texto no rodapé. */
+                padding: 0; /* Remove o espaço padrão dos botões de texto. */
+                color: inherit; /* Mantém os botões com a cor do rodapé. */
+                background: none; /* Remove o fundo padrão dos botões. */
+                border: 0; /* Remove a borda padrão dos botões. */
+                cursor: pointer; /* Indica a presença de uma ação. */
+                &:hover { /* Seleciona uma ação quando o ponteiro passa sobre ela. */
+                    text-decoration: underline; /* Destaca a ação sem alterar o alinhamento do rodapé. */
+                } /* Encerra o destaque das ações do rodapé. */
+            } /* Encerra os estilos dos botões de texto. */
+        } /* Encerra os estilos do rodapé. */
+    } /* Encerra os estilos da área principal. */
+} /* Encerra os estilos da organização da página de conta. */
+@media (max-width: 75rem) { /* Ajusta o espaço disponível em computadores com telas menores. */
+    .conta-layout { /* Seleciona a organização da página nessa faixa de largura. */
+        & .sidebar { /* Seleciona a barra lateral nas telas menores. */
+            width: 15rem; /* Reduz a largura da barra para preservar o espaço do conteúdo. */
+            & .nome-projeto { /* Seleciona a identificação do projeto na barra menor. */
+                font-size: 1.1875rem; /* Ajusta o nome do projeto à largura disponível. */
+            } /* Encerra o ajuste do nome do projeto. */
+        } /* Encerra o ajuste da barra lateral. */
+        & .conteudo { /* Seleciona o conteúdo nas telas menores. */
+            padding: 3rem 2rem 2rem; /* Reduz os espaços externos sem comprimir os cartões. */
+        } /* Encerra o ajuste do conteúdo. */
+    } /* Encerra os ajustes dos computadores menores. */
+} /* Encerra a primeira faixa de adaptação da página. */
+@media (max-width: 60rem) { /* Ajusta os cartões quando duas colunas deixam os textos apertados. */
+    .conta-layout { /* Seleciona o conjunto da página nessa faixa de largura. */
+        & .conteudo { /* Seleciona a área principal dessa faixa. */
+            padding: 2.5rem 1.5rem 2rem; /* Mantém espaço confortável ao redor do conteúdo. */
+            & .grade-preferencias { /* Seleciona os cartões de trajeto e notificações. */
+                grid-template-columns: minmax(0, 1fr); /* Coloca um cartão abaixo do outro. */
+            } /* Encerra a adaptação dos cartões intermediários. */
+            & .cabecalho-perfil { /* Seleciona a apresentação do perfil. */
+                flex-wrap: wrap; /* Permite levar o botão de foto para outra linha. */
+            } /* Encerra a adaptação do cabeçalho do perfil. */
+            & .ajuste-senha { /* Seleciona a linha de alteração de senha. */
+                flex-wrap: wrap; /* Permite que o botão de senha desça quando necessário. */
+            } /* Encerra a adaptação da linha da senha. */
+        } /* Encerra os ajustes da área principal nessa faixa. */
+    } /* Encerra a adaptação da organização intermediária. */
+} /* Encerra a segunda faixa de adaptação da página. */
+@media (max-width: 48rem) { /* Reorganiza a página para tablets pequenos e celulares. */
+    .conta-layout { /* Seleciona a organização da página em telas estreitas. */
+        flex-direction: column; /* Coloca a navegação acima do conteúdo principal. */
+        & .sidebar { /* Seleciona a barra de navegação no celular. */
+            width: 100%; /* Faz a navegação ocupar toda a largura da tela. */
+            padding: 1.5rem; /* Mantém espaço interno ao redor da navegação. */
+            & .resumo-usuario { /* Seleciona o resumo do usuário no celular. */
+                display: flex; /* Coloca o avatar ao lado do nome e do tipo de conta. */
+                align-items: center; /* Centraliza o avatar em relação aos dados. */
+                gap: 1rem; /* Separa o avatar dos textos do usuário. */
+                & .nome-usuario { /* Seleciona o nome no resumo compacto. */
+                    margin-top: 0; /* Remove o espaço que antes separava o nome do avatar acima dele. */
+                } /* Encerra o ajuste do nome no celular. */
+            } /* Encerra a adaptação do resumo do usuário. */
+            & .menu-conta ul { /* Seleciona as opções da navegação no celular. */
+                grid-template-columns: repeat(2, minmax(0, 1fr)); /* Divide os acessos entre duas colunas. */
+                gap: 0.5rem; /* Reduz a distância entre os acessos do menu compacto. */
+            } /* Encerra a organização do menu no celular. */
+            & .acoes-sidebar { /* Seleciona as ações finais da navegação no celular. */
+                flex-direction: row; /* Coloca as ações finais lado a lado. */
+                flex-wrap: wrap; /* Permite quebrar as ações quando faltar espaço. */
+                align-items: center; /* Centraliza verticalmente as ações finais. */
+            } /* Encerra a adaptação das ações laterais. */
+        } /* Encerra os ajustes da navegação no celular. */
+        & .conteudo { /* Seleciona o conteúdo principal no celular. */
+            padding: 2rem 1rem; /* Mantém uma margem lateral confortável em telas estreitas. */
+            & .cabecalho-pagina h1 { /* Seleciona o título principal no celular. */
+                font-size: 1.75rem; /* Reduz o título para caber melhor em telas menores. */
+            } /* Encerra o ajuste do título principal. */
+            & .rodape { /* Seleciona o rodapé no celular. */
+                margin-top: 2.5rem; /* Reduz a distância entre o formulário e o rodapé. */
+            } /* Encerra o ajuste do rodapé no celular. */
+        } /* Encerra a adaptação do conteúdo no celular. */
+    } /* Encerra a organização vertical da página. */
+} /* Encerra a faixa de adaptação para navegação acima do conteúdo. */
+@media (max-width: 34rem) { /* Ajusta os detalhes para celulares com largura menor. */
+    .conta-layout { /* Seleciona a organização da página nos celulares menores. */
+        & .conteudo { /* Seleciona o conteúdo dos celulares menores. */
+            & .bloco { /* Seleciona os cartões em telas pequenas. */
+                padding: 1.25rem; /* Reduz o preenchimento dos cartões para preservar o espaço de leitura. */
+            } /* Encerra o ajuste dos cartões pequenos. */
+            & .cabecalho-perfil { /* Seleciona o cabeçalho do perfil nos celulares menores. */
+                gap: 1rem; /* Reduz a distância entre o avatar e a apresentação. */
+                & .botao-foto { /* Seleciona a ação de foto no cabeçalho compacto. */
+                    width: 100%; /* Coloca o botão de foto em uma linha com largura completa. */
+                } /* Encerra o ajuste do botão de foto. */
+            } /* Encerra a adaptação do cabeçalho compacto. */
+            & .campos-perfil { /* Seleciona a grade de campos nos celulares menores. */
+                grid-template-columns: minmax(0, 1fr); /* Apresenta um campo por linha para facilitar o preenchimento. */
+            } /* Encerra a adaptação dos campos pessoais. */
+            & .ajuste .botao-senha { /* Seleciona o botão de senha nas telas pequenas. */
+                width: 100%; /* Faz o botão de senha ocupar sua própria linha. */
+            } /* Encerra o ajuste do botão de senha. */
+            & .acoes-formulario { /* Seleciona as ações finais nos celulares menores. */
+                flex-direction: column; /* Coloca um botão abaixo do outro. */
+                & .botao { /* Seleciona os dois botões finais no celular. */
+                    width: 100%; /* Facilita o toque ao preencher toda a largura disponível. */
+                } /* Encerra o ajuste dos botões finais. */
+            } /* Encerra a organização das ações finais no celular. */
+        } /* Encerra os ajustes do conteúdo compacto. */
+    } /* Encerra a adaptação dos celulares menores. */
+} /* Encerra a última faixa de adaptação da página. */

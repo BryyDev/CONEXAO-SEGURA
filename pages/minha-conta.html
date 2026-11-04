@@ -1,0 +1,203 @@
+<!doctype html> <!-- Informa ao navegador que esta página usa HTML5. -->
+<html lang="pt-BR"> <!-- Define o português do Brasil como idioma da página. -->
+<head> <!-- Inicia as informações de configuração da página. -->
+    <meta charset="UTF-8"> <!-- Permite exibir acentos e caracteres especiais corretamente. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ajusta a página à largura de computadores, tablets e celulares. -->
+    <meta name="description" content="Gerencie seu perfil e suas preferências no Conexão Segura."> <!-- Descreve o conteúdo da página para navegadores e mecanismos de busca. -->
+    <title>Minha conta | Conexão Segura</title> <!-- Define o texto apresentado na aba do navegador. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Prepara a conexão que fornece os estilos das fontes. -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Prepara a conexão que fornece os arquivos das fontes. -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet"> <!-- Carrega as fontes Inter e Poppins usadas na referência do Figma. -->
+    <link rel="stylesheet" href="../css/minha-conta.css"> <!-- Carrega somente os estilos da página Minha conta. -->
+</head> <!-- Encerra as configurações da página. -->
+<body> <!-- Inicia todo o conteúdo visível da página. -->
+    <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a> <!-- Permite acessar o conteúdo principal diretamente pelo teclado. -->
+    <div class="conta-layout"> <!-- Organiza a barra lateral e o conteúdo principal lado a lado. -->
+        <aside class="sidebar" aria-label="Menu da minha conta"> <!-- Cria a barra lateral de navegação da conta. -->
+            <a class="marca" href="../index.html" aria-label="Conexão Segura, voltar ao site"> <!-- Cria o acesso à página inicial pelo nome do projeto. -->
+                
+                <img src="../assets/Elementos/logo.svg" alt="logo do site">
+              
+            </a> <!-- Encerra o acesso à página inicial. -->
+            <div class="resumo-usuario"> <!-- Agrupa o avatar e as informações resumidas do usuário. -->
+                <span class="avatar avatar-sidebar" aria-hidden="true">US</span> <!-- Representa a foto do usuário pelas iniciais usadas no protótipo. -->
+                <div class="dados-usuario"> <!-- Agrupa o nome e o tipo de conta. -->
+                    <p class="nome-usuario">Seu nome</p> <!-- Exibe o nome de exemplo do usuário. -->
+                    <p class="tipo-conta">Conta gratuita</p> <!-- Informa o tipo de conta apresentado no protótipo. -->
+                </div> <!-- Encerra o grupo de informações resumidas. -->
+            </div> <!-- Encerra o resumo do usuário. -->
+            <nav class="menu-conta" aria-label="Seções da minha conta"> <!-- Identifica os acessos às seções desta página. -->
+                <ul> <!-- Inicia a lista de opções do menu. -->
+                    <li><a class="link-ativo" href="#meu-perfil" aria-current="page">Meu perfil</a></li> <!-- Destaca o perfil e permite ir até seus campos. -->
+                    <li><a href="#preferencias-trajeto">Preferências de trajeto</a></li> <!-- Leva às opções de planejamento dos trajetos. -->
+                    <li><a href="#notificacoes">Notificações</a></li> <!-- Leva às preferências de atualizações. -->
+                    <li><a href="#privacidade-seguranca">Privacidade e segurança</a></li> <!-- Leva às opções de proteção da conta. -->
+                    <li><a href="#ajuda">Ajuda e suporte</a></li> <!-- Leva à área de ajuda no rodapé. -->
+                </ul> <!-- Encerra a lista de opções do menu. -->
+            </nav> <!-- Encerra a navegação entre as seções. -->
+            <div class="acoes-sidebar"> <!-- Separa as ações finais dos acessos às configurações. -->
+                <button class="sair-conta" type="button">Sair da conta</button> <!-- Reserva a aparência da ação de saída para integração futura, sem JavaScript. -->
+                <a class="voltar-site" href="../index.html">← Voltar ao site</a> <!-- Permite voltar à página inicial que já existe no projeto. -->
+            </div> <!-- Encerra as ações da barra lateral. -->
+        </aside> <!-- Encerra a barra lateral da conta. -->
+        <main class="conteudo" id="conteudo" tabindex="-1"> <!-- Define o conteúdo principal e permite receber o foco do atalho de teclado. -->
+            <div class="area-configuracoes"> <!-- Limita a largura das informações em telas muito grandes. -->
+                <header class="cabecalho-pagina"> <!-- Agrupa a apresentação da página. -->
+                    <h1>Seu perfil. Seu caminho.</h1> <!-- Exibe o título principal da referência. -->
+                    <p>Gerencie seus dados e escolha como o Conexão Segura acompanha você.</p> <!-- Explica a finalidade das configurações. -->
+                </header> <!-- Encerra a apresentação da página. -->
+                <form class="formulario-conta" aria-label="Configurações da minha conta"> <!-- Agrupa os campos e permite restaurar seus valores pelo botão Cancelar. -->
+                    <section class="bloco bloco-perfil" id="meu-perfil" aria-labelledby="titulo-perfil"> <!-- Inicia a seção de informações pessoais. -->
+                        <div class="cabecalho-perfil"> <!-- Posiciona o avatar, a descrição e o botão de foto. -->
+                            <span class="avatar avatar-perfil" aria-hidden="true">US</span> <!-- Exibe as iniciais no lugar da foto de perfil. -->
+                            <div class="apresentacao-perfil"> <!-- Agrupa o título e a descrição do perfil. -->
+                                <h2 id="titulo-perfil">Meu perfil</h2> <!-- Identifica a seção de dados pessoais. -->
+                                <p>Mantenha suas informações atualizadas.</p> <!-- Orienta o preenchimento dos dados do perfil. -->
+                            </div> <!-- Encerra a apresentação do perfil. -->
+                            <button class="botao botao-foto" type="button">Alterar foto</button> <!-- Exibe a ação visual de foto, ainda sem integração. -->
+                        </div> <!-- Encerra a organização do cabeçalho do perfil. -->
+                        <div class="campos-perfil"> <!-- Organiza os quatro campos em duas colunas no computador. -->
+                            <div class="campo"> <!-- Agrupa o rótulo e a entrada do nome. -->
+                                <label for="nome-completo">Nome completo</label> <!-- Associa o nome do campo à sua entrada. -->
+                                <input id="nome-completo" name="nome" type="text" placeholder="Seu nome" autocomplete="name"> <!-- Recebe o nome completo e permite o preenchimento automático do navegador. -->
+                            </div> <!-- Encerra o campo de nome. -->
+                            <div class="campo"> <!-- Agrupa o rótulo e a entrada de e-mail. -->
+                                <label for="email">E-mail</label> <!-- Identifica a entrada de e-mail. -->
+                                <input id="email" name="email" type="email" placeholder="voce@exemplo.com" autocomplete="email"> <!-- Recebe um endereço de e-mail no formato adequado. -->
+                            </div> <!-- Encerra o campo de e-mail. -->
+                            <div class="campo"> <!-- Agrupa o rótulo e a entrada de telefone. -->
+                                <label for="telefone">Telefone (opcional)</label> <!-- Informa que o telefone é opcional. -->
+                                <input id="telefone" name="telefone" type="tel" placeholder="(11) 99999-9999" autocomplete="tel" aria-describedby="aviso-telefone"> <!-- Recebe o telefone e associa a ele a explicação sobre sua privacidade. -->
+                            </div> <!-- Encerra o campo de telefone. -->
+                            <div class="campo"> <!-- Agrupa o rótulo e a entrada de cidade. -->
+                                <label for="cidade">Cidade</label> <!-- Identifica a cidade informada pelo usuário. -->
+                                <input id="cidade" name="cidade" type="text" placeholder="Diadema, SP" autocomplete="address-level2"> <!-- Recebe a cidade com o exemplo exibido no Figma. -->
+                            </div> <!-- Encerra o campo de cidade. -->
+                        </div> <!-- Encerra a grade dos campos de perfil. -->
+                        <p class="aviso-telefone" id="aviso-telefone">Seu telefone não aparece no seu perfil público.</p> <!-- Explica o tratamento do telefone conforme o protótipo. -->
+                    </section> <!-- Encerra a seção Meu perfil. -->
+                    <div class="grade-preferencias"> <!-- Posiciona as preferências de trajeto e as notificações lado a lado. -->
+                        <section class="bloco" id="preferencias-trajeto" aria-labelledby="titulo-trajeto"> <!-- Inicia as opções de planejamento de trajeto. -->
+                            <h2 id="titulo-trajeto">Seu jeito de ir</h2> <!-- Apresenta o título das preferências de trajeto. -->
+                            <p class="descricao-bloco">Personalize o planejamento dos seus trajetos.</p> <!-- Explica o objetivo das preferências. -->
+                            <fieldset class="opcoes-transporte"> <!-- Agrupa as alternativas exclusivas de meio de transporte. -->
+                                <legend class="somente-leitor">Meio de transporte preferido</legend> <!-- Identifica o grupo para leitores de tela sem mudar o desenho. -->
+                                <label class="opcao-transporte"> <!-- Cria a alternativa de trajeto a pé. -->
+                                    <input type="radio" name="transporte" value="a-pe" checked> <!-- Deixa o trajeto a pé selecionado inicialmente, como no Figma. -->
+                                    <span>A pé</span> <!-- Exibe o nome da primeira alternativa. -->
+                                </label> <!-- Encerra a alternativa a pé. -->
+                                <label class="opcao-transporte"> <!-- Cria a alternativa de bicicleta. -->
+                                    <input type="radio" name="transporte" value="bicicleta"> <!-- Permite selecionar bicicleta usando somente HTML. -->
+                                    <span>Bicicleta</span> <!-- Exibe o nome da segunda alternativa. -->
+                                </label> <!-- Encerra a alternativa de bicicleta. -->
+                                <label class="opcao-transporte"> <!-- Cria a alternativa de transporte público. -->
+                                    <input type="radio" name="transporte" value="transporte-publico"> <!-- Permite selecionar transporte público sem JavaScript. -->
+                                    <span>Transporte público</span> <!-- Exibe o nome da terceira alternativa. -->
+                                </label> <!-- Encerra a alternativa de transporte público. -->
+                            </fieldset> <!-- Encerra o grupo de meios de transporte. -->
+                            <div class="lista-ajustes"> <!-- Agrupa as duas preferências de caminho. -->
+                                <label class="ajuste" for="vias-iluminadas"> <!-- Torna toda a linha uma área de seleção da preferência. -->
+                                    <span class="texto-ajuste"> <!-- Agrupa o nome e a explicação da preferência. -->
+                                        <strong>Priorizar vias iluminadas</strong> <!-- Identifica a preferência por iluminação. -->
+                                        <span id="descricao-iluminacao">Considere a iluminação ao planejar o caminho.</span> <!-- Explica como essa preferência será utilizada na integração futura. -->
+                                    </span> <!-- Encerra o texto da preferência. -->
+                                    <span class="interruptor"> <!-- Reserva o espaço do controle visual de ligar e desligar. -->
+                                        <input id="vias-iluminadas" name="vias-iluminadas" type="checkbox" role="switch" aria-describedby="descricao-iluminacao" checked> <!-- Inicia a preferência de iluminação ligada e acessível pelo teclado. -->
+                                        <span class="trilho" aria-hidden="true"></span> <!-- Desenha o interruptor pelo CSS e evita leitura duplicada. -->
+                                    </span> <!-- Encerra o controle da iluminação. -->
+                                </label> <!-- Encerra a linha de vias iluminadas. -->
+                                <label class="ajuste" for="rotas-acessiveis"> <!-- Cria a linha da preferência por acessibilidade. -->
+                                    <span class="texto-ajuste"> <!-- Agrupa a descrição da acessibilidade. -->
+                                        <strong>Rotas com acessibilidade</strong> <!-- Identifica a preferência por caminhos acessíveis. -->
+                                        <span id="descricao-acessibilidade">Dê preferência a caminhos acessíveis.</span> <!-- Explica a opção de acessibilidade. -->
+                                    </span> <!-- Encerra o texto da acessibilidade. -->
+                                    <span class="interruptor"> <!-- Posiciona o controle de acessibilidade. -->
+                                        <input id="rotas-acessiveis" name="rotas-acessiveis" type="checkbox" role="switch" aria-describedby="descricao-acessibilidade"> <!-- Inicia a preferência de acessibilidade desligada, como no protótipo. -->
+                                        <span class="trilho" aria-hidden="true"></span> <!-- Exibe o desenho do interruptor de acessibilidade. -->
+                                    </span> <!-- Encerra o controle de acessibilidade. -->
+                                </label> <!-- Encerra a linha de acessibilidade. -->
+                            </div> <!-- Encerra a lista de preferências de caminho. -->
+                        </section> <!-- Encerra a seção Seu jeito de ir. -->
+                        <section class="bloco" id="notificacoes" aria-labelledby="titulo-notificacoes"> <!-- Inicia as preferências de notificações. -->
+                            <h2 id="titulo-notificacoes">Fique por dentro</h2> <!-- Exibe o título da seção de atualizações. -->
+                            <p class="descricao-bloco">Escolha as atualizações que deseja receber.</p> <!-- Explica as escolhas de notificações. -->
+                            <div class="lista-ajustes"> <!-- Agrupa os três tipos de atualização. -->
+                                <label class="ajuste" for="alertas-trajeto"> <!-- Cria a linha de alertas sobre o trajeto. -->
+                                    <span class="texto-ajuste"> <!-- Agrupa os textos dos alertas. -->
+                                        <strong>Alertas no seu trajeto</strong> <!-- Identifica as notificações sobre o caminho. -->
+                                        <span id="descricao-alertas">Obras, interdições e mudanças pelo caminho.</span> <!-- Informa quais acontecimentos são incluídos nos alertas. -->
+                                    </span> <!-- Encerra os textos dos alertas. -->
+                                    <span class="interruptor"> <!-- Posiciona o controle dos alertas. -->
+                                        <input id="alertas-trajeto" name="alertas-trajeto" type="checkbox" role="switch" aria-describedby="descricao-alertas" checked> <!-- Deixa os alertas de trajeto inicialmente ligados. -->
+                                        <span class="trilho" aria-hidden="true"></span> <!-- Exibe o desenho do interruptor de alertas. -->
+                                    </span> <!-- Encerra o controle dos alertas. -->
+                                </label> <!-- Encerra a linha dos alertas de trajeto. -->
+                                <label class="ajuste" for="noticias-regiao"> <!-- Cria a linha de notícias próximas. -->
+                                    <span class="texto-ajuste"> <!-- Agrupa os textos das notícias. -->
+                                        <strong>Notícias da sua região</strong> <!-- Identifica as atualizações locais. -->
+                                        <span id="descricao-noticias">Informações relevantes perto de você.</span> <!-- Explica o conteúdo das notícias regionais. -->
+                                    </span> <!-- Encerra os textos das notícias. -->
+                                    <span class="interruptor"> <!-- Posiciona o controle das notícias regionais. -->
+                                        <input id="noticias-regiao" name="noticias-regiao" type="checkbox" role="switch" aria-describedby="descricao-noticias" checked> <!-- Inicia as notícias regionais ligadas. -->
+                                        <span class="trilho" aria-hidden="true"></span> <!-- Exibe o desenho do interruptor de notícias. -->
+                                    </span> <!-- Encerra o controle das notícias. -->
+                                </label> <!-- Encerra a linha das notícias regionais. -->
+                                <label class="ajuste" for="novidades-email"> <!-- Cria a linha de novidades por e-mail. -->
+                                    <span class="texto-ajuste"> <!-- Agrupa os textos das novidades. -->
+                                        <strong>Novidades por e-mail</strong> <!-- Identifica os conteúdos enviados por e-mail. -->
+                                        <span id="descricao-novidades">Conteúdos e novidades do Conexão Segura.</span> <!-- Explica o conteúdo dessas atualizações. -->
+                                    </span> <!-- Encerra os textos das novidades. -->
+                                    <span class="interruptor"> <!-- Posiciona o controle das novidades. -->
+                                        <input id="novidades-email" name="novidades-email" type="checkbox" role="switch" aria-describedby="descricao-novidades"> <!-- Inicia as novidades por e-mail desligadas, como no Figma. -->
+                                        <span class="trilho" aria-hidden="true"></span> <!-- Exibe o desenho do interruptor de e-mail. -->
+                                    </span> <!-- Encerra o controle das novidades. -->
+                                </label> <!-- Encerra a linha das novidades por e-mail. -->
+                            </div> <!-- Encerra a lista de notificações. -->
+                        </section> <!-- Encerra a seção Fique por dentro. -->
+                    </div> <!-- Encerra a grade de preferências e notificações. -->
+                    <section class="bloco" id="privacidade-seguranca" aria-labelledby="titulo-seguranca"> <!-- Inicia a seção de proteção e privacidade da conta. -->
+                        <h2 id="titulo-seguranca">Sua conta protegida</h2> <!-- Exibe o título da seção de segurança. -->
+                        <div class="lista-ajustes"> <!-- Agrupa a senha e a preferência de localização. -->
+                            <div class="ajuste ajuste-senha"> <!-- Organiza os textos e o botão de senha. -->
+                                <div class="texto-ajuste"> <!-- Agrupa as informações sobre a senha. -->
+                                    <strong>Senha de acesso</strong> <!-- Identifica a configuração de senha. -->
+                                    <p>Use uma senha exclusiva para proteger sua conta.</p> <!-- Apresenta a orientação exibida no protótipo. -->
+                                </div> <!-- Encerra as informações sobre a senha. -->
+                                <button class="botao botao-senha" type="button">Alterar senha</button> <!-- Exibe o botão de senha sem executar alterações ou carregar JavaScript. -->
+                            </div> <!-- Encerra a linha da senha. -->
+                            <label class="ajuste" for="usar-localizacao"> <!-- Cria a linha da preferência de localização. -->
+                                <span class="texto-ajuste"> <!-- Agrupa os textos sobre a localização. -->
+                                    <strong>Usar minha localização</strong> <!-- Identifica a preferência de localização. -->
+                                    <span id="descricao-localizacao">Permita sua localização para encontrar informações próximas. Você pode desativar quando quiser.</span> <!-- Explica a preferência apresentada no Figma. -->
+                                </span> <!-- Encerra os textos de localização. -->
+                                <span class="interruptor"> <!-- Posiciona o controle visual da localização. -->
+                                    <input id="usar-localizacao" name="usar-localizacao" type="checkbox" role="switch" aria-describedby="descricao-localizacao" checked> <!-- Representa a preferência inicial sem solicitar acesso à localização do navegador. -->
+                                    <span class="trilho" aria-hidden="true"></span> <!-- Exibe o desenho do interruptor de localização. -->
+                                </span> <!-- Encerra o controle da localização. -->
+                            </label> <!-- Encerra a linha da localização. -->
+                        </div> <!-- Encerra a lista de configurações de segurança. -->
+                    </section> <!-- Encerra a seção Sua conta protegida. -->
+                    <aside class="aviso-privacidade" aria-labelledby="titulo-privacidade"> <!-- Destaca a informação sobre o controle dos dados. -->
+                        <strong id="titulo-privacidade">Você tem o controle dos seus dados.</strong> <!-- Apresenta a mensagem principal do aviso. -->
+                        <p>Confira nossa Política de Privacidade para entender como suas informações são utilizadas.</p> <!-- Reproduz a explicação de privacidade presente no Figma. -->
+                    </aside> <!-- Encerra o aviso de privacidade. -->
+                    <div class="acoes-formulario"> <!-- Alinha os botões finais à direita no computador. -->
+                        <button class="botao botao-cancelar" type="reset">Cancelar</button> <!-- Restaura os campos, interruptores e transporte ao estado inicial usando HTML. -->
+                        <button class="botao botao-salvar" type="button">Salvar alterações</button> <!-- Reserva o botão de salvar para integração futura, sem envio ou armazenamento de dados. -->
+                    </div> <!-- Encerra as ações do formulário. -->
+                </form> <!-- Encerra o formulário da conta. -->
+                <footer class="rodape" id="ajuda" aria-label="Informações e ajuda"> <!-- Agrupa as informações institucionais e as ações de ajuda. -->
+                    <p>© 2026 Conexão Segura</p> <!-- Exibe a identificação do projeto conforme o protótipo. -->
+                    <div class="links-rodape"> <!-- Organiza os acessos institucionais separados por pontos. -->
+                        <button class="link-rodape" type="button">Privacidade</button> <!-- Reserva a ação de privacidade até a página correspondente ser integrada. -->
+                        <span aria-hidden="true">•</span> <!-- Acrescenta um separador visual sem leitura desnecessária. -->
+                        <button class="link-rodape" type="button">Termos de uso</button> <!-- Reserva a ação de termos de uso para a integração da equipe. -->
+                        <span aria-hidden="true">•</span> <!-- Separa visualmente os termos da ajuda. -->
+                        <button class="link-rodape" type="button">Precisa de ajuda?</button> <!-- Exibe a ação visual de ajuda que será conectada posteriormente. -->
+                    </div> <!-- Encerra as ações institucionais. -->
+                </footer> <!-- Encerra o rodapé da conta. -->
+            </div> <!-- Encerra a área central das configurações. -->
+        </main> <!-- Encerra o conteúdo principal. -->
+    </div> <!-- Encerra a organização da barra lateral e do conteúdo. -->
+</body> <!-- Encerra o conteúdo visível da página. -->
+</html> <!-- Encerra o documento HTML. -->
