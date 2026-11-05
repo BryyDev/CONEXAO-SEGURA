@@ -56,10 +56,18 @@ main{
         padding: 0 3.75rem;
         width: 100vw;
         height: 100vh;
-        background-image: url(../assets/index/background-desktop.png);
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
+        position: relative;
+
+        & .videovideo{
+            position: absolute; /* posição absoluta pro video */
+            top: 0; /*  zera a localização dele */
+            left: 0;
+            width: 100%;
+            height: 100%; /*  preenche a tela */
+            object-fit: cover; /* como o bg nao e uma img e sim um objeto ele cobre tudo */
+            object-position: center;
+            z-index: -1;
+        }
 
         div{
             width: 31.25rem;
