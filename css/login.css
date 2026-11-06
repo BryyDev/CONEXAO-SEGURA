@@ -3,6 +3,8 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    font-family: 'Poppins', sans-serif;
+    
 }
 
 body {
@@ -19,34 +21,62 @@ body {
     background-position: center;
 
     /* Impede que a imagem se repita. */
-    background-repeat: no-repeat;/* Faz com que o fundo não se repita e cubra a tela toda */
-    align-items: center;/* Centraliza na vertical */
-    display: flex;/* Permite organizar e alinhar os elementos filhos */
-  justify-content: center;/* 
+    background-repeat: no-repeat;
+    /* Faz com que o fundo não se repita e cubra a tela toda */
+    align-items: center;
+    /* Centraliza na vertical */
+    display: flex;
+    /* Permite organizar e alinhar os elementos filhos */
+    justify-content: center;
+    /* 
   Justifica no eixo X */
-  
+    color: #fff;
 
-    
+
+
 }
-.container { /* Seleciona o cartão principal de recuperação de senha. */
-  width: 29.875rem; /* Define a largura do cartão conforme o Figma (29.875rem = 478px). */
-  max-width: 100%; /* Impede que o cartão ultrapasse a largura disponível dentro da página. */
-  min-height: 19.375rem; /* Preserva a altura mínima do cartão indicada no layout (19.375rem = 310px). */
-  padding: 1.5625rem 7.375rem; /* Define o preenchimento vertical e horizontal do cartão, respectivamente (1.5625rem = 25px; 7.375rem = 118px). */
-  border: 1px solid #fff; /* Desenha a borda branca de 1 pixel mostrada no Figma. */
-  border-radius: 2.5rem; /* Arredonda os cantos do cartão (2.5rem = 40px). */
-  background-color: transparent; /* Mantém a imagem da cidade visível através do cartão. */
-  -webkit-backdrop-filter: blur(0); /* Mantém o fundo sem desfoque no estado normal em navegadores que utilizam o prefixo WebKit. */
-  backdrop-filter: blur(0); /* Mantém a imagem da cidade nítida enquanto o ponteiro está fora do cartão. */
-  transition: backdrop-filter 180ms ease, -webkit-backdrop-filter 180ms ease; /* Suaviza a aplicação e a remoção do desfoque de fundo. */
-} /* Encerra a regra do cartão principal. */
 
-@media (hover: hover) and (pointer: fine) { /* Aplica o efeito apenas em dispositivos com ponteiro preciso e suporte a passar o mouse. */
-  .container:hover { /* Seleciona o cartão enquanto o ponteiro está sobre ele. */
-    -webkit-backdrop-filter: blur(7.5px); /* Aplica o desfoque no hover em navegadores que utilizam o prefixo WebKit. */
-    backdrop-filter: blur(2px); /* Desfoca apenas a imagem atrás do cartão enquanto o mouse está sobre ele. */
-  } /* Encerra a regra de hover do cartão. */
-} /* Encerra a condição de suporte ao efeito de hover. */
+.container {
+    /* Seleciona o cartão principal de recuperação de senha. */
+    width: 478px;
+    /* Define a largura do cartão conforme o Figma (478px = 29.875rem). */
+    max-width: 100%;
+    /* Impede que o cartão ultrapasse a largura disponível dentro da página. */
+    min-height: 310px;
+    /* Preserva a altura mínima do cartão indicada no layout (310px = 19.375rem). */
+    padding: 25px 118px;
+    /* Define o preenchimento vertical e horizontal do cartão, respectivamente (25px = 1.5625rem; 118px = 7.375rem). */
+    border: .0625rem solid #fff;
+    /* Desenha a borda branca de 1 pixel mostrada no Figma. */
+    border-radius: 40px;
+    /* Arredonda os cantos do cartão (40px = 2.5rem). */
+    background-color: transparent;
+    /* Mantém a imagem da cidade visível através do cartão. */
+    -webkit-backdrop-filter: blur(0);
+    /* Mantém o fundo sem desfoque no estado normal em navegadores que utilizam o prefixo WebKit. */
+    backdrop-filter: blur(0);
+    /* Mantém a imagem da cidade nítida enquanto o ponteiro está fora do cartão. */
+    transition: backdrop-filter 180ms ease, -webkit-backdrop-filter 180ms ease;
+    /* Suaviza a aplicação e a remoção do desfoque de fundo. */
+}
+
+/* Encerra a regra do cartão principal. */
+
+@media (hover: hover) and (pointer: fine) {
+
+    /* Aplica o efeito apenas em dispositivos com ponteiro preciso e suporte a passar o mouse. */
+    .container:hover {
+        /* Seleciona o cartão enquanto o ponteiro está sobre ele. */
+        -webkit-backdrop-filter: blur(.4688rem);
+        /* Aplica o desfoque no hover em navegadores que utilizam o prefixo WebKit. */
+        backdrop-filter: blur(.125rem);
+        /* Desfoca apenas a imagem atrás do cartão enquanto o mouse está sobre ele. */
+    }
+
+    /* Encerra a regra de hover do cartão. */
+}
+
+/* Encerra a condição de suporte ao efeito de hover. */
 
 /*
     Seletores sem aninhamento para facilitar a leitura.
@@ -62,7 +92,7 @@ body {
     position: relative;
 
     /* Mantém a largura original, limitada ao espaço disponível. */
-    width: 15.125rem;
+    width: 242px;
     max-width: 100%;
 }
 
@@ -71,7 +101,7 @@ body {
     position: absolute;
 
     /* Distância da lateral esquerda. */
-    left: .75rem;
+    left: 12px;
 
     /* Posiciona o topo do ícone no meio da altura da caixa. */
     top: 50%;
@@ -80,8 +110,8 @@ body {
     transform: translateY(-50%);
 
     /* Dimensões do ícone. */
-    width: 1.25rem;
-    height: 1.25rem;
+    width: 20px;
+    height: 20px;
 
     /* Permite clicar no campo mesmo sobre o ícone. */
     pointer-events: none;
@@ -90,16 +120,121 @@ body {
 .container .input input {
     /* Ocupa toda a largura da caixa .input. */
     width: 100%;
-    height: 2.3125rem;
+    height: 37px;
 
     /* Mantém a aparência original do campo. */
-    border: .0625rem solid white;
-    border-radius: .625rem;
+    border: 1px solid white;
+    border-radius: 10px;
     background-color: white;
 
     /*
         Reserva espaço à esquerda para o ícone.
         O padding vertical fica zerado porque a altura já está definida.
     */
-    padding: 0 .75rem 0 2.75rem;
+    padding: 0 12px 0 44px;
+}
+
+form {
+    display: flex;
+    /* Organiza os filhos diretos do formulário com Flexbox. */
+    flex-direction: column;
+    /* Distribui os filhos do formulário em uma coluna. */
+    justify-content: center;
+    /* Centraliza os filhos no eixo principal, vertical nesta configuração. */
+    align-items: center;
+
+    /* Centraliza os filhos no eixo transversal, horizontal nesta configuração. */
+    & .imgDiv {
+        width: 124px;
+        /* Altera a largura da imagem ( 7.75 rem =7.75rem */
+        height: 67px;
+        /* Altera a altura da imagem ( 4.1875 rem= 4.1875rem) */
+
+    }
+
+    .lembrar-senha {
+        margin-top: 17px;
+        width: 240px;
+        display: flex;
+        justify-content: space-between;
+        height: 20px;
+        background-color: yellow;
+        
+       
+
+        & label {
+            accent-color: #1E9E6B;
+            
+
+            & input {
+                cursor: pointer;
+            }
+
+        }
+
+        & a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+    }
+
+    & .entrar {
+        width: 237px;
+        /* Altera a largura do botão( 237px = 14rem) */
+        height: 46px;
+        /* altera a altura do botão (  46px= 2.875rem)*/
+        border-radius: .75rem;
+        background-color: #1E9E6B;
+        border: none;
+        /* tira a borda do botão */
+        cursor: pointer;
+        /* muda o cursor, quando ele passar por cima do botão */
+        margin-top: 39px;
+
+    }
+
+    & .entrar-google {
+        width: 14.8125rem;
+        /* Altera a largura do botão( 237px = 14rem) */
+        height: 2.875rem;
+        /* altera a altura do botão (  46px= 2.875rem)*/
+        border-radius: .75rem;
+        border: none;
+        /* Tira a borda do botão */
+        cursor: pointer;
+        /* muda o cursor, quando ele passar por cima do botão */
+        margin-top: 20px;
+        background-repeat: no-repeat;/* Faz com que a imagem não se repita */
+        background-position: left center;/* ajusta a posição da imagem */
+       
+      
+        
+    }
+
+    & .criar-conta {
+        width: 14.8125rem;
+        /* Altera a largura do botão( 237px = 14rem) */
+        height: 2.875rem;
+        /* altera a altura do botão (  46px= 2.875rem)*/
+        border-radius: .75rem;
+        border: none;
+        /* Tira a borda do botão */
+        cursor: pointer;
+        /* muda o cursor, quando ele passar por cima do botão */
+        margin-top: 1.25rem;
+    }
+    #senha-lembrar{
+       ;
+    }
+
+   
+
+  
+
+}
+.labell{
+    display: block;
+    margin: 12px 0;
 }
