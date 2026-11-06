@@ -44,8 +44,8 @@ body {
     /* Impede que o cartão ultrapasse a largura disponível dentro da página. */
     min-height: 310px;
     /* Preserva a altura mínima do cartão indicada no layout (310px = 19.375rem). */
-    padding: 25px 118px;
-    /* Define o preenchimento vertical e horizontal do cartão, respectivamente (25px = 1.5625rem; 118px = 7.375rem). */
+    padding: 25px 100px;
+    /* Define o preenchimento vertical e horizontal do cartão, respectivamente. */
     border: .0625rem solid #fff;
     /* Desenha a borda branca de 1 pixel mostrada no Figma. */
     border-radius: 40px;
@@ -87,12 +87,17 @@ body {
     display: block;
 }
 
+.container .pai-de-todos,
+.container .inputs {
+    width: 100%;
+}
+
 .container .input {
     /* Faz o ícone absoluto usar esta caixa como referência. */
     position: relative;
 
-    /* Mantém a largura original, limitada ao espaço disponível. */
-    width: 242px;
+    /* Ocupa a largura útil do formulário, sem ultrapassar o cartão. */
+    width: 100%;
     max-width: 100%;
 }
 
@@ -144,6 +149,7 @@ form {
     justify-content: center;
     /* Centraliza os filhos no eixo principal, vertical nesta configuração. */
     align-items: center;
+    width: 100%;
 
     /* Centraliza os filhos no eixo transversal, horizontal nesta configuração. */
     & .imgDiv {
@@ -156,17 +162,15 @@ form {
 
     .lembrar-senha {
         margin-top: 17px;
-        width: 240px;
+        width: 100%;
+        max-width: 400px;
         display: flex;
+        align-items: center;
         justify-content: space-between;
         height: 20px;
-        background-color: yellow;
-        
-       
 
         & label {
             accent-color: #1E9E6B;
-            
 
             & input {
                 cursor: pointer;
@@ -179,12 +183,11 @@ form {
             text-decoration: none;
             font-size: 14px;
         }
-
     }
 
     & .entrar {
-        width: 237px;
-        /* Altera a largura do botão( 237px = 14rem) */
+        width: 100%;
+        /* Ocupa a largura útil do formulário. */
         height: 46px;
         /* altera a altura do botão (  46px= 2.875rem)*/
         border-radius: .75rem;
@@ -198,8 +201,8 @@ form {
     }
 
     & .entrar-google {
-        width: 14.8125rem;
-        /* Altera a largura do botão( 237px = 14rem) */
+        width: 100%;
+        /* Ocupa a largura útil do formulário. */
         height: 2.875rem;
         /* altera a altura do botão (  46px= 2.875rem)*/
         border-radius: .75rem;
@@ -216,8 +219,8 @@ form {
     }
 
     & .criar-conta {
-        width: 14.8125rem;
-        /* Altera a largura do botão( 237px = 14rem) */
+        width: 100%;
+        /* Ocupa a largura útil do formulário. */
         height: 2.875rem;
         /* altera a altura do botão (  46px= 2.875rem)*/
         border-radius: .75rem;
@@ -239,4 +242,10 @@ form {
 .labell{
     display: block;
     margin: 12px 0;
+}
+
+@media (max-width: 500px) {
+    .container{
+        padding: 25px 50px;
+    }
 }
