@@ -1,0 +1,333 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family:  Arial, Helvetica, sans-serif;
+}
+
+/* Agora vou montar a estrutura principa do código*/
+
+.error-page {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centraliza os elementos filhos verticalmente */
+
+    background: radial-gradient( ellipse at 50% 110%,
+     #38d8ff 0%, transparent 48%), /* Cria um brilho radial 
+     (formato de elipse) centralizado na horizontal */
+      
+    radial-gradient(ellipse at 100% 85%,
+            #087aff 0%,
+            transparent 50%),
+    linear-gradient( /* Cria um degradê
+                     linear diagonal (em um ângulo de 135 graus) que serve como a cor de fundo principal, */
+         135deg,
+         #1700a8 0%,
+         #002fc2 48%,
+         #0065e9 100%
+    );
+}
+
+/* Agora vamos adicionar iluminação de fundo */
+
+.background-glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+
+    top: -350px;
+    left: -200px;
+
+    background: #3325ff;
+    filter: blur(150px);
+    opacity: 0.35;
+    border-radius: 50%;
+}
+
+/* Estrelas do site */
+
+.stars {
+    position: absolute;
+    inset: 0;
+
+    background-image: 
+            radial-gradient(circle, #ffffff 1px, 
+                    transparent 1.5px),
+
+            radial-gradient(circle, #00eeff 1px, 
+                    transparent 1.5px);
+
+    background-size: 83px 75px, 137px 112px;
+    background-position: 12px 20px, 55px 35px;
+
+    opacity: 0.55;
+    pointer-events: none;
+}
+
+/* Agora vamos criar as linhas decorativas do site */
+
+.map-lines {
+    position: absolute;
+    inset: 0;
+
+    opacity: 0.12;
+
+    background: repeating-linear-gradient(
+            135deg,
+            transparent 0px,
+            transparent 48px,
+            #42d8ff 49px,
+            transparent 50px
+        );
+
+    mask-image: linear-gradient(
+        to right,
+        black,
+        transparent 35%,
+        transparent 65%,
+        black
+    );
+
+    pointer-events: none;
+}
+
+
+/* Nosso conteúdo central */
+
+.error-content {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    padding: 20px;
+
+    text-align: center;
+    transform: translate(-12px);
+}
+
+/* Aditando a logo agora */
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 3vh;
+}
+
+.logo img {
+    width: 100px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Agora irei trabalhar no error 404 */
+
+.error-code {
+    color: #ffffff;
+ 
+    /* limita pela largura E pela altura da tela */
+    font-size: clamp(130px, min(17vw, 27vh), 300px);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.04em; /* em vez de -7px fixo: acompanha o tamanho */
+ 
+    /* espaço grande entre o 404 e o texto (igual ao protótipo) */
+    margin-bottom: clamp(40px, 13vh, 140px);
+ 
+    text-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Agora vamos trabalhar na mensagem de erro */
+
+.error-content h2 {
+     color: #ffffff;
+    font-size: clamp(24px, min(2.8vw, 4.4vh), 44px);
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.description {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: clamp(13px, min(1.05vw, 1.8vh), 18px); /* era 10px */
+    line-height: 1.5;
+    margin-bottom: clamp(20px, 3.5vh, 40px);
+}
+
+/* Botões da página */
+
+.buttons {
+    position: relative;
+    z-index: 2;
+ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+ 
+    min-width: 180px;
+    height: 48px;
+    padding: 0 28px;
+ 
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+ 
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: #1a5cff;
+    color: #ffffff;
+}
+
+.btn-secondary {
+    background: #ffffff;
+    color: #0a2a7a;
+}
+
+.btn:hover {
+     transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.road {
+    position: absolute;
+
+    width: 110%;
+    height: 90px;
+
+    left: -5%;
+    bottom: 22%;
+
+    transform: rotate(-2deg);
+
+    border-top: 1px dashed rgba(255, 255, 255, 0.5);
+    border-radius: 50% 50% 0 0;
+
+    pointer-events: none;
+}
+
+.road-line {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+
+    top: 30px;
+
+    background: repeating-linear-gradient(
+        to right,
+        transparent 0 30px,
+        rgba(255, 255, 255, 0.5) 30px 42px,
+        transparent 42px 75px
+    );
+}
+
+/* Marcador de localização */
+
+.road-marker {
+    position: absolute;
+    right: 7%;
+
+    top: -14px;
+    width: 24px;
+    height: 24px;
+
+    background: #ffdc35;
+
+    border: 7px solid rgba(255, 220, 53, 0.2);
+
+    border-radius: 50%;
+
+    box-shadow: 0 0 15px rgba(255, 220, 53, 0.4);
+}
+
+.road-help {
+    position: absolute;
+
+    right: 15%;
+    top: 25px;
+
+    width: 24px;
+    height: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ffc52d;
+    color: #173c91;
+
+    border-radius: 50%;
+
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Agora vamos fazer as curvas de luz */
+
+.light-curves {
+    position: absolute;
+
+    width: 600px;
+    height: 250px;
+
+    right: -250px;
+    bottom: -190px;
+
+    border: 2px solid rgba(0, 225, 255, 0.5);
+    border-radius: 50%;
+
+    transform: rotate(-25deg);
+
+    box-shadow:
+        0 0 20px rgba(0, 225, 255, 0.2);
+
+    pointer-events: none;
+}
+
+.light-curves::before {
+    content: "";
+
+    position: absolute;
+    inset: 15px;
+
+    border: 2px solid rgba(0, 225, 255, 0.3);
+    border-radius: 50%;
+}
+
+/* Footer do nosso site */
+
+.footer {
+    position: absolute;
+
+    left: 4%;
+    bottom: 20px;
+
+    display: flex;
+    gap: 20px;
+
+    color: rgba(255, 255, 255, 0.35);
+
+    font-size: 9px;
+
+    z-index: 5;
+}
