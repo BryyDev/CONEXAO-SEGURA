@@ -101,7 +101,7 @@ body { /* Seleciona o corpo da página e agrupa as regras aninhadas de seus elem
         display: flex; /* Organiza os botões com Flexbox. */
         flex-direction: column; /* Distribui os botões em uma coluna. */
         gap: 30px; /* Define 30 pixels de espaço entre os botões. */
-        & button{ /* Seleciona os botões que estão dentro do grupo btoes. */
+        & button, & a{ /* Estiliza os botões e links de navegação do grupo. */
 
             width: 15rem; /* Define a largura dos botões (15rem = 240px). */
             height: 2.875rem; /* Define a altura dos botões (2.875rem = 46px). */
@@ -116,6 +116,8 @@ body { /* Seleciona o corpo da página e agrupa as regras aninhadas de seus elem
             font-weight: 700; /* Define o texto dos botões em negrito. */
             font-size: 15px; /* Define o tamanho do texto dos botões como 15 pixels. */
             white-space: nowrap; /* Impede que o texto dos botões seja dividido em várias linhas. */
+            text-decoration: none; /* Remove o sublinhado padrão dos links. */
+            color: #000; /* Mantém o texto dos links com a mesma cor dos botões. */
         } /* Encerra a regra geral dos botões. */
 
         & .btnverde{ /* Seleciona o botão com a classe btnverde dentro do grupo btoes. */

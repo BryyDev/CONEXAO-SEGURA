@@ -13,22 +13,24 @@
 <body> 
     <main>
 
-        <header>
-            <img src="./assets/index/logo.svg" alt="Logo conexão segura">
+        <header id="inicio">
+            <a href="./index.html" aria-label="Ir para o início">
+                <img src="./assets/index/logo.svg" alt="Logo conexão segura">
+            </a>
             <nav>
             <ul>
-                <li><a href="">Inicio</a></li>
-                <li><a href="">Ferramentas</a></li>
-                <li><a href="">Noticias</a></li>
-                <li><a href="">Mapa</a></li>
-                <li><a href="">Sobre</a></li>
-                <li><a href="">Contato</a></li>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#ferramentas">Ferramentas</a></li>
+                <li><a href="#noticias">Notícias</a></li>
+                <li><a href="./pages/404.html">Mapa</a></li>
+                <li><a href="./pages/SobreNós.html">Sobre</a></li>
+                <li><a href="#contato">Contato</a></li>
             </ul>
         </nav>
         <div class="botoesHeader">
 
-            <a href=""><img src="./assets/index/usuario.svg" alt="Usuario"></a>
-            <a href="" class="entrar">Entrar ou Criar conta</a>
+            <a href="./pages/login.html"><img src="./assets/index/usuario.svg" alt="Usuário"></a>
+            <a href="./pages/login.html" class="entrar">Entrar ou Criar conta</a>
         </div>
     </header>
     
@@ -41,7 +43,7 @@
         </div>
     </section>
     
-    <section class="sect2">
+    <section class="sect2" id="ferramentas">
         <div class="container">
             <div class="container2ajuste">
 
@@ -73,7 +75,7 @@
             </div>
         </div>
 
-        <section class="infos">
+        <section class="infos" id="noticias">
 
             <div class="h2text">
                 <h2>Informações que protegem.</h2>
@@ -111,7 +113,7 @@
         <footer>
             <div class="container">
                 <div class="footerdiv">
-                    <div class="textdiv">
+                    <div class="textdiv" id="contato">
                         <h2>Conexão Segura</h2>
                         <p>Informação e ferramentas para escolher caminhos mais seguros no seu dia a dia.</p>
                     </div>

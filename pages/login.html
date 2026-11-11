@@ -29,9 +29,11 @@
             action="formulario" aponta para uma rota chamada formulario;
             isso, sozinho, não implementa o processamento dos dados.
         -->
-        <form action="formulario">
+        <form action="minha-conta.html">
             <!-- Caixa principal do formulário. -->
-            <img class="imgDiv" src="../assets/login-screen/logo.png" alt="">
+            <a href="../index.html" aria-label="Ir para a página inicial">
+                <img class="imgDiv" src="../assets/login-screen/logo.png" alt="Conexão Segura">
+            </a>
             <div class="pai-de-todos">
                 <!-- Agrupa os campos do formulário. -->
                 <div class="inputs">
@@ -65,11 +67,11 @@
                     <input type="checkbox" name="checkbox" id="senha lembrar">
                     Lembrar de mim
                 </label>
-                <a href="#">Esqueci senha</a>
+                <a href="forgot.password.html">Esqueci senha</a>
             </div>
             <button class="entrar" type="submit"> Entrar</button>
             <button class="entrar-google" type="submit">Entrar com Google</button>
-            <button class="criar-conta" type="submit">Criar conta</button>
+            <a class="criar-conta" href="createAccount.html">Criar conta</a>
         </form>
     </main>
 </body>
