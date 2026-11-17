@@ -16,7 +16,7 @@ const permitirAnimacao = window.matchMedia("(hover: hover) and (pointer: fine) a
 
 // 3. PREPARANDO OS MOVIMENTOS
 
-if (permitirAnimacao && pagina && estrelas && brilho) { // Só executa se as animações forem permitidas e os elementos existirem.
+if (permitirAnimacao && pagina && estrelas && brilho) { // && sigifica E, ele verifica se 2 informações sao verdadeiras ao mesmo tempo e | Só executa se as animações forem permitidas e os elementos existirem.
 
     estrelas.style.transition = "transform 180ms ease-out"; // Faz as estrelas se moverem suavemente.
     brilho.style.transition = "transform 280ms ease-out"; // Faz a iluminação se mover mais lentamente.
