@@ -3,7 +3,7 @@
     box-sizing: border-box; /* Inclui o preenchimento e a borda na largura e na altura definidas. */
     padding: 0; /* Remove o preenchimento interno padrão dos elementos. */
     margin: 0; /* Remove as margens externas padrão dos elementos. */
-    font-family: "Inter"; /* Define Inter como a fonte dos elementos. */
+    font-family: "Inter", Arial, sans-serif; /* Define Inter como a fonte dos elementos e mantém alternativas caso ela não carregue. */
 } /* Encerra a regra aplicada a todos os elementos. */
 
 label{ /* Seleciona os rótulos dos campos do formulário. */
@@ -14,27 +14,32 @@ body { /* Seleciona o corpo da página e agrupa as regras aninhadas de seus elem
   display: flex; /* Organiza os filhos diretos do corpo com Flexbox. */
   justify-content: center; /* Centraliza os filhos no eixo principal, horizontal nesta configuração. */
   align-items: center; /* Centraliza os filhos no eixo transversal, vertical nesta configuração. */
-  min-height: 100vh; /* Define uma altura mínima equivalente a 100% da altura da área de visualização. */
+  min-height: 100vh; /* Mantém a página com pelo menos a altura da janela nos navegadores antigos. */
+  min-height: 100svh; /* Considera as barras do navegador móvel ao calcular a altura mínima da página. */
+  padding: 1.5rem 1rem; /* Reserva espaço nas bordas para o cartão não encostar na tela. */
   background-image: url("../assets/create-account-screen/bg.png"); /* Usa a imagem indicada como fundo da página. */
   background-position: center; /* Centraliza a imagem de fundo. */
   background-size: cover; /* Redimensiona a imagem para cobrir todo o fundo, com recorte quando necessário. */
   background-repeat: no-repeat; /* Impede a repetição da imagem de fundo. */
   & .container { /* Seleciona os elementos com a classe container que estão dentro do body. */
-    width: 29.875rem; /* Define a largura do contêiner em unidades relativas à fonte do elemento raiz (29.875rem = 478px). */
+    width: 100%; /* Faz o cartão acompanhar a largura disponível dentro da página. */
+    max-width: 29.875rem; /* Preserva a largura máxima do cartão no computador. */
     background-color: transparent; /* Deixa o fundo do contêiner transparente. */
-    border: 2px solid #FFFFFF; /* Adiciona uma borda branca contínua de 2 pixels. */
+    border: 0.125rem solid #FFFFFF; /* Adiciona uma borda branca contínua de 2 pixels. */
     border-radius: 2.5rem; /* Arredonda os cantos do contêiner (2.5rem = 40px). */
     color: #fff; /* Define a cor branca para o texto, herdada pelos descendentes quando aplicável. */
-    padding: 1.5625rem 7.375rem; /* Define o preenchimento vertical e horizontal, respectivamente (1.5625rem = 25px; 7.375rem = 118px). */
+    padding: 1.5625rem 1.5rem; /* Mantém espaço interno sem apertar os campos quando a tela diminui. */
     box-shadow: /* Inicia uma sombra composta pelas cinco camadas descritas nas próximas linhas. */
-      rgba(0, 0, 0, 0.25) 0px 54px 55px, /* Adiciona uma sombra preta com 25% de opacidade, deslocada 54 pixels para baixo e com desfoque de 55 pixels. */
-      rgba(0, 0, 0, 0.12) 0px -12px 30px, /* Adiciona uma sombra preta com 12% de opacidade, deslocada 12 pixels para cima e com desfoque de 30 pixels. */
-      rgba(0, 0, 0, 0.12) 0px 4px 6px, /* Adiciona uma sombra preta com 12% de opacidade, deslocada 4 pixels para baixo e com desfoque de 6 pixels. */
-      rgba(0, 0, 0, 0.17) 0px 12px 13px, /* Adiciona uma sombra preta com 17% de opacidade, deslocada 12 pixels para baixo e com desfoque de 13 pixels. */
-      rgba(0, 0, 0, 0.09) 0px -3px 5px; /* Adiciona a última sombra, com 9% de opacidade, deslocada 3 pixels para cima e com desfoque de 5 pixels. */
-    backdrop-filter: blur(2px); /* Aplica um desfoque de 2 pixels ao conteúdo que aparece atrás do contêiner. */
+      rgba(0, 0, 0, 0.25) 0 3.375rem 3.4375rem, /* Adiciona uma sombra preta com 25% de opacidade, deslocada 54 pixels para baixo e com desfoque de 55 pixels. */
+      rgba(0, 0, 0, 0.12) 0 -0.75rem 1.875rem, /* Adiciona uma sombra preta com 12% de opacidade, deslocada 12 pixels para cima e com desfoque de 30 pixels. */
+      rgba(0, 0, 0, 0.12) 0 0.25rem 0.375rem, /* Adiciona uma sombra preta com 12% de opacidade, deslocada 4 pixels para baixo e com desfoque de 6 pixels. */
+      rgba(0, 0, 0, 0.17) 0 0.75rem 0.8125rem, /* Adiciona uma sombra preta com 17% de opacidade, deslocada 12 pixels para baixo e com desfoque de 13 pixels. */
+      rgba(0, 0, 0, 0.09) 0 -0.1875rem 0.3125rem; /* Adiciona a última sombra, com 9% de opacidade, deslocada 3 pixels para cima e com desfoque de 5 pixels. */
+    backdrop-filter: blur(0.125rem); /* Aplica um desfoque de 2 pixels ao conteúdo que aparece atrás do contêiner. */
 
     & form{ /* Seleciona os formulários que estão dentro do contêiner. */
+        width: 100%; /* Permite que o formulário acompanhe o espaço interno do cartão. */
+        min-width: 0; /* Permite reduzir o formulário sem ultrapassar o cartão. */
         display: flex; /* Organiza os filhos diretos do formulário com Flexbox. */
         flex-direction: column; /* Distribui os filhos do formulário em uma coluna. */
         justify-content: center; /* Centraliza os filhos no eixo principal, vertical nesta configuração. */
@@ -51,19 +56,26 @@ body { /* Seleciona o corpo da página e agrupa as regras aninhadas de seus elem
         & h1{ /* Seleciona os títulos de nível 1 dentro do formulário. */
             font-size: 2rem; /* Define o tamanho do título como duas vezes o tamanho da fonte do elemento raiz (2rem = 32px). */
             font-weight: 800; /* Define um peso de fonte forte para o título. */
-            margin-bottom: 21px; /* Adiciona 21 pixels de margem abaixo do título. */
-            margin-top: 21px; /* Adiciona 21 pixels de margem acima do título. */
+            max-width: 100%; /* Impede que o título ultrapasse a largura do formulário. */
+            text-align: center; /* Centraliza o título mesmo quando ele ocupa duas linhas. */
+            overflow-wrap: break-word; /* Permite quebrar palavras caso o usuário amplie bastante a fonte. */
+            margin-bottom: 1.3125rem; /* Adiciona 21 pixels de margem abaixo do título. */
+            margin-top: 1.3125rem; /* Adiciona 21 pixels de margem acima do título. */
 
         } /* Encerra a regra dos títulos de nível 1. */
 
         & div.containerr{ /* Seleciona as divs com a classe containerr que estão dentro do formulário. */
+            width: 100%; /* Faz os campos e os botões usarem a largura disponível no formulário. */
+            max-width: 15.125rem; /* Preserva a largura dos campos prevista para o computador. */
+            min-width: 0; /* Permite reduzir o grupo quando a tela ficar estreita. */
             display: flex; /* Organiza os filhos desse grupo com Flexbox. */
             flex-direction: column; /* Distribui os filhos desse grupo em uma coluna. */
-            gap: 21px; /* Define 21 pixels de espaço entre os filhos desse grupo. */
+            gap: 1.3125rem; /* Define 21 pixels de espaço entre os filhos desse grupo. */
             & .inputs{ /* Seleciona o grupo de campos dentro de containerr. */
+                width: 100%; /* Faz o grupo de campos acompanhar a largura de seu contêiner. */
                 display: flex; /* Organiza os grupos de campos com Flexbox. */
                 flex-direction: column; /* Distribui os grupos de campos em uma coluna. */
-                gap: 17px; /* Define 17 pixels de espaço entre os grupos de campos. */
+                gap: 1.0625rem; /* Define 17 pixels de espaço entre os grupos de campos. */
 
                 & > div{ /* Seleciona somente as divs que são filhas diretas do grupo inputs. */
                     display: flex; /* Organiza o rótulo e o contêiner de entrada com Flexbox. */
@@ -73,6 +85,7 @@ body { /* Seleciona o corpo da página e agrupa as regras aninhadas de seus elem
 
                 & .input{ /* Seleciona os contêineres com a classe input dentro do grupo inputs. */
                     position: relative; /* Faz deste contêiner a referência para o posicionamento absoluto do ícone. */
+                    width: 100%; /* Mantém o ícone e sua entrada dentro da largura disponível. */
 
                     & img{ /* Seleciona os ícones que estão dentro de cada contêiner input. */
                         position: absolute; /* Retira o ícone do fluxo normal e permite posicioná-lo dentro do contêiner. */
@@ -85,11 +98,12 @@ body { /* Seleciona o corpo da página e agrupa as regras aninhadas de seus elem
                     } /* Encerra a regra dos ícones dos campos. */
 
                     & input{ /* Seleciona os campos de entrada dentro dos contêineres input. */
-                        width: 15.125rem; /* Define a largura dos campos de entrada (15.125rem = 242px). */
+                        width: 100%; /* Faz cada entrada acompanhar a largura do grupo de campos. */
+                        min-width: 0; /* Evita que a largura padrão da entrada force rolagem horizontal. */
                         height: 2.3125rem; /* Define a altura dos campos de entrada (2.3125rem = 37px). */
                         padding: 0 .75rem 0 2.75rem; /* Define o preenchimento superior, direito, inferior e esquerdo, reservando espaço para o ícone (0.75rem = 12px; 2.75rem = 44px). */
                         background: white; /* Define o fundo dos campos como branco. */
-                        border: 1px solid white; /* Adiciona uma borda branca contínua de 1 pixel. */
+                        border: 0.0625rem solid white; /* Adiciona uma borda branca contínua de 1 pixel. */
                         border-radius: .625rem; /* Arredonda os cantos dos campos de entrada (0.625rem = 10px). */
                     } /* Encerra a regra dos campos de entrada. */
                 } /* Encerra a regra dos contêineres input. */
@@ -98,26 +112,29 @@ body { /* Seleciona o corpo da página e agrupa as regras aninhadas de seus elem
     } /* Encerra a regra do formulário. */
 
     & .btoes{ /* Seleciona o grupo de botões dentro do contêiner principal. */
+        width: 100%; /* Mantém os botões alinhados com a largura dos campos. */
         display: flex; /* Organiza os botões com Flexbox. */
         flex-direction: column; /* Distribui os botões em uma coluna. */
-        gap: 30px; /* Define 30 pixels de espaço entre os botões. */
-        & button, & a{ /* Estiliza os botões e links de navegação do grupo. */
+        gap: 1.875rem; /* Mantém 30 pixels de espaço entre os botões. */
+        & button, & a{ /* Aplica o mesmo estilo ao botão e ao link de login. */
 
-            width: 15rem; /* Define a largura dos botões (15rem = 240px). */
-            height: 2.875rem; /* Define a altura dos botões (2.875rem = 46px). */
+            width: 100%; /* Faz os botões acompanharem a largura dos campos em qualquer tela. */
+            min-height: 2.875rem; /* Mantém uma área de toque confortável e permite crescer quando o texto quebra. */
             background: white; /* Define o fundo padrão dos botões como branco. */
             border: none; /* Remove a borda dos botões. */
-            padding: 0 1rem; /* Remove o preenchimento vertical e adiciona 1 rem de preenchimento em cada lado (1rem = 16px). */
-            border-radius: 12px; /* Arredonda os cantos dos botões com um raio de 12 pixels. */
+            padding: 0.75rem 1rem; /* Reserva espaço ao redor do texto mesmo quando ele ocupa mais de uma linha. */
+            border-radius: 0.75rem; /* Arredonda os cantos dos botões com um raio de 12 pixels. */
             display: flex; /* Organiza o conteúdo dos botões com Flexbox. */
             justify-content: center; /* Centraliza o conteúdo dos botões na horizontal. */
             align-items: center; /* Centraliza o conteúdo dos botões na vertical. */
             margin: 0; /* Remove as margens externas dos botões. */
             font-weight: 700; /* Define o texto dos botões em negrito. */
-            font-size: 15px; /* Define o tamanho do texto dos botões como 15 pixels. */
-            white-space: nowrap; /* Impede que o texto dos botões seja dividido em várias linhas. */
-            text-decoration: none; /* Remove o sublinhado padrão dos links. */
-            color: #000; /* Mantém o texto dos links com a mesma cor dos botões. */
+            font-size: .9375rem; /* Define o tamanho do texto dos botões como 15 pixels. */
+            white-space: normal; /* Permite quebrar o texto quando faltar espaço. */
+            text-align: center; /* Centraliza o texto quando ele ocupa mais de uma linha. */
+            overflow-wrap: break-word; /* Permite acomodar palavras longas dentro do botão. */
+            text-decoration: none; /* Remove o sublinhado padrão do link. */
+            color: #000; /* Define a cor padrão do texto dos botões. */
         } /* Encerra a regra geral dos botões. */
 
         & .btnverde{ /* Seleciona o botão com a classe btnverde dentro do grupo btoes. */
@@ -128,3 +145,123 @@ body { /* Seleciona o corpo da página e agrupa as regras aninhadas de seus elem
   } /* Encerra a regra do contêiner principal. */
 
 } /* Encerra a regra do corpo da página. */
+
+@media (min-width: 20rem) and (max-width: 37.5rem) { /* Ajusta o cadastro entre 320px e 600px. (celular)*/
+  body { /* Ajusta as margens externas em telas de celular. */
+    padding: 1rem clamp(.75rem, 4vw, 1rem); /* Mantém espaço nas bordas e reduz a margem lateral nas telas mais estreitas. */
+  } /* Encerra o ajuste do corpo da página. */
+
+  body .container { /* Ajusta o cartão de cadastro no celular. */
+    min-width: 0; /* Permite que o cartão encolha quando o espaço disponível diminui. */
+    max-width: 100%; /* Respeita a largura disponível dentro da página. */
+    padding: clamp(1rem, 5vw, 1.75rem); /* Ajusta o espaço interno de acordo com a largura da tela. */
+    border-radius: clamp(1.5rem, 6vw, 2rem); /* Reduz o arredondamento em cartões mais estreitos. */
+  } /* Encerra o ajuste do cartão. */
+
+  body .container form { /* Ajusta o espaçamento do formulário. */
+    gap: 1rem; /* Separa o logo, o título e o grupo de campos. */
+  } /* Encerra o ajuste do formulário. */
+
+  body .container form .imgDiv img { /* Ajusta a imagem do logo no celular. */
+    display: block; /* Remove o espaço que a imagem em linha deixa abaixo de si. */
+    max-width: 100%; /* Limita o logo à largura disponível. */
+    height: auto; /* Preserva a proporção original do logo. */
+  } /* Encerra o ajuste do logo. */
+
+  body .container form h1 { /* Ajusta o título do cadastro. */
+    margin: 0; /* Usa o espaçamento do formulário ao redor do título. */
+    font-size: clamp(1.5rem, 6vw, 2rem); /* Redimensiona o título dentro de limites legíveis. */
+    line-height: 1.2; /* Mantém legibilidade quando o título quebra em linhas. */
+    text-align: center; /* Centraliza o título no cartão. */
+  } /* Encerra o ajuste do título. */
+
+  body .container form div.containerr { /* Ajusta o grupo de campos e botões. */
+    width: 100%; /* Usa o espaço interno disponível no formulário. */
+    max-width: 20rem; /* Limita os controles a 320px para facilitar a leitura. */
+    gap: 1rem; /* Separa o último campo do grupo de botões. */
+  } /* Encerra o ajuste do grupo de campos e botões. */
+
+  body .container form div.containerr .inputs { /* Ajusta o grupo dos quatro campos. */
+    gap: .75rem; /* Separa os campos na vertical. */
+  } /* Encerra o ajuste do grupo de campos. */
+
+  body .container form div.containerr .inputs > div { /* Seleciona cada par de rótulo e campo. */
+    gap: .375rem; /* Mantém o rótulo próximo ao campo associado. */
+  } /* Encerra o ajuste dos pares de rótulo e campo. */
+
+  body .container label { /* Ajusta os rótulos do cadastro. */
+    font-size: .875rem; /* Exibe os rótulos com 14px no tamanho de fonte padrão. */
+    line-height: 1.25rem; /* Reserva espaço vertical para o texto do rótulo. */
+  } /* Encerra o ajuste dos rótulos. */
+
+  body .container form div.containerr .inputs .input input { /* Ajusta os campos de entrada. */
+    width: 100%; /* Alinha os campos à largura do formulário. */
+    height: auto; /* Permite que a altura acompanhe o tamanho do texto. */
+    min-height: 2.75rem; /* Garante uma área de toque de pelo menos 44px no tamanho padrão. */
+    padding-block: .625rem; /* Reserva espaço acima e abaixo do texto digitado. */
+    font-size: 1rem; /* Define o texto dos campos em 16px no tamanho padrão. */
+    line-height: 1.25; /* Mantém o texto legível dentro dos campos. */
+  } /* Encerra o ajuste dos campos de entrada. */
+
+  body .container .btoes { /* Ajusta o grupo de botões do cadastro. */
+    gap: .75rem; /* Separa Criar Conta do link Já tenho uma conta. */
+  } /* Encerra o ajuste do grupo de botões. */
+
+  body .container .btoes :is(button, a) { /* Aplica o mesmo tamanho ao botão e ao link. */
+    width: 100%; /* Alinha os dois controles com os campos. */
+    height: auto; /* Permite que cada controle cresça quando o texto quebra. */
+    min-height: 2.75rem; /* Garante uma altura de toque de pelo menos 44px no tamanho padrão. */
+    padding: .625rem .75rem; /* Reserva espaço ao redor do texto. */
+    font-size: .875rem; /* Define o tamanho do texto em 14px no tamanho padrão. */
+    line-height: 1.25rem; /* Separa as linhas se o texto quebrar. */
+    text-align: center; /* Centraliza o texto nos dois controles. */
+    white-space: normal; /* Permite a quebra do texto em telas estreitas. */
+    overflow-wrap: anywhere; /* Evita que palavras longas ultrapassem o controle. */
+  } /* Encerra o ajuste do botão e do link. */
+} /* Encerra as regras para celulares. */
+
+@media (max-height: 42.5rem) { /* Mantém o formulário acessível em janelas baixas. (Notebook) */
+  body { /* Ajusta o alinhamento quando falta altura na janela. */
+    align-items: flex-start; /* Mantém o topo acessível em telas muito baixas. */
+    padding-block: 1rem; /* Reserva espaço para rolar até o fim do cartão. */
+  } /* Encerra o ajuste de alinhamento da página. */
+
+  body .container { /* Ajusta as margens internas do cartão. */
+    padding-block: 1rem; /* Reduz o espaço acima e abaixo do conteúdo. */
+  } /* Encerra o ajuste do cartão em janelas baixas. */
+} /* Encerra as regras de altura para todas as larguras. */
+
+@media (width > 37.5rem) and (max-height: 42.5rem) { /* Compacta o cadastro em notebooks com até 680px de altura útil. */
+  body { /* Ajusta a posição do cartão na janela do notebook. */
+    align-items: center; /* Centraliza o cartão na altura disponível quando ele cabe. */
+    padding-block: .75rem; /* Reserva 12px acima e abaixo do cartão no tamanho padrão. */
+  } /* Encerra o ajuste da página no notebook. */
+
+  body .container form .imgDiv img { /* Ajusta o tamanho do logo no notebook. */
+    display: block; /* Remove a folga de linha abaixo do logo. */
+    width: 6.375rem; /* Reduz a largura do logo para 102px no tamanho padrão. */
+    height: auto; /* Mantém a proporção original do logo. */
+  } /* Encerra o ajuste do logo no notebook. */
+
+  body .container form h1 { /* Ajusta o título em janelas mais baixas. */
+    margin-block: .75rem; /* Reduz o espaço entre logo, título e campos. */
+    font-size: 1.75rem; /* Mantém o título destacado em 28px no tamanho padrão. */
+    line-height: 1.2; /* Evita altura excessiva na linha do título. */
+  } /* Encerra o ajuste do título no notebook. */
+
+  body .container form div.containerr { /* Seleciona o grupo que reúne campos e botões. */
+    gap: .75rem; /* Aproxima o último campo do primeiro botão. */
+  } /* Encerra o ajuste entre campos e botões. */
+
+  body .container form div.containerr .inputs { /* Seleciona o grupo dos quatro campos. */
+    gap: .625rem; /* Reduz a distância entre os campos para 10px no tamanho padrão. */
+  } /* Encerra o ajuste entre os campos. */
+
+  body .container form div.containerr .inputs > div { /* Seleciona cada conjunto de rótulo e campo. */
+    gap: .25rem; /* Mantém cada rótulo próximo da respectiva entrada. */
+  } /* Encerra o ajuste entre cada rótulo e campo. */
+
+  body .container .btoes { /* Seleciona o grupo de botões do cadastro. */
+    gap: .625rem; /* Diminui o espaço entre Criar Conta e Já tenho uma conta. */
+  } /* Encerra o ajuste do grupo de botões. */
+} /* Encerra as regras para notebooks. */
