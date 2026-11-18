@@ -1,0 +1,740 @@
+* { /* Padroniza o cálculo de largura e altura dos elementos. */
+    box-sizing: border-box; /* Inclui bordas e preenchimentos nas dimensões declaradas. */
+    margin: 0; /* Remove as margens padrão que alterariam o alinhamento do design. */
+    padding: 0; /* Remove os preenchimentos padrão dos elementos. */
+} /* Encerra a padronização geral dos tamanhos. */
+html { /* Define a base das medidas relativas da página. */
+    font-size: 100%; /* Respeita o tamanho de texto escolhido pelo usuário. */
+    color-scheme: light; /* Mantém os controles nativos coerentes com o formulário claro. */
+} /* Encerra os ajustes da raiz do documento. */
+body { /* Configura a aparência geral desta página. */
+    color: #071354; /* Usa o azul escuro dos textos do Figma. */
+    background-color: #fff; /* Mantém o fundo branco do novo design. */
+    font-family: "Inter", Arial, sans-serif; /* Usa a fonte do quadro e mantém alternativas de sistema. */
+    font-size: 1rem; /* Define uma base legível para o conteúdo. */
+    line-height: 1.2; /* Reproduz a altura de linha dos textos do Figma. */
+} /* Encerra a configuração do corpo da página. */
+button, input, select { /* Padroniza a tipografia dos controles nativos. */
+    font: inherit; /* Herda a família e o tamanho da fonte da página. */
+    color: inherit; /* Mantém os textos dos controles na cor definida pelo contexto. */
+} /* Encerra a padronização dos controles. */
+button, a, input, select { /* Seleciona os elementos que podem receber foco pelo teclado. */
+    -webkit-tap-highlight-color: transparent; /* Evita uma sobreposição de cor no toque dos controles. */
+    &:focus-visible { /* Mostra o foco quando há navegação pelo teclado. */
+        outline: 0.1875rem solid #0657f5; /* Cria um contorno visível ao redor do controle em uso. */
+        outline-offset: 0.1875rem; /* Separa o destaque de foco da borda do elemento. */
+    } /* Encerra a indicação de foco pelo teclado. */
+} /* Encerra os ajustes compartilhados dos elementos interativos. */
+.pular-conteudo { /* Disponibiliza o atalho inicial sem ocupar espaço no desenho. */
+    position: absolute; /* Retira o atalho do fluxo visual até receber foco. */
+    width: .0625rem; /* Preserva o acesso ao elemento com uma área visual mínima. */
+    height: .0625rem; /* Evita que o texto escondido altere a altura da página. */
+    overflow: hidden; /* Esconde o texto fora de sua área mínima. */
+    clip-path: inset(50%); /* Recorta a apresentação visual sem impedir a leitura acessível. */
+    white-space: nowrap; /* Mantém o atalho em uma única linha. */
+    &:focus { /* Apresenta o atalho quando ele é alcançado pelo teclado. */
+        position: fixed; /* Mantém o atalho visível no topo da janela. */
+        top: 1rem; /* Afasta o atalho da borda superior. */
+        left: 1rem; /* Afasta o atalho da borda esquerda. */
+        z-index: 10; /* Coloca o atalho sobre as imagens do cabeçalho. */
+        width: auto; /* Ajusta a largura ao texto do atalho. */
+        height: auto; /* Permite apresentar toda a altura do texto. */
+        padding: 0.75rem 1rem; /* Cria uma área confortável para ativar o atalho. */
+        clip-path: none; /* Remove o recorte visual durante o foco. */
+        color: #071354; /* Mantém contraste entre o texto e o fundo do atalho. */
+        background-color: #fff; /* Torna o atalho legível sobre o banner azul. */
+        border-radius: 0.5rem; /* Arredonda o fundo do atalho. */
+    } /* Encerra a apresentação do atalho com foco. */
+} /* Encerra os estilos do atalho de conteúdo. */
+.conta-layout { /* Define a composição exclusiva da página Minha conta. */
+    --medida: clamp(0.711111rem, 1.111111vw, 1rem); /* Reduz proporcionalmente as medidas entre as larguras de 1024 e 1440 pixels. */
+    --azul: #0657f5; /* Centraliza a cor dos ícones, campos e interruptores. */
+    --azul-escuro: #071354; /* Centraliza a cor dos títulos e rótulos. */
+    --texto-apoio: #29458f; /* Centraliza a cor das descrições das seções. */
+    --divisoria: #b8d1ff; /* Centraliza a cor das bordas e linhas de separação. */
+    position: relative; /* Define a referência para as imagens decorativas da página. */
+    isolation: isolate; /* Mantém as camadas decorativas dentro desta composição. */
+    width: 100%; /* Permite ocupar toda a largura disponível em telas menores. */
+    max-width: 90rem; /* Limita o desenho aos 1440 pixels do quadro do Figma. */
+    min-height: calc(var(--medida) * 135); /* Preserva a altura proporcional de 2160 pixels da referência. */
+    margin-inline: auto; /* Centraliza a página em monitores maiores que o quadro. */
+    overflow: hidden; /* Recorta o banner largo sem criar rolagem horizontal. */
+    & .icone { /* Define o tamanho compartilhado dos ícones do formulário. */
+        display: block; /* Remove o espaço de linha reservado por imagens em linha. */
+        width: calc(var(--medida) * 2.109375); /* Reproduz os ícones de 33,75 pixels do Figma. */
+        height: calc(var(--medida) * 2.109375); /* Mantém os ícones quadrados sem deformar os SVGs. */
+        flex-shrink: 0; /* Impede que os textos comprimam os ícones. */
+        object-fit: contain; /* Preserva as proporções originais dos arquivos. */
+    } /* Encerra os estilos compartilhados dos ícones. */
+    & .cabecalho-perfil { /* Organiza a apresentação superior sobre o banner azul. */
+        position: relative; /* Posiciona o avatar e os textos em relação ao cabeçalho. */
+        height: calc(var(--medida) * 23.37890625); /* Mantém o início do conteúdo na posição ajustada no Figma. */
+        & .fundo-cabecalho { /* Posiciona a imagem de fundo com o recorte escolhido no Figma. */
+            position: absolute; /* Permite que a arte ultrapasse o espaço dos textos. */
+            top: calc(var(--medida) * -0.25); /* Reproduz o pequeno deslocamento superior do banner. */
+            left: -11.875%; /* Mantém o recorte horizontal da paisagem ajustada no quadro. */
+            width: 129.236111%; /* Usa a largura ampliada do banner, sem margens brancas laterais. */
+            height: calc(var(--medida) * 26.5625); /* Reproduz os 425 pixels da imagem ampliada. */
+            pointer-events: none; /* Evita que a decoração bloqueie os controles do cabeçalho. */
+            & img { /* Ajusta a imagem dentro da área decorativa do banner. */
+                display: block; /* Elimina o espaço de linha abaixo da imagem. */
+                width: 100%; /* Preenche a largura reservada para a arte. */
+                height: 100%; /* Preenche a altura reservada para a arte. */
+                object-fit: contain; /* Reproduz o modo de ajuste usado na camada do Figma. */
+            } /* Encerra a apresentação da imagem de fundo. */
+        } /* Encerra o posicionamento do banner. */
+        & .marca { /* Posiciona e recorta as margens transparentes da marca oficial. */
+            position: absolute; /* Mantém a logo na posição definida no cabeçalho do Figma. */
+            top: calc(var(--medida) * 1.75); /* Reproduz a distância superior de 28 pixels. */
+            left: 8.888889%; /* Alinha a marca aos textos de saudação. */
+            width: calc(var(--medida) * 12.74375); /* Reproduz a largura visível de 203,9 pixels da marca. */
+            height: calc(var(--medida) * 5.275); /* Mantém a altura do recorte da logo no Figma. */
+            overflow: hidden; /* Oculta apenas as margens transparentes do arquivo original. */
+            & img { /* Aplica ao arquivo original o mesmo recorte da camada de imagem. */
+                position: absolute; /* Permite deslocar a imagem dentro da janela de recorte. */
+                top: -26.666667%; /* Desconta a margem transparente superior do arquivo. */
+                left: -8.333333%; /* Desconta a margem transparente esquerda do arquivo. */
+                width: 114.814815%; /* Mantém a escala horizontal do recorte original. */
+                height: 148.888889%; /* Mantém a escala vertical do recorte original. */
+                max-width: none; /* Evita que um limite externo interfira no recorte da logo. */
+            } /* Encerra o recorte da imagem oficial. */
+        } /* Encerra o posicionamento da marca. */
+        & .saudacao { /* Apresenta a saudação e o nome em duas linhas. */
+            position: absolute; /* Reproduz a posição dos textos no cabeçalho. */
+            top: calc(var(--medida) * 7); /* Posiciona a saudação abaixo da logo ajustada. */
+            left: 8.888889%; /* Alinha a saudação com a marca oficial. */
+            color: #fff; /* Mantém a primeira linha legível sobre o azul escuro. */
+            font-size: calc(var(--medida) * 3.515625); /* Reproduz os 56,25 pixels da saudação. */
+            font-weight: 700; /* Destaca a saudação em negrito. */
+            & strong { /* Destaca o nome do usuário abaixo da saudação. */
+                display: block; /* Coloca o nome em sua própria linha. */
+                margin-top: calc(var(--medida) * -0.34375); /* Aproxima as duas linhas como no quadro. */
+                color: #009eff; /* Aplica o azul claro usado no nome. */
+                font-size: calc(var(--medida) * 3.427734375); /* Reproduz o tamanho ajustado do nome do usuário. */
+                font-weight: 700; /* Mantém o nome com o destaque da referência. */
+            } /* Encerra os estilos do nome do usuário. */
+        } /* Encerra os estilos da saudação. */
+        & .mensagem-perfil { /* Posiciona a orientação de atualização dos dados. */
+            position: absolute; /* Mantém a mensagem no alinhamento do cabeçalho. */
+            top: calc(var(--medida) * 16.125); /* Reproduz a posição vertical ajustada no Figma. */
+            left: 8.888889%; /* Alinha o texto à saudação e à marca. */
+            color: #fff; /* Mantém contraste entre a mensagem e o banner. */
+            font-size: calc(var(--medida) * 1.40625); /* Reproduz os 22,5 pixels da mensagem. */
+        } /* Encerra a orientação do cabeçalho. */
+        & .resumo-perfil { /* Agrupa o avatar e a localização no centro do banner. */
+            position: absolute; /* Reproduz a posição do avatar no quadro. */
+            top: calc(var(--medida) * 1.78515625); /* Reproduz a distância superior do avatar. */
+            left: 43.565538%; /* Mantém a posição horizontal do avatar ajustado. */
+            width: calc(var(--medida) * 12.83203125); /* Reserva a largura da moldura do perfil. */
+            & .avatar { /* Define a área circular do avatar e das iniciais. */
+                position: relative; /* Permite sobrepor a moldura, as iniciais e a câmera. */
+                display: grid; /* Centraliza as iniciais no círculo. */
+                place-items: center; /* Centraliza o conteúdo nos dois eixos. */
+                aspect-ratio: 1; /* Mantém o avatar circular em qualquer largura. */
+                & .moldura-avatar { /* Posiciona a moldura original do perfil. */
+                    position: absolute; /* Coloca a moldura atrás das iniciais. */
+                    inset: 0; /* Faz a imagem preencher toda a área do avatar. */
+                    width: 100%; /* Preserva a largura da moldura dentro do círculo. */
+                    height: 100%; /* Preserva a altura da moldura dentro do círculo. */
+                } /* Encerra o posicionamento da moldura. */
+                & .iniciais-avatar { /* Destaca as iniciais que representam o perfil. */
+                    position: relative; /* Mantém as letras sobre a moldura do avatar. */
+                    font-size: calc(var(--medida) * 4.482421875); /* Reproduz o tamanho das iniciais no Figma. */
+                    font-weight: 700; /* Aplica o negrito usado nas iniciais. */
+                } /* Encerra a apresentação das iniciais. */
+                & .botao-foto { /* Posiciona a ação de foto sobre a borda do avatar. */
+                    position: absolute; /* Permite sobrepor a câmera à moldura. */
+                    right: calc(var(--medida) * -0.52734375); /* Reproduz o pequeno avanço à direita da moldura. */
+                    bottom: calc(var(--medida) * -0.17578125); /* Reproduz a posição inferior da ação de foto. */
+                    display: grid; /* Centraliza o ícone dentro do botão. */
+                    place-items: center; /* Alinha o ícone nos dois eixos. */
+                    width: calc(var(--medida) * 4.5703125); /* Reproduz o botão circular de 73,125 pixels. */
+                    aspect-ratio: 1; /* Mantém o botão circular. */
+                    background-color: var(--azul); /* Usa a cor de destaque da ação de foto. */
+                    border: 0; /* Remove a borda padrão do botão nativo. */
+                    border-radius: 50%; /* Arredonda toda a área do botão de foto. */
+                    cursor: pointer; /* Identifica a área reservada para a ação de foto. */
+                    & .icone { /* Ajusta o ícone de câmera dentro do botão. */
+                        width: calc(var(--medida) * 2.4609375); /* Reproduz a largura da câmera no Figma. */
+                        height: calc(var(--medida) * 2.4609375); /* Mantém a proporção do ícone de câmera. */
+                        filter: brightness(0) invert(1); /* Apresenta o SVG original em branco sobre o azul. */
+                    } /* Encerra a apresentação da câmera. */
+                } /* Encerra os estilos da ação de foto. */
+            } /* Encerra os estilos do avatar. */
+            & .cidade-perfil { /* Apresenta o marcador e a cidade abaixo do avatar. */
+                display: flex; /* Coloca o marcador ao lado do nome da cidade. */
+                justify-content: center; /* Centraliza a localização em relação ao avatar. */
+                align-items: center; /* Alinha o marcador ao texto da cidade. */
+                gap: calc(var(--medida) * 0.615234375); /* Reproduz a distância entre o marcador e o texto. */
+                margin-top: calc(var(--medida) * 1.23046875); /* Mantém a distância entre o avatar e a cidade. */
+                color: #fff; /* Mantém a localização legível sobre o banner. */
+                font-size: calc(var(--medida) * 1.23046875); /* Reproduz o tamanho da localização no Figma. */
+                font-weight: 600; /* Destaca o nome da cidade. */
+                white-space: nowrap; /* Preserva a cidade e o estado na mesma linha. */
+                & .icone { /* Ajusta o marcador à altura do texto da cidade. */
+                    width: calc(var(--medida) * 1.669921875); /* Reproduz a largura do marcador do cabeçalho. */
+                    height: calc(var(--medida) * 1.669921875); /* Mantém o marcador proporcional. */
+                    filter: brightness(0) invert(1); /* Usa a versão branca do desenho original. */
+                } /* Encerra os ajustes do marcador do cabeçalho. */
+            } /* Encerra os estilos da localização do perfil. */
+        } /* Encerra o resumo do usuário no banner. */
+    } /* Encerra os estilos do cabeçalho do perfil. */
+    & .conteudo { /* Define a largura e a posição do formulário. */
+        position: relative; /* Mantém o conteúdo acima da arte decorativa do banner. */
+        width: 85.449219%; /* Reproduz a largura de 1230,46875 pixels das seções. */
+        margin-left: 7.226563%; /* Reproduz a margem esquerda de 104,0625 pixels do quadro. */
+        padding-bottom: calc(var(--medida) * 4.658203125); /* Reserva o espaço inferior ocupado pelas ondas do rodapé. */
+        & .introducao { /* Apresenta o título principal e a descrição do formulário. */
+            min-height: calc(var(--medida) * 7.734375); /* Mantém a altura de apresentação definida no Figma. */
+            margin-left: calc(var(--medida) * 0.52734375); /* Aplica o pequeno avanço do título em relação às seções. */
+            padding-top: calc(var(--medida) * 0.87890625); /* Posiciona o título abaixo da curva do banner. */
+            & h1 { /* Define a apresentação do título Editar perfil. */
+                font-size: calc(var(--medida) * 3.955078125); /* Reproduz os 63,28125 pixels do título principal. */
+                font-weight: 700; /* Mantém o título em negrito. */
+                & span { /* Seleciona a palavra perfil do título. */
+                    color: var(--azul); /* Destaca a palavra com o azul da referência. */
+                } /* Encerra o destaque da palavra perfil. */
+            } /* Encerra os estilos do título principal. */
+            & p { /* Define a orientação geral abaixo do título. */
+                margin-left: calc(var(--medida) * 0.263671875); /* Reproduz o alinhamento da descrição no Figma. */
+                color: var(--texto-apoio); /* Usa a cor das descrições do design. */
+                font-size: calc(var(--medida) * 1.40625); /* Reproduz o tamanho da descrição geral. */
+            } /* Encerra a descrição geral do formulário. */
+        } /* Encerra os estilos da introdução. */
+        & .formulario-conta { /* Organiza as seis seções do novo formulário. */
+            margin-top: calc(var(--medida) * 1.494140625); /* Mantém a distância entre a introdução e os dados pessoais. */
+            & .secao { /* Compartilha a estrutura das seções de configuração. */
+                min-height: calc(var(--medida) * 13.798828125); /* Reserva a altura das seções com três linhas de controles. */
+                margin-bottom: calc(var(--medida) * 0.791015625); /* Reproduz o intervalo entre as seções. */
+                padding-bottom: calc(var(--medida) * 0.640625); /* Afasta os controles da divisória inferior. */
+                border-bottom: .0625rem solid var(--divisoria); /* Separa visualmente cada grupo de configurações. */
+                &.secao-dados { /* Ajusta a seção que contém quatro campos pessoais. */
+                    min-height: calc(var(--medida) * 17.314453125); /* Reproduz a altura maior dos dados pessoais. */
+                    margin-bottom: calc(var(--medida) * 0.966796875); /* Mantém a distância até a seção de contato. */
+                } /* Encerra os ajustes dos dados pessoais. */
+                &.secao-contato { /* Ajusta a altura do grupo de contato. */
+                    min-height: calc(var(--medida) * 13.974609375); /* Reproduz o espaço do grupo de contato no Figma. */
+                    & .numero-whatsapp { /* Prepara o campo opcional de outro número de WhatsApp. */
+                        display: none; /* Mantém o campo oculto enquanto a preferência usa o mesmo telefone. */
+                    } /* Encerra a apresentação inicial do número adicional. */
+                    &:not(:has(#whatsapp-mesmo-numero:checked)) .numero-whatsapp { /* Identifica quando o usuário desmarca a preferência de mesmo número. */
+                        display: grid; /* Apresenta o número adicional apenas com CSS e HTML nativos. */
+                    } /* Encerra a apresentação condicional do WhatsApp. */
+                } /* Encerra os ajustes do grupo de contato. */
+                &.secao-localizacao { /* Ajusta o grupo de cidade, bairro e regiões. */
+                    min-height: calc(var(--medida) * 14.23828125); /* Mantém o espaço maior reservado às etiquetas de região. */
+                } /* Encerra os ajustes da localização. */
+                &.secao-preferencias { /* Ajusta o espaçamento antes da seção de segurança. */
+                    margin-bottom: calc(var(--medida) * 0.703125); /* Reproduz a distância final do grupo de preferências. */
+                } /* Encerra os ajustes das preferências. */
+                &.secao-seguranca { /* Define a última seção do formulário. */
+                    min-height: calc(var(--medida) * 14.326171875); /* Reproduz a altura do grupo de segurança. */
+                    margin-bottom: 0; /* Deixa o espaço seguinte sob controle da ação principal. */
+                    padding-bottom: 0; /* Evita espaço extra sob a última ação de segurança. */
+                    border-bottom: 0; /* Mantém apenas as divisórias internas das ações. */
+                } /* Encerra os ajustes da seção de segurança. */
+            } /* Encerra a estrutura compartilhada das seções. */
+            & .cabecalho-secao { /* Posiciona o ícone ao lado dos textos de cada seção. */
+                display: grid; /* Mantém duas colunas alinhadas para ícone e textos. */
+                grid-template-columns: calc(var(--medida) * 5.185546875) minmax(0, 1fr); /* Reproduz o espaço da placa do ícone e libera o restante aos textos. */
+                align-items: center; /* Centraliza verticalmente o ícone e os textos. */
+                column-gap: calc(var(--medida) * 2.109375); /* Mantém os 33,75 pixels entre a placa e os textos. */
+                min-height: calc(var(--medida) * 3.8671875); /* Reproduz a altura de 61,875 pixels do cabeçalho. */
+                padding-left: calc(var(--medida) * 0.703125); /* Reproduz o avanço da placa do ícone. */
+                & .fundo-icone { /* Desenha o fundo azul claro dos ícones das seções. */
+                    display: grid; /* Centraliza o ícone dentro da placa. */
+                    place-items: center; /* Mantém o ícone centralizado nos dois eixos. */
+                    width: calc(var(--medida) * 5.185546875); /* Reproduz a largura da placa no Figma. */
+                    height: calc(var(--medida) * 3.8671875); /* Reproduz a altura da placa no Figma. */
+                    background-color: #e2edff; /* Usa o fundo azul claro dos ícones de seção. */
+                    border-radius: calc(var(--medida) * 1.40625); /* Reproduz os cantos arredondados das placas. */
+                    & .icone { /* Ajusta o desenho ao tamanho dos ícones de seção. */
+                        width: calc(var(--medida) * 2.98828125); /* Reproduz os 47,8125 pixels dos ícones maiores. */
+                        height: calc(var(--medida) * 2.98828125); /* Preserva a proporção dos ícones maiores. */
+                    } /* Encerra os tamanhos dos ícones de seção. */
+                } /* Encerra a apresentação das placas dos ícones. */
+                & h2 { /* Define a hierarquia dos títulos das seções. */
+                    font-size: calc(var(--medida) * 1.845703125); /* Reproduz os 29,53125 pixels dos títulos. */
+                    font-weight: 700; /* Mantém os títulos destacados em negrito. */
+                } /* Encerra os estilos dos títulos de seção. */
+                & p { /* Define a aparência dos textos de apoio das seções. */
+                    color: var(--texto-apoio); /* Usa o azul dos textos secundários. */
+                    font-size: calc(var(--medida) * 1.1865234375); /* Reproduz o tamanho das descrições do Figma. */
+                } /* Encerra os textos de apoio das seções. */
+            } /* Encerra a organização dos cabeçalhos das seções. */
+            & .campos-secao { /* Alinha os controles abaixo dos textos de cada seção. */
+                width: 89.142857%; /* Reserva a largura exata dos rótulos e controles da referência. */
+                margin-left: 10.285714%; /* Reproduz o recuo de 126,5625 pixels das linhas de campos. */
+            } /* Encerra o alinhamento do conjunto de campos. */
+            & .campo { /* Organiza um rótulo e seu controle na mesma linha. */
+                display: grid; /* Cria as colunas de identificação e preenchimento. */
+                grid-template-columns: minmax(0, 280fr) minmax(0, 484fr); /* Mantém a proporção dos rótulos e campos do Figma. */
+                align-items: center; /* Centraliza o rótulo em relação ao controle. */
+                column-gap: 2.051282%; /* Reproduz o espaço entre a identificação e a entrada. */
+                min-height: calc(var(--medida) * 3.076171875); /* Mantém os 49,21875 pixels de cada linha. */
+                & .rotulo-campo { /* Posiciona o ícone ao lado do nome do campo. */
+                    display: grid; /* Mantém o texto e o ícone em colunas próprias. */
+                    grid-template-columns: calc(var(--medida) * 2.109375) minmax(0, 1fr); /* Preserva o tamanho do ícone e permite a quebra de rótulos longos. */
+                    align-items: center; /* Alinha o ícone com o texto do rótulo. */
+                    gap: calc(var(--medida) * 1.93359375); /* Reproduz a distância entre o ícone e o rótulo. */
+                    font-size: calc(var(--medida) * 1.1865234375); /* Reproduz o tamanho dos rótulos da referência. */
+                    font-weight: 600; /* Destaca os nomes dos campos. */
+                } /* Encerra os estilos dos rótulos com ícones. */
+                & .obrigatorio { /* Destaca o asterisco dos campos obrigatórios. */
+                    color: #ff1f26; /* Usa vermelho para distinguir a indicação visual. */
+                } /* Encerra a indicação visual de obrigatoriedade. */
+                & .opcional { /* Diferencia a observação de preenchimento opcional. */
+                    font-weight: 400; /* Mantém a observação mais leve que o nome do campo. */
+                } /* Encerra a apresentação das observações opcionais. */
+                & .controle { /* Define a aparência compartilhada das entradas e seleções. */
+                    display: block; /* Faz o controle preencher a coluna de entrada. */
+                    width: 100%; /* Ocupa toda a largura disponível para preenchimento. */
+                    min-width: 0; /* Evita que valores longos ampliem a coluna do formulário. */
+                    height: calc(var(--medida) * 2.28515625); /* Reproduz os 36,5625 pixels dos campos do Figma. */
+                    padding-inline: calc(var(--medida) * 1.23046875); /* Reproduz o recuo horizontal dos valores. */
+                    color: var(--azul-escuro); /* Mantém os valores na cor principal da página. */
+                    background-color: #f7f9fe; /* Usa o fundo quase branco dos campos. */
+                    border: .0625rem solid var(--divisoria); /* Desenha a borda azul clara dos controles. */
+                    border-radius: calc(var(--medida) * 1.142578125); /* Reproduz os campos com extremidades arredondadas. */
+                    font-size: calc(var(--medida) * 1.142578125); /* Reproduz o tamanho dos valores e exemplos dos campos. */
+                    line-height: normal; /* Mantém o texto centralizado pelo controle nativo. */
+                    &::placeholder { /* Configura a apresentação dos exemplos de preenchimento. */
+                        color: var(--texto-apoio); /* Mantém os exemplos legíveis e diferenciados dos valores preenchidos. */
+                        opacity: 1; /* Evita a redução automática de contraste dos exemplos. */
+                    } /* Encerra a aparência dos exemplos de preenchimento. */
+                } /* Encerra a aparência compartilhada dos controles. */
+                & .controle-selecao { /* Mantém o seletor nativo com a seta do design. */
+                    appearance: none; /* Remove apenas a seta visual padrão do navegador. */
+                    padding-right: calc(var(--medida) * 3); /* Reserva espaço para a seta decorativa à direita. */
+                    background-image: url("../assets/configuracoes_de_usuario/icones/svg/seta-baixo.svg"); /* Reaproveita o SVG original da seta de seleção. */
+                    background-repeat: no-repeat; /* Exibe a seta uma única vez. */
+                    background-position: right calc(var(--medida) * 0.8) center; /* Posiciona a seta na extremidade direita do controle. */
+                    background-size: calc(var(--medida) * 1.669921875); /* Reproduz o tamanho da seta do Figma. */
+                    cursor: pointer; /* Indica a possibilidade de abrir as alternativas. */
+                } /* Encerra a apresentação dos seletores. */
+                &.campo-data .controle { /* Ajusta o campo nativo de data ao desenho do calendário. */
+                    position: relative; /* Define a referência da área clicável do calendário nativo. */
+                    padding-right: calc(var(--medida) * 3); /* Reserva espaço para o calendário à direita. */
+                    background-image: url("../assets/configuracoes_de_usuario/icones/svg/calendario.svg"); /* Usa o ícone de calendário fornecido para a página. */
+                    background-repeat: no-repeat; /* Evita repetir o desenho do calendário. */
+                    background-position: right calc(var(--medida) * 0.8) center; /* Alinha o calendário ao lado direito do campo. */
+                    background-size: calc(var(--medida) * 1.7578125); /* Reproduz o calendário de 28,125 pixels. */
+                    &::-webkit-calendar-picker-indicator { /* Ajusta a área nativa que abre o calendário no Chrome. */
+                        position: absolute; /* Sobrepõe a área clicável ao ícone decorativo. */
+                        top: 0; /* Alinha a área clicável ao topo da entrada. */
+                        right: 0; /* Mantém o acionamento no lado direito do campo. */
+                        width: calc(var(--medida) * 3); /* Amplia a área clicável sem modificar o valor da data. */
+                        height: 100%; /* Mantém a área de abertura em toda a altura do controle. */
+                        opacity: 0; /* Oculta somente o ícone padrão, preservando o seletor nativo. */
+                        cursor: pointer; /* Indica que o calendário pode ser aberto. */
+                    } /* Encerra os ajustes da área nativa do calendário. */
+                } /* Encerra os estilos do campo de data. */
+                & .opcao-whatsapp { /* Organiza o interruptor e sua explicação de contato. */
+                    display: flex; /* Coloca o controle ao lado do texto da preferência. */
+                    align-items: center; /* Centraliza o texto em relação ao interruptor. */
+                    gap: calc(var(--medida) * 1.0546875); /* Reproduz a distância entre o controle e sua explicação. */
+                    font-size: calc(var(--medida) * 1.142578125); /* Mantém o tamanho do texto de preferência do Figma. */
+                    font-weight: 500; /* Dá o destaque moderado usado na explicação. */
+                    cursor: pointer; /* Torna clara a possibilidade de alternar a preferência. */
+                } /* Encerra a preferência de telefone do WhatsApp. */
+            } /* Encerra a organização das linhas de campos. */
+            & .regioes { /* Apresenta as regiões como etiquetas selecionáveis. */
+                display: flex; /* Coloca as etiquetas lado a lado. */
+                align-items: center; /* Centraliza as etiquetas dentro da borda do campo. */
+                flex-wrap: wrap; /* Permite que as etiquetas quebrem sem ultrapassar a tela. */
+                gap: calc(var(--medida) * 0.439453125); /* Reproduz a distância entre as etiquetas de região. */
+                min-width: 0; /* Permite reduzir o conjunto à largura disponível. */
+                min-height: calc(var(--medida) * 2.28515625); /* Mantém a altura dos demais controles quando as etiquetas cabem em uma linha. */
+                padding: calc(var(--medida) * 0.14) calc(var(--medida) * 0.85); /* Afasta as etiquetas das bordas do conjunto. */
+                background-color: #f7f9fe; /* Usa o mesmo fundo claro das entradas. */
+                border: .0625rem solid var(--divisoria); /* Mantém a borda arredondada do grupo de regiões. */
+                border-radius: calc(var(--medida) * 1.142578125); /* Mantém as extremidades arredondadas do campo. */
+                & .regiao { /* Define uma região que pode ser marcada ou desmarcada. */
+                    position: relative; /* Permite sobrepor a entrada nativa à etiqueta. */
+                    cursor: pointer; /* Indica que toda a etiqueta pode alterar a seleção. */
+                    & input { /* Preserva a caixa de seleção nativa sobre a etiqueta. */
+                        position: absolute; /* Posiciona a área interativa sobre o desenho da etiqueta. */
+                        inset: 0; /* Faz a entrada ocupar toda a área da etiqueta. */
+                        z-index: 1; /* Mantém a entrada disponível para receber cliques. */
+                        width: 100%; /* Amplia a área horizontal da seleção. */
+                        height: 100%; /* Amplia a área vertical da seleção. */
+                        opacity: 0; /* Oculta apenas o desenho padrão da caixa de seleção. */
+                        cursor: inherit; /* Mantém o mesmo ponteiro da etiqueta. */
+                        &:focus-visible + span { /* Destaca a etiqueta que recebe foco pelo teclado. */
+                            outline: 0.1875rem solid var(--azul); /* Desenha um contorno visível para navegação acessível. */
+                            outline-offset: 0.125rem; /* Separa o contorno da borda da etiqueta. */
+                        } /* Encerra a indicação de foco da região. */
+                        &:not(:checked) + span { /* Diferencia uma região que foi desmarcada. */
+                            background-color: transparent; /* Retira o preenchimento que indica a seleção. */
+                            box-shadow: inset 0 0 0 .0625rem var(--divisoria); /* Mantém o nome disponível para selecionar novamente. */
+                            & .remover-regiao { /* Seleciona o símbolo decorativo da região desmarcada. */
+                                opacity: 0; /* Retira o símbolo de remoção quando não há seleção. */
+                            } /* Encerra o estado do símbolo de remoção. */
+                        } /* Encerra a apresentação da região desmarcada. */
+                    } /* Encerra os estilos da entrada nativa da região. */
+                    & > span { /* Desenha a etiqueta visual da região selecionada. */
+                        display: flex; /* Posiciona o nome ao lado do símbolo de remoção. */
+                        align-items: center; /* Centraliza o símbolo na altura do nome. */
+                        gap: calc(var(--medida) * 0.52734375); /* Mantém o espaço do nome até o símbolo decorativo. */
+                        padding: calc(var(--medida) * 0.263671875) calc(var(--medida) * 0.703125); /* Reproduz o preenchimento compacto das etiquetas. */
+                        background-color: #e2edff; /* Destaca as regiões selecionadas em azul claro. */
+                        border-radius: 2rem; /* Arredonda completamente as extremidades da etiqueta. */
+                        font-size: calc(var(--medida) * 1.0546875); /* Reproduz os 16,875 pixels dos nomes das regiões. */
+                        & .remover-regiao { /* Mantém o símbolo de remoção proporcional ao nome. */
+                            display: grid; /* Permite centralizar o símbolo decorativo na etiqueta. */
+                            place-items: center; /* Alinha o símbolo de remoção nos dois eixos. */
+                            width: calc(var(--medida) * 1.0546875); /* Reproduz a largura do símbolo de remoção do Figma. */
+                            height: calc(var(--medida) * 1.0546875); /* Mantém o símbolo quadrado. */
+                        } /* Encerra a apresentação do símbolo de remoção. */
+                    } /* Encerra os estilos visuais da etiqueta. */
+                } /* Encerra os estilos de uma região de interesse. */
+            } /* Encerra a organização das regiões de interesse. */
+            & .preferencia { /* Organiza as linhas de preferências da conta. */
+                display: grid; /* Mantém ícone, descrição e interruptor alinhados. */
+                grid-template-columns: calc(var(--medida) * 2.197265625) minmax(0, 1fr) calc(var(--medida) * 4.39453125); /* Reserva espaços estáveis para o ícone e o controle. */
+                align-items: center; /* Alinha os elementos no centro de cada linha. */
+                gap: calc(var(--medida) * 1.7578125); /* Reproduz o espaço entre os elementos da preferência. */
+                min-height: calc(var(--medida) * 3.076171875); /* Mantém a altura das demais linhas de formulário. */
+                font-size: calc(var(--medida) * 1.1865234375); /* Reproduz o tamanho dos nomes das preferências. */
+                font-weight: 600; /* Destaca os nomes das preferências. */
+                cursor: pointer; /* Permite alternar a preferência por toda a linha. */
+            } /* Encerra os estilos das linhas de preferência. */
+            & .interruptor { /* Define a estrutura dos controles de ligar e desligar. */
+                position: relative; /* Define a referência da entrada e da bolinha do controle. */
+                display: block; /* Mantém a área do controle independente da linha de texto. */
+                width: calc(var(--medida) * 4.39453125); /* Reproduz os 70,3125 pixels de largura dos interruptores. */
+                height: calc(var(--medida) * 2.197265625); /* Reproduz os 35,15625 pixels de altura dos interruptores. */
+                flex-shrink: 0; /* Evita que a descrição comprima o controle. */
+                & input { /* Mantém a caixa de seleção como controle real do interruptor. */
+                    position: absolute; /* Sobrepõe a área interativa ao trilho visual. */
+                    inset: 0; /* Preenche toda a área do controle. */
+                    z-index: 1; /* Mantém a entrada acima do desenho decorativo. */
+                    width: 100%; /* Permite clicar em toda a largura do trilho. */
+                    height: 100%; /* Permite clicar em toda a altura do trilho. */
+                    opacity: 0; /* Oculta somente o desenho padrão, preservando teclado e acessibilidade. */
+                    cursor: pointer; /* Indica que o estado do interruptor pode ser alterado. */
+                    &:checked + .trilho { /* Apresenta a preferência ligada. */
+                        background-color: var(--azul); /* Destaca o trilho ligado em azul. */
+                        &::before { /* Seleciona a bolinha da preferência ligada. */
+                            transform: translateX(calc(var(--medida) * 2.197265625)); /* Desloca a bolinha para a direita usando apenas CSS. */
+                        } /* Encerra a posição da bolinha ligada. */
+                    } /* Encerra o estado ligado do interruptor. */
+                    &:focus-visible + .trilho { /* Identifica o controle alcançado pelo teclado. */
+                        outline: 0.1875rem solid var(--azul-escuro); /* Cria um destaque visível para o interruptor em foco. */
+                        outline-offset: 0.1875rem; /* Afasta o destaque do trilho visual. */
+                    } /* Encerra a indicação de foco do interruptor. */
+                } /* Encerra os estilos da entrada real do interruptor. */
+                & .trilho { /* Desenha o fundo arredondado do interruptor. */
+                    display: block; /* Faz o desenho ocupar toda a área do controle. */
+                    width: 100%; /* Preenche a largura reservada para o interruptor. */
+                    height: 100%; /* Preenche a altura reservada para o interruptor. */
+                    background-color: #d2dcee; /* Identifica o estado desligado em cinza azulado. */
+                    border-radius: 2rem; /* Arredonda as duas extremidades do trilho. */
+                    &::before { /* Desenha a bolinha que indica o estado do controle. */
+                        content: ""; /* Cria uma forma decorativa sem acrescentar texto ao documento. */
+                        position: absolute; /* Posiciona a bolinha dentro do trilho. */
+                        top: calc(var(--medida) * 0.263671875); /* Mantém a distância superior da bolinha à borda. */
+                        left: calc(var(--medida) * 0.263671875); /* Define a posição inicial da bolinha desligada. */
+                        width: calc(var(--medida) * 1.669921875); /* Reproduz a largura da bolinha do Figma. */
+                        height: calc(var(--medida) * 1.669921875); /* Mantém a bolinha perfeitamente circular. */
+                        background-color: #fff; /* Usa o branco do indicador dos interruptores. */
+                        border-radius: 50%; /* Transforma o indicador em um círculo. */
+                    } /* Encerra o desenho da bolinha do interruptor. */
+                } /* Encerra os estilos do trilho visual. */
+            } /* Encerra a estrutura dos interruptores. */
+            & .acao-seguranca { /* Organiza cada ação de privacidade e segurança. */
+                display: grid; /* Mantém ícone, nome e seta alinhados em colunas. */
+                grid-template-columns: calc(var(--medida) * 2.109375) minmax(0, 1fr) calc(var(--medida) * 1.93359375); /* Reserva as dimensões dos ícones nas extremidades da linha. */
+                align-items: center; /* Alinha verticalmente todos os elementos da ação. */
+                gap: calc(var(--medida) * 1.93359375); /* Reproduz a distância do ícone ao nome da ação. */
+                width: 100%; /* Faz cada ação preencher a largura das linhas de campos. */
+                min-height: calc(var(--medida) * 3.33984375); /* Reproduz os 53,4375 pixels das ações de segurança. */
+                color: var(--azul-escuro); /* Mantém as ações na cor dos rótulos do formulário. */
+                background: none; /* Preserva o fundo branco e sem cartão do design. */
+                border: 0; /* Remove a borda padrão dos botões. */
+                border-bottom: .0625rem solid var(--divisoria); /* Separa as ações de segurança com linhas finas. */
+                font-size: calc(var(--medida) * 1.1865234375); /* Reproduz o tamanho dos nomes das ações. */
+                font-weight: 600; /* Destaca as ações em relação às descrições. */
+                text-align: left; /* Mantém os nomes alinhados com os demais rótulos. */
+                cursor: pointer; /* Identifica a área reservada para as futuras ações de segurança. */
+                &:last-child { /* Ajusta a última ação da seção. */
+                    border-bottom: 0; /* Remove a divisória após a última ação. */
+                } /* Encerra o ajuste da última ação. */
+                & .seta-acao { /* Posiciona a seta no fim da linha da ação. */
+                    width: calc(var(--medida) * 1.93359375); /* Reproduz a largura da seta no Figma. */
+                    height: calc(var(--medida) * 1.93359375); /* Preserva a proporção da seta. */
+                } /* Encerra a apresentação das setas de segurança. */
+            } /* Encerra os estilos das ações de segurança. */
+            & .acoes-formulario { /* Posiciona o botão principal abaixo da última seção. */
+                margin-top: calc(var(--medida) * 2.197265625); /* Reproduz a distância de 35,15625 pixels acima do botão. */
+                margin-left: calc(var(--medida) * -0.615234375); /* Amplia a ação para a esquerda como no quadro. */
+                margin-right: calc(var(--medida) * -0.791015625); /* Amplia a ação para a direita como no quadro. */
+                & .botao-salvar { /* Destaca a ação principal do formulário. */
+                    display: flex; /* Coloca o símbolo de confirmação ao lado do texto. */
+                    justify-content: center; /* Centraliza o conjunto dentro do botão. */
+                    align-items: center; /* Alinha o símbolo e o nome da ação. */
+                    gap: calc(var(--medida) * 1.142578125); /* Reproduz a distância do símbolo ao texto do botão. */
+                    width: 100%; /* Preenche a largura da área de ações. */
+                    min-height: calc(var(--medida) * 4.04296875); /* Reproduz os 64,6875 pixels da ação principal. */
+                    color: #fff; /* Mantém o texto legível sobre o fundo azul. */
+                    background-color: #0434ed; /* Usa o azul ajustado do botão no Figma. */
+                    border: 0; /* Remove a borda padrão do botão nativo. */
+                    border-radius: 3rem; /* Mantém as extremidades totalmente arredondadas. */
+                    font-size: calc(var(--medida) * 1.845703125); /* Reproduz o tamanho do nome da ação principal. */
+                    font-weight: 700; /* Destaca a ação Salvar alterações em negrito. */
+                    cursor: pointer; /* Identifica a área reservada para a futura ação de salvar. */
+                    &:hover { /* Apresenta uma resposta visual ao passar o ponteiro. */
+                        background-color: #032bc8; /* Escurece o botão sem alterar suas dimensões. */
+                    } /* Encerra o destaque do botão sob o ponteiro. */
+                    & .icone { /* Ajusta o símbolo de confirmação do botão. */
+                        width: calc(var(--medida) * 2.4609375); /* Reproduz a largura do símbolo de confirmação. */
+                        height: calc(var(--medida) * 2.4609375); /* Mantém o símbolo proporcional. */
+                        filter: brightness(0) invert(1); /* Apresenta o SVG original em branco. */
+                    } /* Encerra a apresentação do símbolo de confirmação. */
+                } /* Encerra os estilos da ação principal. */
+            } /* Encerra a organização das ações do formulário. */
+        } /* Encerra a organização do formulário da conta. */
+    } /* Encerra os estilos do conteúdo principal. */
+    & .ondas-rodape { /* Apresenta o detalhe decorativo inferior do Figma. */
+        position: absolute; /* Mantém as ondas na extremidade inferior da composição. */
+        right: 0; /* Alinha a arte à direita da página. */
+        bottom: 0; /* Encosta as ondas na borda inferior do desenho. */
+        left: 0; /* Permite que a arte acompanhe toda a largura disponível. */
+        z-index: -1; /* Mantém a decoração atrás do conteúdo e dos controles. */
+        height: calc(var(--medida) * 5); /* Reproduz a faixa de 80 pixels do rodapé. */
+        background-image: url("../assets/configuracoes_de_usuario/footer/rodape-desktop.png"); /* Reaproveita o rodapé original já disponível nos elementos da página. */
+        background-repeat: no-repeat; /* Apresenta apenas uma cópia da arte decorativa. */
+        background-size: 200% auto; /* Amplia o rodapé para destacar somente a curva da metade direita. */
+        background-position: right bottom calc(var(--medida) * -12.75); /* Recorta a curva sem apresentar a paisagem lateral do arquivo. */
+        opacity: 0.12; /* Mantém o detalhe inferior suave como no quadro do Figma. */
+        pointer-events: none; /* Evita que a decoração interfira no uso do formulário. */
+    } /* Encerra o detalhe decorativo do rodapé. */
+} /* Encerra os estilos exclusivos da página Minha conta. */
+@media (max-width: 47.99rem) { /* Reorganiza o formulário para tablets pequenos e celulares. */
+    .conta-layout { /* Ajusta a composição quando as duas colunas deixam de ser confortáveis. */
+        --medida: 1rem; /* Mantém os controles legíveis sem reduzir proporcionalmente a fonte no celular. */
+        min-height: 100vh; /* Garante uma composição que ocupa ao menos a altura da janela. */
+        & .cabecalho-perfil { /* Reorganiza a apresentação do perfil no celular. */
+            height: 33rem; /* Reserva espaço para logo, textos, avatar e localização. */
+            & .fundo-cabecalho { /* Ajusta a arte vertical fornecida para o celular. */
+                inset: 0; /* Alinha o banner a todas as bordas do cabeçalho. */
+                width: 100%; /* Faz a arte acompanhar a largura da tela. */
+                height: 100%; /* Mantém o banner atrás de todo o resumo do perfil. */
+                & img { /* Ajusta o banner vertical sem deformar a arte. */
+                    object-fit: cover; /* Preenche o cabeçalho com recorte proporcional. */
+                    object-position: center bottom; /* Preserva a curva decorativa inferior da imagem. */
+                } /* Encerra a apresentação do banner no celular. */
+            } /* Encerra o posicionamento da arte vertical. */
+            & .marca { /* Ajusta a marca à área superior do celular. */
+                top: 0.75rem; /* Mantém espaço entre a marca e a borda da tela. */
+                left: 1.25rem; /* Alinha a marca às margens dos textos do cabeçalho. */
+                width: 10rem; /* Reduz a marca sem alterar seu recorte. */
+                height: 4.14rem; /* Preserva a proporção visível da logo. */
+            } /* Encerra a marca no celular. */
+            & .saudacao { /* Ajusta a saudação para a largura disponível no celular. */
+                top: 5.5rem; /* Posiciona a saudação abaixo da marca. */
+                left: 1.25rem; /* Mantém o alinhamento esquerdo do cabeçalho. */
+                right: 1.25rem; /* Limita o texto à largura disponível na tela. */
+                font-size: 2.25rem; /* Mantém a saudação legível sem ocupar toda a largura. */
+                & strong { /* Ajusta o nome do usuário no cabeçalho compacto. */
+                    margin-top: 0; /* Evita sobreposição entre as duas linhas da saudação. */
+                    font-size: clamp(1.75rem, 6vw, 2.2rem); /* Adapta o nome às menores larguras de celular. */
+                } /* Encerra os ajustes do nome no celular. */
+            } /* Encerra a saudação no celular. */
+            & .mensagem-perfil { /* Ajusta a orientação abaixo do nome do usuário. */
+                top: 11.25rem; /* Reserva espaço entre a saudação e a mensagem. */
+                left: 1.25rem; /* Mantém a mensagem alinhada à marca. */
+                right: 1.25rem; /* Evita que o texto ultrapasse a tela. */
+                font-size: 0.9375rem; /* Mantém a mensagem legível nas menores larguras. */
+                line-height: 1.4; /* Aumenta o espaço entre as linhas para facilitar a leitura. */
+            } /* Encerra a mensagem do cabeçalho no celular. */
+            & .resumo-perfil { /* Centraliza o avatar abaixo dos textos no celular. */
+                top: 16.25rem; /* Separa o resumo do usuário da mensagem de apresentação. */
+                left: calc(50% - 5rem); /* Centraliza o bloco de dez rem na largura da tela. */
+                width: 10rem; /* Mantém um avatar confortável sem dominar a tela. */
+                & .avatar { /* Ajusta os elementos sobrepostos do avatar compacto. */
+                    & .iniciais-avatar { /* Ajusta o tamanho das iniciais no celular. */
+                        font-size: 3.5rem; /* Mantém as letras proporcionais ao avatar menor. */
+                    } /* Encerra as iniciais do avatar compacto. */
+                    & .botao-foto { /* Ajusta o botão de foto no avatar menor. */
+                        right: -0.25rem; /* Mantém a sobreposição na borda direita da moldura. */
+                        bottom: -0.125rem; /* Mantém a câmera junto à borda inferior do avatar. */
+                        width: 3.25rem; /* Preserva uma área de toque confortável para a foto. */
+                        & .icone { /* Ajusta o desenho da câmera no celular. */
+                            width: 1.75rem; /* Mantém a câmera proporcional ao botão compacto. */
+                            height: 1.75rem; /* Preserva a proporção do ícone da câmera. */
+                        } /* Encerra o ícone da câmera no celular. */
+                    } /* Encerra o botão de foto compacto. */
+                } /* Encerra os ajustes do avatar no celular. */
+                & .cidade-perfil { /* Ajusta a localização abaixo do avatar compacto. */
+                    gap: 0.5rem; /* Mantém espaço entre o marcador e a cidade. */
+                    margin-top: 0.75rem; /* Separa a localização da moldura do perfil. */
+                    font-size: 1rem; /* Mantém a cidade legível no celular. */
+                    & .icone { /* Ajusta o marcador à tipografia do celular. */
+                        width: 1.25rem; /* Define a largura do marcador compacto. */
+                        height: 1.25rem; /* Mantém a proporção do marcador compacto. */
+                    } /* Encerra o marcador da cidade no celular. */
+                } /* Encerra a localização no celular. */
+            } /* Encerra o resumo do perfil no celular. */
+        } /* Encerra o cabeçalho do perfil no celular. */
+        & .conteudo { /* Ajusta as margens do formulário nas telas estreitas. */
+            width: calc(100% - 2rem); /* Preserva uma margem de um rem em cada lado. */
+            margin-inline: 1rem; /* Centraliza o conteúdo entre as margens laterais. */
+            padding-bottom: 4.5rem; /* Reserva espaço para as ondas inferiores no celular. */
+            & .introducao { /* Compacta a apresentação do formulário. */
+                min-height: 0; /* Permite que a altura acompanhe a quebra dos textos. */
+                margin-left: 0; /* Alinha o título às seções do formulário. */
+                padding-top: 0; /* Evita espaço extra após o banner vertical. */
+                padding-bottom: 1.5rem; /* Separa a apresentação da primeira seção. */
+                & h1 { /* Ajusta o título principal ao celular. */
+                    font-size: 2.5rem; /* Mantém o título em destaque sem ultrapassar a tela. */
+                    line-height: 1.15; /* Aproxima as linhas quando houver quebra do título. */
+                } /* Encerra o título principal no celular. */
+                & p { /* Ajusta a descrição geral nas telas estreitas. */
+                    margin: 0.5rem 0 0; /* Mantém a descrição próxima do título e alinhada à esquerda. */
+                    font-size: 0.9375rem; /* Mantém a orientação legível no celular. */
+                    line-height: 1.4; /* Melhora a leitura das linhas da descrição. */
+                } /* Encerra a orientação geral no celular. */
+            } /* Encerra a introdução compacta do formulário. */
+            & .formulario-conta { /* Reorganiza o formulário em uma coluna. */
+                margin-top: 0; /* Usa o espaço definido pela introdução compacta. */
+                & .secao { /* Ajusta todas as seções à quantidade real de conteúdo. */
+                    min-height: 0; /* Libera a altura fixa da referência de computador. */
+                    margin-bottom: 1rem; /* Separa as seções com espaço confortável. */
+                    padding-bottom: 1.25rem; /* Afasta o último controle de cada divisória. */
+                    &.secao-seguranca { /* Ajusta o espaço final da seção de segurança no celular. */
+                        padding-bottom: 0; /* Deixa o botão principal controlar o espaço inferior. */
+                    } /* Encerra o ajuste da seção de segurança compacta. */
+                } /* Encerra os ajustes gerais das seções no celular. */
+                & .cabecalho-secao { /* Mantém os títulos ao lado dos ícones no celular. */
+                    grid-template-columns: 3.25rem minmax(0, 1fr); /* Reserva uma coluna compacta para a placa do ícone. */
+                    gap: 0.75rem; /* Reduz a distância entre a placa e o título. */
+                    min-height: 3.25rem; /* Mantém o cabeçalho ajustado ao ícone compacto. */
+                    padding-left: 0; /* Alinha a placa à margem do formulário. */
+                    & .fundo-icone { /* Ajusta as placas dos ícones das seções no celular. */
+                        width: 3.25rem; /* Mantém o fundo do ícone dentro da coluna compacta. */
+                        height: 3.25rem; /* Usa uma placa quadrada no celular. */
+                        border-radius: 1rem; /* Preserva os cantos arredondados da placa. */
+                        & .icone { /* Ajusta os ícones das seções à placa compacta. */
+                            width: 2rem; /* Mantém os ícones proporcionais no celular. */
+                            height: 2rem; /* Preserva os desenhos quadrados dos ícones. */
+                        } /* Encerra os ícones das seções no celular. */
+                    } /* Encerra as placas compactas dos ícones. */
+                    & h2 { /* Ajusta os títulos de seção nas telas estreitas. */
+                        font-size: 1.25rem; /* Mantém a hierarquia sem comprimir os textos. */
+                    } /* Encerra os títulos de seção no celular. */
+                    & p { /* Ajusta as descrições das seções no celular. */
+                        font-size: 0.875rem; /* Mantém os textos de apoio legíveis. */
+                        line-height: 1.35; /* Facilita a leitura quando houver quebra de linha. */
+                    } /* Encerra os textos de apoio no celular. */
+                } /* Encerra os cabeçalhos das seções no celular. */
+                & .campos-secao { /* Retira o recuo usado no computador. */
+                    width: 100%; /* Permite que os campos ocupem toda a largura disponível. */
+                    margin-left: 0; /* Alinha os controles às margens do formulário. */
+                    margin-top: 0.75rem; /* Separa os controles do cabeçalho de cada seção. */
+                } /* Encerra o conjunto de campos no celular. */
+                & .campo { /* Coloca cada entrada abaixo de seu rótulo. */
+                    grid-template-columns: minmax(0, 1fr); /* Apresenta apenas uma coluna de conteúdo. */
+                    gap: 0.375rem; /* Separa o rótulo do controle correspondente. */
+                    min-height: 0; /* Permite que a altura acompanhe o texto do rótulo. */
+                    padding-block: 0.375rem; /* Separa verticalmente as linhas de campos. */
+                    & .rotulo-campo { /* Compacta o alinhamento do ícone com o rótulo. */
+                        grid-template-columns: 1.5rem minmax(0, 1fr); /* Reserva espaço para um ícone compacto. */
+                        gap: 0.5rem; /* Aproxima o ícone do nome do campo. */
+                        font-size: 0.875rem; /* Mantém os rótulos legíveis nas telas estreitas. */
+                    } /* Encerra os rótulos compactos dos campos. */
+                    & .icone { /* Ajusta os ícones das linhas de campo no celular. */
+                        width: 1.5rem; /* Mantém a largura original dos ícones compactos. */
+                        height: 1.5rem; /* Mantém a altura original dos ícones compactos. */
+                    } /* Encerra os ícones compactos dos campos. */
+                    & .controle { /* Ajusta as entradas para leitura e toque no celular. */
+                        height: 2.75rem; /* Mantém uma área confortável de toque em cada controle. */
+                        padding-inline: 0.875rem; /* Mantém espaço entre o valor e a borda do campo. */
+                        border-radius: 1.375rem; /* Preserva o formato arredondado das entradas. */
+                        font-size: 1rem; /* Evita texto pequeno nos controles e ampliação automática em celulares. */
+                    } /* Encerra as entradas compactas do formulário. */
+                    & .controle-selecao, &.campo-data .controle { /* Ajusta os ícones das entradas que possuem acionamento à direita. */
+                        padding-right: 2.75rem; /* Reserva espaço para os ícones dos controles. */
+                        background-size: 1.25rem; /* Mantém as setas e o calendário proporcionais no celular. */
+                        background-position: right 0.875rem center; /* Afasta os ícones da borda direita. */
+                    } /* Encerra os ícones das entradas no celular. */
+                    & .opcao-whatsapp { /* Ajusta a preferência de telefone nas telas estreitas. */
+                        gap: 0.75rem; /* Aproxima o texto do interruptor sem reduzir a área de toque. */
+                        min-height: 2.75rem; /* Preserva uma linha confortável para selecionar a preferência. */
+                        font-size: 0.875rem; /* Mantém a explicação legível junto ao controle. */
+                    } /* Encerra a preferência de WhatsApp no celular. */
+                } /* Encerra a organização dos campos no celular. */
+                & .regioes { /* Ajusta o grupo de regiões à largura do celular. */
+                    gap: 0.375rem; /* Mantém uma pequena separação entre as etiquetas. */
+                    min-height: 2.75rem; /* Mantém a área de escolha confortável para toque. */
+                    padding: 0.375rem 0.5rem; /* Preserva as etiquetas dentro da borda do campo. */
+                    border-radius: 1.375rem; /* Mantém o conjunto de regiões arredondado. */
+                    & .regiao > span { /* Compacta o texto de cada etiqueta no celular. */
+                        gap: 0.375rem; /* Mantém espaço entre o nome e o símbolo de remoção. */
+                        padding: 0.25rem 0.5rem; /* Mantém a área de seleção legível sem ocupar largura excessiva. */
+                        font-size: 0.75rem; /* Permite apresentar as três regiões nas telas menores. */
+                        & .remover-regiao { /* Ajusta o símbolo de remoção ao nome compacto. */
+                            width: 0.75rem; /* Preserva o tamanho original do símbolo de remoção. */
+                            height: 0.75rem; /* Mantém o símbolo quadrado. */
+                        } /* Encerra o símbolo de remoção no celular. */
+                    } /* Encerra as etiquetas compactas de região. */
+                } /* Encerra o grupo de regiões no celular. */
+                & .preferencia { /* Ajusta a linha de cada preferência no celular. */
+                    grid-template-columns: 1.5rem minmax(0, 1fr) 3.125rem; /* Mantém espaços fixos para o ícone e o interruptor. */
+                    gap: 0.5rem; /* Preserva o espaço de leitura do nome da preferência. */
+                    min-height: 3.25rem; /* Aumenta a área de toque e permite nomes com duas linhas. */
+                    font-size: 0.875rem; /* Mantém as preferências legíveis sem apertar os controles. */
+                    & .icone { /* Ajusta os ícones das preferências no celular. */
+                        width: 1.5rem; /* Define a largura compacta dos ícones. */
+                        height: 1.5rem; /* Define a altura compacta dos ícones. */
+                    } /* Encerra os ícones das preferências no celular. */
+                } /* Encerra as preferências no celular. */
+                & .interruptor { /* Ajusta os interruptores para as linhas compactas. */
+                    width: 3.125rem; /* Mantém os cinquenta pixels do controle compacto. */
+                    height: 1.5625rem; /* Mantém os vinte e cinco pixels de altura do controle. */
+                    & .trilho::before { /* Ajusta a bolinha do interruptor compacto. */
+                        top: 0.1875rem; /* Afasta a bolinha da borda superior. */
+                        left: 0.1875rem; /* Mantém a posição inicial da bolinha desligada. */
+                        width: 1.1875rem; /* Mantém a bolinha proporcional à altura do trilho. */
+                        height: 1.1875rem; /* Mantém a bolinha circular. */
+                    } /* Encerra a bolinha do interruptor compacto. */
+                    & input:checked + .trilho::before { /* Ajusta a posição ligada no interruptor compacto. */
+                        transform: translateX(1.5625rem); /* Move a bolinha até a posição direita do trilho. */
+                    } /* Encerra a posição ligada do interruptor compacto. */
+                } /* Encerra os interruptores no celular. */
+                & .acao-seguranca { /* Ajusta as ações de segurança às telas estreitas. */
+                    grid-template-columns: 1.5rem minmax(0, 1fr) 1.25rem; /* Reserva espaços compactos para o ícone inicial e a seta. */
+                    gap: 0.5rem; /* Mantém o nome da ação próximo de seu ícone. */
+                    min-height: 3.25rem; /* Preserva uma área confortável para ativar cada ação. */
+                    font-size: 0.875rem; /* Mantém os nomes das ações legíveis no celular. */
+                    & .icone { /* Ajusta os ícones das ações compactas. */
+                        width: 1.5rem; /* Mantém os ícones proporcionais aos nomes das ações. */
+                        height: 1.5rem; /* Preserva os desenhos quadrados dos ícones. */
+                    } /* Encerra os ícones das ações compactas. */
+                    & .seta-acao { /* Ajusta a seta à coluna final de cada ação. */
+                        width: 1.25rem; /* Mantém a seta dentro da coluna compacta. */
+                        height: 1.25rem; /* Preserva a proporção da seta no celular. */
+                    } /* Encerra as setas das ações compactas. */
+                } /* Encerra as ações de segurança no celular. */
+                & .acoes-formulario { /* Ajusta o botão principal à largura útil do celular. */
+                    margin: 1.5rem 0 0; /* Mantém o botão alinhado aos campos e separado da seção anterior. */
+                    & .botao-salvar { /* Ajusta a ação principal para toque e leitura. */
+                        gap: 0.5rem; /* Aproxima o símbolo de confirmação do texto. */
+                        min-height: 3rem; /* Mantém uma área confortável de toque no botão principal. */
+                        padding: 0.5rem 1rem; /* Evita que o texto toque as extremidades do botão. */
+                        font-size: 1.125rem; /* Mantém a ação destacada sem ultrapassar a tela. */
+                        & .icone { /* Ajusta o símbolo de confirmação no celular. */
+                            width: 1.5rem; /* Define a largura do símbolo compacto. */
+                            height: 1.5rem; /* Mantém o símbolo proporcional. */
+                        } /* Encerra o símbolo de confirmação no celular. */
+                    } /* Encerra o botão principal no celular. */
+                } /* Encerra as ações finais no celular. */
+            } /* Encerra o formulário em uma coluna. */
+        } /* Encerra o conteúdo principal no celular. */
+        & .ondas-rodape { /* Ajusta as ondas finais para o desenho compacto. */
+            height: 3rem; /* Reduz a faixa decorativa inferior no celular. */
+            background-size: 200% auto; /* Mantém o recorte da metade direita da arte no celular. */
+            background-position: right bottom -3.5rem; /* Mantém somente a parte suave da onda na faixa inferior. */
+        } /* Encerra as ondas decorativas no celular. */
+    } /* Encerra a composição compacta da página Minha conta. */
+} /* Encerra a adaptação para tablets pequenos e celulares. */

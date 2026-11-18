@@ -1,0 +1,296 @@
+<!doctype html> <!-- Informa ao navegador que este documento usa HTML5. -->
+<html lang="pt-BR"> <!-- Define o português brasileiro para a leitura e os controles da página. -->
+<head> <!-- Agrupa as informações de configuração do documento. -->
+    <meta charset="UTF-8"> <!-- Permite apresentar acentos e outros caracteres do português. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Adapta a página à largura do dispositivo sem bloquear a ampliação. -->
+    <meta name="description" content="Atualize seus dados, contatos e preferências no Conexão Segura."> <!-- Descreve a finalidade da página de configurações. -->
+    <title>Minha conta </title> <!-- Identifica a página e o projeto na aba do navegador. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Prepara a conexão com o serviço de estilos da fonte. -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Prepara a conexão que entrega os arquivos da fonte. -->
+    <link rel="shortcut icon" href="../assets/Favicon.png" type="image/x-icon"> <!-- Define o ícone da página na aba do navegador. -->
+    <link rel="icon" href="../assets/Elementos/logo.svg" type="image/svg+xml"> <!-- Define o ícone exibido na aba do navegador. -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"> <!-- Carrega os pesos de Inter usados no novo design e mantém o texto visível durante o carregamento. -->
+    <link rel="stylesheet" href="../css/minha-conta.css"> <!-- Carrega os estilos exclusivos desta página. -->
+</head> <!-- Encerra a configuração do documento. -->
+<body> <!-- Inicia o conteúdo visível da página. -->
+    <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a> <!-- Oferece um atalho de teclado direto ao formulário. -->
+    <div class="conta-layout"> <!-- Limita a composição à largura do quadro do Figma. -->
+        <header class="cabecalho-perfil" aria-label="Resumo do perfil"> <!-- Apresenta a marca e o resumo do usuário sobre o banner azul. -->
+            <picture class="fundo-cabecalho" aria-hidden="true"> <!-- Agrupa as versões decorativas do banner para cada tamanho de tela. -->
+                <source media="(max-width: 47.99rem)" srcset="../assets/configuracoes_de_usuario/banners/banner-mobile.png"> <!-- Usa o banner vertical fornecido para celulares. -->
+                <img src="../assets/configuracoes_de_usuario/banners/banner-desktop.png" width="3200" height="860" alt="" fetchpriority="high"> <!-- Reaproveita o banner original com ondas e a paisagem de São Paulo. -->
+            </picture> <!-- Encerra as imagens decorativas do cabeçalho. -->
+            <a class="marca" href="../index.html" aria-label="Conexão Segura, voltar ao início"> <!-- Permite retornar à página inicial pela marca oficial. -->
+                <img src="../assets/Elementos/logo.svg" width="124" height="67" alt="Conexão Segura"> <!-- Usa a mesma logo oficial já presente no projeto. -->
+            </a> <!-- Encerra o acesso à página inicial. -->
+            <p class="saudacao">Olá, <strong>Usuário</strong></p> <!-- Apresenta uma identificação genérica até o perfil ser integrado. -->
+            <p class="mensagem-perfil">Mantenha seus dados atualizados<br>para uma experiência mais segura<br>e personalizada.</p> <!-- Reproduz a mensagem de apresentação do novo design. -->
+            <div class="resumo-perfil"> <!-- Organiza o avatar e a cidade do usuário. -->
+                <div class="avatar"> <!-- Define a moldura circular do perfil. -->
+                    <img class="moldura-avatar" src="../assets/configuracoes_de_usuario/extras/avatar-moldura.png" width="380" height="380" alt=""> <!-- Usa a moldura original como imagem decorativa do avatar. -->
+                    <span class="iniciais-avatar" aria-label="Inicial do usuário">U</span> <!-- Representa um perfil genérico enquanto não há dados ou foto cadastrados. -->
+                    <button class="botao-foto" type="button" aria-label="Alterar foto do perfil"> <!-- Reserva a ação de foto para a integração posterior, sem executar JavaScript. -->
+                        <img class="icone" src="../assets/configuracoes_de_usuario/icones/svg/camera.svg" width="24" height="24" alt="" aria-hidden="true"> <!-- Apresenta o ícone de câmera fornecido para o perfil. -->
+                    </button> <!-- Encerra o botão de alteração de foto. -->
+                </div> <!-- Encerra a composição do avatar. -->
+                <p class="cidade-perfil"> <!-- Identifica a cidade apresentada no resumo do perfil. -->
+                    <img class="icone" src="../assets/configuracoes_de_usuario/icones/svg/localizacao.svg" width="24" height="24" alt="" aria-hidden="true"> <!-- Acrescenta o marcador decorativo de localização. -->
+                    <span>Sua cidade – UF</span> <!-- Reserva a localização para os dados do usuário. -->
+                </p> <!-- Encerra a identificação da cidade. -->
+            </div> <!-- Encerra o resumo visual do usuário. -->
+        </header> <!-- Encerra o cabeçalho do perfil. -->
+        <main class="conteudo" id="conteudo" tabindex="-1"> <!-- Identifica o conteúdo principal e permite receber o foco do atalho inicial. -->
+            <div class="introducao"> <!-- Apresenta o título e a orientação geral do formulário. -->
+                <h1>Editar <span>perfil</span></h1> <!-- Destaca a palavra perfil em azul, conforme o Figma. -->
+                <p id="descricao-formulario">Atualize suas informações de cadastro, contato e preferências.</p> <!-- Explica o objetivo dos campos apresentados a seguir. -->
+            </div> <!-- Encerra a apresentação do formulário. -->
+            <form class="formulario-conta" aria-label="Editar perfil" aria-describedby="descricao-formulario"> <!-- Agrupa os controles nativos sem definir envio ou armazenamento de dados. -->
+                <section class="secao secao-dados" id="dados-pessoais" aria-labelledby="titulo-dados-pessoais"> <!-- Inicia a seção dados pessoais. -->
+                    <div class="cabecalho-secao"> <!-- Posiciona o ícone ao lado do título e da descrição da seção. -->
+                        <span class="fundo-icone" aria-hidden="true"><img class="icone" src="../assets/configuracoes_de_usuario/icones/svg/usuario.svg" width="24" height="24" alt="" aria-hidden="true"></span> <!-- Apresenta o ícone decorativo da seção dados pessoais. -->
+                        <div class="texto-secao"> <!-- Agrupa o título e a explicação da seção. -->
+                            <h2 id="titulo-dados-pessoais">Dados pessoais</h2> <!-- Identifica esta seção para navegação e leitura acessível. -->
+                            <p>Suas informações de identificação.</p> <!-- Orienta o preenchimento das informações desta seção. -->
+                        </div> <!-- Encerra os textos do cabeçalho da seção. -->
+                    </div> <!-- Encerra a apresentação da seção. -->
+                    <div class="campos-secao"> <!-- Alinha os rótulos e controles nas duas colunas do formulário. -->
+                        <div class="campo"> <!-- Organiza o campo nome completo. -->
+                            <label class="rotulo-campo" for="nome-completo"> <!-- Associa o rótulo ao controle para ampliar a área de clique e facilitar a leitura. -->
+                                <img class="icone" src="../assets/configuracoes_de_usuario/icones/svg/usuario.svg" width="24" height="24" alt="" aria-hidden="true"> <!-- Apresenta o ícone decorativo correspondente ao campo. -->
+                                <span>Nome completo <span class="obrigatorio" aria-hidden="true">*</span></span> <!-- Exibe o nome do campo e o asterisco visual de preenchimento obrigatório. -->
+                            </label> <!-- Encerra o rótulo do campo. -->
+                            <input class="controle" id="nome-completo" name="nome-completo" type="text" placeholder="Nome do usuário" autocomplete="name" maxlength="120" required> <!-- Mantém a entrada nativa, com identificação própria e preenchimento acessível. -->
+                        </div> <!-- Encerra a organização do campo. -->
+                        <div class="campo campo-data"> <!-- Organiza o campo data de nascimento. -->
+                            <label class="rotulo-campo" for="data-nascimento"> <!-- Associa o rótulo ao controle para ampliar a área de clique e facilitar a leitura. -->
+                                <img class="icone" src="../assets/configuracoes_de_usuario/icones/svg/calendario.svg" width="24" height="24" alt="" aria-hidden="true"> <!-- Apresenta o ícone decorativo correspondente ao campo. -->
+                                <span>Data de nascimento</span> <!-- Exibe o nome do campo e indica quando seu preenchimento é opcional. -->
+                            </label> <!-- Encerra o rótulo do campo. -->
+                            <input class="controle" id="data-nascimento" name="data-nascimento" type="date" autocomplete="bday"> <!-- Mantém a entrada nativa, com identificação própria e preenchimento acessível. -->
+                        </div> <!-- Encerra a organização do campo. -->
+                        <div class="campo"> <!-- Organiza a seleção de gênero. -->
+                            <label class="rotulo-campo" for="genero"> <!-- Associa o rótulo ao controle para ampliar a área de clique e facilitar a leitura. -->
+                                <img class="icone" src="../assets/configuracoes_de_usuario/icones/svg/genero.svg" width="24" height="24" alt="" aria-hidden="true"> <!-- Apresenta o ícone decorativo correspondente ao campo. -->
+                                <span>Gênero</span> <!-- Exibe o nome do campo e indica quando seu preenchimento é opcional. -->
+                            </label> <!-- Encerra o rótulo do campo. -->
+                            <select class="controle controle-selecao" id="genero" name="genero"> <!-- Mantém a seleção disponível pelo teclado e pelo controle nativo do navegador. -->
+                                <option value="" selected>Selecione</option> <!-- Mantém o gênero sem preenchimento até o usuário escolher uma alternativa. -->
+                                <option value="masculino">Masculino</option> <!-- Oferece uma alternativa de preenchimento. -->
+                                <option value="feminino">Feminino</option> <!-- Oferece uma alternativa de preenchimento. -->
+                                <option value="nao-binario">Não binário</option> <!-- Oferece uma alternativa de preenchimento. -->
+                                <option value="outro">Outro</option> <!-- Oferece uma alternativa de preenchimento. -->
+                                <option value="nao-informar">Prefiro não informar</option> <!-- Oferece uma alternativa de preenchimento. -->
+                            </select> <!-- Encerra a lista de alternativas do campo. -->
+                        </div> <!-- Encerra o campo de seleção. -->
+                        <div class="campo"> <!-- Organiza o campo documento. -->
+                            <label class="rotulo-campo" for="documento"> <!-- Associa o rótulo ao controle para ampliar a área de clique e facilitar a leitura. -->
+                                <img class="icone" src="../assets/configuracoes_de_usuario/icones/svg/documento.svg" width="24" height="24" alt="" aria-hidden="true"> <!-- Apresenta o ícone decorativo correspondente ao campo. -->
+                                <span>Documento <span class="opcional">(opcional)</span></span> <!-- Exibe o nome do campo e indica quando seu preenchimento é opcional. -->
+                            </label> <!-- Encerra o rótulo do campo. -->
+                            <input class="controle" id="documento" name="documento" type="text" placeholder="CPF ou RG" maxlength="30"> <!-- Mantém a entrada nativa, com identificação própria e preenchimento acessível. -->
+                        </div> <!-- Encerra a organização do campo. -->
+                    </div> <!-- Encerra o conjunto de controles da seção. -->
+                </section> <!-- Encerra a seção do formulário. -->
+                <section class="secao secao-contato" id="contato" aria-labelledby="titulo-contato"> <!-- Inicia a seção contato. -->
+                    <div class="cabecalho-secao"> <!-- Posiciona o ícone ao lado do título e da descrição da seção. -->
+                        <span class="fundo-icone" aria-hidden="true"><img class="icone" src="../assets/configuracoes_de_usuario/icones/svg/email.svg" width="24" height="24" alt="" aria-hidden="true"></span> <!-- Apresenta o ícone decorativo da seção contato. -->
+                        <div class="texto-secao"> <!-- Agrupa o título e a explicação da seção. -->
+                            <h2 id="titulo-contato">Contato</h2> <!-- Identifica esta seção para navegação e leitura acessível. -->
+                            <p>Canais para receber avisos e atualizações.</p> <!-- Orienta o preenchimento das informações desta seção. -->
+                        </div> <!-- Encerra os textos do cabeçalho da seção. -->
+                    </div> <!-- Encerra a apresentação da seção. -->
+                    <div class="campos-secao"> <!-- Alinha os rótulos e controles nas duas colunas do formulário. -->
+                        <div class="campo"> <!-- Organiza o campo e-mail. -->
+                            <label class="rotulo-campo" for="email"> <!-- Associa o rótulo ao controle para ampliar a área de clique e facilitar a leitura. -->
+                                <img class="icone" src="../assets/configuracoes_de_usuario/icones/svg/email.svg" width="24" height="24" alt="" aria-hidden="true"> <!-- Apresenta o ícone decorativo correspondente ao campo. -->
+                                <span>E-mail <span class="obrigatorio" aria-hidden="true">*</span></span> <!-- Exibe o nome do campo e o asterisco visual de preenchimento obrigatório. -->
+                            </label> <!-- Encerra o rótulo do campo. -->
+                            <input class="controle" id="email" name="email" type="email" placeholder="usuario@exemplo.com" autocomplete="email" maxlength="254" required> <!-- Mantém a entrada nativa, com identificação própria e preenchimento acessível. -->
+                        </div> <!-- Encerra a organização do campo. -->
+                        <div class="campo"> <!-- Organiza o campo telefone. -->
+                            <label class="rotulo-campo" for="telefone"> <!-- Associa o rótulo ao controle para ampliar a área de clique e facilitar a leitura. -->
+                                <img class="icone" src="../assets/configuracoes_de_usuario/icones/svg/telefone.svg" width="24" height="24" alt="" aria-hidden="true"> <!-- Apresenta o ícone decorativo correspondente ao campo. -->
+                                <span>Telefone <span class="obrigatorio" aria-hidden="true">*</span></span> <!-- Exibe o nome do campo e o asterisco visual de preenchimento obrigatório. -->
+                            </label> <!-- Encerra o rótulo do campo. -->
+                            <input class="controle" id="telefone" name="telefone" type="tel" placeholder="(00) 00000-0000" autocomplete="tel" inputmode="tel" maxlength="20" required> <!-- Mantém a entrada nativa, com identificação própria e preenchimento acessível. -->
+                        </div> <!-- Encerra a organização do campo. -->
+                        <div class="campo campo-whatsapp"> <!-- Organiza a preferência de contato por WhatsApp. -->
+                            <div class="rotulo-campo"> <!-- Mantém o nome do canal alinhado aos demais rótulos. -->
+                                <img class="icone" src="../assets/configuracoes_de_usuario/icones/svg/whatsapp.svg" width="24" height="24" alt="" aria-hidden="true"> <!-- Apresenta o ícone original do WhatsApp. -->
+                                <span>WhatsApp <span class="opcional">(opcional)</span></span> <!-- Identifica o canal de contato como opcional. -->
+                            </div> <!-- Encerra a identificação do canal. -->
+                            <label class="opcao-whatsapp" for="whatsapp-mesmo-numero"> <!-- Associa a descrição à preferência de reutilizar o telefone. -->
+                                <span class="interruptor"> <!-- Reserva a área visual e a área de toque do interruptor. -->
+                                    <input id="whatsapp-mesmo-numero" name="whatsapp-mesmo-numero" type="checkbox" role="switch" checked> <!-- Representa a preferência inicial sem copiar ou salvar números automaticamente. -->
+                                    <span class="trilho" aria-hidden="true"></span> <!-- Desenha o estado do interruptor com CSS, sem duplicar sua leitura acessível. -->
+                                </span> <!-- Encerra a área do interruptor. -->
+                                <span>Usar o mesmo número do telefone</span> <!-- Explica a preferência selecionada para o WhatsApp. -->
+                            </label> <!-- Encerra a preferência de telefone do WhatsApp. -->
+                        </div> <!-- Encerra a linha da preferência do WhatsApp. -->
+                        <div class="campo numero-whatsapp"> <!-- Organiza o campo número do whatsapp. -->
+                            <label class="rotulo-campo" for="whatsapp"> <!-- Associa o rótulo ao controle para ampliar a área de clique e facilitar a leitura. -->
+                                <img class="icone" src="../assets/configuracoes_de_usuario/icones/svg/whatsapp.svg" width="24" height="24" alt="" aria-hidden="true"> <!-- Apresenta o ícone decorativo correspondente ao campo. -->
+                                <span>Número do WhatsApp <span class="opcional">(opcional)</span></span> <!-- Exibe o nome do campo e indica quando seu preenchimento é opcional. -->
+                            </label> <!-- Encerra o rótulo do campo. -->
+                            <input class="controle" id="whatsapp" name="whatsapp" type="tel" placeholder="(00) 00000-0000" inputmode="tel" maxlength="20"> <!-- Mantém a entrada nativa, com identificação própria e preenchimento acessível. -->
+                        </div> <!-- Encerra a organização do campo. -->
+                    </div> <!-- Encerra o conjunto de controles da seção. -->
+                </section> <!-- Encerra a seção do formulário. -->
+                <section class="secao secao-localizacao" id="localizacao" aria-labelledby="titulo-localizacao"> <!-- Inicia a seção localização. -->
+                    <div class="cabecalho-secao"> <!-- Posiciona o ícone ao lado do título e da descrição da seção. -->
+                        <span class="fundo-icone" aria-hidden="true"><img class="icone" src="../assets/configuracoes_de_usuario/icones/svg/localizacao.svg" width="24" height="24" alt="" aria-hidden="true"></span> <!-- Apresenta o ícone decorativo da seção localização. -->
+                        <div class="texto-secao"> <!-- Agrupa o título e a explicação da seção. -->
+                            <h2 id="titulo-localizacao">Localização</h2> <!-- Identifica esta seção para navegação e leitura acessível. -->
+                            <p>Sua região ajuda a receber informações mais relevantes.</p> <!-- Orienta o preenchimento das informações desta seção. -->
+                        </div> <!-- Encerra os textos do cabeçalho da seção. -->
+                    </div> <!-- Encerra a apresentação da seção. -->
+                    <div class="campos-secao"> <!-- Alinha os rótulos e controles nas duas colunas do formulário. -->
+                        <div class="campo"> <!-- Organiza o campo cidade. -->
+                            <label class="rotulo-campo" for="cidade"> <!-- Associa o rótulo ao controle para ampliar a área de clique e facilitar a leitura. -->
+                                <img class="icone" src="../assets/configuracoes_de_usuario/icones/svg/cidade.svg" width="24" height="24" alt="" aria-hidden="true"> <!-- Apresenta o ícone decorativo correspondente ao campo. -->
+                                <span>Cidade <span class="obrigatorio" aria-hidden="true">*</span></span> <!-- Exibe o nome do campo e o asterisco visual de preenchimento obrigatório. -->
+                            </label> <!-- Encerra o rótulo do campo. -->
+                            <input class="controle" id="cidade" name="cidade" type="text" placeholder="Sua cidade" autocomplete="address-level2" maxlength="80" required> <!-- Mantém a entrada nativa, com identificação própria e preenchimento acessível. -->
+                        </div> <!-- Encerra a organização do campo. -->
+                        <div class="campo"> <!-- Organiza o campo bairro. -->
+                            <label class="rotulo-campo" for="bairro"> <!-- Associa o rótulo ao controle para ampliar a área de clique e facilitar a leitura. -->
+                                <img class="icone" src="../assets/configuracoes_de_usuario/icones/svg/bairro.svg" width="24" height="24" alt="" aria-hidden="true"> <!-- Apresenta o ícone decorativo correspondente ao campo. -->
+                                <span>Bairro <span class="obrigatorio" aria-hidden="true">*</span></span> <!-- Exibe o nome do campo e o asterisco visual de preenchimento obrigatório. -->
+                            </label> <!-- Encerra o rótulo do campo. -->
+                            <input class="controle" id="bairro" name="bairro" type="text" placeholder="Seu bairro" autocomplete="address-level3" maxlength="80" required> <!-- Mantém a entrada nativa, com identificação própria e preenchimento acessível. -->
+                        </div> <!-- Encerra a organização do campo. -->
+                        <div class="campo campo-regioes"> <!-- Agrupa as regiões de interesse em um conjunto de escolhas independentes. -->
+                            <div class="rotulo-campo" id="rotulo-regioes"> <!-- Identifica o conjunto de regiões sem associar um rótulo a vários campos. -->
+                                <img class="icone" src="../assets/configuracoes_de_usuario/icones/svg/localizacao.svg" width="24" height="24" alt="" aria-hidden="true"> <!-- Apresenta o marcador decorativo das regiões de interesse. -->
+                                <span>Região de interesse <span class="opcional">(opcional)</span></span> <!-- Informa que a seleção de regiões não é obrigatória. -->
+                            </div> <!-- Encerra a identificação do conjunto de regiões. -->
+                            <fieldset class="regioes" aria-labelledby="rotulo-regioes"> <!-- Permite alterar as regiões com caixas de seleção nativas, sem JavaScript. -->
+                                <label class="regiao"> <!-- Torna toda a etiqueta uma área de seleção da região. -->
+                                    <input type="checkbox" name="regioes" value="regiao-1"> <!-- Reserva uma opção genérica de região para a integração posterior. -->
+                                    <span>Região 1<span class="remover-regiao" aria-hidden="true">×</span></span> <!-- Exibe a etiqueta e o símbolo decorativo de remoção da seleção. -->
+                                </label> <!-- Encerra a etiqueta da região. -->
+                                <label class="regiao"> <!-- Torna toda a etiqueta uma área de seleção da região. -->
+                                    <input type="checkbox" name="regioes" value="regiao-2"> <!-- Reserva uma segunda opção genérica de região. -->
+                                    <span>Região 2<span class="remover-regiao" aria-hidden="true">×</span></span> <!-- Exibe a etiqueta e o símbolo decorativo de remoção da seleção. -->
+                                </label> <!-- Encerra a etiqueta da região. -->
+                                <label class="regiao"> <!-- Torna toda a etiqueta uma área de seleção da região. -->
+                                    <input type="checkbox" name="regioes" value="regiao-3"> <!-- Reserva uma terceira opção genérica de região. -->
+                                    <span>Região 3<span class="remover-regiao" aria-hidden="true">×</span></span> <!-- Exibe a etiqueta e o símbolo decorativo de remoção da seleção. -->
+                                </label> <!-- Encerra a etiqueta da região. -->
+                            </fieldset> <!-- Encerra o grupo de regiões de interesse. -->
+                        </div> <!-- Encerra o campo de regiões. -->
+                    </div> <!-- Encerra o conjunto de controles da seção. -->
+                </section> <!-- Encerra a seção do formulário. -->
+                <section class="secao secao-apoio" id="rede-apoio" aria-labelledby="titulo-rede-apoio"> <!-- Inicia a seção rede de apoio. -->
+                    <div class="cabecalho-secao"> <!-- Posiciona o ícone ao lado do título e da descrição da seção. -->
+                        <span class="fundo-icone" aria-hidden="true"><img class="icone" src="../assets/configuracoes_de_usuario/icones/svg/rede-de-apoio.svg" width="24" height="24" alt="" aria-hidden="true"></span> <!-- Apresenta o ícone decorativo da seção rede de apoio. -->
+                        <div class="texto-secao"> <!-- Agrupa o título e a explicação da seção. -->
+                            <h2 id="titulo-rede-apoio">Rede de apoio</h2> <!-- Identifica esta seção para navegação e leitura acessível. -->
+                            <p>Contatos de confiança para situações de alerta.</p> <!-- Orienta o preenchimento das informações desta seção. -->
+                        </div> <!-- Encerra os textos do cabeçalho da seção. -->
+                    </div> <!-- Encerra a apresentação da seção. -->
+                    <div class="campos-secao"> <!-- Alinha os rótulos e controles nas duas colunas do formulário. -->
+                        <div class="campo"> <!-- Organiza o campo contato de apoio. -->
+                            <label class="rotulo-campo" for="contato-apoio"> <!-- Associa o rótulo ao controle para ampliar a área de clique e facilitar a leitura. -->
+                                <img class="icone" src="../assets/configuracoes_de_usuario/icones/svg/contato-apoio.svg" width="24" height="24" alt="" aria-hidden="true"> <!-- Apresenta o ícone decorativo correspondente ao campo. -->
+                                <span>Contato de apoio</span> <!-- Exibe o nome do campo e indica quando seu preenchimento é opcional. -->
+                            </label> <!-- Encerra o rótulo do campo. -->
+                            <input class="controle" id="contato-apoio" name="contato-apoio" type="text" placeholder="Nome do contato" maxlength="120"> <!-- Mantém a entrada nativa, com identificação própria e preenchimento acessível. -->
+                        </div> <!-- Encerra a organização do campo. -->
+                        <div class="campo"> <!-- Organiza o campo telefone de apoio. -->
+                            <label class="rotulo-campo" for="telefone-apoio"> <!-- Associa o rótulo ao controle para ampliar a área de clique e facilitar a leitura. -->
+                                <img class="icone" src="../assets/configuracoes_de_usuario/icones/svg/telefone.svg" width="24" height="24" alt="" aria-hidden="true"> <!-- Apresenta o ícone decorativo correspondente ao campo. -->
+                                <span>Telefone de apoio</span> <!-- Exibe o nome do campo e indica quando seu preenchimento é opcional. -->
+                            </label> <!-- Encerra o rótulo do campo. -->
+                            <input class="controle" id="telefone-apoio" name="telefone-apoio" type="tel" placeholder="(00) 00000-0000" inputmode="tel" maxlength="20"> <!-- Mantém a entrada nativa, com identificação própria e preenchimento acessível. -->
+                        </div> <!-- Encerra a organização do campo. -->
+                        <div class="campo"> <!-- Organiza a seleção de relação/parentesco. -->
+                            <label class="rotulo-campo" for="relacao-apoio"> <!-- Associa o rótulo ao controle para ampliar a área de clique e facilitar a leitura. -->
+                                <img class="icone" src="../assets/configuracoes_de_usuario/icones/svg/relacao.svg" width="24" height="24" alt="" aria-hidden="true"> <!-- Apresenta o ícone decorativo correspondente ao campo. -->
+                                <span>Relação/parentesco</span> <!-- Exibe o nome do campo e indica quando seu preenchimento é opcional. -->
+                            </label> <!-- Encerra o rótulo do campo. -->
+                            <select class="controle controle-selecao" id="relacao-apoio" name="relacao-apoio"> <!-- Mantém a seleção disponível pelo teclado e pelo controle nativo do navegador. -->
+                                <option value="" selected>Ex.: familiar, amigo(a), vizinho(a)</option> <!-- Define a alternativa inicial apresentada no design. -->
+                                <option value="familiar">Familiar</option> <!-- Oferece uma alternativa de preenchimento. -->
+                                <option value="amigo">Amigo(a)</option> <!-- Oferece uma alternativa de preenchimento. -->
+                                <option value="vizinho">Vizinho(a)</option> <!-- Oferece uma alternativa de preenchimento. -->
+                                <option value="outro">Outro</option> <!-- Oferece uma alternativa de preenchimento. -->
+                            </select> <!-- Encerra a lista de alternativas do campo. -->
+                        </div> <!-- Encerra o campo de seleção. -->
+                    </div> <!-- Encerra o conjunto de controles da seção. -->
+                </section> <!-- Encerra a seção do formulário. -->
+                <section class="secao secao-preferencias" id="preferencias" aria-labelledby="titulo-preferencias"> <!-- Inicia a seção preferências. -->
+                    <div class="cabecalho-secao"> <!-- Posiciona o ícone ao lado do título e da descrição da seção. -->
+                        <span class="fundo-icone" aria-hidden="true"><img class="icone" src="../assets/configuracoes_de_usuario/icones/svg/preferencias.svg" width="24" height="24" alt="" aria-hidden="true"></span> <!-- Apresenta o ícone decorativo da seção preferências. -->
+                        <div class="texto-secao"> <!-- Agrupa o título e a explicação da seção. -->
+                            <h2 id="titulo-preferencias">Preferências</h2> <!-- Identifica esta seção para navegação e leitura acessível. -->
+                            <p>Personalize como deseja receber as informações.</p> <!-- Orienta o preenchimento das informações desta seção. -->
+                        </div> <!-- Encerra os textos do cabeçalho da seção. -->
+                    </div> <!-- Encerra a apresentação da seção. -->
+                    <div class="campos-secao"> <!-- Alinha os rótulos e controles nas duas colunas do formulário. -->
+                        <label class="preferencia" for="alertas-regiao"> <!-- Associa toda a linha ao interruptor correspondente. -->
+                            <img class="icone" src="../assets/configuracoes_de_usuario/icones/svg/notificacoes.svg" width="24" height="24" alt="" aria-hidden="true"> <!-- Apresenta o ícone decorativo da preferência. -->
+                            <span class="nome-preferencia">Receber alertas da minha região</span> <!-- Descreve a preferência controlada pelo interruptor. -->
+                                <span class="interruptor"> <!-- Reserva a área visual e a área de toque do interruptor. -->
+                                    <input id="alertas-regiao" name="alertas-regiao" type="checkbox" role="switch" checked> <!-- Altera somente o estado visual da preferência, sem iniciar serviços ou pedir permissões. -->
+                                    <span class="trilho" aria-hidden="true"></span> <!-- Desenha o estado do interruptor com CSS, sem duplicar sua leitura acessível. -->
+                                </span> <!-- Encerra a área do interruptor. -->
+                        </label> <!-- Encerra a linha da preferência. -->
+                        <label class="preferencia" for="compartilhar-localizacao"> <!-- Associa toda a linha ao interruptor correspondente. -->
+                            <img class="icone" src="../assets/configuracoes_de_usuario/icones/svg/compartilhar-localizacao.svg" width="24" height="24" alt="" aria-hidden="true"> <!-- Apresenta o ícone decorativo da preferência. -->
+                            <span class="nome-preferencia">Compartilhar localização durante trajetos</span> <!-- Descreve a preferência controlada pelo interruptor. -->
+                                <span class="interruptor"> <!-- Reserva a área visual e a área de toque do interruptor. -->
+                                    <input id="compartilhar-localizacao" name="compartilhar-localizacao" type="checkbox" role="switch"> <!-- Altera somente o estado visual da preferência, sem iniciar serviços ou pedir permissões. -->
+                                    <span class="trilho" aria-hidden="true"></span> <!-- Desenha o estado do interruptor com CSS, sem duplicar sua leitura acessível. -->
+                                </span> <!-- Encerra a área do interruptor. -->
+                        </label> <!-- Encerra a linha da preferência. -->
+                        <label class="preferencia" for="notificacoes-comunidade"> <!-- Associa toda a linha ao interruptor correspondente. -->
+                            <img class="icone" src="../assets/configuracoes_de_usuario/icones/svg/comunidade.svg" width="24" height="24" alt="" aria-hidden="true"> <!-- Apresenta o ícone decorativo da preferência. -->
+                            <span class="nome-preferencia">Receber notificações da comunidade</span> <!-- Descreve a preferência controlada pelo interruptor. -->
+                                <span class="interruptor"> <!-- Reserva a área visual e a área de toque do interruptor. -->
+                                    <input id="notificacoes-comunidade" name="notificacoes-comunidade" type="checkbox" role="switch" checked> <!-- Altera somente o estado visual da preferência, sem iniciar serviços ou pedir permissões. -->
+                                    <span class="trilho" aria-hidden="true"></span> <!-- Desenha o estado do interruptor com CSS, sem duplicar sua leitura acessível. -->
+                                </span> <!-- Encerra a área do interruptor. -->
+                        </label> <!-- Encerra a linha da preferência. -->
+                    </div> <!-- Encerra o conjunto de controles da seção. -->
+                </section> <!-- Encerra a seção do formulário. -->
+                <section class="secao secao-seguranca" id="privacidade-seguranca" aria-labelledby="titulo-privacidade-seguranca"> <!-- Inicia a seção privacidade e segurança. -->
+                    <div class="cabecalho-secao"> <!-- Posiciona o ícone ao lado do título e da descrição da seção. -->
+                        <span class="fundo-icone" aria-hidden="true"><img class="icone" src="../assets/configuracoes_de_usuario/icones/svg/privacidade.svg" width="24" height="24" alt="" aria-hidden="true"></span> <!-- Apresenta o ícone decorativo da seção privacidade e segurança. -->
+                        <div class="texto-secao"> <!-- Agrupa o título e a explicação da seção. -->
+                            <h2 id="titulo-privacidade-seguranca">Privacidade e segurança</h2> <!-- Identifica esta seção para navegação e leitura acessível. -->
+                            <p>Gerencie o acesso e a segurança da sua conta.</p> <!-- Orienta o preenchimento das informações desta seção. -->
+                        </div> <!-- Encerra os textos do cabeçalho da seção. -->
+                    </div> <!-- Encerra a apresentação da seção. -->
+                    <div class="campos-secao"> <!-- Alinha os rótulos e controles nas duas colunas do formulário. -->
+                        <button class="acao-seguranca" type="button"> <!-- Reserva uma ação de segurança para integração posterior, sem executar alterações. -->
+                            <img class="icone" src="../assets/configuracoes_de_usuario/icones/svg/cadeado.svg" width="24" height="24" alt="" aria-hidden="true"> <!-- Apresenta o ícone original da ação de segurança. -->
+                            <span>Alterar senha</span> <!-- Identifica a ação de segurança disponível no design. -->
+                            <img class="icone seta-acao" src="../assets/configuracoes_de_usuario/icones/svg/seta-direita.svg" width="24" height="24" alt="" aria-hidden="true"> <!-- Acrescenta a seta decorativa de acesso aos detalhes. -->
+                        </button> <!-- Encerra a ação de segurança. -->
+                        <button class="acao-seguranca" type="button"> <!-- Reserva uma ação de segurança para integração posterior, sem executar alterações. -->
+                            <img class="icone" src="../assets/configuracoes_de_usuario/icones/svg/sessoes.svg" width="24" height="24" alt="" aria-hidden="true"> <!-- Apresenta o ícone original da ação de segurança. -->
+                            <span>Sessões ativas</span> <!-- Identifica a ação de segurança disponível no design. -->
+                            <img class="icone seta-acao" src="../assets/configuracoes_de_usuario/icones/svg/seta-direita.svg" width="24" height="24" alt="" aria-hidden="true"> <!-- Acrescenta a seta decorativa de acesso aos detalhes. -->
+                        </button> <!-- Encerra a ação de segurança. -->
+                        <button class="acao-seguranca" type="button"> <!-- Reserva uma ação de segurança para integração posterior, sem executar alterações. -->
+                            <img class="icone" src="../assets/configuracoes_de_usuario/icones/svg/localizacao.svg" width="24" height="24" alt="" aria-hidden="true"> <!-- Apresenta o ícone original da ação de segurança. -->
+                            <span>Permissões de localização</span> <!-- Identifica a ação de segurança disponível no design. -->
+                            <img class="icone seta-acao" src="../assets/configuracoes_de_usuario/icones/svg/seta-direita.svg" width="24" height="24" alt="" aria-hidden="true"> <!-- Acrescenta a seta decorativa de acesso aos detalhes. -->
+                        </button> <!-- Encerra a ação de segurança. -->
+                    </div> <!-- Encerra o conjunto de controles da seção. -->
+                </section> <!-- Encerra a seção do formulário. -->
+                <div class="acoes-formulario"> <!-- Destaca a ação principal com a largura e a posição do Figma. -->
+                    <button class="botao-salvar" type="button"> <!-- Reserva a ação de salvar sem enviar o formulário ou simular persistência. -->
+                        <img class="icone" src="../assets/configuracoes_de_usuario/icones/svg/salvar.svg" width="24" height="24" alt="" aria-hidden="true"> <!-- Apresenta o símbolo decorativo de confirmação. -->
+                        <span>Salvar alterações</span> <!-- Identifica a ação principal do formulário. -->
+                    </button> <!-- Encerra o botão de salvar alterações. -->
+                </div> <!-- Encerra a área de ações do formulário. -->
+            </form> <!-- Encerra o formulário com seus controles nativos. -->
+        </main> <!-- Encerra o conteúdo principal. -->
+        <div class="ondas-rodape" aria-hidden="true"></div> <!-- Reproduz as ondas decorativas finais do quadro do Figma. -->
+    </div> <!-- Encerra a composição da página Minha conta. -->
+
+    <script src="../js/minha-conta.js"></script>
+</body> 
+</html> <!-- Encerra o documento HTML. -->

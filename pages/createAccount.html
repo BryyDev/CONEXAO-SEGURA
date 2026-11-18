@@ -3,7 +3,7 @@
   <head> <!-- Inicia a seção de metadados e recursos da página. -->
     <meta charset="UTF-8" /> <!-- Define a codificação UTF-8 para exibir corretamente acentos e outros caracteres. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Ajusta a largura da área de visualização à do dispositivo e define a escala inicial como 1. -->
-    <link rel="shortcut icon" href="../assets/create-account-screen/logo.svg" type="image/x-icon" /> <!-- Usa o logo indicado como ícone da aba; rel identifica sua função, href informa o caminho e type declara o tipo do recurso. -->
+    <link rel="shortcut icon" href="../assets/Favicon.png" type="image/png" /> <!-- Usa o favicon dedicado do projeto como ícone da aba e declara corretamente seu formato PNG. -->
     <link rel="stylesheet" href="../css/creacteAccount.css" /> <!-- Carrega a folha de estilos da tela de cadastro. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" /> <!-- Solicita a preparação antecipada da conexão com o servidor de estilos do Google Fonts. -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /> <!-- Prepara a conexão com o servidor de arquivos de fontes usando o modo de acesso entre origens indicado por crossorigin. -->
@@ -14,7 +14,8 @@
     <main class="container"> <!-- Define o conteúdo principal e aplica a classe container usada pelo CSS. -->
       <form> <!-- Inicia o formulário que agrupa os campos e os botões de cadastro. -->
         <div class="imgDiv"> <!-- Agrupa o logo para permitir sua seleção pelos estilos. -->
-          <img src="../assets/create-account-screen/logo.svg" alt="Logo Conexão Segura" /> <!-- Exibe o logo pelo caminho de src e fornece sua descrição textual em alt. -->
+          <a href="../index.html" aria-label="Voltar ao inicio">
+          <img src="../assets/create-account-screen/logo.svg" alt="Logo Conexão Segura" /></a> <!-- Exibe o logo pelo caminho de src e fornece sua descrição textual em alt. -->
         </div> <!-- Encerra o grupo do logo. -->
 
         <h1>Crie sua conta</h1> <!-- Exibe o título principal da tela de cadastro. -->
@@ -58,11 +59,12 @@
 
           <div class="btoes"> <!-- Agrupa os botões para aplicar o alinhamento e o espaçamento definidos no CSS. -->
             <button>Criar Conta</button> <!-- Exibe o botão Criar Conta; dentro do formulário, a ausência de type faz seu tipo padrão ser submit. -->
-            <button class="btnverde">Ja tenho uma conta</button> <!-- Exibe o botão com o estilo verde; sem type definido, ele também envia o formulário por padrão. -->
+            <a class="btnverde" href="login.html">Já tenho uma conta</a> <!-- Leva o usuário de volta à tela de login. -->
           </div> <!-- Encerra o grupo de botões. -->
 
         </div> <!-- Encerra o grupo que reúne os campos e os botões. -->
       </form> <!-- Encerra o formulário de cadastro. -->
     </main> <!-- Encerra o conteúdo principal da página. -->
+    <script src="../js/createAccount.js"></script>
   </body> <!-- Encerra o conteúdo visível da página. -->
 </html> <!-- Encerra o documento HTML. -->
