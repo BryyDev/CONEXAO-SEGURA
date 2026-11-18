@@ -33,4 +33,5 @@ nomeCompleto.addEventListener("input", function () { // Roda sempre que a pessoa
     const nomeDigitado = nomeCompleto.value.trim() // Pega o nome e tira espaços das pontas.
     atualizarSaudacao(nomeDigitado) // Atualiza o cabeçalho na hora.
     salvarNome(nomeDigitado) // Guarda o nome atualizado no navegador.
+    
 })
