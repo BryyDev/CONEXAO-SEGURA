@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,19 +18,20 @@
             <a href="./index.html" aria-label="Ir para o início">
                 <img src="./assets/index/logo.svg" alt="Logo conexão segura">
             </a>
-            <nav>
-            <ul>
-                <li><a href="#inicio">Início</a></li>
-                <li><a href="#ferramentas">Ferramentas</a></li>
-                <li><a href="#noticias">Notícias</a></li>
-                <li><a href="./pages/404.html">Mapa</a></li>
-                <li><a href="./pages/SobreNós.html">Sobre</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
+
+    <nav aria-label="Navegação principal">
+    <ul>
+        <li><a href="./index.html">Início</a></li>
+        <li><a href="./pages/ferramentas.html">Ferramentas</a></li>
+        <li><a href="./pages/noticias.html">Notícias</a></li>
+        <li><a href="./pages/noticias.html#map">Mapa</a></li>
+        <li><a href="./pages/sobrenos.html">Sobre</a></li>
+        <li><a href="#contato">Contato</a></li>
+    </ul>
+</nav>
         <div class="botoesHeader">
 
-            <a href="./pages/login.html"><img src="./assets/index/usuario.svg" alt="Usuário"></a>
+            <a href="./pages/login.html" aria-label="Acessar minha conta"><img src="./assets/index/usuario.svg" alt="Usuário"></a>
             <a href="./pages/login.html" class="entrar">Entrar ou Criar conta</a>
         </div>
     </header>
@@ -107,7 +108,7 @@
 
             <img src="./assets/index/3 pontinhos.svg" alt="">
 
-            <a href="" class="tdsNoticias">Ver todas as Noticias</a>
+            <a href="./pages/noticias.html" class="tdsNoticias">Ver todas as Noticias</a>
             
         </section>
         
@@ -122,10 +123,10 @@
                     <nav class="navegacao">
                         <h3>Explorar</h3>
                         <ul>
-                            <li><a href="">inicio</a></li>
-                            <li><a href="">Ferramentas</a></li>
-                            <li><a href="">Mapa</a></li>
-                            <li><a href="">Noticias</a></li>
+                            <li><a href="./index.html">inicio</a></li>
+                            <li><a href="./pages/ferramentas.html">Ferramentas</a></li>
+                            <li><a href="./pages/noticias.html#mapa">Mapa</a></li>
+                            <li><a href="./pages/noticias.html">Noticias</a></li>
                         </ul>
 
                     </nav>
@@ -133,9 +134,8 @@
                     <nav class="navegacao">
                         <h3>O projeto</h3>
                         <ul>
-                            <li><a href="">Sobre o Conexão Segura</a></li>
-                            <li><a href="">Perguntas frequentes</a></li>
-                            <li><a href="">Acessibilidade</a></li>
+                            <li><a href="./pages/sobrenos.html">Sobre o Conexão Segura</a></li>
+                            <li><a href="./pages/termos.html">Termos de Uso</a></li>
                         </ul>
 
                     </nav>
@@ -143,6 +143,7 @@
                     <nav class="navegacao">
                         <h3>Contato</h3>
                         <ul>
+                            <!-- Aqui colocaremos o sobre nós -->
                             <li><a href="">Tem uma dúvida ou sugestão?</a></li>
                             <li><a href="">Fale com a nossa equipe.</a></li>
                             <li><a href="" class="contato">Fale conosco</a></li>
