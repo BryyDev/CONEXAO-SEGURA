@@ -1,6 +1,9 @@
 (function () {
   'use strict';
 
+  // const = valor que NÃO é trocado depois (a maioria das variáveis daqui)
+  // let   = valor que MUDA ao longo do código (contadores e o link "atual" do menu)
+
   // Aviso para conferir no Console (F12) se o script carregou
   console.log('noticias: JavaScript carregado');
 
@@ -17,23 +20,23 @@
 
   // Escreve um aviso no <p id="status"> (invisível na tela),
   // para leitores de tela avisarem o que aconteceu.
-  var status = document.getElementById('status');
+  const status = document.getElementById('status');
   function say(msg) { if (status) status.textContent = msg; }
 
   /* FILTROS (TODOS, SEGURANÇA, CLIMA...)*/
 
-  var chips  = document.querySelectorAll('.chip');             // botões de filtro
-  var items  = document.querySelectorAll('[data-cat]');        // tudo que tem categoria (cards e relatos)
-  var empty  = document.getElementById('empty');               // mensagem "nenhuma notícia"
-  var latest = document.querySelectorAll('#ultimas .news-card'); // cards de "Últimas notícias"
+  const chips  = document.querySelectorAll('.chip');             // botões de filtro
+  const items  = document.querySelectorAll('[data-cat]');        // tudo que tem categoria (cards e relatos)
+  const empty  = document.getElementById('empty');               // mensagem "nenhuma notícia"
+  const latest = document.querySelectorAll('#ultimas .news-card'); // cards de "Últimas notícias"
 
   chips.forEach(function (chip) {
     chip.addEventListener('click', function () {
-      var f = chip.dataset.filter; // categoria do botão (ex.: "clima")
+      const f = chip.dataset.filter; // categoria do botão (ex.: "clima")
 
       // Só o botão clicado recebe a classe "active" (é ela que deixa amarelo)
       chips.forEach(function (c) {
-        var on = c === chip;
+        const on = c === chip;
         c.classList.toggle('active', on);
         c.setAttribute('aria-pressed', on);
       });
@@ -44,7 +47,7 @@
       });
 
       // Se nenhum card de "Últimas notícias" ficou visível, mostra a mensagem
-      var visible = 0;
+      let visible = 0; // let porque o número aumenta a cada card visível
       latest.forEach(function (el) { if (!el.hidden) visible++; });
       if (empty) empty.hidden = visible > 0;
     });
@@ -57,9 +60,9 @@
   //   offLabel -> texto quando desligado (ex.: "curtir")
   //   key      -> nome usado para lembrar a escolha no navegador
   function toggleBtn(id, onLabel, offLabel, key) {
-    var btn = document.getElementById(id);
+    const btn = document.getElementById(id);
     if (!btn) return;
-    var label = btn.querySelector('span');
+    const label = btn.querySelector('span');
 
     function set(on) {
       btn.classList.toggle('active', on);
@@ -69,7 +72,7 @@
 
     set(store(key) === '1');            // ao abrir a página, lembra o último estado
     btn.addEventListener('click', function () {
-      var on = !btn.classList.contains('active'); // inverte o estado
+      const on = !btn.classList.contains('active'); // inverte o estado
       set(on);
       store(key, on ? '1' : '0');       // grava para a próxima visita
     });
@@ -81,8 +84,8 @@
   // Liga/desliga o curtir do comentário e soma ou subtrai 1 no número
   function bindCommentLike(btn) {
     btn.addEventListener('click', function () {
-      var count = btn.querySelector('span');
-      var on = !btn.classList.contains('active');
+      const count = btn.querySelector('span');
+      const on = !btn.classList.contains('active');
       btn.classList.toggle('active', on);
       btn.setAttribute('aria-pressed', on);
       count.textContent = Number(count.textContent) + (on ? 1 : -1);
@@ -91,11 +94,11 @@
   // Aplica nos comentários que já estão no HTML
   document.querySelectorAll('.c-like').forEach(bindCommentLike);
 
-  var share = document.getElementById('btn-share');
+  const share = document.getElementById('btn-share');
   if (share) {
     share.addEventListener('click', function () {
-      var label = share.querySelector('span');
-      var data = {
+      const label = share.querySelector('span');
+      const data = {
         title: 'Conexão Segura',
         text: 'Moradores relatam novo aumento de assaltos na região',
         url: location.href
@@ -114,10 +117,10 @@
     });
   }
 
-  var form       = document.getElementById('comment-form');
-  var input      = document.getElementById('comment-input');
-  var error      = document.getElementById('comment-error');
-  var btnComment = document.getElementById('btn-comment');
+  const form       = document.getElementById('comment-form');
+  const input      = document.getElementById('comment-input');
+  const error      = document.getElementById('comment-error');
+  const btnComment = document.getElementById('btn-comment');
 
   // Botão "comentar": só leva o cursor para o campo de texto
   if (btnComment && input) {
@@ -130,31 +133,31 @@
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();               // impede a página de recarregar
-      var text = input.value.trim();    // tira espaços do começo e do fim
+      const text = input.value.trim();  // tira espaços do começo e do fim
 
       // Comentário vazio: mostra o erro e para por aqui
       if (!text) { error.hidden = false; input.focus(); return; }
 
       // Monta o HTML do novo comentário (igual aos que já existem na página)
-      var wrap = document.createElement('div');
+      const wrap = document.createElement('div');
       wrap.className = 'comment new';
 
-      var av = document.createElement('span');
+      const av = document.createElement('span');
       av.className = 'avatar sm';
 
-      var body = document.createElement('div');
-      var name = document.createElement('strong');
+      const body = document.createElement('div');
+      const name = document.createElement('strong');
       name.textContent = 'Você ';
-      var time = document.createElement('small');
+      const time = document.createElement('small');
       time.textContent = 'agora';
       name.appendChild(time);
 
-      var p = document.createElement('p');
+      const p = document.createElement('p');
       p.textContent = text; // textContent (e não innerHTML) evita que alguém injete código
 
-      var meta = document.createElement('small');
+      const meta = document.createElement('small');
       meta.className = 'reply';
-      var like = document.createElement('button');
+      const like = document.createElement('button');
       like.type = 'button';
       like.className = 'c-like';
       like.setAttribute('aria-pressed', 'false');
@@ -172,11 +175,11 @@
   }
 
   // Só o item clicado recebe "active" (fundo azul); os outros perdem
-  var live = document.querySelectorAll('.live-item');
+  const live = document.querySelectorAll('.live-item');
   live.forEach(function (btn) {
     btn.addEventListener('click', function () {
       live.forEach(function (b) {
-        var on = b === btn;
+        const on = b === btn;
         b.classList.toggle('active', on);
         b.setAttribute('aria-pressed', on);
       });
@@ -188,13 +191,13 @@
   //  - passou o mouse (ou Tab) em um link -> o traço vai para ele
   //  - tirou o mouse do menu              -> o traço volta para o link "atual"
   //  - clicou em uma seção (#mapa etc.)   -> esse link passa a ser o "atual"
-  var nav = document.querySelector('.nav');
+  const nav = document.querySelector('.nav');
   if (nav) {
-    var navLinks = nav.querySelectorAll('a');
-    var current  = nav.querySelector('[aria-current]'); // onde o traço "descansa" (começa em Notícias)
+    const navLinks = nav.querySelectorAll('a');
+    let current = nav.querySelector('[aria-current]'); // onde o traço "descansa" (começa em Notícias). let porque troca ao clicar
 
     // Cria o traço e avisa o CSS que o JS está ativo (assim o CSS esconde os traços antigos)
-    var bar = document.createElement('span');
+    const bar = document.createElement('span');
     bar.className = 'nav-indicator';
     bar.setAttribute('aria-hidden', 'true');
     nav.appendChild(bar);
@@ -219,7 +222,7 @@
     // Define qual link é o "atual" (negrito + traço descansa nele)
     function setCurrent(link) {
       navLinks.forEach(function (l) { l.removeAttribute('aria-current'); });
-      var isSection = link.getAttribute('href').charAt(0) === '#';
+      const isSection = link.getAttribute('href').charAt(0) === '#';
       link.setAttribute('aria-current', isSection ? 'location' : 'page');
       current = link;
       moveBar(current);

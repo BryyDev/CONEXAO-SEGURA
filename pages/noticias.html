@@ -11,264 +11,485 @@
 </head>
 <body>
 
-  <header class="header">
+    <header class="header">
     <a href="../index.html" class="logo"><img src="../assets/noticias-mapa/logo_header.png" alt="Conexão Segura"></a>
     <nav class="nav" aria-label="Principal">
+      <!-- Link para a página inicial -->
       <a href="../index.html">Início</a>
+      <!-- Rola a página até a seção com id="ferramentas" -->
       <a href="#ferramentas">Ferramentas</a>
+      <!-- Link da página atual; aria-current avisa que é a página onde o usuário está -->
       <a href="noticias.html" aria-current="page">Notícias</a>
+      <!-- Rola até a seção do mapa (id="mapa") -->
       <a href="#mapa">Mapa</a>
+      <!-- Leva para a página "Sobre nós" -->
       <a href="sobrenos.html">Sobre</a>
+      <!-- Rola até o rodapé (id="contato") -->
       <a href="#contato">Contato</a>
+    <!-- Fecha o menu -->
     </nav>
+    <!-- Botão redondo que leva para a página da conta do usuário -->
     <a href="minha-conta.html" class="user-btn" aria-label="Minha conta">
+      <!-- Ícone de pessoa desenhado em SVG: um círculo (cabeça) e um corpo -->
       <svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7z"/></svg>
+    <!-- Fecha o botão da conta -->
     </a>
+    <!-- Botão de ação principal do cabeçalho -->
     <a href="#ferramentas" class="btn-trajeto">Planejar meu trajeto</a>
+  <!-- Fecha o cabeçalho -->
   </header>
 
   <!-- BARRA AO VIVO: cada item é um botão. A classe "active" (fundo azul) fica só no item selecionado; quem troca é o JavaScript no fim da página. -->
+  <!-- role="group" agrupa os botões; aria-label descreve o grupo para leitores de tela -->
   <div class="live-bar" role="group" aria-label="Status ao vivo">
+    <!-- Item já selecionado (active); aria-pressed="true" informa que está ligado -->
     <button type="button" class="live-item active" aria-pressed="true">AO VIVO</button>
+    <!-- Item desligado (aria-pressed="false") -->
     <button type="button" class="live-item" aria-pressed="false">LINHA COM ACESSO</button>
+    <!-- Item desligado: alagamentos -->
     <button type="button" class="live-item" aria-pressed="false">ALAGAMENTO EM VIA PRINCIPAL</button>
+    <!-- Item desligado: obras -->
     <button type="button" class="live-item" aria-pressed="false">RUAS EM OBRAS</button>
+  <!-- Fecha a barra ao vivo -->
   </div>
 
+  <!-- Abre a área principal da página; "container" centraliza e limita a largura -->
   <main class="container">
 
     <!-- FILTROS: data-filter é a categoria do botão. O JS compara com o data-cat de cada card e esconde os que não combinam. O botão com "active" fica amarelo. -->
+    <!-- Caixa que agrupa os botões de filtro -->
     <div class="filters">
+      <!-- Filtro "todos": começa ativo e mostra tudo -->
       <button class="chip active" data-filter="todos" aria-pressed="true">TODOS</button>
+      <!-- Filtro de segurança -->
       <button class="chip" data-filter="seguranca" aria-pressed="false">SEGURANÇA</button>
+      <!-- Filtro de clima -->
       <button class="chip" data-filter="clima" aria-pressed="false">CLIMA</button>
+      <!-- Filtro de mobilidade -->
       <button class="chip" data-filter="mobilidade" aria-pressed="false">MOBILIDADE</button>
+      <!-- Filtro de apoio -->
       <button class="chip" data-filter="apoio" aria-pressed="false">APOIO</button>
+    <!-- Fecha a caixa de filtros -->
     </div>
 
     <!-- DESTAQUE (hero): notícia grande à esquerda + 3 cards pequenos à direita. data-cat = categoria usada pelos filtros. -->
+    <!-- Abre a seção de destaque -->
     <section class="hero">
+      <!-- Notícia principal (grande) -->
       <article class="hero-main">
+        <!-- Etiqueta com ícone no canto da notícia (o ícone vem do CSS) -->
         <div class="hero-tag"><span class="hero-tag-icon"></span></div>
+        <!-- Título principal da página (h1: só deve existir um por página) -->
         <h1>NOVA ÁREA DE LAZER É INAUGURADA NO CENTRO DE DIADEMA</h1>
+      <!-- Fecha a notícia principal -->
       </article>
 
+      <!-- Coluna da direita com 3 cards pequenos -->
       <div class="hero-side">
+        <!-- Card 1: categoria "clima" (usada pelo filtro) -->
         <a href="#" class="side-card" data-cat="clima">
+          <!-- Imagem do card; alt vazio porque é decorativa -->
           <img src="../assets/noticias-mapa/Noticia.png" alt="">
+          <!-- Etiqueta da categoria + texto da manchete -->
           <div><span class="tag">CHUVA</span><p>Chuva forte causa alagamento no Centro</p></div>
+        <!-- Fecha o card 1 -->
         </a>
+        <!-- Card 2: categoria "mobilidade" -->
         <a href="#" class="side-card" data-cat="mobilidade">
+          <!-- Imagem decorativa -->
           <img src="../assets/noticias-mapa/Noticia.png" alt="">
+          <!-- Etiqueta + manchete -->
           <div><span class="tag">TRÂNSITO</span><p>OBRA INTERDITA FAIXA E MUDA TRAJETO DE ÔNIBUS</p></div>
+        <!-- Fecha o card 2 -->
         </a>
+        <!-- Card 3: categoria "seguranca" -->
         <a href="#" class="side-card" data-cat="seguranca">
+          <!-- Imagem decorativa -->
           <img src="../assets/noticias-mapa/Noticia.png" alt="">
+          <!-- Etiqueta + manchete -->
           <div><span class="tag">SEGURANÇA</span><p>DICAS PARA VOLTAR PARA CASA COM SEGURANÇA À NOITE</p></div>
+        <!-- Fecha o card 3 -->
         </a>
+      <!-- Fecha a coluna da direita -->
       </div>
+    <!-- Fecha a seção de destaque -->
     </section>
 
     <!-- CHEGUE BEM: 4 atalhos. O id="ferramentas" é o destino do link "Ferramentas" do menu. -->
+    <!-- Seção com id para o link do menu rolar até aqui -->
     <section class="section" id="ferramentas">
+      <!-- Título da seção -->
       <h2>CHEGUE BEM</h2>
+      <!-- Caixa que organiza os 4 atalhos lado a lado -->
       <div class="quick">
+        <!-- Atalho 1: ícone de ônibus + texto -->
         <a href="#" class="quick-card"><span class="icon-box"><img src="../assets/noticias-mapa/Bus.png" alt=""></span>STATUS DO TRANSPORTE</a>
+        <!-- Atalho 2: ícone de navegação + texto -->
         <a href="#" class="quick-card"><span class="icon-box"><img src="../assets/noticias-mapa/Near Me.png" alt=""></span>ROTAS MAIS SEGURAS</a>
+        <!-- Atalho 3: ícone de marcador de mapa + texto -->
         <a href="#" class="quick-card"><span class="icon-box"><img src="../assets/noticias-mapa/Place Marker.png" alt=""></span>PONTOS DE APOIO</a>
+        <!-- Atalho 4: ícone de escudo + texto -->
         <a href="#" class="quick-card"><span class="icon-box"><img src="../assets/noticias-mapa/Shield.png" alt=""></span>DICAS DE SEGURANÇA</a>
+      <!-- Fecha a caixa de atalhos -->
       </div>
+    <!-- Fecha a seção -->
     </section>
 
     <!-- ÚLTIMAS NOTÍCIAS: grade de cards (esquerda) + "Mais lidas" (direita). O JS usa o id="ultimas" para contar quantos cards ficaram visíveis. -->
+    <!-- Abre a seção de últimas notícias -->
     <section class="section">
+      <!-- Título da seção -->
       <h2>ÚLTIMAS NOTÍCIAS</h2>
+      <!-- Layout em duas colunas; o id é usado pelo JavaScript -->
       <div class="news-layout" id="ultimas">
+        <!-- Grade com os cards de notícia -->
         <div class="news-grid">
+          <!-- Card 1: mobilidade. Tem imagem, etiqueta e manchete -->
           <a href="#" class="news-card" data-cat="mobilidade"><img src="../assets/noticias-mapa/Frame 15.png" alt=""><div><span class="tag">MOBILIDADE</span><p>OBRA INTERDITA FAIXA E MUDA O TRAJETO DOS ÔNIBUS</p></div></a>
+          <!-- Card 2: segurança -->
           <a href="#" class="news-card" data-cat="seguranca"><img src="../assets/noticias-mapa/Frame 15 (1).png" alt=""><div><span class="tag">SEGURANÇA</span><p>DICAS PARA VOLTAR PARA CASA COM SEGURANÇA À NOITE</p></div></a>
+          <!-- Card 3: a etiqueta mostra "SAÚDE", mas a categoria do filtro é "apoio" -->
           <a href="#" class="news-card" data-cat="apoio"><img src="../assets/noticias-mapa/Frame 15 (2).png" alt=""><div><span class="tag">SAÚDE</span><p>POSTO DE SAÚDE AMPLIA HORÁRIO DE ATENDIMENTO</p></div></a>
+          <!-- Card 4: clima -->
           <a href="#" class="news-card" data-cat="clima"><img src="../assets/noticias-mapa/Frame 15 (3).png" alt=""><div><span class="tag">CLIMA</span><p>PREVISÃO DE CHUVA FORTE PARA O FIM DE SEMANA</p></div></a>
+          <!-- Card 5: etiqueta "EMPREGO", categoria "apoio" -->
           <a href="#" class="news-card" data-cat="apoio"><img src="../assets/noticias-mapa/Frame 15 (4).png" alt=""><div><span class="tag">EMPREGO</span><p>CURSOS GRATUITOS ABREM INSCRIÇÕES EM SP</p></div></a>
+          <!-- Card 6: etiqueta "CULTURA", categoria "apoio" -->
           <a href="#" class="news-card" data-cat="apoio"><img src="../assets/noticias-mapa/Frame 15 (5).png" alt=""><div><span class="tag">CULTURA</span><p>SARAU REÚNE ARTISTA DA QUEBRADA NO SÁBADO</p></div></a>
+        <!-- Fecha a grade de cards -->
         </div>
         <!-- Mensagem que o JS mostra quando nenhum card combina com o filtro -->
+        <!-- Começa escondida (hidden); o JS remove o atributo quando precisa -->
         <p id="empty" class="empty" hidden>Nenhuma notícia nesta categoria por enquanto.</p>
 
         <!-- Lista das noticias mais lindas não esquecer de (trocar o "#" pelo link de cada notícia do portal verdadeiro de noticias) -->
+        <!-- Barra lateral (conteúdo complementar) com as mais lidas -->
         <aside class="most-read">
+          <!-- Título da barra lateral -->
           <h3>MAIS LIDAS</h3>
+          <!-- Lista numerada (ol = ordered list) -->
           <ol>
+            <!-- Item 1: número em destaque + link da notícia -->
             <li><span class="num">1</span><a href="#">OBRA INTERDITA FAIXA E MUDA O TRAJETO DOS ÔNIBUS</a></li>
+            <!-- Item 2 -->
             <li><span class="num">2</span><a href="#">POSTO DE SAÚDE AMPLIA HORÁRIO DE ATENDIMENTO</a></li>
+            <!-- Item 3 -->
             <li><span class="num">3</span><a href="#">PREVISÃO DE CHUVA FORTE PARA O FIM DE SEMANA</a></li>
+            <!-- Item 4 -->
             <li><span class="num">4</span><a href="#">CURSOS GRATUITOS ABREM INSCRIÇÕES EM SP</a></li>
+            <!-- Item 5 -->
             <li><span class="num">5</span><a href="#">SARAU REÚNE ARTISTAS DA QUEBRADA NO SÁBADO</a></li>
+          <!-- Fecha a lista -->
           </ol>
+        <!-- Fecha a barra lateral -->
         </aside>
+      <!-- Fecha o layout de duas colunas -->
       </div>
+    <!-- Fecha a seção de últimas notícias -->
     </section>
 
     <!-- VOZ DA COMUNIDADE: relatos de moradores (esquerda) + post com curtir/comentar (direita). Os relatos também têm data-cat, então respondem aos filtros. -->
+    <!-- Abre a seção da comunidade -->
     <section class="section">
+      <!-- Título da seção -->
       <h2>VOZ DA COMUNIDADE</h2>
+      <!-- Layout em duas colunas (mesma classe da seção anterior) -->
       <div class="news-layout">
+        <!-- Grade com os relatos dos moradores -->
         <div class="voz-grid">
+          <!-- Relato 1. Cada relato tem: avatar, nome, bairro (badge), texto e etiqueta -->
           <article class="voz" data-cat="seguranca"><div class="who"><span class="avatar sm"></span><strong>Mariana S.</strong><span class="badge">Vila Nogueira</span></div><p>A rua da escola está sem iluminação há duas semanas. Alguém sabe a quem recorrer?</p><span class="tag small">SEGURANÇA</span></article>
+          <!-- Relato 2: mobilidade -->
           <article class="voz" data-cat="mobilidade"><div class="who"><span class="avatar sm"></span><strong>Luccas M.</strong><span class="badge">Centro</span></div><p>O ponto de ônibus da avenida ficou mais seguro depois da troca das lâmpadas.</p><span class="tag small">MOBILIDADE</span></article>
+          <!-- Relato 3: clima -->
           <article class="voz" data-cat="clima"><div class="who"><span class="avatar sm"></span><strong>Dona Cida</strong><span class="badge">Eldorado</span></div><p>Toda vez que chove forte a esquina da padaria alaga. Já são três vezes neste mês.</p><span class="tag small">CLIMA</span></article>
+          <!-- Relato 4: apoio -->
           <article class="voz" data-cat="apoio"><div class="who"><span class="avatar sm"></span><strong>Rafael P.</strong><span class="badge">Piraporinha</span></div><p>O posto de saúde do bairro agora abre até mais tarde. Ajudou muito quem trabalha o dia todo.</p><span class="tag small">APOIO</span></article>
+          <!-- Relato 5: segurança -->
           <article class="voz" data-cat="seguranca"><div class="who"><span class="avatar sm"></span><strong>Joana T.</strong><span class="badge">Taboão</span></div><p>Combinamos de voltar em grupo da faculdade à noite. Quem quiser se juntar, é só chamar.</p><span class="tag small">SEGURANÇA</span></article>
+          <!-- Relato 6: mobilidade -->
           <article class="voz" data-cat="mobilidade"><div class="who"><span class="avatar sm"></span><strong>Carlos A.</strong><span class="badge">Serraria</span></div><p>A linha 4 mudou de trajeto por causa da obra. Atenção ao novo ponto na avenida principal.</p><span class="tag small">MOBILIDADE</span></article>
+        <!-- Fecha a grade de relatos -->
         </div>
 
+        <!-- Post estilo rede social (coluna da direita); o id é usado pelo JS -->
         <article class="post" id="post">
+          <!-- Topo do post: avatar, nome da página e há quanto tempo foi publicado -->
           <div class="post-head">
+            <!-- Círculo do avatar (imagem vem do CSS) -->
             <span class="avatar"></span>
+            <!-- Nome em negrito e horário em letra pequena -->
             <div><strong>CONEXÃO SEGURA</strong><small>publicado há 10 minutos</small></div>
+          <!-- Fecha o topo do post -->
           </div>
+          <!-- Imagem principal do post -->
           <img class="post-img" src="../assets/noticias-mapa/campo noticia feed 7.png" alt="">
+          <!-- Corpo do post: título e texto -->
           <div class="post-body">
+            <!-- Título do post -->
             <h4>MORADORES RELATAM NOVO AUMENTO DE ASSALTOS NA REGIÃO!</h4>
+            <!-- Texto do post -->
             <p>Segundo relatos, os casos têm acontecido principalmente à noite, em pontos de ônibus e ruas com pouca iluminação. A comunidade pede mais patrulhamento na área.</p>
+          <!-- Fecha o corpo do post -->
           </div>
+          <!-- Barra de ações do post; cada botão tem um id para o JS "ouvir" o clique -->
           <div class="post-actions">
+            <!-- Curtir: aria-pressed muda entre true/false quando clicado -->
             <button type="button" id="btn-like" aria-pressed="false"><img src="../assets/noticias-mapa/Heart.png" alt=""><span>curtir</span></button>
+            <!-- Comentar: leva o foco para o campo de comentário -->
             <button type="button" id="btn-comment"><img src="../assets/noticias-mapa/Speech Bubble.png" alt=""><span>comentar</span></button>
+            <!-- Compartilhar: o JS copia o link ("Link copiado") -->
             <button type="button" id="btn-share"><img src="../assets/noticias-mapa/Forward Arrow.png" alt=""><span>compartilhar</span></button>
+            <!-- Salvar: liga/desliga como o curtir -->
             <button type="button" id="btn-save" aria-pressed="false"><img src="../assets/noticias-mapa/Bookmark.png" alt=""><span>salvar</span></button>
+          <!-- Fecha a barra de ações -->
           </div>
           <!-- COMENTÁRIOS: o JS coloca o comentário novo antes do formulário. Ele não é salvo: some ao recarregar a página. -->
+          <!-- Abre a área de comentários -->
           <div class="comments">
+            <!-- Título da área -->
             <h5>COMENTÁRIOS</h5>
+            <!-- Comentário 1 -->
             <div class="comment">
+              <!-- Avatar pequeno -->
               <span class="avatar sm"></span>
+              <!-- Conteúdo do comentário -->
               <div>
+                <!-- Nome do autor e horário -->
                 <strong>Mariana S. <small>há 12 min</small></strong>
+                <!-- Texto do comentário -->
                 <p>Alguém tem informação sobre essa notícia?</p>
+                <!-- Botão de curtir o comentário, com ícone de joinha e contador (span) -->
                 <small class="reply"><button type="button" class="c-like" aria-pressed="false"><img src="../assets/noticias-mapa/Thumbs Up.png" alt="">Responder I curtir <span>5</span></button></small>
+              <!-- Fecha o conteúdo -->
               </div>
+            <!-- Fecha o comentário 1 -->
             </div>
+            <!-- Comentário 2 -->
             <div class="comment">
+              <!-- Avatar pequeno -->
               <span class="avatar sm"></span>
+              <!-- Conteúdo do comentário -->
               <div>
+                <!-- Autor e horário -->
                 <strong>Luccas M. <small>há 12 min</small></strong>
+                <!-- Texto -->
                 <p>É importante ficar atento e denunciar. Juntos somos mais fortes!</p>
+                <!-- Botão de curtir com contador -->
                 <small class="reply"><button type="button" class="c-like" aria-pressed="false"><img src="../assets/noticias-mapa/Thumbs Up.png" alt="">Responder I curtir <span>5</span></button></small>
+              <!-- Fecha o conteúdo -->
               </div>
+            <!-- Fecha o comentário 2 -->
             </div>
+            <!-- Formulário para escrever um novo comentário -->
             <form class="comment-form" id="comment-form">
+              <!-- Campo de texto: máximo de 280 caracteres; aria-label descreve o campo para leitores de tela -->
               <input type="text" id="comment-input" maxlength="280" placeholder="Escreva seu comentário..." aria-label="Escreva seu comentário">
+              <!-- Botão de enviar (ícone de avião de papel) -->
               <button type="submit" aria-label="Enviar"><img src="../assets/noticias-mapa/Telegram App.png" alt=""></button>
+            <!-- Fecha o formulário -->
             </form>
             <!-- Aviso que o JS mostra se tentarem enviar um comentário vazio -->
+            <!-- role="alert" faz o leitor de tela anunciar na hora; começa escondido -->
             <small class="error" id="comment-error" role="alert" hidden>Escreva um comentário antes de enviar.</small>
+            <!-- Lembrete fixo de boas práticas -->
             <small class="note">Respeite a comunidade e não compartilhe informações pessoais.</small>
+          <!-- Fecha a área de comentários -->
           </div>
+        <!-- Fecha o post -->
         </article>
         <!-- Texto invisível lido por leitores de tela (acessibilidade): avisa "Comentário publicado", "Link copiado" -->
+        <!-- aria-live="polite" anuncia mudanças no texto sem interromper o usuário; sr-only esconde visualmente -->
         <p id="status" class="sr-only" aria-live="polite"></p>
+      <!-- Fecha o layout de duas colunas -->
       </div>
+    <!-- Fecha a seção da comunidade -->
     </section>
 
     <!-- MAPA  DA REGIÃO VAMOS COLOCAR AQUI -->
+    <!-- Seção do mapa; id="mapa" é o destino do link "Mapa" do menu -->
     <section class="section" id="mapa">
+      <!-- Título da seção -->
       <h2>MAPA DA REGIÃO</h2>
+      <!-- Imagem do mapa. ATENÇÃO: src está vazio, então ainda não aparece nada; coloque o caminho da imagem ou troque por um mapa incorporado -->
       <img class="map" src="" alt="Mapa da região">
+    <!-- Fecha a seção do mapa -->
     </section>
+  <!-- Fecha a área principal -->
   </main>
 
   <!-- CONECTE-SE: faixa azul-escura com texto + links das redes (esquerda) e ilustração (direita) -->
+  <!-- Abre a faixa de redes sociais -->
   <section class="connect">
+    <!-- Caixa interna que organiza texto e ilustração lado a lado -->
     <div class="connect-inner">
+      <!-- Coluna do texto (esquerda) -->
       <div class="connect-text">
+        <!-- Chamada pequena acima do título (eyebrow = "sobrancelha") -->
         <span class="eyebrow">
+          <!-- Ícone de duas pessoas em verde, feito com círculos (cabeças) e um traço (corpos); aria-hidden esconde dos leitores de tela -->
           <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#3ddc97" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6M15.5 14.2c3 0 5.5 2 5.5 5.3"/></svg>
+          <!-- Texto da chamada -->
           CONECTE-SE COM A GENTE
+        <!-- Fecha a chamada -->
         </span>
+        <!-- Título; <br> quebra a linha e <em> dá ênfase (o CSS provavelmente colore) -->
         <h2>A segurança continua<br><em>além do seu caminho.</em></h2>
+        <!-- Parágrafo explicativo -->
         <p>Acompanhe o Conexão Segura nas redes sociais e fique por dentro de notícias, informações e iniciativas que ajudam a construir cidades mais seguras para todas.</p>
+        <!-- Caixa que agrupa os cards das redes -->
         <div class="social">
+          <!-- Card do Instagram (troque "#" pelo link do perfil) -->
           <a href="#" class="social-card">
+            <!-- Caixa do ícone; dentro, o logo do Instagram desenhado em SVG: quadrado arredondado, círculo (lente) e ponto (flash) -->
             <span class="social-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#fff" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#fff"/></svg></span>
+            <!-- Nome da rede em negrito e descrição pequena -->
             <span><strong>Instagram</strong><small>Informação, novidades e conscientização.</small></span>
+            <!-- Seta verde apontando para a direita -->
             <svg class="arrow" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#3ddc97" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          <!-- Fecha o card do Instagram -->
           </a>
+          <!-- Card do YouTube (troque "#" pelo link do canal) -->
           <a href="#" class="social-card">
+            <!-- Ícone do YouTube em SVG: retângulo arredondado com triângulo de "play" -->
             <span class="social-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="#fff" aria-hidden="true"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10 15V9l5.2 3z"/></svg></span>
+            <!-- Nome e descrição -->
             <span><strong>YouTube</strong><small>Conteúdos, projetos e discussões sobre segurança.</small></span>
+            <!-- Seta verde -->
             <svg class="arrow" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#3ddc97" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          <!-- Fecha o card do YouTube -->
           </a>
+        <!-- Fecha a caixa das redes -->
         </div>
+        <!-- Slogan final -->
         <p class="slogan">Mais informação. Mais conexão. Mais segurança.</p>
+      <!-- Fecha a coluna do texto -->
       </div>
 
       <!-- LADO DIREITO: ilustração da cidade feita em SVG (desenhada em código, sem imagem). aria-hidden="true" porque é só decoração. -->
+      <!-- Coluna da ilustração (direita) -->
       <div class="connect-art" aria-hidden="true">
     
+        <!-- Abre o desenho: viewBox define o "tamanho interno" 560x320, que escala conforme o espaço disponível -->
         <svg viewBox="0 0 560 320" class="connect-svg">
           <!-- defs = ferramentas reutilizáveis: gradiente do céu, padrões de janelas e pontinhos, recorte (formato) da ilustração e os prédios -->
+          <!-- defs guarda itens que NÃO são desenhados diretamente; só são usados depois por id -->
           <defs>
+            <!-- Gradiente vertical do céu: de azul muito escuro (topo) a azul médio (base) -->
             <linearGradient id="cs-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0a1f4d"/><stop offset="1" stop-color="#23439a"/></linearGradient>
+            <!-- Padrão de janela: quadradinho amarelo que se repete a cada 9x11 pixels -->
             <pattern id="cs-win" width="9" height="11" patternUnits="userSpaceOnUse"><rect x="2" y="3" width="3" height="4" fill="#ffd27a"/></pattern>
+            <!-- Padrão de pontinhos azuis repetidos a cada 12x12 pixels -->
             <pattern id="cs-dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.4" fill="#4a86e8"/></pattern>
+            <!-- Recorte: tudo que ficar fora desse formato orgânico (blob) é escondido -->
             <clipPath id="cs-blob"><path d="M110 150C140 70 300 20 430 50C500 66 540 70 560 74V320H60C60 250 80 200 110 150Z"/></clipPath>
+            <!-- Grupo "cs-b": os 9 prédios (retângulos de alturas diferentes), reaproveitado com <use> -->
             <g id="cs-b"><rect x="125" y="170" width="40" height="150"/><rect x="170" y="120" width="50" height="200"/><rect x="225" y="190" width="38" height="130"/><rect x="265" y="90" width="55" height="230"/><rect x="325" y="150" width="45" height="170"/><rect x="375" y="60" width="40" height="260"/><rect x="420" y="130" width="50" height="190"/><rect x="475" y="100" width="45" height="220"/><rect x="520" y="160" width="40" height="160"/></g>
+          <!-- Fecha os itens reutilizáveis -->
           </defs>
+          <!-- Círculo grande só com contorno (decoração no canto superior direito) -->
           <circle cx="500" cy="60" r="90" fill="none" stroke="#2c63c7" stroke-width="2" opacity=".5"/>
+          <!-- Retângulo preenchido com pontinhos (canto superior direito) -->
           <rect x="430" y="0" width="120" height="60" fill="url(#cs-dots)" opacity=".7"/>
+          <!-- Outro bloco de pontinhos (canto inferior esquerdo), mais transparente -->
           <rect x="20" y="240" width="80" height="60" fill="url(#cs-dots)" opacity=".4"/>
+          <!-- Grupo recortado pelo formato "cs-blob": tudo dentro dele fica no formato orgânico -->
           <g clip-path="url(#cs-blob)">
+            <!-- Fundo: retângulo do tamanho todo com o gradiente do céu -->
             <rect width="560" height="320" fill="url(#cs-sky)"/>
+            <!-- Prédios usando o grupo reutilizável, na cor azul escura -->
             <use href="#cs-b" fill="#0b2250"/>
+            <!-- Os mesmos prédios de novo, agora preenchidos com o padrão de janelas -->
             <use href="#cs-b" fill="url(#cs-win)" opacity=".9"/>
+            <!-- Faixa do chão (rua) na parte de baixo -->
             <rect y="272" width="560" height="48" fill="#07173a"/>
+            <!-- Linha azul clara na borda superior da rua -->
             <path d="M120 272H560" stroke="#2c63c7" stroke-width="2"/>
+          <!-- Fecha o grupo recortado -->
           </g>
           <!-- Rota verde com os marcadores (2 bolinhas brancas e o pin azul) -->
+          <!-- Linha curva verde com pontas arredondadas: o "trajeto" -->
           <path d="M30 140C120 130 200 70 280 130C320 160 340 168 380 178C410 186 440 200 470 208C500 216 530 200 560 180" fill="none" stroke="#25d79a" stroke-width="5" stroke-linecap="round"/>
+          <!-- Bolinha de parada 1: centro escuro com borda branca grossa -->
           <circle cx="280" cy="130" r="11" fill="#0a1f4d" stroke="#fff" stroke-width="5"/>
+          <!-- Bolinha de parada 2 -->
           <circle cx="470" cy="208" r="11" fill="#0a1f4d" stroke="#fff" stroke-width="5"/>
+          <!-- Pin (marcador de localização) azul: formato de gota -->
           <path d="M380 178C366 160 358 152 358 140A22 22 0 0 1 402 140C402 152 394 160 380 178Z" fill="#1f6fe0"/>
+          <!-- Furinho branco no meio do pin -->
           <circle cx="380" cy="140" r="8" fill="#fff"/>
+        <!-- Fecha o desenho SVG -->
         </svg>
+      <!-- Fecha a coluna da ilustração -->
       </div>
+    <!-- Fecha a caixa interna -->
     </div>
+  <!-- Fecha a faixa de redes sociais -->
   </section>
 
   <!-- RODAPÉ: onda azul (SVG) + 4 colunas de links + linha de direitos. id="contato" é o destino do link "Contato" do menu. -->
+  <!-- Abre o rodapé -->
   <footer class="footer">
+    <!-- Onda decorativa no topo do rodapé; preserveAspectRatio="none" estica o desenho para ocupar toda a largura -->
     <svg class="wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60C240 0 480 0 720 40s480 60 720 0V120H0z" fill="#0a2a6b"/></svg>
+    <!-- Caixa interna do rodapé com as colunas -->
     <div class="footer-inner">
+      <!-- Coluna 1: marca -->
       <div class="footer-brand">
+        <!-- Nome do projeto -->
         <h3>Conexão Segura</h3>
+        <!-- Descrição curta -->
         <p>Informação e ferramentas para escolher caminhos mais seguros no seu dia a dia.</p>
+      <!-- Fecha a coluna 1 -->
       </div>
+      <!-- Coluna 2: links de navegação -->
       <div>
+        <!-- Título da coluna -->
         <h4>Explorar</h4>
+        <!-- Links do site -->
         <a href="../index.html">Início</a>
         <a href="#ferramentas">Ferramentas</a>
         <a href="#mapa">Mapa</a>
         <a href="noticias.html">Notícias</a>
+      <!-- Fecha a coluna 2 -->
       </div>
+      <!-- Coluna 3: sobre o projeto -->
       <div>
+        <!-- Título da coluna -->
         <h4>O projeto</h4>
+        <!-- Link para a página Sobre -->
         <a href="sobrenos.html">Sobre o Conexão Segura</a>
+        <!-- Links ainda sem destino ("#") -->
         <a href="#">Perguntas frequentes</a>
         <a href="#">Acessibilidade</a>
+      <!-- Fecha a coluna 3 -->
       </div>
+      <!-- Coluna 4: contato; o id é o destino do link "Contato" do menu -->
       <div id="contato">
+        <!-- Título da coluna -->
         <h4>Contato</h4>
+        <!-- Texto convidando ao contato -->
         <p>Tem uma dúvida ou sugestão? Fale com a nossa equipe.</p>
+        <!-- Link destacado (classe "strong") para fale conosco -->
         <a href="#" class="strong">Fale conosco</a>
+      <!-- Fecha a coluna 4 -->
       </div>
+    <!-- Fecha a caixa interna -->
     </div>
+    <!-- Linha final do rodapé -->
     <div class="footer-bottom">
+      <!-- Aviso de direitos autorais -->
       <span>© 2026 Conexão Segura. Todos os direitos reservados.</span>
+      <!-- Links legais lado a lado -->
       <span><a href="#">Política de Privacidade</a><a href="#">Termos de Uso</a></span>
+    <!-- Fecha a linha final -->
     </div>
+  <!-- Fecha o rodapé -->
   </footer>
 
+  <!-- Carrega o JavaScript no fim do body (assim o HTML já existe quando o script roda). Ele cuida dos filtros, curtidas, comentários e barra ao vivo -->
   <script src="../js/noticias.js?v=3"></script>
+<!-- Fecha o corpo -->
 </body>
+<!-- Fecha o documento -->
 </html>
