@@ -1,0 +1,1226 @@
+/* Variaveis que vamos usar no nosso site com muita frequencia */
+:root {
+    --navy: #0d2a7a;
+    --navy-dark: #081d57;
+    --blue: #1f6fe0;
+    --blue-soft: #cfe0f7;
+    --yellow: #e8a93a;
+    --yellow-bg: #fdf3e0;
+    --line: #bcd0ee;
+    --text: #222;
+    --bg: #fff;
+}
+
+/* RESET: zera margens e faz o padding entrar na largura do elemento (evita estourar o layout). */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* BASE: fonte Poppins, cor do texto e fundo da página. */
+body {
+    font-family: "Poppins", Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.4;
+}
+
+/* Imagens nunca passam da largura do espaço onde estão (responsivo). */
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Links sem sublinhado, herdando a cor do texto ao redor. */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+/* Contorno amarelo ao navegar pelo teclado (acessibilidade). */
+:focus-visible {
+    outline: 3px solid var(--yellow);
+    outline-offset: 2px;
+}
+
+/* Centraliza o conteúdo com largura máxima de 1200px. */
+.container {
+    width: min(1200px, 92%);
+    margin: 0 auto;
+}
+
+/* Cada seção da página: espaço acima. O h2 logo abaixo é o título azul. */
+.section {
+    margin-top: 70px;
+}
+
+.section h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 28px;
+}
+
+/* HEADER: logo, menu e botões lado a lado (flexbox). */
+.header {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 14px 4%;
+    background: #fff;
+}
+
+.logo img {
+    height: 38px;
+    width: auto;
+}
+
+/* Menu: flex:1 ocupa o espaço livre e empurra os botões para a direita. */
+.nav {
+    display: flex;
+    gap: 48px;
+    margin-left: 40px;
+    flex: 1;
+}
+
+.nav a {
+    font-size: .82rem;
+    font-weight: 600;
+    color: var(--navy);
+}
+
+.nav a:hover {
+    color: var(--blue);
+}
+
+/* Botão redondo azul com o ícone de pessoa. */
+.user-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--blue);
+    display: grid;
+    place-items: center;
+}
+
+/* Botão "Planejar meu trajeto": azul, e navy ao passar o mouse. */
+.btn-trajeto {
+    background: var(--blue);
+    color: #fff;
+    font-size: .82rem;
+    font-weight: 700;
+    padding: 10px 18px;
+    border-radius: 8px;
+}
+
+.btn-trajeto:hover {
+    background: var(--navy);
+}
+
+/* BARRA AO VIVO: faixa amarela com os status. As cores dos itens (.live-item) estão no bloco "NAVEGAÇÃO, AO VIVO E CONECTE-SE" no fim do arquivo; .live-pill é do design antigo. */
+.live-bar {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    padding: 14px 4%;
+    background: var(--yellow);
+    font-size: .8rem;
+    font-weight: 600;
+    color: var(--navy-dark);
+}
+
+.live-pill {
+    background: var(--navy);
+    color: #fff;
+    font-weight: 800;
+    padding: 6px 14px;
+    border-radius: 20px;
+}
+
+/* FILTROS: botões em linha; flex-wrap deixa quebrar de linha no celular. */
+.filters {
+    display: flex;
+    gap: 28px;
+    margin: 30px 0 50px 40px;
+    flex-wrap: wrap;
+}
+
+/* Botão de filtro, estado normal: fundo creme com borda amarela. */
+.chip {
+    background: var(--yellow-bg);
+    border: 1.5px solid var(--yellow);
+    color: var(--navy);
+    font-size: .75rem;
+    font-weight: 800;
+    padding: 6px 32px;
+    border-radius: 20px;
+}
+
+/* Filtro selecionado fica amarelo. A classe "active" é colocada pelo JavaScript. */
+.chip.active {
+    background: var(--yellow);
+}
+
+/* Passar o mouse num filtro NÃO selecionado: creme mais escuro (para não parecer selecionado). */
+.chip:not(.active):hover {
+    background: #fbe3b4;
+}
+
+/* TAG: etiqueta azul clara com a categoria, usada nos cards. */
+.tag {
+    display: block;
+    width: 100%;
+    background: var(--blue-soft);
+    color: var(--navy);
+    font-size: .6rem;
+    font-weight: 800;
+    text-align: center;
+    padding: 1px 10px;
+    border-radius: 10px;
+    margin-bottom: 6px;
+}
+
+/* HERO (destaque): 2 colunas, notícia grande à esquerda e 3 pequenas à direita. */
+.hero {
+    display: grid;
+    grid-template-columns: 1.65fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+/* Card grande: o texto vai para baixo (justify-content: flex-end). */
+.hero-main {
+    position: relative;
+    min-height: 420px;
+    border-radius: 14px;
+    border: 1.5px solid var(--line);
+    background: linear-gradient(180deg, #fff 0%, #4e8fe6 45%, var(--navy) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 28px;
+    color: #fff;
+    overflow: hidden;
+}
+
+.hero-tag {
+    height: 22px;
+    width: 100%;
+    background: var(--yellow);
+    border-radius: 12px;
+    margin-bottom: 18px;
+    padding: 3px 10px;
+}
+
+.hero-tag-icon {
+    display: block;
+    width: 16px;
+    height: 16px;
+    background: var(--navy);
+    border-radius: 4px;
+}
+
+.hero-main h1 {
+    font-size: 1.7rem;
+    font-weight: 800;
+    line-height: 1.3;
+}
+
+/* Coluna dos 3 cards pequenos, um embaixo do outro. */
+.hero-side {
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+    padding-top: 10px;
+}
+
+/* Card pequeno: foto e texto lado a lado. */
+.side-card {
+    display: flex;
+    gap: 10px;
+    padding: 8px;
+    border: 1.5px solid var(--line);
+    border-radius: 6px;
+    background: #f7faff;
+}
+
+.side-card:nth-child(n+2) {
+    background: var(--yellow-bg);
+    border-color: #efd6a6;
+}
+
+.side-card img {
+    width: 96px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.side-card div {
+    flex: 1;
+}
+
+.side-card p {
+    font-size: .65rem;
+    color: #555;
+}
+
+/* CHEGUE BEM: 4 cards iguais em grade de 4 colunas. */
+.quick {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 36px;
+}
+
+.quick-card {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    justify-content: space-between;
+    min-height: 130px;
+    padding: 14px;
+    border: 1.5px solid var(--line);
+    border-radius: 6px;
+    background: #f7faff;
+    font-size: .72rem;
+    font-weight: 800;
+    color: var(--navy);
+}
+
+.quick-card:hover {
+    border-color: var(--blue);
+}
+
+/* Quadradinho amarelo atrás do ícone. */
+.icon-box {
+    width: 38px;
+    height: 38px;
+    background: var(--yellow);
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+}
+
+.icon-box img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+/* NOTÍCIAS: 2 colunas, lista de cards + coluna lateral fixa de 340px. */
+.news-layout {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 36px;
+    align-items: start;
+}
+
+/* Grade com 3 cards por linha. */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px 36px;
+    padding: 14px;
+    border: 1.5px solid var(--line);
+    border-radius: 4px;
+}
+
+/* Card de notícia: foto em cima e texto embaixo. */
+.news-card {
+    display: block;
+    border: 1.5px solid var(--line);
+    border-radius: 4px;
+    background: #f7faff;
+    overflow: hidden;
+}
+
+.news-card img {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+}
+
+.news-card div {
+    padding: 8px 10px 14px;
+}
+
+.news-card p {
+    font-size: .65rem;
+    font-weight: 700;
+    color: var(--navy);
+}
+
+.news-card:hover {
+    border-color: var(--blue);
+}
+
+/* MAIS LIDAS: caixa lateral com borda azul e lista numerada. */
+.most-read {
+    border: 2px solid var(--navy);
+    border-radius: 6px;
+    background: #fff;
+}
+
+.most-read h3 {
+    font-size: .95rem;
+    font-weight: 800;
+    padding: 14px 14px 10px;
+}
+
+.most-read ol {
+    list-style: none;
+}
+
+.most-read li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    border-top: 1.5px solid var(--line);
+}
+
+/* Quadradinho azul com o número do ranking. */
+.num {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    background: var(--navy);
+    color: var(--yellow);
+    font-weight: 800;
+    font-size: .8rem;
+    border-radius: 4px;
+    display: grid;
+    place-items: center;
+}
+
+.most-read a {
+    font-size: .72rem;
+    font-weight: 800;
+    color: var(--navy);
+}
+
+.most-read a:hover {
+    color: var(--blue);
+}
+
+/* POST DA COMUNIDADE: cabeçalho, imagem, texto, botões de ação e comentários. */
+.post {
+    border: 1.5px solid var(--line);
+    border-radius: 6px;
+    background: #f7faff;
+    overflow: hidden;
+}
+
+.post-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    background: #fff;
+}
+
+.post-head strong {
+    display: block;
+    font-size: .78rem;
+    color: var(--navy);
+}
+
+.post-head small {
+    font-size: .65rem;
+    color: #555;
+}
+
+/* Bolinha do avatar (foto de perfil provisória). */
+.avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--navy-dark);
+    flex-shrink: 0;
+    display: block;
+}
+
+.avatar.sm {
+    width: 28px;
+    height: 28px;
+}
+
+.post-img {
+    width: calc(100% - 16px);
+    margin: 6px 8px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.post-body {
+    padding: 4px 14px 10px;
+}
+
+.post-body h4 {
+    font-size: .6rem;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 4px;
+}
+
+.post-body p {
+    font-size: .65rem;
+    color: #444;
+}
+
+/* Botões curtir / comentar / compartilhar / salvar distribuídos na linha. */
+.post-actions {
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 0;
+    border-top: 1.5px solid var(--line);
+    border-bottom: 1.5px solid var(--line);
+    background: #fff;
+}
+
+.post-actions button {
+    background: none;
+    border: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    font-size: .65rem;
+    color: #555;
+}
+
+.post-actions img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+.post-actions button:hover {
+    color: var(--blue);
+}
+
+/* Área dos comentários. */
+.comments {
+    padding: 12px 14px;
+    background: #fff;
+}
+
+.comments h5 {
+    font-size: .6rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.comment {
+    display: flex;
+    gap: 10px;
+    padding: 8px 0;
+    border-top: 1px solid var(--line);
+}
+
+.comment strong {
+    font-size: .6rem;
+    color: var(--navy);
+}
+
+.comment strong small {
+    font-weight: 400;
+    color: #aaa;
+    margin-left: 8px;
+}
+
+.comment p {
+    font-size: .55rem;
+    color: var(--blue);
+}
+
+.reply {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: .5rem;
+    color: var(--blue);
+    margin-top: 2px;
+}
+
+.reply img {
+    width: 9px;
+    height: 9px;
+}
+
+/* Campo de escrever comentário com o botão de enviar dentro. */
+.comment-form {
+    display: flex;
+    align-items: center;
+    border: 1.5px solid var(--line);
+    border-radius: 14px;
+    padding: 3px 4px 3px 10px;
+    margin-top: 10px;
+}
+
+.comment-form input {
+    flex: 1;
+    border: 0;
+    outline: 0;
+    font-family: inherit;
+    font-size: .5rem;
+    background: transparent;
+}
+
+.comment-form button {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 0;
+    background: var(--blue);
+    display: grid;
+    place-items: center;
+}
+
+.comment-form button img {
+    width: 11px;
+    height: 11px;
+}
+
+.note {
+    display: block;
+    font-size: .4rem;
+    color: #555;
+    margin-top: 4px;
+}
+
+/* MAPA: imagem larga com cantos arredondados. */
+.map {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* CONECTE-SE: faixa azul-escura; texto à esquerda e ilustração à direita. */
+.connect {
+    margin-top: 110px;
+    background: linear-gradient(90deg, #072159 0%, #0a2f78 60%, #0c3a8a 100%);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Grade de 2 colunas: texto | ilustração. */
+.connect-inner {
+    width: min(1200px, 92%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    align-items: center;
+    min-height: 270px;
+    padding: 0;
+}
+
+/* Texto pequeno verde acima do título. */
+.eyebrow {
+    display: block;
+    font-size: .65rem;
+    font-weight: 600;
+    letter-spacing: .25em;
+    color: #3ddc97;
+    margin-bottom: 12px;
+}
+
+.connect h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 14px;
+}
+
+.connect h2 em {
+    font-style: normal;
+    color: #3ddc97;
+}
+
+.connect-text>p {
+    font-size: .75rem;
+    color: #cfdcf5;
+    max-width: 420px;
+    margin-bottom: 20px;
+}
+
+/* Cards do Instagram e do YouTube lado a lado. */
+.social {
+    display: flex;
+    gap: 14px;
+}
+
+/* Card em formato de pílula; flex:1 divide a largura igualmente entre os dois. */
+.social-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border: 1.5px solid #2c63c7;
+    border-radius: 40px;
+    background: rgba(255, 255, 255, .04);
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.social-card:hover {
+    background: rgba(255, 255, 255, .1);
+}
+
+.social-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: #0a2f78;
+    border: 1.5px solid #2c63c7;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+}
+
+.social-card strong {
+    display: block;
+    font-size: .8rem;
+}
+
+.social-card small {
+    display: block;
+    font-size: .55rem;
+    color: #cfdcf5;
+}
+
+.social-card .arrow {
+    width: 18px;
+    margin-left: auto;
+}
+
+/* Frase final com uma linha verde antes (::before). */
+.slogan {
+    margin-top: 16px;
+    font-size: .72rem;
+    color: #3ddc97 !important;
+}
+
+.connect-art {
+    align-self: end;
+}
+
+/* FOOTER (rodapé): onda azul em cima e 4 colunas de links. */
+.footer {
+    position: relative;
+    background: #fff;
+    padding-top: 0;
+}
+
+/* Onda desenhada em SVG (está no HTML). */
+.wave {
+    display: block;
+    width: 100%;
+    height: 110px;
+    margin-top: 40px;
+}
+
+/* As 4 colunas do rodapé. */
+.footer-inner {
+    background: #0a2a6b;
+    color: #fff;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+    gap: 40px;
+    padding: 10px 4% 40px;
+}
+
+.footer-inner h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.footer-inner h4 {
+    font-size: .8rem;
+    margin-bottom: 8px;
+}
+
+.footer-inner p,
+.footer-inner a {
+    display: block;
+    font-size: .72rem;
+    color: #cfdcf5;
+    margin-bottom: 6px;
+}
+
+.footer-inner a:hover {
+    color: #fff;
+}
+
+.footer-inner .strong {
+    font-weight: 700;
+    color: #fff;
+}
+
+.footer-bottom {
+    background: #0a2a6b;
+    color: #cfdcf5;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 0 4% 20px;
+    font-size: .65rem;
+}
+
+.footer-bottom a {
+    margin-left: 20px;
+}
+
+
+/* Algumas ideas de melhorias que eu tive adicionei apartir daqu */
+
+/* Garante que elemento com o atributo "hidden" some de verdade (o JS usa isso nos filtros). */
+[hidden] {
+    display: none !important;
+}
+
+/* Texto só para leitores de tela: existe na página, mas fica invisível. */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+/* Hero com degradê azul-escuro: o título branco fica legível. */
+.hero-main {
+    background: linear-gradient(180deg, #0d2a7a 0%, #1b4aa8 100%);
+    border-color: var(--navy);
+}
+
+/* Fontes um pouco maiores nos cards e no post, para ficar mais fácil de ler. */
+.tag {
+    font-size: .7rem;
+    padding: 1px 10px;
+}
+
+.side-card p {
+    font-size: .78rem;
+    color: #333;
+}
+
+.news-card p {
+    font-size: .8rem;
+}
+
+.most-read a {
+    font-size: .82rem;
+}
+
+.quick-card {
+    font-size: .8rem;
+}
+
+.chip {
+    font-size: .8rem;
+}
+
+.post-head strong {
+    font-size: .9rem;
+}
+
+.post-head small {
+    font-size: .75rem;
+    color: #444;
+}
+
+.post-body h4 {
+    font-size: .8rem;
+}
+
+.post-body p {
+    font-size: .8rem;
+    color: #333;
+}
+
+.post-actions button {
+    font-size: .75rem;
+    color: #333;
+}
+
+/* Botão curtir/salvar ligado: azul e com o ícone maior ("active" vem do JS). */
+.post-actions button.active {
+    color: var(--blue);
+    font-weight: 600;
+}
+
+.post-actions button.active img {
+    transform: scale(1.2);
+}
+
+.comments h5 {
+    font-size: .75rem;
+}
+
+.comment strong {
+    font-size: .78rem;
+}
+
+.comment strong small {
+    font-size: .7rem;
+    color: #666;
+}
+
+.comment p {
+    font-size: .78rem;
+    color: #1a4fa0;
+}
+
+.comment-form input {
+    font-size: .78rem;
+}
+
+.comment-form button {
+    width: 28px;
+    height: 28px;
+}
+
+.comment-form button img {
+    width: 14px;
+    height: 14px;
+}
+
+.note {
+    font-size: .7rem;
+    color: #444;
+}
+
+/* Aviso vermelho de comentário vazio. */
+.error {
+    display: block;
+    font-size: .72rem;
+    color: #b3261e;
+    margin-top: 4px;
+}
+
+/* Botão curtir comentário */
+.reply {
+    font-size: .7rem;
+}
+
+/* Botão de curtir comentário. */
+.c-like {
+    background: none;
+    border: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: .7rem;
+    color: #1a4fa0;
+}
+
+.c-like img {
+    width: 12px;
+    height: 12px;
+}
+
+.c-like.active {
+    font-weight: 700;
+}
+
+/* Comentário recém-criado pelo JS: fundo azul bem claro. */
+.comment.new {
+    background: #f0f6ff;
+}
+
+/* Filtros */
+.chip {
+    transition: background .15s;
+}
+
+/* Mensagem de "nenhuma notícia nesta categoria". */
+.empty {
+    grid-column: 1 / 2;
+    padding: 24px;
+    border: 1.5px dashed var(--line);
+    border-radius: 6px;
+    color: var(--navy);
+    font-size: .85rem;
+}
+
+/* VOZ DA COMUNIDADE: relatos em 2 colunas. */
+.voz-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    align-content: start;
+}
+
+/* Card de relato de morador. */
+.voz {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 14px;
+    border: 1.5px solid var(--line);
+    border-radius: 6px;
+    background: #f7faff;
+}
+
+.voz .who {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: .85rem;
+    color: var(--navy);
+}
+
+.voz .badge {
+    margin-left: auto;
+    font-size: .7rem;
+    background: var(--yellow-bg);
+    color: #633806;
+    border: 1px solid #efd6a6;
+    border-radius: 10px;
+    padding: 0 10px;
+}
+
+.voz p {
+    font-size: .82rem;
+    color: #333;
+}
+
+.tag.small {
+    display: inline-block;
+    width: auto;
+    align-self: flex-start;
+    margin: 0;
+}
+
+/* Contraste rodapé e conecte-se */
+.connect-text>p,
+.social-card small {
+    color: #e3ebfb;
+}
+
+.slogan {
+    color: #5ff0b1 !important;
+}
+
+.footer-inner p,
+.footer-inner a,
+.footer-bottom {
+    color: #e3ebfb;
+    font-size: .8rem;
+}
+
+.footer-bottom {
+    font-size: .75rem;
+}
+
+/* NAVEGAÇÃO, AO VIVO E CONECTE-SE: estilos do menu ativo, da barra AO VIVO e da seção Conecte-se. */
+/* Ao rolar até uma seção pelo menu, deixa uma folga de 16px no topo. */
+[id] {
+    scroll-margin-top: 16px;
+}
+
+/* MENU ATIVO: cada link tem um traço amarelo (::after) escondido; ele aparece no hover (metade) e no link da página atual (inteiro). */
+.nav a {
+    position: relative;
+    padding: 6px 0;
+}
+
+.nav a:visited {
+    color: var(--navy);
+}
+
+.nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--yellow);
+    transform: scaleX(0);
+    transition: transform .2s;
+}
+
+.nav a:hover::after {
+    transform: scaleX(.5);
+}
+
+.nav a[aria-current="page"] {
+    font-weight: 700;
+}
+
+.nav a[aria-current="page"]::after {
+    transform: scaleX(1);
+}
+
+.live-bar {
+    gap: 20px;
+}
+
+/* Itens da barra AO VIVO (são botões): sem fundo por padrão. */
+.live-item {
+    font: inherit;
+    text-transform: uppercase;
+    background: none;
+    border: 0;
+    color: var(--navy-dark);
+    padding: 6px 14px;
+    border-radius: 20px;
+    transition: background .15s;
+}
+
+.live-item:hover {
+    background: rgba(13, 42, 122, .12);
+}
+
+/* Item selecionado: fundo azul e texto branco. Só um por vez (o JS troca). */
+.live-item.active {
+    background: var(--navy);
+    color: #fff;
+    font-weight: 800;
+}
+
+/* Espaço em volta do texto da seção Conecte-se. */
+.connect-text {
+    padding: 50px 0 60px;
+}
+
+.eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.eyebrow::after {
+    content: "";
+    width: 48px;
+    height: 1.5px;
+    background: #3ddc97;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.social-card small {
+    line-height: 1.3;
+}
+
+.social-card .arrow {
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+.slogan {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.slogan::before {
+    content: "";
+    width: 32px;
+    height: 1.5px;
+    background: #3ddc97;
+}
+
+/* Ilustração da cidade (SVG que está no HTML). */
+.connect-svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.social-card small {
+    font-size: .72rem;
+}
+
+.social-card strong {
+    font-size: .9rem;
+}
+
+.slogan {
+    font-size: .85rem;
+}
+
+/* Espaço em volta do texto da seção Conecte-se. */
+.connect-text {
+    padding: 50px 0 60px;
+}
+
+.eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.eyebrow::after {
+    content: "";
+    width: 48px;
+    height: 1.5px;
+    background: #3ddc97;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.social-card small {
+    line-height: 1.3;
+}
+
+.social-card .arrow {
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+.slogan {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.slogan::before {
+    content: "";
+    width: 32px;
+    height: 1.5px;
+    background: #3ddc97;
+}
+
+/* Ilustração da cidade (SVG que está no HTML). */
+.connect-svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.social-card small {
+    font-size: .72rem;
+}
+
+.social-card strong {
+    font-size: .9rem;
+}
+
+.slogan {
+    font-size: .85rem;
+}
