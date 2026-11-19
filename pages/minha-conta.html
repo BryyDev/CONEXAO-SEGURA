@@ -7,8 +7,7 @@
     <title>Minha conta </title> <!-- Identifica a página e o projeto na aba do navegador. -->
     <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Prepara a conexão com o serviço de estilos da fonte. -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Prepara a conexão que entrega os arquivos da fonte. -->
-    <link rel="shortcut icon" href="../assets/Favicon.png" type="image/x-icon"> <!-- Define o ícone da página na aba do navegador. -->
-    <link rel="icon" href="../assets/Elementos/logo.svg" type="image/svg+xml"> <!-- Define o ícone exibido na aba do navegador. -->
+    <link rel="icon" href="../assets/Favicon.png?v=2" type="image/png"> <!-- Define o favicon PNG da aba e usa uma versão para atualizar o cache do navegador. -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"> <!-- Carrega os pesos de Inter usados no novo design e mantém o texto visível durante o carregamento. -->
     <link rel="stylesheet" href="../css/minha-conta.css"> <!-- Carrega os estilos exclusivos desta página. -->
 </head> <!-- Encerra a configuração do documento. -->
@@ -27,15 +26,26 @@
             <p class="mensagem-perfil">Mantenha seus dados atualizados<br>para uma experiência mais segura<br>e personalizada.</p> <!-- Reproduz a mensagem de apresentação do novo design. -->
             <div class="resumo-perfil"> <!-- Organiza o avatar e a cidade do usuário. -->
                 <div class="avatar"> <!-- Define a moldura circular do perfil. -->
-                    <img class="moldura-avatar" src="../assets/configuracoes_de_usuario/extras/avatar-moldura.png" width="380" height="380" alt=""> <!-- Usa a moldura original como imagem decorativa do avatar. -->
+                    <img class="moldura-avatar" src="../assets/configuracoes_de_usuario/extras/avatar-moldura.png" width="380" height="380" alt=""> <!-- Usa a moldura original como imagem decorativa do avatar. --><img id="foto-perfil" alt="Foto de perfil" hidden>
                     <span class="iniciais-avatar" aria-label="Inicial do usuário">U</span> <!-- Representa um perfil genérico enquanto não há dados ou foto cadastrados. -->
+                    <input id="arquivo-foto" type="file" accept="image/*" hidden> <!-- Permite escolher uma foto. O id ajuda o JavaScript a encontrar o campo, accept indica que queremos imagens e hidden deixa o campo escondido. -->
                     <button class="botao-foto" type="button" aria-label="Alterar foto do perfil"> <!-- Reserva a ação de foto para a integração posterior, sem executar JavaScript. -->
                         <img class="icone" src="../assets/configuracoes_de_usuario/icones/svg/camera.svg" width="24" height="24" alt="" aria-hidden="true"> <!-- Apresenta o ícone de câmera fornecido para o perfil. -->
                     </button> <!-- Encerra o botão de alteração de foto. -->
                 </div> <!-- Encerra a composição do avatar. -->
+
+<dialog id="ajuste-foto"> <!-- Janela que fica fechada até o JavaScript abrir. -->
+    <h2>Ajustar foto de perfil</h2>
+    <img id="previa-foto" alt="Prévia da foto escolhida" width="240">
+    <form method="dialog"> <!-- Fecha a janela ao clicar em Cancelar. -->
+        <button id="aplicar-foto" type="button">Aplicar</button>
+        <button type="submit">Cancelar</button>
+    </form>
+</dialog>
+
                 <p class="cidade-perfil"> <!-- Identifica a cidade apresentada no resumo do perfil. -->
                     <img class="icone" src="../assets/configuracoes_de_usuario/icones/svg/localizacao.svg" width="24" height="24" alt="" aria-hidden="true"> <!-- Acrescenta o marcador decorativo de localização. -->
-                    <span>Sua cidade – UF</span> <!-- Reserva a localização para os dados do usuário. -->
+                    <span><span id="cidade-no-perfil">Sua cidade</span> – UF</span> <!-- Permite atualizar somente o nome da cidade e mantém UF fixo para a próxima etapa. -->
                 </p> <!-- Encerra a identificação da cidade. -->
             </div> <!-- Encerra o resumo visual do usuário. -->
         </header> <!-- Encerra o cabeçalho do perfil. -->
@@ -44,7 +54,7 @@
                 <h1>Editar <span>perfil</span></h1> <!-- Destaca a palavra perfil em azul, conforme o Figma. -->
                 <p id="descricao-formulario">Atualize suas informações de cadastro, contato e preferências.</p> <!-- Explica o objetivo dos campos apresentados a seguir. -->
             </div> <!-- Encerra a apresentação do formulário. -->
-            <form class="formulario-conta" aria-label="Editar perfil" aria-describedby="descricao-formulario"> <!-- Agrupa os controles nativos sem definir envio ou armazenamento de dados. -->
+            <form class="formulario-conta" aria-label="Editar perfil" aria-describedby="descricao-formulario"> <!-- Agrupa os controles cujos valores são guardados no navegador pelo JavaScript. -->
                 <section class="secao secao-dados" id="dados-pessoais" aria-labelledby="titulo-dados-pessoais"> <!-- Inicia a seção dados pessoais. -->
                     <div class="cabecalho-secao"> <!-- Posiciona o ícone ao lado do título e da descrição da seção. -->
                         <span class="fundo-icone" aria-hidden="true"><img class="icone" src="../assets/configuracoes_de_usuario/icones/svg/usuario.svg" width="24" height="24" alt="" aria-hidden="true"></span> <!-- Apresenta o ícone decorativo da seção dados pessoais. -->
@@ -166,15 +176,15 @@
                             </div> <!-- Encerra a identificação do conjunto de regiões. -->
                             <fieldset class="regioes" aria-labelledby="rotulo-regioes"> <!-- Permite alterar as regiões com caixas de seleção nativas, sem JavaScript. -->
                                 <label class="regiao"> <!-- Torna toda a etiqueta uma área de seleção da região. -->
-                                    <input type="checkbox" name="regioes" value="regiao-1"> <!-- Reserva uma opção genérica de região para a integração posterior. -->
+                                    <input id="regiao-1" type="checkbox" name="regioes" value="regiao-1"> <!-- Reserva uma opção genérica de região para a integração posterior. -->
                                     <span>Região 1<span class="remover-regiao" aria-hidden="true">×</span></span> <!-- Exibe a etiqueta e o símbolo decorativo de remoção da seleção. -->
                                 </label> <!-- Encerra a etiqueta da região. -->
                                 <label class="regiao"> <!-- Torna toda a etiqueta uma área de seleção da região. -->
-                                    <input type="checkbox" name="regioes" value="regiao-2"> <!-- Reserva uma segunda opção genérica de região. -->
+                                    <input id="regiao-2" type="checkbox" name="regioes" value="regiao-2"> <!-- Reserva uma segunda opção genérica de região. -->
                                     <span>Região 2<span class="remover-regiao" aria-hidden="true">×</span></span> <!-- Exibe a etiqueta e o símbolo decorativo de remoção da seleção. -->
                                 </label> <!-- Encerra a etiqueta da região. -->
                                 <label class="regiao"> <!-- Torna toda a etiqueta uma área de seleção da região. -->
-                                    <input type="checkbox" name="regioes" value="regiao-3"> <!-- Reserva uma terceira opção genérica de região. -->
+                                    <input id="regiao-3" type="checkbox" name="regioes" value="regiao-3"> <!-- Reserva uma terceira opção genérica de região. -->
                                     <span>Região 3<span class="remover-regiao" aria-hidden="true">×</span></span> <!-- Exibe a etiqueta e o símbolo decorativo de remoção da seleção. -->
                                 </label> <!-- Encerra a etiqueta da região. -->
                             </fieldset> <!-- Encerra o grupo de regiões de interesse. -->
@@ -281,7 +291,7 @@
                     </div> <!-- Encerra o conjunto de controles da seção. -->
                 </section> <!-- Encerra a seção do formulário. -->
                 <div class="acoes-formulario"> <!-- Destaca a ação principal com a largura e a posição do Figma. -->
-                    <button class="botao-salvar" type="button"> <!-- Reserva a ação de salvar sem enviar o formulário ou simular persistência. -->
+                    <button class="botao-salvar" type="button"> <!-- Guarda os valores atuais no navegador usando as funções de cada campo. -->
                         <img class="icone" src="../assets/configuracoes_de_usuario/icones/svg/salvar.svg" width="24" height="24" alt="" aria-hidden="true"> <!-- Apresenta o símbolo decorativo de confirmação. -->
                         <span>Salvar alterações</span> <!-- Identifica a ação principal do formulário. -->
                     </button> <!-- Encerra o botão de salvar alterações. -->
@@ -291,6 +301,6 @@
         <div class="ondas-rodape" aria-hidden="true"></div> <!-- Reproduz as ondas decorativas finais do quadro do Figma. -->
     </div> <!-- Encerra a composição da página Minha conta. -->
 
-    <script src="../js/minha-conta.js"></script>
-</body> 
+    <script src="../js/minha-conta.js"></script> <!-- Carrega o código que salva os campos e atualiza o nome e a cidade. -->
+</body> <!-- Encerra o conteúdo visível da página. -->
 </html> <!-- Encerra o documento HTML. -->
