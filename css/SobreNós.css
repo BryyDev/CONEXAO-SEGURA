@@ -4,26 +4,1546 @@
     margin: 0;
 }
 
-header {
-    display: flex;
-    align-items: center;
+body {
+    background-color: #fff;
+    color: #333;
 }
 
-nav {
-    flex: 1;
+header {
+    display: flex;
+    /* Coloca os elementos lado a lado */
+    justify-content: space-between;
+    /* Espaça os elementos: Logo na esquerda, menu no centro, botões na direita */
+    align-items: center;
+    /* Alinha verticalmente ao centro */
+    padding: 20px 40px;
+    /* Espaçamento interno (cima/baixo, esquerda/direita) */
+    background-color: #fff;
+    height: 80px;
+    /* Altura fixa para o cabeçalho */
 }
 
 nav ul {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 24px;
+    /* Coloca os itens do menu em linha */
     list-style: none;
+    /* Remove as bolinhas da lista */
+    gap: 30px;
+    /* Espaço entre cada item do menu */
+
 }
 
- #Usuário {
-    background: green;
-    width: 30px;
+nav ul li a {
+    text-decoration: none;
+    /* Remove o sublinhado dos links */
+    color: #003366;
+    /* Azul escuro do texto */
+    font-weight: 600;
+    /* Deixa o texto semi-negrito */
+    font-size: 16px;
+    transition: color 0.3s;
+    /* Suaviza a transição de cor ao passar o mouse */
+}
+
+nav ul li a:hover {
+    color: #0056b3;
+    /* Cor ao passar o mouse */
+}
+
+/* --- HEADER E NAVEGAÇÃO --- */
+.secao-principal {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0;
+
+}
+
+.logo {
+    height: 60px;
+    /* Ajusta o tamanho da logo */
+    width: auto;
+}
+
+.site {
+    /* Direcionamento dos Sites */
+}
+
+.acoes-usuario {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    /* Espaço entre o ícone e o botão */
+}
+
+#Usuário {
     height: 30px;
+    cursor: pointer;
+    /* Muda o cursor para "mãozinha" */
+}
+
+.btn-planejar {
+    background-color: #002d5a;
+    /* Azul escuro do botão */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    /* Bordas arredondadas */
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-planejar:hover {
+    background-color: #004488;
+    /* Clareia o botão ao passar o mouse */
+}
+
+
+/* --- SEÇÃO HERO --- */
+.Sessão-Hero {
+    background-image: url(../assets/Elementos/star-strip.png);
+    background-size: cover;
+    background-position: center;
+    padding: 120px 80px;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    color: #ffffff !important;
+}
+
+.Hero-Div-pai {
+    max-width: 750px;
+    /* Limita a largura do texto para não ficar espalhado */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* Espaço entre os blocos de texto */
+}
+
+.Tecnologia-a-serviços-de-comunidades-reais {
+    font-family: 'Inter', Arial, sans-serif;
+    /* Fonte sem serifa */
+    font-size: 13px;
+    color: #a0c4e8 !important;
+    /* Azul claro */
+    text-transform: none;
+    /* REMOVE o tudo maiúsculo (que estava antes) */
+    margin-bottom: 5px;
+}
+
+
+.Título-Principal-Pagína-1 {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 56px;
+    line-height: 1.1;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+    color: #ffffff !important;
+    /* Força o branco */
+}
+
+.Div-textos p {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #e0e0e0;
+    /* Branco acinzentado */
+    max-width: 650px;
+    margin-bottom: 30px;
+}
+
+.Div-Buttons-Pagína-1 {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+
+}
+
+.Div-Buttons-Pagína-1 a {
+    font-family: 'Inter', Arial, sans-serif;
+    text-decoration: none;
+    padding: 12px 24px;
+    /* Ajustado para ficar mais compacto igual à foto */
+    border-radius: 6px;
+    /* Bordas levemente menos arredondadas */
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.Div-Buttons-Pagína-1 a:first-child {
+    background-color: #1a5c9f;
+    /* Azul mais próximo da referência */
+    color: #ffffff !important;
+    border: 1px solid #1a5c9f;
+}
+
+.Div-Buttons-Pagína-1 a:first-child:hover {
+    background-color: #134b85;
+}
+
+.Div-Buttons-Pagína-1 a:last-child {
+    background-color: #1a5c9f;
+    /* Azul mais próximo da referência */
+    color: #ffffff !important;
+    border: 1px solid #1a5c9f;
+}
+
+
+.Div-Buttons-Pagína-1 a:last-child:hover {
+    background-color: #134b85;
+}
+
+
+/* --- BARRA DE ESTATÍSTICAS --- */
+.Sessão-barra-estatisticas {
+    display: flex;
+    /* Alinha os itens lado a lado */
+    justify-content: space-around;
+    /* Distribui o espaço igualmente */
+    align-items: center;
+    background-color: white;
+    padding: 40px 20px;
+    border-bottom: 1px solid #eee;
+    /* Linha sutil embaixo */
+}
+
+/* Textos Pequenos */
+.Sessão-barra-estatisticas p {
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+    text-transform: uppercase;
+    /* Ou capitalize, dependendo do design */
+    letter-spacing: 0.5px;
+}
+
+.Sessão-barra-estatisticas h2 {
+    font-size: 36px;
+    color: #002d5a;
+    /* Azul escuro */
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.item-estatisticas-Integrantes {
+    /* Estilo geral para cada item */
+    text-align: center;
+    flex: 1;
+    /* Faz cada item ocupar o mesmo espaço */
+    border-right: 1px solid #ddd;
+    /* Cria a linha vertical divisória */
+}
+
+.item-estatisticas-Propósito {
+    text-align: center;
+    flex: 1;
+    /* Faz cada item ocupar o mesmo espaço */
+    border-right: 1px solid #ddd;
+    /* Cria a linha vertical divisória */
+}
+
+.item-estatisticas-Proa {
+    text-align: center;
+    flex: 1;
+    /* Faz cada item ocupar o mesmo espaço */
+    border-right: 1px solid #ddd;
+    /* Cria a linha vertical divisória */
+}
+
+.item-estatisticas-Valores-essenciais {
+    text-align: center;
+    flex: 1;
+    /* Faz cada item ocupar o mesmo espaço */
+    border-right: 1px solid #ddd;
+    /* Cria a linha vertical divisória */
+}
+
+/* ---Pagína-2 NOSSA ORIGEM ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->*/
+
+.Sessão-Nossa-Origem {
+    width: 100%;
+    max-width: 1440px;
+    /* Largura máxima para não esticar demais em telas grandes */
+    margin: 0 auto;
+    /* Centraliza a seção na tela */
+    padding: 100px 40px;
+    /* 100px de espaço em cima/baixo, 40px nas laterais */
+    background-color: #ffffff;
+    /* Fundo branco */
+}
+
+.Nossa-Origem-Div-Pai {
+    display: flex;
+    justify-content: space-between;
+    /* Espalha os itens: um na esquerda, outro na direita */
+    align-items: center;
+    /* Alinha os itens verticalmente ao centro */
+    gap: 60px;
+    /* Espaço entre o texto e o card */
+    flex-wrap: wrap;
+    /* Se a tela for pequena (celular), um item desce embaixo do outro */
+}
+
+/* --- Lado Esquerdo (Texto) --- */
+.Do-programa-Transforme-se-ao-mundo-real {
+    flex: 1;
+    /* Faz essa div ocupar 50% do espaço (aproximadamente) */
+    min-width: 300px;
+    /* Largura mínima para não quebrar o texto */
+}
+
+.Do-programa-Transforme-se-ao-mundo-real h2 {
+    font-size: 48px;
+    /* Fonte grande */
+    color: #002347;
+    /* Azul bem escuro (quase preto) */
+    line-height: 1.1;
+    /* Diminui o espaço entre as linhas do título */
+    margin-bottom: 30px;
+    /* Espaço abaixo do título */
+}
+
+.Do-programa-Transforme-se-ao-mundo-real p {
+    font-size: 16px;
+    color: #555;
+    /* Cinza escuro */
+    line-height: 1.6;
+    /* Espaçamento entre linhas para facilitar a leitura */
+    margin-bottom: 20px;
+}
+
+.tag-cinza {
+    display: inline-block;
+    /* Permite aplicar padding e margens corretamente */
+    background-color: #e6f0ff;
+    /* Azul bem claro */
+    color: #0056b3;
+    /* Azul escuro para o texto */
+    padding: 6px 12px;
+    border-radius: 20px;
+    /* Bordas bem arredondadas (formato de pílula) */
+    font-size: 12px;
+    font-weight: 700;
+    /* Negrito */
+    text-transform: uppercase;
+    /* Deixa tudo em maiúsculo */
+    margin-bottom: 20px;
+    /* Espaço abaixo da tag */
+}
+
+.Nossa-Origem-Conexão-Segura-Div-pai {
+    flex: 1;
+    /* Ocupa a outra metade do espaço */
+    min-width: 350px;
+    background-color: #001b3a;
+    /* Azul escuro igual ao da imagem */
+    padding: 50px 40px;
+    /* Espaçamento interno grande */
+    border-radius: 24px;
+    /* Bordas bem arredondadas */
+    color: #ffffff;
+    /* Texto branco */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    /* Sombra suave para dar destaque */
+}
+
+.Nossa-Origem-Conexão-Segura-Logo img
+
+/* Logo dentro do card */
+    {
+    height: 60px;
+    /* Ajuste conforme o tamanho da sua imagem */
+    margin-bottom: 30px;
+}
+
+.Conexão-Segura-Descrição h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.Conexão-Segura-Descrição p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #b0c4de;
+    /* Azul acinzentado claro */
+    margin-bottom: 30px;
+}
+
+.Box-Instituto-Proa {
+    display: inline-block;
+    /* Ficam uma do lado da outra */
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Fundo branco bem transparente */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* Borda sutil */
+    padding: 8px 16px;
+    border-radius: 20px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.Box-Transforme-se {
+    display: inline-block;
+    /* Ficam uma do lado da outra */
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Fundo branco bem transparente */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* Borda sutil */
+    padding: 8px 16px;
+    border-radius: 20px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.Box-Integrantes {
+    display: inline-block;
+    /* Ficam uma do lado da outra */
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Fundo branco bem transparente */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* Borda sutil */
+    padding: 8px 16px;
+    border-radius: 20px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.Box-Tecnologia-Cidadã {
+    display: inline-block;
+    /* Ficam uma do lado da outra */
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Fundo branco bem transparente */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* Borda sutil */
+    padding: 8px 16px;
+    border-radius: 20px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.Box-Instituto-Proa p {
+    font-size: 12px;
+    color: #ffffff;
+    margin: 0;
+    /* Remove margem extra que vem do HTML */
+}
+
+.Box-Integrantes p {
+    font-size: 12px;
+    color: #ffffff;
+    margin: 0;
+    /* Remove margem extra que vem do HTML */
+}
+
+.Box-Tecnologia-Cidadã p {
+    font-size: 12px;
+    color: #ffffff;
+    margin: 0;
+    /* Remove margem extra que vem do HTML */
+}
+
+.Box-Transforme-se p {
+    font-size: 12px;
+    color: #ffffff;
+    margin: 0;
+    /* Remove margem extra que vem do HTML */
+}
+
+/* Pagína-3  Sessão-Missão
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->*/
+
+/* Container principal */
+.Sessão-Propósito {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 100px 40px;
+    background-color: #f7f9fc;
+    /* Fundo cinza clarinho */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 colunas iguais */
+    gap: 30px;
+}
+
+.Propósito-Div-Pai {
+    grid-column: 1 / -1;
+    /* Ocupa a linha toda */
+    max-width: 700px;
+    margin-bottom: 40px;
+}
+
+.oque-nos-orienta p:first-child {
+    font-size: 13px;
+    font-weight: 700;
+    color: #0056b3;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.oque-nos-orienta h2 {
+    font-size: 42px;
+    color: #001b3a;
+    margin-bottom: 15px;
+    line-height: 1.2
+}
+
+.oque-nos-orienta p:last-child {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.Caixa-Missão {
+    background-color: #ffffff;
+    padding: 40px 30px;
+    border-radius: 16px;
+    border: 1px solid #eef2f5;
+    /* Borda bem suave */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+}
+
+.Caixa-Visão {
+    background-color: #001b3a;
+    /* Azul escuro idêntico à referência */
+    padding: 40px 30px;
+    border-radius: 16px;
+    border: none;
+    box-shadow: 0 15px 35px rgba(0, 27, 58, 0.2);
+    /* Sombra mais forte */
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+    /* Texto branco */
+}
+
+.Caixa-Valores {
+    background-color: #ffffff;
+    padding: 40px 30px;
+    border-radius: 16px;
+    border: 1px solid #eef2f5;
+    /* Borda bem suave */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+}
+
+.Icon-Missão {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.Icon-Visão {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.Icon-Valores {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.Caixa-Missão p:first-of-type {
+    display: inline-block;
+    background-color: #e6f0ff;
+    /* Fundo azul clarinho */
+    color: #0056b3;
+    padding: 6px 12px;
+    border-radius: 20px;
+    /* Formato de pílula */
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    align-self: flex-start;
+    /* Impede de esticar */
+}
+
+.Caixa-Visão p:first-of-type {
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Fundo branco translúcido */
+    color: #ffffff;
+}
+
+.Caixa-Valores p:first-of-type {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    /* Formato de pílula */
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    align-self: flex-start;
+    /* Impede de esticar */
+    background-color: #e6f7ef !important;
+    /* Fundo verde claro */
+    color: #0a7b4a !important;
+    /* Texto verde escuro */
+}
+
+.Caixa-Missão h2 {
+    font-size: 22px;
+    color: #001b3a;
+    margin-bottom: 15px;
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+.Caixa-Visão h2 {
+    font-size: 22px;
+    color: #ffffff;
+    margin-bottom: 15px;
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+.Caixa-Valores h2 {
+    font-size: 22px;
+    color: #001b3a;
+    margin-bottom: 15px;
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+
+.Caixa-Missão div:first-child {
+    margin-bottom: 20px;
+    height: 40px;
+}
+
+.Caixa-Visão div:first-child {
+    margin-bottom: 20px;
+    height: 40px;
+}
+
+.Caixa-Valores div:first-child {
+    margin-bottom: 20px;
+    height: 40px;
+}
+
+.Caixa-Missão p:first-of-type {
+    display: inline-block;
+    background-color: #e6f0ff;
+    color: #0056b3;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    align-self: flex-start;
+    /* Impede que a tag estique de ponta a ponta */
+}
+
+.Caixa-Visão p:first-of-type {
+    display: inline-block;
+    background-color: #e6f0ff;
+    color: #0056b3;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    align-self: flex-start;
+    /* Impede que a tag estique de ponta a ponta */
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+.Caixa-Valores p:first-of-type {
+    display: inline-block;
+    background-color: #e6f0ff;
+    color: #0056b3;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    align-self: flex-start;
+    /* Impede que a tag estique de ponta a ponta */
+}
+
+.Caixa-Missão h2 {
+    font-size: 22px;
+    color: #001b3a;
+    margin-bottom: 15px;
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+.Caixa-Visão h2 {
+    font-size: 22px;
+    color: #ffffff;
+    margin-bottom: 15px;
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+.Caixa-Valores h2 {
+    font-size: 22px;
+    color: #001b3a;
+    margin-bottom: 15px;
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+.Caixa-Missão p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.Caixa-Visão p {
+    font-size: 15px;
+    color: #b0c4de;
+    line-height: 1.6;
+}
+
+.Caixa-Valores p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* --- Pagína-4 CULTURA E DIFERENCIAIS ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->*/
+
+/* Container principal da seção */
+.Sessão-Cultura-e-Diferenciais {
+
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 100px 40px;
+    background-color: #ffffff;
+    /* Fundo branco */
+}
+
+.Cultura-e-Diferencias-Div-Pai {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* Cria 2 colunas de tamanhos iguais */
+    gap: 30px;
+    /* Espaço entre os cards */
+}
+
+.Como-trabalhamos {
+    grid-column: 1 / -1;
+    /* Ocupa a linha toda */
+    max-width: 700px;
+    /* Limita a largura do texto */
+    margin-bottom: 40px;
+}
+
+.Como-trabalhamos p:first-child {
+    display: inline-block;
+    background-color: #fff8e6;
+    /* Fundo amarelo/bege clarinho */
+    color: #b08100;
+    /* Texto dourado */
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+}
+
+.Como-trabalhamos h2 {
+    font-size: 42px;
+    color: #001b3a;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.Como-trabalhamos h2 {
+    font-size: 42px;
+    color: #001b3a;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+/* =========================================
+   ESTILO DOS CARDS (Os 4 blocos)
+   ========================================= */
+
+.caixa-Metodologia-ágil {
+    background-color: #f1f4f8;
+    /* Fundo cinza/azulado bem clarinho */
+    padding: 40px 30px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+}
+
+.caixa-Design {
+    background-color: #f1f4f8;
+    /* Fundo cinza/azulado bem clarinho */
+    padding: 40px 30px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+}
+
+.caixa-Informação-responsável {
+    background-color: #f1f4f8;
+    /* Fundo cinza/azulado bem clarinho */
+    padding: 40px 30px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+}
+
+.caixa-Diversidade-de-habilidades {
+    background-color: #f1f4f8;
+    /* Fundo cinza/azulado bem clarinho */
+    padding: 40px 30px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+}
+
+.caixa-Metodologia-ágil h2 {
+    font-size: 20px;
+    color: #001b3a;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.caixa-Design h2 {
+    font-size: 20px;
+    color: #001b3a;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.caixa-Informação-responsável h2 {
+    font-size: 20px;
+    color: #001b3a;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.caixa-Diversidade-de-habilidades h2 {
+    font-size: 20px;
+    color: #001b3a;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+/* Textos dentro dos cards */
+.caixa-Metodologia-ágil p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.caixa-Design p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.caixa-Informação-responsável p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.caixa-Diversidade-de-habilidades p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* =========================================
+   QUADRADINHOS DOS ÍCONES (Corrigido)
+   ========================================= */
+
+.caixa-Metodologia-ágil>div:first-child {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.caixa-Design>div:first-child {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.caixa-Informação-responsável>div:first-child {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.caixa-Diversidade-de-habilidades>div:first-child {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+/* Cores específicas dos fundos dos ícones */
+.caixa-Metodologia-ágil>div:first-child {
+    background-color: #e6f0ff;
+    /* Azul claro */
+}
+
+.caixa-Design>div:first-child {
+    background-color: #e6f0ff;
+    /* Azul claro */
+}
+
+.caixa-Informação-responsável>div:first-child {
+    background-color: #e6f7ef;
+    /* Verde claro */
+}
+
+.caixa-Diversidade-de-habilidades>div:first-child {
+    background-color: #fff3cd;
+    /* Amarelo claro */
+}
+
+/* Pagína-5 NOSSA EQUIPE ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->*/
+
+/* --- NOSSA EQUIPE --- */
+
+/* Container principal da seção */
+.Sessão-Nossa-Equipe {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 100px 40px;
+    background-color: #ffffff;
+}
+
+/* A "caixa pai" que vai segurar tudo. 
+   Transformamos ela em uma grade de 4 colunas. */
+.Nossa-Equipe-Div-Pai {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Cria 4 colunas iguais */
+    gap: 30px; /* Espaço entre os cards */
+}
+
+/* --- CABEÇALHO DA SEÇÃO --- */
+/* O título e a descrição precisam ocupar a linha inteira, 
+   então mandamos eles irem da coluna 1 até a última coluna. */
+.Título-Pessoas-Diferentes-um-Propósito-em-comum,
+.Descrição-Pessoas-Diferentes-um-Propósito-em-comum {
+    grid-column: 1 / -1; 
+}
+
+/* Ajuste do Título */
+.Título-Pessoas-Diferentes-um-Propósito-em-comum {
+    margin-bottom: 20px;
+}
+
+.Título-Pessoas-Diferentes-um-Propósito-em-comum p:first-child {
+    display: inline-block;
+    background-color: #e6f0ff;
+    color: #0056b3;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.Título-Pessoas-Diferentes-um-Propósito-em-comum h2 {
+    font-size: 42px;
+    color: #001b3a;
+    line-height: 1.2;
+}
+
+/* Ajuste da Descrição (Para ficar alinhada à direita, como na imagem) */
+.Descrição-Pessoas-Diferentes-um-Propósito-em-comum {
+    max-width: 400px; /* Limita a largura do texto */
+    justify-self: end; /* Empurra a caixa para a direita da grade */
+    align-self: center; /* Alinha ela no meio do título */
+    margin-bottom: 40px; /* Espaço para os cards abaixo */
+}
+
+.Descrição-Pessoas-Diferentes-um-Propósito-em-comum p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.Bryant-TECH-LEAD {
+ border: 1px solid #e2e8f0; /* Borda cinza clara */
+    border-radius: 12px; /* Bordas arredondadas */
+    background-color: #ffffff; /* Fundo branco */
+    overflow: hidden; /* Impede que o topo azul vaze para fora */
+    display: flex;
+    flex-direction: column;
+} 
+
+.topo-azul-card {
+    background-color: #002d5a; /* Azul escuro */
+    padding: 30px 0; /* Espaçamento em cima e embaixo da foto */
+    display: flex;
+    justify-content: center; /* Centraliza a foto no meio */
+    border-bottom: 1px solid #e2e8f0; /* A linha divisória */
+}
+
+.topo-azul-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%; /* Deixa a foto redonda */
+    object-fit: cover; /* Garante que a foto não fique esticada */
+}
+
+.conteudo-Bryant{
+    padding: 20px; /* Espaço interno */}
+
+    .tag-cargo {
+    display: inline-block;
+    background-color: #e6f0ff; /* Azul clarinho */
+    color: #0056b3; /* Azul escuro */
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    }
+
+
+.Cleide-SCRUM-MASTER {
+
+}
+.Gustavo-UX-DEVELOPER {
+
+}
+.Maria-DEV-BACKEND {
+
+}
+.Kaique-UI-E-UX {
+
+}
+.Kevin-PRODUCT-OWNER {
+
+}
+.Hyghor-DEV-FRONT-END {
+
+}
+.Yasmin-UI-DEVELOPER {
+
+}
+
+.Bryant-TECH-LEAD::before{
+
+}
+.Cleide-SCRUM-MASTER::before{
+
+}
+.Gustavo-UX-DEVELOPER::before{
+
+}
+.Maria-DEV-BACKEND::before{
+
+}
+.Kaique-UI-E-UX::before{
+
+}
+.Kevin-PRODUCT-OWNER::before{
+
+}
+.Hyghor-DEV-FRONT-END::before{
+
+}
+.Yasmin-UI-DEVELOPER::before{
+
+}
+
+.Bryant-TECH-LEAD > p:first-of-type{
+
+}
+.Cleide-SCRUM-MASTER > p:first-of-type{
+
+}
+.Gustavo-UX-DEVELOPER > p:first-of-type,
+.Maria-DEV-BACKEND > p:first-of-type, 
+.Kaique-UI-E-UX > p:first-of-type, 
+.Kevin-PRODUCT-OWNER > p:first-of-type, 
+.Hyghor-DEV-FRONT-END > p:first-of-type, 
+.Yasmin-UI-DEVELOPER > p:first-of-type
+
+.Bryant-TECH-LEAD h2 {
+   
+}
+.Cleide-SCRUM-MASTER h2, 
+.Gustavo-UX-DEVELOPER h2, 
+.Maria-DEV-BACKEND h2, 
+.Kaique-UI-E-UX h2, 
+.Kevin-PRODUCT-OWNER h2, 
+.Hyghor-DEV-FRONT-END h2, 
+.Yasmin-UI-DEVELOPER h2
+
+.Bryant-TECH-LEAD > p:last-of-type{
+
+} 
+.Cleide-SCRUM-MASTER > p:last-of-type, 
+.Gustavo-UX-DEVELOPER > p:last-of-type, 
+.Maria-DEV-BACKEND > p:last-of-type, 
+.Kaique-UI-E-UX > p:last-of-type, 
+.Kevin-PRODUCT-OWNER > p:last-of-type, 
+.Hyghor-DEV-FRONT-END > p:last-of-type, 
+.Yasmin-UI-DEVELOPER > p:last-of-type
+
+.foto-integrante {
+   
+}
+
+/* Pagína-6 Impacto Pretendido --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------> */
+
+/* =========================================
+   SEÇÃO: IMPACTO PRETENDIDO
+   ========================================= */
+
+/* 1. Container principal (Fundo Azul Escuro) */
+.Sessão-Impacto-Pretendido {
+    width: 100%;
+    background-color: #041830; /* Azul escuro principal */
+    padding: 100px 40px;
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo */
+}
+
+/* 2. A caixa que segura tudo e cria a grade */
+.Impacto-Pretendido-Div-Pai {
+    width: 100%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Cria 2 colunas iguais */
+    gap: 30px; /* Espaço entre os cards */
+}
+
+/* 3. O Cabeçalho (Ocupa a linha inteira) */
+.Oque-queremos-transformar {
+    grid-column: 1 / -1; /* Faz ele ocupar as 2 colunas */
+    margin-bottom: 30px; 
+    max-width: 750px;
+}
+
+/* A tag "IMPACTO PRETENDIDO" */
+.Oque-queremos-transformar p:first-child {
+    display: inline-block;
+    background-color: #1a365d; /* Fundo azul clarinho */
+    color: #fbbf24; /* Texto dourado */
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+/* O Título Principal */
+.Oque-queremos-transformar h2 {
+    font-size: 42px;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+/* O Subtítulo */
+.Oque-queremos-transformar p:last-child {
+    font-size: 16px;
+    color: #a0aec0; /* Cinza azulado claro */
+    line-height: 1.6;
+}
+
+/* =========================================
+   ESTILO DOS 4 CARDS
+   ========================================= */
+
+/* 4. Base dos cards */
+.Informação-acessível-e-localizada {
+     background-color: #0b1f35; /* Azul de fundo do card */
+    padding: 40px 30px;
+    border-radius: 12px;
+    border: 1px solid #1a365d; /* Borda azulada sutil */
+    display: flex;
+    flex-direction: column;
+}
+.Decisões-mais-conscientes {
+     background-color: #0b1f35; /* Azul de fundo do card */
+    padding: 40px 30px;
+    border-radius: 12px;
+    border: 1px solid #1a365d; /* Borda azulada sutil */
+    display: flex;
+    flex-direction: column;
+}
+.Valorização-das-comunidades {
+     background-color: #0b1f35; /* Azul de fundo do card */
+    padding: 40px 30px;
+    border-radius: 12px;
+    border: 1px solid #1a365d; /* Borda azulada sutil */
+    display: flex;
+    flex-direction: column;
+}
+.Inclusão-digital-real {
+    background-color: #0b1f35; /* Azul de fundo do card */
+    padding: 40px 30px;
+    border-radius: 12px;
+    border: 1px solid #1a365d; /* Borda azulada sutil */
+    display: flex;
+    flex-direction: column;
+}
+
+.Informação-acessível-e-localizada:before {
+    content: ""; /* Recria a caixa */
+    display: block;
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    background-color: #1a365d; /* Cor de fundo da caixa */
+    margin-bottom: 20px;
+    /* Aqui entra a imagem do ícone: */
+    background-image: url('../assets/Elementos/imp-1-icon.png'); /* <-- COLOQUE O CAMINHO DA IMAGEM AQUI */
+    background-size: 50px; /* Tamanho do ícone */
+    background-position: center; /* Centraliza o ícone */
+    background-repeat: no-repeat; /* Não deixa a imagem repetir */
+}
+.Decisões-mais-conscientes:before {
+    content: ""; /* Recria a caixa */
+    display: block;
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    background-color: #1a365d; /* Cor de fundo da caixa */
+    margin-bottom: 20px;
+    background-image: url('../assets/Elementos/imp-2-icon.png');
+    background-size: 50px; /* Tamanho do ícone */
+    background-position: center; /* Centraliza o ícone */
+    background-repeat: no-repeat; /* Não deixa a imagem repetir */
+}
+.Valorização-das-comunidades:before {
+    content: ""; /* Recria a caixa */
+    display: block;
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    background-color: #1a365d; /* Cor de fundo da caixa */
+    margin-bottom: 20px;
+    background-image: url('../assets/Elementos/imp-3-icon.png'); 
+    background-size: 50px; /* Tamanho do ícone */
+    background-position: center; /* Centraliza o ícone */
+    background-repeat: no-repeat; /* Não deixa a imagem repetir */
+}
+
+.Inclusão-digital-real:before {
+    content: ""; /* Recria a caixa */
+    display: block;
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    background-color: #1a365d; /* Cor de fundo da caixa */
+    margin-bottom: 20px;
+    background-image: url('../assets/Elementos/imp-4-icon.png'); 
+    background-size: 50px; /* Tamanho do ícone */
+    background-position: center; /* Centraliza o ícone */
+    background-repeat: no-repeat; /* Não deixa a imagem repetir */
+}
+
+
+
+
+/* 6. Títulos dentro dos cards */
+.Informação-acessível-e-localizada h2 {
+     font-size: 20px;
+    color: #ffffff;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+.Decisões-mais-conscientes h2 {
+     font-size: 20px;
+    color: #ffffff;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+.Valorização-das-comunidades h2 {
+     font-size: 20px;
+    color: #ffffff;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+.Inclusão-digital-real h2 {
+    font-size: 20px;
+    color: #ffffff;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+/* 7. Textos dentro dos cards */
+.Informação-acessível-e-localizada p {
+      font-size: 14px;
+    color: #a0aec0; /* Texto cinza azulado */
+    line-height: 1.6;
+}
+.Decisões-mais-conscientes p {
+      font-size: 14px;
+    color: #a0aec0; /* Texto cinza azulado */
+    line-height: 1.6;
+}
+.Valorização-das-comunidades p {
+      font-size: 14px;
+    color: #a0aec0; /* Texto cinza azulado */
+    line-height: 1.6;
+}
+.Inclusão-digital-real p {
+    font-size: 14px;
+    color: #a0aec0; /* Texto cinza azulado */
+    line-height: 1.6;
+}
+
+/* Pagína-7 (Fale Conosco)--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->*/
+
+/* =========================================
+   SEÇÃO: FALE CONOSCO (Quer saber mais?)
+   ========================================= */
+
+/* 1. O fundo da seção (Cinza claro) */
+.Sessão-Quer-saber-mais-sobre-o-projeto {
+    width: 100%;
+    background-color: #f4f7fb; /* Fundo cinza azulado bem clarinho */
+    padding: 80px 40px;
+    display: flex;
+    justify-content: center; /* Centraliza a caixa branca */
+}
+
+/* 2. A caixa branca (O container) */
+.Mais-sobre-o-Projeto-Div-Pai {
+    width: 100%;
+    max-width: 1100px; /* Largura máxima da caixa */
+    background-color: #ffffff; /* Fundo branco */
+    padding: 40px 50px; /* Espaçamento interno */
+    border-radius: 16px; /* Bordas arredondadas */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Sombra suave */
     
- }
+    /* Coloca o texto e o botão lado a lado */
+    display: flex;
+    justify-content: space-between; /* Texto na esquerda, botão na direita */
+    align-items: center; /* Centraliza verticalmente */
+    gap: 40px;
+}
+
+/* 3. O bloco de texto (Título e Parágrafo) */
+.Descrição-Mais-sobre-o-Projeto {
+    max-width: 600px; /* Limita a largura do texto */
+}
+
+.Descrição-Mais-sobre-o-Projeto h2 {
+    font-size: 28px;
+    color: #001b3a; /* Azul escuro */
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.Descrição-Mais-sobre-o-Projeto p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* 4. O Botão */
+.Mais-Sobre-o-Projeto-Button-Fale-Conosco {
+    background-color: #003366; /* Azul escuro do botão */
+    color: #ffffff;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    white-space: nowrap; /* Impede o texto do botão de quebrar em duas linhas */
+}
+
+/* Efeito ao passar o mouse no botão */
+.Mais-Sobre-o-Projeto-Button-Fale-Conosco:hover {
+    background-color: #002244; /* Azul mais escuro */
+}
+
+/* Pagína-8 (Rodapé) --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->*/
+
+/* =========================================
+   RODAPÉ (CÓDIGO COMPLETO E LIMPO)
+   ========================================= */
+
+.Sessão-Rodapé {
+    width: 100%;
+    background-color: #001a33;
+    padding: 60px 40px 30px 40px;
+    display: flex;
+    justify-content: center;
+}
+
+/* O container principal usa Grid para a parte de cima */
+.Rodapé-Div-Pai {
+    width: 100%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr; 
+    gap: 40px;
+    
+    /* Flexbox para organizar a parte de baixo */
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+}
+
+/* --- PARTE DE CIMA (Logo e Links) --- */
+
+.Rodapé-Plataforma-de-informação {
+    width: 40%; 
+    max-width: 400px;
+}
+
+.Rodapé-Plataforma-de-informação img {
+    height: 40px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.Rodapé-Plataforma-de-informação p {
+    font-size: 14px;
+    color: #a0c4e8;
+    line-height: 1.6;
+}
+
+.Rodapé-Explorar {
+    width: 25%;
+}
+.Rodapé-Institucional {
+    width: 25%;
+}
+
+.Rodapé-Explorar h2 {
+     font-size: 15px;
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+.Rodapé-Institucional h2 {
+    font-size: 15px;
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.Rodapé-Explorar ul {
+     list-style: none;
+    padding: 0;
+}
+.Rodapé-Institucional ul {
+    list-style: none;
+    padding: 0;
+}
+
+.Rodapé-Explorar li {
+    margin-bottom: 12px;
+}
+.Rodapé-Institucional li {
+    margin-bottom: 12px;
+}
+
+.Rodapé-Explorar a,
+.Rodapé-Institucional a {
+    text-decoration: none;
+    color: #a0c4e8;
+    font-size: 14px;
+}
+
+.Rodapé-Explorar a:hover,
+.Rodapé-Institucional a:hover {
+    color: #ffffff;
+}
+
+/* --- PARTE DE BAIXO (Direitos Autorais) --- */
+
+.Rodapé-2026-Conexão-Segura-Todos-os-direitos-reservados {
+    width: 100%; /* Ocupa a linha toda */
+    border-top: 1px solid #1a3c64; /* Linha divisória */
+    padding-top: 20px;
+    margin-top: 40px;
+    font-size: 13px;
+    color: #a0c4e8;
+}
+.Rodapé-Desenvolvido-por-estudantes-do-Instituto-PROA {
+    width: 100%; /* Ocupa a linha toda */
+    border-top: 1px solid #1a3c64; /* Linha divisória */
+    padding-top: 20px;
+    margin-top: 40px;
+    font-size: 13px;
+    color: #a0c4e8;
+}
+
+.Rodapé-2026-Conexão-Segura-Todos-os-direitos-reservados {
+    text-align: left;
+    order: 1;
+}
+
+/* O amarelo do Instituto PROA */
+.Rodapé-Desenvolvido-por-estudantes-do-Instituto-PROA span {
+    color: #fbbf24 !important;
+    font-weight: bold !important;
+}
+
+.Rodapé-2026-Conexão-Segura-Todos-os-direitos-reservados {
+}
+
+.Rodapé-Desenvolvido-por-estudantes-do-Instituto-PROA {
+
+}

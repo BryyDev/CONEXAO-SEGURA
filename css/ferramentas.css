@@ -1,0 +1,631 @@
+:root {
+    --navy: #12345f;
+    --navy-dark: #0b2347;
+    --navy-card: #102c50;
+    --green: #08c995;
+    --blue: #0866f5;
+    --background: #f5f5f5;
+    --white: #ffffff;
+    --text: #292929;
+    --border: #b9d2f5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background);
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+header {
+    width: 100%;
+    height: 74px;
+    background-color: var(--navy);
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+header .in {
+    width: 90%;
+    max-width: 1292px;
+    height: 100%;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-shrink: 0;
+}
+
+.logo svg {
+    width: 40px;
+    height: 40px;
+}
+
+.logo span {
+    display: flex;
+    flex-direction: column;
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 14px;
+}
+
+.logo span b {
+    color: var(--green);
+    font-weight: 800;
+}
+
+/* Menu de navegação */
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 54px;
+}
+
+.main a {
+    color: #f5f7fb;
+    font-size: 14px;
+    font-weight: 400;
+    transition: color 0.25s ease;
+    white-space: nowrap;
+}
+
+.main a:hover {
+    color: var(--green);
+}
+
+.main a.on {
+    font-weight: 700;
+    color: var(--white);
+}
+
+/* Ícone do usuário */
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    background-color: #073dff;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+.avatar svg {
+    width: 17px;
+    height: 17px;
+}
+
+/* Botão entrar ou criar conta */
+
+.btn.hdr {
+    background-color: var(--blue);
+    color: var(--white);
+
+    padding: 10px 12px;
+    border-radius: 10px;
+
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.btn.hdr:hover {
+    background-color: #0052d9;
+    transform: translateY(-2px);
+}
+
+main {
+    width: 100%;
+    background-color: var(--background);
+}
+
+.wrap {
+    width: 90%;
+    max-width: 1292px;
+    margin: auto;
+
+    padding-top: 19px;
+    padding-bottom: 0;
+}
+
+/* Título principal */
+
+.hub {
+    color: var(--navy);
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1.2;
+
+    margin-bottom: 8px;
+}
+
+.hub span {
+    color: var(--green);
+}
+
+/* Texto abaixo do título */
+
+.wrap > p {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #333;
+
+    margin-bottom: 34px !important;
+}
+
+.grid3 {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+/* Cards criados pelo JavaScript */
+
+#tools > * {
+    min-width: 0;
+    min-height: 215px;
+
+    background-color: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    padding: 22px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+#tools > *:hover {
+    transform: translateY(-4px);
+    border-color: var(--blue);
+    box-shadow: 0 8px 22px rgba(18, 52, 95, 0.08);
+}
+
+/* Ícone dentro do card */
+
+#tools > * > div:first-child {
+    width: 45px;
+    height: 45px;
+
+    background-color: var(--navy-card);
+    color: var(--white);
+
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 12px;
+    flex-shrink: 0;
+}
+
+/* Primeiro ícone em verde */
+
+#tools > *:first-child > div:first-child {
+    background-color: var(--green);
+    color: var(--navy-dark);
+}
+
+/* Imagens e SVGs dos ícones */
+
+#tools svg,
+#tools img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+/* Título dos cards */
+
+#tools h3,
+#tools h2 {
+    color: var(--navy);
+    font-size: 18px;
+    font-weight: 750;
+    line-height: 1.3;
+
+    margin-bottom: 9px;
+}
+
+/* Descrição dos cards */
+
+#tools p {
+    color: #383838;
+    font-size: 13px;
+    line-height: 1.35;
+
+    margin-bottom: 15px;
+}
+
+/* Link Abrir */
+
+#tools a {
+    color: var(--blue);
+    font-size: 13px;
+    font-weight: 600;
+
+    margin-top: auto;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    transition: gap 0.2s ease;
+}
+
+#tools a:hover {
+    gap: 12px;
+}
+
+/* Caso o JavaScript utilize botões */
+
+#tools button {
+    margin-top: auto;
+    border: none;
+    background: transparent;
+    color: var(--blue);
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+.how {
+    color: var(--navy);
+    font-size: 22px;
+    font-weight: 750;
+
+    margin-top: 46px;
+    margin-bottom: 23px;
+}
+
+/* Cards explicativos */
+
+.step {
+    min-height: 104px;
+
+    background-color: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    padding: 22px;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.step:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(18, 52, 95, 0.07);
+}
+
+/* Número de cada etapa */
+
+.step .num {
+    width: 38px;
+    height: 38px;
+
+    min-width: 38px;
+
+    border-radius: 50%;
+    background-color: var(--green);
+    color: var(--navy-dark);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 17px;
+    font-weight: 800;
+}
+
+/* Título das etapas */
+
+.step b {
+    display: block;
+
+    color: var(--navy);
+    font-size: 14px;
+    font-weight: 700;
+
+    margin-bottom: 4px;
+}
+
+/* Descrição das etapas */
+
+.step p {
+    color: #444;
+    font-size: 12px;
+    line-height: 1.35;
+}
+
+.wave {
+    display: block;
+
+    width: 100%;
+    height: 110px;
+
+    margin-top: 0;
+    margin-bottom: -1px;
+}
+
+
+footer {
+    width: 100%;
+    background: linear-gradient(
+        120deg,
+        #183a6b,
+        #0b2347 75%
+    );
+
+    color: var(--white);
+    padding: 12px 0 24px;
+}
+
+/* Organização das colunas */
+
+.cols {
+    width: 87.5%;
+    max-width: 1260px;
+
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1.6fr 0.8fr 1fr 1.2fr;
+
+    gap: 45px;
+}
+
+/* Título principal do rodapé */
+
+.cols h5 {
+    font-size: 20px;
+    font-weight: 750;
+    margin-bottom: 12px;
+}
+
+/* Títulos das colunas */
+
+.cols h4 {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 13px;
+}
+
+/* Textos do rodapé */
+
+.cols p {
+    color: #c3d1e4;
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+/* Links do rodapé */
+
+.cols a {
+    display: block;
+
+    color: #c3d1e4;
+    font-size: 13px;
+
+    margin-bottom: 9px;
+
+    transition: color 0.2s ease;
+}
+
+.cols a:hover {
+    color: var(--green);
+}
+
+/* Destaque do link Fale conosco */
+
+.cols a[style*="font-weight"] {
+    color: var(--white);
+}
+
+/* Parte inferior do rodapé */
+
+.bot {
+    width: 87.5%;
+    max-width: 1260px;
+
+    margin: 24px auto 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    color: #c3d1e4;
+    font-size: 11px;
+}
+
+.bot span {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.bot a {
+    color: #c3d1e4;
+    transition: color 0.2s ease;
+}
+
+.bot a:hover {
+    color: var(--green);
+}
+
+header {
+    width: 100%;
+    height: 74px;
+    background: #12345d;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 100;
+}
+
+/* Organização dos elementos do cabeçalho */
+header .in {
+    width: calc(100% - 48px);
+    max-width: 1170px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 170px 1fr 42px 150px;
+    align-items: center;
+    gap: 25px;
+}
+
+/* LOGO */
+header .logo {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    text-decoration: none;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 15px;
+}
+
+header .logo svg {
+    flex-shrink: 0;
+}
+
+header .logo span {
+    display: flex;
+    flex-direction: column;
+}
+
+header .logo b {
+    color: #12c48b;
+}
+
+/* MENU DE NAVEGAÇÃO */
+header .main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(20px, 3.5vw, 48px);
+}
+
+header .main a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+}
+
+header .main a:hover {
+    color: #12c48b;
+}
+
+/* Página atualmente selecionada */
+header .main a.on {
+    font-weight: 700;
+}
+
+/* ÍCONE DO USUÁRIO */
+header .avatar {
+    width: 42px;
+    height: 42px;
+
+    background: #073bff;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+header .avatar:hover {
+    background: #245cff;
+}
+
+/* BOTÃO ENTRAR OU CRIAR CONTA */
+header .btn.hdr {
+    width: 150px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #1265ed;
+    color: #fff;
+
+    border-radius: 11px;
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+
+    transition: background 0.2s ease;
+}
+
+header .btn.hdr:hover {
+    background: #0753d5;
+}
