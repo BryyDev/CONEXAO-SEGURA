@@ -1,563 +1,409 @@
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+    box-sizing: border-box; /* Garante que bordas e paddings não aumentem o tamanho total do elemento */
+    padding: 0;             /* Remove o preenchimento padrão de todos os elementos */
+    margin: 0;              /* Remove a margem padrão de todos os elementos */
 }
 
 body {
-    background-color: #fff;
-    color: #333;
-}
-
-header {
-    display: flex;
-    /* Coloca os elementos lado a lado */
-    justify-content: space-between;
-    /* Espaça os elementos: Logo na esquerda, menu no centro, botões na direita */
-    align-items: center;
-    /* Alinha verticalmente ao centro */
-    padding: 20px 40px;
-    /* Espaçamento interno (cima/baixo, esquerda/direita) */
-    background-color: #fff;
-    height: 80px;
-    /* Altura fixa para o cabeçalho */
-}
-
-nav ul {
-    display: flex;
-    /* Coloca os itens do menu em linha */
-    list-style: none;
-    /* Remove as bolinhas da lista */
-    gap: 30px;
-    /* Espaço entre cada item do menu */
-
-}
-
-nav ul li a {
-    text-decoration: none;
-    /* Remove o sublinhado dos links */
-    color: #003366;
-    /* Azul escuro do texto */
-    font-weight: 600;
-    /* Deixa o texto semi-negrito */
-    font-size: 16px;
-    transition: color 0.3s;
-    /* Suaviza a transição de cor ao passar o mouse */
-}
-
-nav ul li a:hover {
-    color: #0056b3;
-    /* Cor ao passar o mouse */
+    background-color: #fff; /* Fundo branco para o site */
+    color: #333;            /* Cor padrão do texto (cinza escuro) */
 }
 
 /* --- HEADER E NAVEGAÇÃO --- */
+
+/* Container principal do site */
 .secao-principal {
-    width: 100%;
-    max-width: 1440px;
-    margin: 0;
-
+    width: 100%;            /* Ocupa 100% da largura */
+    max-width: 1440px;      /* Largura máxima para telas grandes */
+    margin: 0;              /* Remove a margem */
 }
 
+/* Cabeçalho do site */
+header {
+    display: flex;                  /* Coloca os elementos lado a lado */
+    justify-content: space-between; /* Espaça os elementos: Logo na esquerda, menu no centro, botões na direita */
+    align-items: center;            /* Alinha verticalmente ao centro */
+    padding: 20px 40px;             /* Espaçamento interno (cima/baixo, esquerda/direita) */
+    background-color: #fff;         /* Fundo branco */
+    height: 80px;                   /* Altura fixa para o cabeçalho */
+}
+
+/* Logo */
 .logo {
-    height: 60px;
-    /* Ajusta o tamanho da logo */
-    width: auto;
+    height: 60px;       /* Altura da logo */
+    width: auto;        /* Largura automática para não distorcer */
 }
 
-.site {
-    /* Direcionamento dos Sites */
+/* Menu de Navegação */
+nav ul {
+    display: flex;      /* Coloca os itens do menu em linha */
+    list-style: none;   /* Remove as bolinhas da lista */
+    gap: 30px;          /* Espaço entre cada item do menu */
 }
 
+nav ul li a {
+    text-decoration: none; /* Remove o sublinhado dos links */
+    color: #003366;        /* Azul escuro do texto */
+    font-weight: 600;      /* Deixa o texto semi-negrito */
+    font-size: 16px;       /* Tamanho da fonte */
+    transition: color 0.3s; /* Suaviza a transição de cor ao passar o mouse */
+}
+
+nav ul li a:hover {
+    color: #0056b3; /* Cor ao passar o mouse */
+}
+
+/* Ações do Usuário (Ícone + Botão) */
 .acoes-usuario {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    /* Espaço entre o ícone e o botão */
+    display: flex;      /* Coloca os elementos lado a lado */
+    align-items: center; /* Alinha verticalmente ao centro */
+    gap: 20px;          /* Espaço entre o ícone e o botão */
 }
 
 #Usuário {
-    height: 30px;
-    cursor: pointer;
-    /* Muda o cursor para "mãozinha" */
+    height: 30px;   /* Altura do ícone */
+    cursor: pointer; /* Muda o cursor para "mãozinha" */
 }
 
+/* Botão "Planejar meu trajeto" */
 .btn-planejar {
-    background-color: #002d5a;
-    /* Azul escuro do botão */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    /* Bordas arredondadas */
-    font-weight: 700;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    background-color: #002d5a; /* Azul escuro do botão */
+    color: white;              /* Texto branco */
+    border: none;              /* Remove a borda padrão */
+    padding: 10px 20px;        /* Espaçamento interno */
+    border-radius: 8px;        /* Bordas arredondadas */
+    font-weight: 700;          /* Negrito */
+    cursor: pointer;           /* Cursor de mãozinha */
+    transition: background-color 0.3s; /* Suaviza a transição de cor */
 }
 
 .btn-planejar:hover {
-    background-color: #004488;
-    /* Clareia o botão ao passar o mouse */
+    background-color: #004488; /* Clareia o botão ao passar o mouse */
 }
 
-
 /* --- SEÇÃO HERO --- */
+
 .Sessão-Hero {
-    background-image: url(../assets/Elementos/star-strip.png);
-    background-size: cover;
-    background-position: center;
-    padding: 120px 80px;
-    min-height: 600px;
-    display: flex;
-    align-items: center;
-    color: #ffffff !important;
+    background-image: url(../assets/Elementos/star-strip.png); /* Imagem de fundo */
+    background-size: cover;       /* Faz a imagem cobrir toda a área */
+    background-position: center;  /* Centraliza a imagem */
+    padding: 120px 80px;          /* Espaçamento interno grande */
+    min-height: 600px;            /* Altura mínima */
+    display: flex;                /* Ativa o Flexbox */
+    align-items: center;          /* Alinha o conteúdo no meio verticalmente */
+    color: #ffffff !important;    /* Força o texto branco */
 }
 
 .Hero-Div-pai {
-    max-width: 750px;
-    /* Limita a largura do texto para não ficar espalhado */
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    /* Espaço entre os blocos de texto */
+    max-width: 750px;       /* Limita a largura do texto para não ficar espalhado */
+    display: flex;          /* Ativa o Flexbox */
+    flex-direction: column; /* Organiza os itens em coluna */
+    gap: 15px;              /* Espaço entre os blocos de texto */
 }
 
-.Tecnologia-a-serviços-de-comunidades-reais {
-    font-family: 'Inter', Arial, sans-serif;
-    /* Fonte sem serifa */
-    font-size: 13px;
-    color: #a0c4e8 !important;
-    /* Azul claro */
-    text-transform: none;
-    /* REMOVE o tudo maiúsculo (que estava antes) */
-    margin-bottom: 5px;
+   .Tecnologia-a-serviços-de-comunidades-reais {
+    display: flex;            /* Coloca os elementos lado a lado ou em coluna */
+    flex-direction: column;   /* Organiza em coluna */
+    align-items: flex-start;  /* Alinha o conteúdo à esquerda */
+    gap: 15px;                /* Cria um espaço de 15px entre o primeiro e o segundo parágrafo */
+    margin-bottom: 20px;      /* Espaço antes do título principal */
 }
-
 
 .Título-Principal-Pagína-1 {
-    font-family: 'Inter', Arial, sans-serif;
-    font-size: 56px;
-    line-height: 1.1;
-    font-weight: 700;
-    margin-top: 0;
-    margin-bottom: 20px;
-    letter-spacing: -1px;
-    color: #ffffff !important;
-    /* Força o branco */
+    font-family: 'Inter', Arial, sans-serif; /* Fonte sem serifa */
+    font-size: 56px;                         /* Tamanho grande da fonte */
+    line-height: 1.1;                        /* Diminui o espaço entre as linhas */
+    font-weight: 700;                        /* Negrito */
+    margin-top: 0;                           /* Remove a margem superior */
+    margin-bottom: 20px;                     /* Espaço abaixo do título */
+    letter-spacing: -1px;                    /* Deixa as letras levemente mais juntas */
+    color: #ffffff !important;               /* Força o branco */
 }
 
 .Div-textos p {
-    font-family: 'Inter', Arial, sans-serif;
-    font-size: 18px;
-    line-height: 1.5;
-    color: #e0e0e0;
-    /* Branco acinzentado */
-    max-width: 650px;
-    margin-bottom: 30px;
+    font-family: 'Inter', Arial, sans-serif; /* Fonte sem serifa */
+    font-size: 18px;                         /* Tamanho da fonte */
+    line-height: 1.5;                        /* Espaçamento entre linhas */
+    color: #e0e0e0;                          /* Branco acinzentado */
+    max-width: 650px;                        /* Limita a largura do texto */
+    margin-bottom: 30px;                     /* Espaço abaixo */
 }
 
 .Div-Buttons-Pagína-1 {
-    display: flex;
-    gap: 15px;
-    margin-top: 10px;
-
+    display: flex;  /* Coloca os botões lado a lado */
+    gap: 15px;      /* Espaço entre os botões */
+    margin-top: 10px; /* Espaço acima dos botões */
 }
 
 .Div-Buttons-Pagína-1 a {
-    font-family: 'Inter', Arial, sans-serif;
-    text-decoration: none;
-    padding: 12px 24px;
-    /* Ajustado para ficar mais compacto igual à foto */
-    border-radius: 6px;
-    /* Bordas levemente menos arredondadas */
-    font-size: 15px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    display: inline-block;
+    font-family: 'Inter', Arial, sans-serif; /* Fonte sem serifa */
+    text-decoration: none;                   /* Remove o sublinhado */
+    padding: 12px 24px;                      /* Espaçamento interno */
+    border-radius: 6px;                      /* Bordas arredondadas */
+    font-size: 15px;                         /* Tamanho da fonte */
+    font-weight: 600;                        /* Semi-negrito */
+    transition: all 0.3s ease;               /* Suaviza a transição */
+    display: inline-block;                   /* Permite aplicar padding e margem */
 }
 
-.Div-Buttons-Pagína-1 a:first-child {
-    background-color: #1a5c9f;
-    /* Azul mais próximo da referência */
-    color: #ffffff !important;
-    border: 1px solid #1a5c9f;
+/* Estilo único para os DOIS botões (já que ambos são azuis) */
+.Div-Buttons-Pagína-1 a {
+    background-color: #1a5c9f; /* Azul */
+    color: #ffffff !important; /* Texto branco */
+    border: 1px solid #1a5c9f; /* Borda azul */
 }
 
-.Div-Buttons-Pagína-1 a:first-child:hover {
-    background-color: #134b85;
+.Div-Buttons-Pagína-1 a:hover {
+    background-color: #134b85; /* Azul mais escuro ao passar o mouse */
 }
-
-.Div-Buttons-Pagína-1 a:last-child {
-    background-color: #1a5c9f;
-    /* Azul mais próximo da referência */
-    color: #ffffff !important;
-    border: 1px solid #1a5c9f;
-}
-
-
-.Div-Buttons-Pagína-1 a:last-child:hover {
-    background-color: #134b85;
-}
-
 
 /* --- BARRA DE ESTATÍSTICAS --- */
+
 .Sessão-barra-estatisticas {
-    display: flex;
-    /* Alinha os itens lado a lado */
-    justify-content: space-around;
-    /* Distribui o espaço igualmente */
-    align-items: center;
-    background-color: white;
-    padding: 40px 20px;
-    border-bottom: 1px solid #eee;
-    /* Linha sutil embaixo */
+    display: flex;                  /* Alinha os itens lado a lado */
+    justify-content: space-around;  /* Distribui o espaço igualmente */
+    align-items: center;            /* Alinha verticalmente ao centro */
+    background-color: white;        /* Fundo branco */
+    padding: 40px 20px;             /* Espaçamento interno */
+    border-bottom: 1px solid #eee;  /* Linha sutil embaixo */
 }
 
 /* Textos Pequenos */
 .Sessão-barra-estatisticas p {
-    font-size: 14px;
-    color: #666;
-    font-weight: 500;
-    text-transform: uppercase;
-    /* Ou capitalize, dependendo do design */
-    letter-spacing: 0.5px;
+    font-size: 14px;        /* Tamanho da fonte */
+    color: #666;            /* Cinza escuro */
+    font-weight: 500;       /* Peso da fonte */
+    text-transform: uppercase; /* Texto em maiúsculo */
+    letter-spacing: 0.5px;  /* Espaço entre as letras */
 }
 
+/* Números Grandes */
 .Sessão-barra-estatisticas h2 {
-    font-size: 36px;
-    color: #002d5a;
-    /* Azul escuro */
-    font-weight: 800;
-    margin-bottom: 5px;
+    font-size: 36px;        /* Tamanho grande */
+    color: #002d5a;         /* Azul escuro */
+    font-weight: 800;       /* Negrito forte */
+    margin-bottom: 5px;     /* Espaço abaixo */
 }
 
-.item-estatisticas-Integrantes {
-    /* Estilo geral para cada item */
-    text-align: center;
-    flex: 1;
-    /* Faz cada item ocupar o mesmo espaço */
-    border-right: 1px solid #ddd;
-    /* Cria a linha vertical divisória */
-}
-
-.item-estatisticas-Propósito {
-    text-align: center;
-    flex: 1;
-    /* Faz cada item ocupar o mesmo espaço */
-    border-right: 1px solid #ddd;
-    /* Cria a linha vertical divisória */
-}
-
-.item-estatisticas-Proa {
-    text-align: center;
-    flex: 1;
-    /* Faz cada item ocupar o mesmo espaço */
-    border-right: 1px solid #ddd;
-    /* Cria a linha vertical divisória */
-}
-
+/* Agrupamento dos itens da barra (já que são iguais) */
+.item-estatisticas-Integrantes,
+.item-estatisticas-Propósito,
+.item-estatisticas-Proa,
 .item-estatisticas-Valores-essenciais {
-    text-align: center;
-    flex: 1;
-    /* Faz cada item ocupar o mesmo espaço */
-    border-right: 1px solid #ddd;
-    /* Cria a linha vertical divisória */
+    text-align: center;         /* Centraliza o texto */
+    flex: 1;                    /* Faz cada item ocupar o mesmo espaço */
+    border-right: 1px solid #ddd; /* Cria a linha vertical divisória */
+}
+
+/* Remove a borda do último item para não ficar linha sobrando no final */
+.item-estatisticas-Valores-essenciais {
+    border-right: none;
 }
 
 /* ---Pagína-2 NOSSA ORIGEM ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->*/
 
+/* =========================================
+   SEÇÃO: NOSSA ORIGEM
+   ========================================= */
+
+/* 1. Container principal da seção */
 .Sessão-Nossa-Origem {
-    width: 100%;
-    max-width: 1440px;
-    /* Largura máxima para não esticar demais em telas grandes */
-    margin: 0 auto;
-    /* Centraliza a seção na tela */
-    padding: 100px 40px;
-    /* 100px de espaço em cima/baixo, 40px nas laterais */
-    background-color: #ffffff;
-    /* Fundo branco */
+    width: 100%;               /* Ocupa toda a largura */
+    max-width: 1440px;         /* Limita a largura máxima */
+    margin: 0 auto;            /* Centraliza a seção na tela */
+    padding: 100px 40px;       /* 100px em cima/baixo, 40px nas laterais */
+    background-color: #ffffff; /* Fundo branco */
 }
 
+/* 2. A caixa que segura o texto (esquerda) e o card (direita) */
 .Nossa-Origem-Div-Pai {
-    display: flex;
-    justify-content: space-between;
-    /* Espalha os itens: um na esquerda, outro na direita */
-    align-items: center;
-    /* Alinha os itens verticalmente ao centro */
-    gap: 60px;
-    /* Espaço entre o texto e o card */
-    flex-wrap: wrap;
-    /* Se a tela for pequena (celular), um item desce embaixo do outro */
+    display: flex;                 /* Coloca os elementos lado a lado */
+    justify-content: space-between;/* Espalha os itens: um na esquerda, outro na direita */
+    align-items: center;           /* Alinha os itens verticalmente ao centro */
+    gap: 60px;                     /* Espaço entre o texto e o card */
+    flex-wrap: wrap;               /* Permite quebrar linha em telas menores */
 }
 
-/* --- Lado Esquerdo (Texto) --- */
+/* --- LADO ESQUERDO (Texto) --- */
+
 .Do-programa-Transforme-se-ao-mundo-real {
-    flex: 1;
-    /* Faz essa div ocupar 50% do espaço (aproximadamente) */
-    min-width: 300px;
-    /* Largura mínima para não quebrar o texto */
+    flex: 1;              /* Ocupa 50% do espaço disponível */
+    min-width: 300px;     /* Largura mínima para não quebrar o texto */
 }
 
+/* Título do lado esquerdo */
 .Do-programa-Transforme-se-ao-mundo-real h2 {
-    font-size: 48px;
-    /* Fonte grande */
-    color: #002347;
-    /* Azul bem escuro (quase preto) */
-    line-height: 1.1;
-    /* Diminui o espaço entre as linhas do título */
-    margin-bottom: 30px;
-    /* Espaço abaixo do título */
+    font-size: 48px;          /* Fonte grande */
+    color: #002347;           /* Azul bem escuro */
+    line-height: 1.1;         /* Diminui o espaço entre as linhas do título */
+    margin-bottom: 30px;      /* Espaço abaixo do título */
 }
 
+/* Parágrafos do lado esquerdo */
 .Do-programa-Transforme-se-ao-mundo-real p {
-    font-size: 16px;
-    color: #555;
-    /* Cinza escuro */
-    line-height: 1.6;
-    /* Espaçamento entre linhas para facilitar a leitura */
-    margin-bottom: 20px;
+    font-size: 16px;          /* Tamanho da fonte */
+    color: #555;              /* Cinza escuro */
+    line-height: 1.6;         /* Espaçamento entre linhas */
+    margin-bottom: 20px;      /* Espaço abaixo de cada parágrafo */
 }
 
+/* A tag "NOSSA ORIGEM" (bolinha azul clarinha) */
 .tag-cinza {
-    display: inline-block;
-    /* Permite aplicar padding e margens corretamente */
-    background-color: #e6f0ff;
-    /* Azul bem claro */
-    color: #0056b3;
-    /* Azul escuro para o texto */
-    padding: 6px 12px;
-    border-radius: 20px;
-    /* Bordas bem arredondadas (formato de pílula) */
-    font-size: 12px;
-    font-weight: 700;
-    /* Negrito */
-    text-transform: uppercase;
-    /* Deixa tudo em maiúsculo */
-    margin-bottom: 20px;
-    /* Espaço abaixo da tag */
+    display: inline-block;    /* Permite aplicar padding e margens */
+    background-color: #e6f0ff;/* Azul bem claro */
+    color: #0056b3;           /* Azul escuro para o texto */
+    padding: 6px 12px;        /* Espaçamento interno */
+    border-radius: 20px;      /* Bordas arredondadas (pílula) */
+    font-size: 12px;          /* Tamanho da fonte */
+    font-weight: 700;         /* Negrito */
+    text-transform: uppercase;/* Texto em maiúsculo */
+    margin-bottom: 20px;      /* Espaço abaixo da tag */
 }
+
+/* --- LADO DIREITO (O Card Azul Escuro) --- */
 
 .Nossa-Origem-Conexão-Segura-Div-pai {
-    flex: 1;
-    /* Ocupa a outra metade do espaço */
-    min-width: 350px;
-    background-color: #001b3a;
-    /* Azul escuro igual ao da imagem */
-    padding: 50px 40px;
-    /* Espaçamento interno grande */
-    border-radius: 24px;
-    /* Bordas bem arredondadas */
-    color: #ffffff;
-    /* Texto branco */
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    /* Sombra suave para dar destaque */
+    flex: 1;                  /* Ocupa a outra metade do espaço */
+    min-width: 350px;         /* Largura mínima */
+    background-color: #001b3a;/* Azul escuro */
+    padding: 50px 40px;       /* Espaçamento interno grande */
+    border-radius: 24px;      /* Bordas bem arredondadas */
+    color: #ffffff;           /* Texto branco */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
-.Nossa-Origem-Conexão-Segura-Logo img
-
-/* Logo dentro do card */
-    {
-    height: 60px;
-    /* Ajuste conforme o tamanho da sua imagem */
-    margin-bottom: 30px;
+/* CORREÇÃO: A chave { deve vir logo após o seletor img */
+.Nossa-Origem-Conexão-Segura-Logo img {
+    height: 60px;          /* Altura da logo dentro do card */
+    margin-bottom: 30px;   /* Espaço abaixo da logo */
 }
 
+/* Título dentro do card */
 .Conexão-Segura-Descrição h2 {
     font-size: 28px;
     margin-bottom: 15px;
     font-weight: 700;
 }
 
+/* Texto descritivo dentro do card */
 .Conexão-Segura-Descrição p {
     font-size: 15px;
     line-height: 1.6;
-    color: #b0c4de;
-    /* Azul acinzentado claro */
+    color: #b0c4de;       /* Azul acinzentado claro */
     margin-bottom: 30px;
 }
 
-.Box-Instituto-Proa {
-    display: inline-block;
-    /* Ficam uma do lado da outra */
-    background-color: rgba(255, 255, 255, 0.1);
-    /* Fundo branco bem transparente */
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    /* Borda sutil */
-    padding: 8px 16px;
-    border-radius: 20px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-}
+/* --- AS "PÍLULAS" (Box-Instituto-Proa, etc) --- */
 
-.Box-Transforme-se {
-    display: inline-block;
-    /* Ficam uma do lado da outra */
-    background-color: rgba(255, 255, 255, 0.1);
-    /* Fundo branco bem transparente */
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    /* Borda sutil */
-    padding: 8px 16px;
-    border-radius: 20px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-}
-
-.Box-Integrantes {
-    display: inline-block;
-    /* Ficam uma do lado da outra */
-    background-color: rgba(255, 255, 255, 0.1);
-    /* Fundo branco bem transparente */
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    /* Borda sutil */
-    padding: 8px 16px;
-    border-radius: 20px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-}
-
+/* Agrupamento de todas as 4 boxes */
+.Box-Instituto-Proa, 
+.Box-Transforme-se, 
+.Box-Integrantes, 
 .Box-Tecnologia-Cidadã {
-    display: inline-block;
-    /* Ficam uma do lado da outra */
-    background-color: rgba(255, 255, 255, 0.1);
-    /* Fundo branco bem transparente */
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    /* Borda sutil */
-    padding: 8px 16px;
-    border-radius: 20px;
-    margin-right: 10px;
-    margin-bottom: 10px;
+    display: inline-block;                     /* Ficam uma do lado da outra */
+    background-color: rgba(255, 255, 255, 0.1);/* Fundo branco bem transparente */
+    border: 1px solid rgba(255, 255, 255, 0.2);/* Borda sutil */
+    padding: 8px 16px;                         /* Espaçamento interno */
+    border-radius: 20px;                       /* Bordas arredondadas */
+    margin-right: 10px;                        /* Espaço à direita */
+    margin-bottom: 10px;                       /* Espaço abaixo */
 }
 
-.Box-Instituto-Proa p {
-    font-size: 12px;
-    color: #ffffff;
-    margin: 0;
-    /* Remove margem extra que vem do HTML */
-}
-
-.Box-Integrantes p {
-    font-size: 12px;
-    color: #ffffff;
-    margin: 0;
-    /* Remove margem extra que vem do HTML */
-}
-
+/* Agrupamento dos textos dentro das 4 boxes */
+.Box-Instituto-Proa p, 
+.Box-Transforme-se p, 
+.Box-Integrantes p, 
 .Box-Tecnologia-Cidadã p {
-    font-size: 12px;
-    color: #ffffff;
-    margin: 0;
-    /* Remove margem extra que vem do HTML */
-}
-
-.Box-Transforme-se p {
-    font-size: 12px;
-    color: #ffffff;
-    margin: 0;
-    /* Remove margem extra que vem do HTML */
+    font-size: 12px;  /* Tamanho da fonte pequeno */
+    color: #ffffff;   /* Texto branco */
+    margin: 0;        /* Remove margem extra que vem do HTML */
 }
 
 /* Pagína-3  Sessão-Missão
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->*/
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->*/
 
-/* Container principal */
+/* =========================================
+   SEÇÃO 3: PROPÓSITO (O que nos orienta)
+   ========================================= */
+
+/* 1. Container Principal */
 .Sessão-Propósito {
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
     padding: 100px 40px;
     background-color: #f7f9fc;
-    /* Fundo cinza clarinho */
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    /* 3 colunas iguais */
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas iguais */
     gap: 30px;
 }
 
+/* 2. Cabeçalho (Título e Subtítulo) */
 .Propósito-Div-Pai {
-    grid-column: 1 / -1;
-    /* Ocupa a linha toda */
+    grid-column: 1 / -1; /* Ocupa a linha inteira */
     max-width: 700px;
     margin-bottom: 40px;
 }
 
+/* Tag "PROPÓSITO" (Agora com fundo azul) */
 .oque-nos-orienta p:first-child {
     font-size: 13px;
     font-weight: 700;
     color: #0056b3;
+    background-color: #e6f0ff; /* <-- FUNDO AZUL ADICIONADO AQUI */
+    padding: 6px 12px;         /* <-- ESPAÇAMENTO ADICIONADO */
+    border-radius: 20px;       /* <-- BORDAS ARREDONDADAS */
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 10px;
     display: inline-block;
 }
 
+/* Título "O que nos orienta" */
 .oque-nos-orienta h2 {
     font-size: 42px;
     color: #001b3a;
     margin-bottom: 15px;
-    line-height: 1.2
+    line-height: 1.2;
 }
 
+/* Texto descritivo */
 .oque-nos-orienta p:last-child {
     font-size: 16px;
     color: #666;
     line-height: 1.6;
 }
 
-.Caixa-Missão {
-    background-color: #ffffff;
-    padding: 40px 30px;
-    border-radius: 16px;
-    border: 1px solid #eef2f5;
-    /* Borda bem suave */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-    display: flex;
-    flex-direction: column;
-}
+/* =========================================
+   ESTILO DOS 3 CARDS
+   ========================================= */
 
-.Caixa-Visão {
-    background-color: #001b3a;
-    /* Azul escuro idêntico à referência */
-    padding: 40px 30px;
-    border-radius: 16px;
-    border: none;
-    box-shadow: 0 15px 35px rgba(0, 27, 58, 0.2);
-    /* Sombra mais forte */
-    display: flex;
-    flex-direction: column;
-    color: #ffffff;
-    /* Texto branco */
-}
-
+/* 3. Base dos cards (Missão e Valores são brancos) */
+.Caixa-Missão, 
 .Caixa-Valores {
     background-color: #ffffff;
     padding: 40px 30px;
     border-radius: 16px;
     border: 1px solid #eef2f5;
-    /* Borda bem suave */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
     display: flex;
     flex-direction: column;
 }
 
-.Icon-Missão {
-    width: 50px;
-    height: 50px;
-    border-radius: 12px;
+/* Card do Meio (Visão - Azul Escuro) */
+.Caixa-Visão {
+    background-color: #001b3a;
+    padding: 40px 30px;
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0, 27, 58, 0.2);
     display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
+    flex-direction: column;
+    color: #ffffff;
 }
 
-.Icon-Visão {
-    width: 50px;
-    height: 50px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
+/* 4. Quadradinhos dos Ícones */
+.Icon-Missão, 
+.Icon-Visão, 
 .Icon-Valores {
     width: 50px;
     height: 50px;
@@ -568,46 +414,68 @@ nav ul li a:hover {
     margin-bottom: 20px;
 }
 
+/* Garante que a imagem preencha a div do ícone */
+.Icon-Missão img,
+.Icon-Visão img,
+.Icon-Valores img {
+    width: 100%;       
+    height: 100%;      
+    object-fit: cover; 
+    display: block;    
+}
+
+/* Cores de fundo dos ícones */
+.Icon-Missão { background-color: #e6f0ff; }
+.Icon-Visão { background-color: rgba(255, 255, 255, 0.1); }
+.Icon-Valores { background-color: #e6f7ef; }
+
+/* 5. As Tags (MISSÃO, VISÃO, VALORES) */
+
+/* Tag da Missão */
 .Caixa-Missão p:first-of-type {
     display: inline-block;
     background-color: #e6f0ff;
-    /* Fundo azul clarinho */
     color: #0056b3;
-    padding: 6px 12px;
-    border-radius: 20px;
-    /* Formato de pílula */
+    padding: 4px 10px;
+    border-radius: 6px;
     font-size: 11px;
     font-weight: 800;
     text-transform: uppercase;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     align-self: flex-start;
-    /* Impede de esticar */
 }
 
+/* Tag da Visão (Fundo transparente e texto branco) */
 .Caixa-Visão p:first-of-type {
-    background-color: rgba(255, 255, 255, 0.1);
-    /* Fundo branco translúcido */
-    color: #ffffff;
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo transparente */
+    color: #ffffff; /* Texto branco */
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    align-self: flex-start;
 }
 
+/* Tag dos Valores (Verde) */
 .Caixa-Valores p:first-of-type {
     display: inline-block;
-    padding: 6px 12px;
-    border-radius: 20px;
-    /* Formato de pílula */
+    background-color: #e6f7ef;
+    color: #0a7b4a;
+    padding: 4px 10px;
+    border-radius: 6px;
     font-size: 11px;
     font-weight: 800;
     text-transform: uppercase;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     align-self: flex-start;
-    /* Impede de esticar */
-    background-color: #e6f7ef !important;
-    /* Fundo verde claro */
-    color: #0a7b4a !important;
-    /* Texto verde escuro */
 }
 
-.Caixa-Missão h2 {
+/* 6. Títulos (H2) dentro dos cards */
+.Caixa-Missão h2, 
+.Caixa-Valores h2 {
     font-size: 22px;
     color: #001b3a;
     margin-bottom: 15px;
@@ -623,527 +491,309 @@ nav ul li a:hover {
     font-weight: 700;
 }
 
-.Caixa-Valores h2 {
-    font-size: 22px;
-    color: #001b3a;
-    margin-bottom: 15px;
-    line-height: 1.3;
-    font-weight: 700;
-}
-
-
-.Caixa-Missão div:first-child {
-    margin-bottom: 20px;
-    height: 40px;
-}
-
-.Caixa-Visão div:first-child {
-    margin-bottom: 20px;
-    height: 40px;
-}
-
-.Caixa-Valores div:first-child {
-    margin-bottom: 20px;
-    height: 40px;
-}
-
-.Caixa-Missão p:first-of-type {
-    display: inline-block;
-    background-color: #e6f0ff;
-    color: #0056b3;
-    padding: 4px 10px;
-    border-radius: 6px;
-    font-size: 11px;
-    font-weight: 800;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    align-self: flex-start;
-    /* Impede que a tag estique de ponta a ponta */
-}
-
-.Caixa-Visão p:first-of-type {
-    display: inline-block;
-    background-color: #e6f0ff;
-    color: #0056b3;
-    padding: 4px 10px;
-    border-radius: 6px;
-    font-size: 11px;
-    font-weight: 800;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    align-self: flex-start;
-    /* Impede que a tag estique de ponta a ponta */
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
-}
-
-.Caixa-Valores p:first-of-type {
-    display: inline-block;
-    background-color: #e6f0ff;
-    color: #0056b3;
-    padding: 4px 10px;
-    border-radius: 6px;
-    font-size: 11px;
-    font-weight: 800;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    align-self: flex-start;
-    /* Impede que a tag estique de ponta a ponta */
-}
-
-.Caixa-Missão h2 {
-    font-size: 22px;
-    color: #001b3a;
-    margin-bottom: 15px;
-    line-height: 1.3;
-    font-weight: 700;
-}
-
-.Caixa-Visão h2 {
-    font-size: 22px;
-    color: #ffffff;
-    margin-bottom: 15px;
-    line-height: 1.3;
-    font-weight: 700;
-}
-
-.Caixa-Valores h2 {
-    font-size: 22px;
-    color: #001b3a;
-    margin-bottom: 15px;
-    line-height: 1.3;
-    font-weight: 700;
-}
-
-.Caixa-Missão p {
+/* 7. Parágrafos dentro dos cards */
+.Caixa-Missão p:last-of-type, 
+.Caixa-Valores p:last-of-type {
     font-size: 15px;
     color: #555;
     line-height: 1.6;
 }
 
-.Caixa-Visão p {
+.Caixa-Visão p:last-of-type {
     font-size: 15px;
     color: #b0c4de;
     line-height: 1.6;
 }
 
-.Caixa-Valores p {
-    font-size: 15px;
-    color: #555;
-    line-height: 1.6;
-}
-
 /* --- Pagína-4 CULTURA E DIFERENCIAIS ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->*/
-
-/* Container principal da seção */
+/* =========================================
+   SEÇÃO: CULTURA E DIFERENCIAIS
+   ========================================= */
+/* --- 1. O CONTAINER GERAL DA SEÇÃO --- */
 .Sessão-Cultura-e-Diferenciais {
-
-    width: 100%;
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 100px 40px;
-    background-color: #ffffff;
-    /* Fundo branco */
+    width: 100%;          /* Faz a seção ocupar 100% da largura da tela */
+    max-width: 1440px;    /* Impede que a seção estique infinitamente em monitores ultra-wide */
+    margin: 0 auto;       /* Centraliza a seção na tela (0 em cima/baixo, auto nas laterais) */
+    padding: 96px 40px 0px 40px; /* Espaço interno: 96px no topo, 40px nas laterais, 0 embaixo. 
+                                   (Nota: Troquei o 96px da esquerda por 40px para alinhar com o resto do site) */
+    background-color: #ffffff; /* Define o fundo da seção como branco */
 }
 
+/* --- 2. O "PAI" DOS CARDS (CRIANDO A GRADE) --- */
 .Cultura-e-Diferencias-Div-Pai {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    /* Cria 2 colunas de tamanhos iguais */
-    gap: 30px;
-    /* Espaço entre os cards */
+    display: grid;        /* Transforma a div em uma grade (grid) */
+    grid-template-columns: repeat(2, 1fr); /* Cria 2 colunas de tamanhos iguais (1 fração cada) */
+    gap: 30px;            /* Cria um espaço de 30px entre as colunas e entre as linhas */
 }
 
+/* --- 3. O CABEÇALHO (TÍTULO E DESCRIÇÃO) --- */
 .Como-trabalhamos {
-    grid-column: 1 / -1;
-    /* Ocupa a linha toda */
-    max-width: 700px;
-    /* Limita a largura do texto */
-    margin-bottom: 40px;
+    grid-column: 1 / -1;  /* Diz para o cabeçalho ir da coluna 1 até a última (-1), ou seja, ocupar a linha toda */
+    max-width: 700px;     /* Limita a largura máxima do texto do cabeçalho (para não ficar muito espalhado) */
+    margin-bottom: 40px;  /* Cria um espaço de 40px abaixo do cabeçalho antes dos cards começarem */
 }
 
+/* A TAG "CULTURA E DIFERENCIAIS" */
 .Como-trabalhamos p:first-child {
-    display: inline-block;
-    background-color: #fff8e6;
-    /* Fundo amarelo/bege clarinho */
-    color: #b08100;
-    /* Texto dourado */
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 15px;
+    display: inline-block; /* Permite que a tag tenha tamanho de acordo com o texto, e não a linha toda */
+    background-color: #fff8e6; /* Cor de fundo bege/amarelo clarinho */
+    color: #b08100;       /* Cor do texto (dourado/amarelo escuro) */
+    padding: 6px 12px;    /* Espaçamento interno (6px em cima/baixo, 12px nas laterais) */
+    border-radius: 20px;  /* Arredonda os cantos da tag (formato de pílula) */
+    font-size: 11px;      /* Tamanho da fonte da tag */
+    font-weight: 700;     /* Deixa a fonte em negrito */
+    text-transform: uppercase; /* Transforma todo o texto em MAIÚSCULO */
+    letter-spacing: 0.5px; /* Dá um leve espaço entre as letras */
+    margin-bottom: 15px;  /* Espaço abaixo da tag antes do título h2 */
 }
 
+/* O TÍTULO "COMO TRABALHAMOS" */
 .Como-trabalhamos h2 {
-    font-size: 42px;
-    color: #001b3a;
-    margin-bottom: 15px;
-    line-height: 1.2;
+    font-size: 42px;      /* Tamanho grande da fonte */
+    color: #001b3a;       /* Cor azul escura */
+    margin-bottom: 15px;  /* Espaço abaixo do título */
+    line-height: 1.2;     /* Controla a altura da linha (deixa as linhas do título mais juntas) */
 }
 
-.Como-trabalhamos h2 {
-    font-size: 42px;
-    color: #001b3a;
-    margin-bottom: 15px;
-    line-height: 1.2;
+/* O TEXTO DESCRITIVO DO CABEÇALHO */
+.Como-trabalhamos p:last-child {
+    font-size: 16px;      /* Tamanho da fonte do parágrafo */
+    color: #666;          /* Cor cinza escuro */
+    line-height: 1.6;     /* Aumenta o espaço entre as linhas para facilitar a leitura */
 }
 
-/* =========================================
-   ESTILO DOS CARDS (Os 4 blocos)
-   ========================================= */
-
-.caixa-Metodologia-ágil {
-    background-color: #f1f4f8;
-    /* Fundo cinza/azulado bem clarinho */
-    padding: 40px 30px;
-    border-radius: 12px;
-    border: 1px solid #e2e8f0;
-    display: flex;
-    flex-direction: column;
-}
-
-.caixa-Design {
-    background-color: #f1f4f8;
-    /* Fundo cinza/azulado bem clarinho */
-    padding: 40px 30px;
-    border-radius: 12px;
-    border: 1px solid #e2e8f0;
-    display: flex;
-    flex-direction: column;
-}
-
-.caixa-Informação-responsável {
-    background-color: #f1f4f8;
-    /* Fundo cinza/azulado bem clarinho */
-    padding: 40px 30px;
-    border-radius: 12px;
-    border: 1px solid #e2e8f0;
-    display: flex;
-    flex-direction: column;
-}
-
+/* --- 4. ESTILO GERAL DOS 4 CARDS (OS BLOCOS CINZAS) --- */
+.caixa-Metodologia-ágil, 
+.caixa-Design, 
+.caixa-Informação-responsável, 
 .caixa-Diversidade-de-habilidades {
-    background-color: #f1f4f8;
-    /* Fundo cinza/azulado bem clarinho */
-    padding: 40px 30px;
-    border-radius: 12px;
-    border: 1px solid #e2e8f0;
-    display: flex;
-    flex-direction: column;
+    background-color: #f1f4f8; /* Cor de fundo cinza/azulado bem clarinho para todos os cards */
+    padding: 40px 30px;        /* Espaçamento interno: 40px em cima/baixo, 30px nas laterais */
+    border-radius: 12px;       /* Arredonda os cantos dos cards */
+    border: 1px solid #e2e8f0; /* Adiciona uma borda fina de 1px na cor cinza claro */
+    display: flex;             /* Transforma o card em flexbox para organizar o conteúdo interno */
+    flex-direction: column;    /* Diz para os itens dentro do card ficarem um embaixo do outro (coluna) */
+    grid-column: span 1; /* Ocupa exatamente 1 coluna da grade */
+    flex-direction: column; /* Garante que tudo dentro do card fique empilhado */
+    overflow: hidden; /* Impede que algo vaze */
 }
 
-.caixa-Metodologia-ágil h2 {
-    font-size: 20px;
-    color: #001b3a;
-    margin-bottom: 10px;
-    font-weight: 700;
-}
-
-.caixa-Design h2 {
-    font-size: 20px;
-    color: #001b3a;
-    margin-bottom: 10px;
-    font-weight: 700;
-}
-
-.caixa-Informação-responsável h2 {
-    font-size: 20px;
-    color: #001b3a;
-    margin-bottom: 10px;
-    font-weight: 700;
-}
-
+/* --- 5. TÍTULOS DENTRO DOS CARDS (METODOLOGIA ÁGIL, ETC) --- */
+.caixa-Metodologia-ágil h2,
+.caixa-Design h2,
+.caixa-Informação-responsável h2,
 .caixa-Diversidade-de-habilidades h2 {
-    font-size: 20px;
-    color: #001b3a;
-    margin-bottom: 10px;
-    font-weight: 700;
+    font-size: 20px;      /* Tamanho do título dentro do card */
+    color: #001b3a;       /* Cor azul escura */
+    margin-bottom: 10px;  /* Espaço abaixo do título antes do parágrafo */
+    font-weight: 700;     /* Negrito */
 }
 
-/* Textos dentro dos cards */
-.caixa-Metodologia-ágil p {
-    font-size: 14px;
-    color: #555;
-    line-height: 1.6;
-}
-
-.caixa-Design p {
-    font-size: 14px;
-    color: #555;
-    line-height: 1.6;
-}
-
-.caixa-Informação-responsável p {
-    font-size: 14px;
-    color: #555;
-    line-height: 1.6;
-}
-
+/* --- 6. TEXTOS DENTRO DOS CARDS --- */
+.caixa-Metodologia-ágil p,
+.caixa-Design p,
+.caixa-Informação-responsável p,
 .caixa-Diversidade-de-habilidades p {
-    font-size: 14px;
-    color: #555;
-    line-height: 1.6;
+    font-size: 14px;      /* Tamanho do texto descritivo */
+    color: #555;          /* Cor cinza escuro */
+    line-height: 1.6;     /* Espaçamento entre as linhas do texto */
 }
 
-/* =========================================
-   QUADRADINHOS DOS ÍCONES (Corrigido)
-   ========================================= */
-
-.caixa-Metodologia-ágil>div:first-child {
-    width: 45px;
-    height: 45px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 25px;
+/* --- 7. QUADRADINHO DO ÍCONE (A CAIXA ATRÁS DO DESENHO) --- */
+/* Usamos o seletor > div:first-child para pegar a primeira div dentro de cada card */
+.caixa-Metodologia-ágil > div:first-child,
+.caixa-Design > div:first-child,
+.caixa-Informação-responsável > div:first-child,
+.caixa-Diversidade-de-habilidades > div:first-child {
+    width: 45px;          /* Largura do quadradinho */
+    height: 45px;         /* Altura do quadradinho */
+    border-radius: 10px;  /* Arredonda os cantos do quadradinho */
+    display: flex;        /* Usa flexbox para centralizar o ícone */
+    align-items: center;  /* Centraliza o ícone verticalmente */
+    justify-content: center; /* Centraliza o ícone horizontalmente */
+    margin-bottom: 25px;  /* Espaço abaixo do ícone antes do título h2 */
 }
 
-.caixa-Design>div:first-child {
-    width: 45px;
-    height: 45px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 25px;
+/* --- 8. CORES DE FUNDO DE CADA QUADRADINHO --- */
+.caixa-Metodologia-ágil > div:first-child {
+    background-color: #e6f0ff; /* Fundo azul claro */
 }
 
-.caixa-Informação-responsável>div:first-child {
-    width: 45px;
-    height: 45px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 25px;
+.caixa-Design > div:first-child {
+    background-color: #e6f0ff; /* Fundo azul claro */
 }
 
-.caixa-Diversidade-de-habilidades>div:first-child {
-    width: 45px;
-    height: 45px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 25px;
+.caixa-Informação-responsável > div:first-child {
+    background-color: #e6f7ef; /* Fundo verde claro */
 }
 
-/* Cores específicas dos fundos dos ícones */
-.caixa-Metodologia-ágil>div:first-child {
-    background-color: #e6f0ff;
-    /* Azul claro */
-}
-
-.caixa-Design>div:first-child {
-    background-color: #e6f0ff;
-    /* Azul claro */
-}
-
-.caixa-Informação-responsável>div:first-child {
-    background-color: #e6f7ef;
-    /* Verde claro */
-}
-
-.caixa-Diversidade-de-habilidades>div:first-child {
-    background-color: #fff3cd;
-    /* Amarelo claro */
+.caixa-Diversidade-de-habilidades > div:first-child {
+    background-color: #fff3cd; /* Fundo amarelo claro */
 }
 
 /* Pagína-5 NOSSA EQUIPE ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->*/
 
-/* --- NOSSA EQUIPE --- */
+/* =========================================
+   5. SEÇÃO: NOSSA EQUIPE (CÓDIGO LIMPO)
+   ========================================= */
 
 /* Container principal da seção */
 .Sessão-Nossa-Equipe {
-    width: 100%;
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 100px 40px;
-    background-color: #ffffff;
+    width: 100%; /* Ocupa 100% da tela */
+    max-width: 1440px; /* Largura máxima do site */
+    margin: 0 auto; /* Centraliza a seção na tela */
+    padding: 96px 40px 0 40px; /* 96px no topo, 40px nas laterais, 0 embaixo */
+    background-color: #ffffff; /* Fundo branco */
 }
 
-/* A "caixa pai" que vai segurar tudo. 
-   Transformamos ela em uma grade de 4 colunas. */
+/* A "caixa pai" que segura o cabeçalho e os 8 cards */
 .Nossa-Equipe-Div-Pai {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Cria 4 colunas iguais */
-    gap: 30px; /* Espaço entre os cards */
+    display: grid; /* Usa o sistema de grade para alinhar os itens */
+    grid-template-columns: repeat(4, 1fr); /* Cria 4 colunas de tamanhos iguais */
+    row-gap: 56px; /* Espaço vertical de 56px entre as linhas (título->cards e cards->cards) */
+    column-gap: 30px; /* Espaço horizontal de 30px entre os cards da mesma linha */
 }
 
 /* --- CABEÇALHO DA SEÇÃO --- */
-/* O título e a descrição precisam ocupar a linha inteira, 
-   então mandamos eles irem da coluna 1 até a última coluna. */
-.Título-Pessoas-Diferentes-um-Propósito-em-comum,
-.Descrição-Pessoas-Diferentes-um-Propósito-em-comum {
-    grid-column: 1 / -1; 
-}
 
-/* Ajuste do Título */
+/* Título (Ocupa a linha toda) */
 .Título-Pessoas-Diferentes-um-Propósito-em-comum {
-    margin-bottom: 20px;
+    grid-column: 1 / -1; /* Faz o título ir da primeira até a última coluna */
+    margin-bottom: 0px; /* Remove margem extra (o row-gap do pai já cuida do espaço) */
 }
 
+/* Tag "NOSSA EQUIPE" */
 .Título-Pessoas-Diferentes-um-Propósito-em-comum p:first-child {
-    display: inline-block;
-    background-color: #e6f0ff;
-    color: #0056b3;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-bottom: 15px;
+    display: inline-block; /* Permite aplicar padding e margem corretamente */
+    background-color: #e6f0ff; /* Fundo azul bem clarinho */
+    color: #0056b3; /* Texto azul escuro */
+    padding: 6px 12px; /* Espaçamento interno (cima/baixo, lados) */
+    border-radius: 20px; /* Bordas arredondadas (formato de pílula) */
+    font-size: 11px; /* Fonte pequena */
+    font-weight: 700; /* Negrito */
+    text-transform: uppercase; /* Deixa o texto em maiúsculo */
+    margin-bottom: 15px; /* Espaço entre a tag e o título h2 */
 }
 
+/* Título Principal */
 .Título-Pessoas-Diferentes-um-Propósito-em-comum h2 {
-    font-size: 42px;
-    color: #001b3a;
-    line-height: 1.2;
+    font-size: 42px; /* Tamanho da fonte grande */
+    color: #001b3a; /* Azul escuro */
+    line-height: 1.2; /* Espaçamento entre as linhas do título */
 }
 
-/* Ajuste da Descrição (Para ficar alinhada à direita, como na imagem) */
+/* Descrição (Lado direito) */
 .Descrição-Pessoas-Diferentes-um-Propósito-em-comum {
-    max-width: 400px; /* Limita a largura do texto */
+    grid-column: 1 / -1; /* Ocupa a linha toda também */
+    max-width: 400px; /* Limita a largura do texto para não ficar espalhado */
     justify-self: end; /* Empurra a caixa para a direita da grade */
-    align-self: center; /* Alinha ela no meio do título */
-    margin-bottom: 40px; /* Espaço para os cards abaixo */
+    align-self: center; /* Alinha verticalmente no centro em relação ao título */
+    margin-top: -80px; /* Puxa o texto para cima para alinhar com o título */
+    margin-bottom: 0; /* Remove margem extra */
 }
 
+/* Parágrafo da Descrição */
 .Descrição-Pessoas-Diferentes-um-Propósito-em-comum p {
-    font-size: 16px;
-    color: #666;
-    line-height: 1.6;
+    font-size: 16px; /* Tamanho da fonte */
+    color: #666; /* Cinza escuro */
+    line-height: 1.6; /* Espaçamento entre as linhas do texto */
 }
 
-.Bryant-TECH-LEAD {
- border: 1px solid #e2e8f0; /* Borda cinza clara */
+/* --- ESTILO GERAL DOS 8 CARDS --- */
+
+/* 1. A caixa branca de cada integrante */
+.Bryant-TECH-LEAD, 
+.Cleide-SCRUM-MASTER, 
+.Gustavo-UX-DEVELOPER, 
+.Maria-DEV-BACKEND, 
+.Kaique-UI-E-UX, 
+.Kevin-PRODUCT-OWNER, 
+.Hyghor-DEV-FRONT-END, 
+.Yasmin-UI-DEVELOPER {
+    border: 1px solid #e2e8f0; /* Borda cinza clara */
     border-radius: 12px; /* Bordas arredondadas */
     background-color: #ffffff; /* Fundo branco */
-    overflow: hidden; /* Impede que o topo azul vaze para fora */
-    display: flex;
-    flex-direction: column;
-} 
-
-.topo-azul-card {
-    background-color: #002d5a; /* Azul escuro */
-    padding: 30px 0; /* Espaçamento em cima e embaixo da foto */
-    display: flex;
-    justify-content: center; /* Centraliza a foto no meio */
-    border-bottom: 1px solid #e2e8f0; /* A linha divisória */
+    overflow: hidden; /* Impede que a imagem azul vaze para fora da borda */
+    display: flex; /* Usa flexbox para organizar o conteúdo */
+    flex-direction: column; /* Coloca a imagem em cima e o texto embaixo */
 }
 
-.topo-azul-card img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%; /* Deixa a foto redonda */
-    object-fit: cover; /* Garante que a foto não fique esticada */
+/* 2. O Topo Azul (A imagem ocupa todo o topo) */
+.Bryant-TECH-LEAD img, 
+.Cleide-SCRUM-MASTER img, 
+.Gustavo-UX-DEVELOPER img, 
+.Maria-DEV-BACKEND img, 
+.Kaique-UI-E-UX img, 
+.Kevin-PRODUCT-OWNER img, 
+.Hyghor-DEV-FRONT-END img, 
+.Yasmin-UI-DEVELOPER img {
+    width: 100%; /* Ocupa toda a largura do card */
+    height: 140px; /* Altura fixa da faixa azul */
+    object-fit: contain; /* A imagem fica inteira e centralizada sem distorcer */
+    background-color: #002d5a; /* Cor de fundo azul escuro */
+    padding: 20px; /* Espaço entre a imagem e a borda da faixa azul */
+    border-bottom: 1px solid #e2e8f0; /* Linha divisória entre o azul e o branco */
 }
 
-.conteudo-Bryant{
-    padding: 20px; /* Espaço interno */}
-
-    .tag-cargo {
-    display: inline-block;
-    background-color: #e6f0ff; /* Azul clarinho */
-    color: #0056b3; /* Azul escuro */
-    padding: 4px 10px;
-    border-radius: 20px;
-    font-size: 10px;
-    font-weight: 800;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    }
-
-
-.Cleide-SCRUM-MASTER {
-
-}
-.Gustavo-UX-DEVELOPER {
-
-}
-.Maria-DEV-BACKEND {
-
-}
-.Kaique-UI-E-UX {
-
-}
-.Kevin-PRODUCT-OWNER {
-
-}
-.Hyghor-DEV-FRONT-END {
-
-}
-.Yasmin-UI-DEVELOPER {
-
+/* 3. A Tag do Cargo (Ex: TECH LEAD) */
+.Bryant-TECH-LEAD p:first-of-type, 
+.Cleide-SCRUM-MASTER p:first-of-type, 
+.Gustavo-UX-DEVELOPER p:first-of-type, 
+.Maria-DEV-BACKEND p:first-of-type, 
+.Kaique-UI-E-UX p:first-of-type, 
+.Kevin-PRODUCT-OWNER p:first-of-type, 
+.Hyghor-DEV-FRONT-END p:first-of-type, 
+.Yasmin-UI-DEVELOPER p:first-of-type {
+    display: inline-block; /* Permite aplicar padding e margem */
+    background-color: #e6f0ff; /* Fundo azul clarinho */
+    color: #0056b3; /* Texto azul escuro */
+    padding: 4px 10px; /* Espaçamento interno */
+    border-radius: 20px; /* Bordas arredondadas */
+    font-size: 10px; /* Fonte bem pequena */
+    font-weight: 800; /* Negrito forte */
+    text-transform: uppercase; /* Texto em maiúsculo */
+    margin: 20px 20px 10px 20px; /* Margem: 20px topo/lados, 10px embaixo */
+    align-self: flex-start; /* Impede a tag de esticar até a borda do card */
 }
 
-.Bryant-TECH-LEAD::before{
-
-}
-.Cleide-SCRUM-MASTER::before{
-
-}
-.Gustavo-UX-DEVELOPER::before{
-
-}
-.Maria-DEV-BACKEND::before{
-
-}
-.Kaique-UI-E-UX::before{
-
-}
-.Kevin-PRODUCT-OWNER::before{
-
-}
-.Hyghor-DEV-FRONT-END::before{
-
-}
-.Yasmin-UI-DEVELOPER::before{
-
-}
-
-.Bryant-TECH-LEAD > p:first-of-type{
-
-}
-.Cleide-SCRUM-MASTER > p:first-of-type{
-
-}
-.Gustavo-UX-DEVELOPER > p:first-of-type,
-.Maria-DEV-BACKEND > p:first-of-type, 
-.Kaique-UI-E-UX > p:first-of-type, 
-.Kevin-PRODUCT-OWNER > p:first-of-type, 
-.Hyghor-DEV-FRONT-END > p:first-of-type, 
-.Yasmin-UI-DEVELOPER > p:first-of-type
-
-.Bryant-TECH-LEAD h2 {
-   
-}
+/* 4. O Nome dos Integrantes */
+.Bryant-TECH-LEAD h2, 
 .Cleide-SCRUM-MASTER h2, 
 .Gustavo-UX-DEVELOPER h2, 
 .Maria-DEV-BACKEND h2, 
 .Kaique-UI-E-UX h2, 
 .Kevin-PRODUCT-OWNER h2, 
 .Hyghor-DEV-FRONT-END h2, 
-.Yasmin-UI-DEVELOPER h2
-
-.Bryant-TECH-LEAD > p:last-of-type{
-
-} 
-.Cleide-SCRUM-MASTER > p:last-of-type, 
-.Gustavo-UX-DEVELOPER > p:last-of-type, 
-.Maria-DEV-BACKEND > p:last-of-type, 
-.Kaique-UI-E-UX > p:last-of-type, 
-.Kevin-PRODUCT-OWNER > p:last-of-type, 
-.Hyghor-DEV-FRONT-END > p:last-of-type, 
-.Yasmin-UI-DEVELOPER > p:last-of-type
-
-.foto-integrante {
-   
+.Yasmin-UI-DEVELOPER h2 {
+    font-size: 20px; /* Tamanho do nome */
+    color: #001b3a; /* Azul escuro */
+    margin: 0 20px 10px 20px; /* Margem nas laterais e embaixo */
+    line-height: 1.2; /* Espaçamento entre linhas */
 }
+
+/* 5. Descrição dos Integrante */
+.Bryant-TECH-LEAD p:last-of-type, 
+.Cleide-SCRUM-MASTER p:last-of-type, 
+.Gustavo-UX-DEVELOPER p:last-of-type, 
+.Maria-DEV-BACKEND p:last-of-type, 
+.Kaique-UI-E-UX p:last-of-type, 
+.Kevin-PRODUCT-OWNER p:last-of-type, 
+.Hyghor-DEV-FRONT-END p:last-of-type, 
+.Yasmin-UI-DEVELOPER p:last-of-type {
+    font-size: 14px; /* Tamanho do texto descritivo */
+    color: #555; /* Cinza escuro */
+    line-height: 1.5; /* Espaçamento entre as linhas do texto */
+    margin: 0 20px 25px 20px; /* Margem nas laterais e 25px embaixo */
+}
+
+/* 6. Margem extra no final dos 4 últimos cards */
+.Kaique-UI-E-UX, 
+.Kevin-PRODUCT-OWNER, 
+.Hyghor-DEV-FRONT-END, 
+.Yasmin-UI-DEVELOPER {
+    margin-bottom: 56px; /* 56px na base da seção */
+}
+
 
 /* Pagína-6 Impacto Pretendido --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------> */
 
@@ -1153,199 +803,129 @@ nav ul li a:hover {
 
 /* 1. Container principal (Fundo Azul Escuro) */
 .Sessão-Impacto-Pretendido {
-    width: 100%;
-    background-color: #041830; /* Azul escuro principal */
-    padding: 100px 40px;
-    display: flex;
-    justify-content: center; /* Centraliza o conteúdo */
+    width: 100%;               /* Ocupa toda a largura da tela */
+    background-color: #041830; /* Azul escuro principal (fundo da seção) */
+    padding: 100px 40px;       /* Espaçamento: 100px cima/baixo, 40px laterais */
+    display: flex;             /* Ativa o Flexbox para centralizar o conteúdo */
+    justify-content: center;   /* Centraliza a "caixa" do conteúdo no meio da tela */
 }
 
 /* 2. A caixa que segura tudo e cria a grade */
 .Impacto-Pretendido-Div-Pai {
-    width: 100%;
-    max-width: 1200px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Cria 2 colunas iguais */
-    gap: 30px; /* Espaço entre os cards */
+    width: 100%;               /* Ocupa 100% do espaço disponível */
+    max-width: 1200px;         /* Limita a largura máxima para não esticar demais */
+    display: grid;             /* Ativa o sistema de Grade */
+    grid-template-columns: repeat(2, 1fr); /* Cria 2 colunas de tamanhos iguais */
+    gap: 30px;                 /* Cria um espaço de 30px entre as colunas e linhas */
 }
 
 /* 3. O Cabeçalho (Ocupa a linha inteira) */
 .Oque-queremos-transformar {
-    grid-column: 1 / -1; /* Faz ele ocupar as 2 colunas */
-    margin-bottom: 30px; 
-    max-width: 750px;
+    grid-column: 1 / -1;       /* Faz o cabeçalho ir da coluna 1 até a última (ocupar tudo) */
+    margin-bottom: 30px;       /* Espaço abaixo do cabeçalho antes dos cards */
+    max-width: 750px;          /* Limita a largura do texto para não ficar espalhado */
 }
 
 /* A tag "IMPACTO PRETENDIDO" */
 .Oque-queremos-transformar p:first-child {
-    display: inline-block;
-    background-color: #1a365d; /* Fundo azul clarinho */
-    color: #fbbf24; /* Texto dourado */
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 20px;
+    display: inline-block;     /* Permite que a tag tenha o tamanho exato do texto */
+    background-color: #1a365d; /* Fundo azul um pouco mais claro */
+    color: #fbbf24;            /* Cor do texto (dourado/amarelo) */
+    padding: 6px 12px;         /* Espaçamento interno da tag */
+    border-radius: 20px;       /* Bordas arredondadas (formato de pílula) */
+    font-size: 11px;           /* Tamanho da fonte pequeno */
+    font-weight: 700;          /* Negrito */
+    text-transform: uppercase; /* Transforma o texto em MAIÚSCULO */
+    letter-spacing: 1px;       /* Dá um leve espaço entre as letras */
+    margin-bottom: 20px;       /* Espaço abaixo da tag antes do título */
 }
 
 /* O Título Principal */
 .Oque-queremos-transformar h2 {
-    font-size: 42px;
-    color: #ffffff;
-    margin-bottom: 15px;
+    font-size: 42px;           /* Tamanho grande da fonte */
+    color: #ffffff;            /* Cor do texto branca */
+    margin-bottom: 15px;       /* Espaço abaixo do título */
+    line-height: 1.2;          /* CORREÇÃO: Deixa as linhas do título mais próximas */
 }
 
 /* O Subtítulo */
 .Oque-queremos-transformar p:last-child {
-    font-size: 16px;
-    color: #a0aec0; /* Cinza azulado claro */
-    line-height: 1.6;
+    font-size: 16px;           /* Tamanho da fonte do parágrafo */
+    color: #a0aec0;            /* Cinza azulado claro (bom para fundo escuro) */
+    line-height: 1.6;          /* Aumenta o espaço entre as linhas para leitura */
 }
 
 /* =========================================
-   ESTILO DOS 4 CARDS
+   ESTILO DOS 4 CARDS (AGRUPADO)
    ========================================= */
 
-/* 4. Base dos cards */
-.Informação-acessível-e-localizada {
-     background-color: #0b1f35; /* Azul de fundo do card */
-    padding: 40px 30px;
-    border-radius: 12px;
-    border: 1px solid #1a365d; /* Borda azulada sutil */
-    display: flex;
-    flex-direction: column;
-}
-.Decisões-mais-conscientes {
-     background-color: #0b1f35; /* Azul de fundo do card */
-    padding: 40px 30px;
-    border-radius: 12px;
-    border: 1px solid #1a365d; /* Borda azulada sutil */
-    display: flex;
-    flex-direction: column;
-}
-.Valorização-das-comunidades {
-     background-color: #0b1f35; /* Azul de fundo do card */
-    padding: 40px 30px;
-    border-radius: 12px;
-    border: 1px solid #1a365d; /* Borda azulada sutil */
-    display: flex;
-    flex-direction: column;
-}
+/* 4. Base dos cards (Aplica a todos de uma vez) */
+.Informação-acessível-e-localizada,
+.Decisões-mais-conscientes,
+.Valorização-das-comunidades,
 .Inclusão-digital-real {
-    background-color: #0b1f35; /* Azul de fundo do card */
-    padding: 40px 30px;
-    border-radius: 12px;
-    border: 1px solid #1a365d; /* Borda azulada sutil */
-    display: flex;
-    flex-direction: column;
+    background-color: #0b1f35; /* Cor de fundo dos cards (azul um pouco mais claro) */
+    padding: 40px 30px;        /* Espaçamento interno: 40px cima/baixo, 30px laterais */
+    border-radius: 12px;       /* Bordas arredondadas */
+    border: 1px solid #1a365d; /* Borda fina azulada para dar definição */
+    display: flex;             /* Flexbox para organizar o conteúdo */
+    flex-direction: column;    /* Organiza os itens em coluna (um embaixo do outro) */
 }
 
-.Informação-acessível-e-localizada:before {
-    content: ""; /* Recria a caixa */
-    display: block;
-    width: 45px;
-    height: 45px;
-    border-radius: 10px;
-    background-color: #1a365d; /* Cor de fundo da caixa */
-    margin-bottom: 20px;
-    /* Aqui entra a imagem do ícone: */
-    background-image: url('../assets/Elementos/imp-1-icon.png'); /* <-- COLOQUE O CAMINHO DA IMAGEM AQUI */
-    background-size: 50px; /* Tamanho do ícone */
-    background-position: center; /* Centraliza o ícone */
-    background-repeat: no-repeat; /* Não deixa a imagem repetir */
-}
-.Decisões-mais-conscientes:before {
-    content: ""; /* Recria a caixa */
-    display: block;
-    width: 45px;
-    height: 45px;
-    border-radius: 10px;
-    background-color: #1a365d; /* Cor de fundo da caixa */
-    margin-bottom: 20px;
-    background-image: url('../assets/Elementos/imp-2-icon.png');
-    background-size: 50px; /* Tamanho do ícone */
-    background-position: center; /* Centraliza o ícone */
-    background-repeat: no-repeat; /* Não deixa a imagem repetir */
-}
-.Valorização-das-comunidades:before {
-    content: ""; /* Recria a caixa */
-    display: block;
-    width: 45px;
-    height: 45px;
-    border-radius: 10px;
-    background-color: #1a365d; /* Cor de fundo da caixa */
-    margin-bottom: 20px;
-    background-image: url('../assets/Elementos/imp-3-icon.png'); 
-    background-size: 50px; /* Tamanho do ícone */
-    background-position: center; /* Centraliza o ícone */
-    background-repeat: no-repeat; /* Não deixa a imagem repetir */
+/* 5. Quadradinho do Ícone (A caixa base para todos) */
+/* Usamos o ::before para criar uma caixa "fantasma" antes do conteúdo real do card */
+.Informação-acessível-e-localizada::before,
+.Decisões-mais-conscientes::before,
+.Valorização-das-comunidades::before,
+.Inclusão-digital-real::before {
+    content: "";               /* Obrigatório para o ::before funcionar */
+    display: block;            /* Faz a caixa se comportar como um bloco */
+    width: 45px;               /* Largura do quadradinho */
+    height: 45px;              /* Altura do quadradinho */
+    border-radius: 10px;       /* Bordas arredondadas do quadradinho */
+    background-color: #1a365d; /* Cor de fundo do quadradinho */
+    margin-bottom: 20px;       /* Espaço abaixo do ícone antes do título */
+    
+    /* Configurações da imagem de fundo */
+    background-position: center; /* Centraliza a imagem no quadradinho */
+    background-repeat: no-repeat; /* Impede a imagem de se repetir */
+    background-size: cover;      /* Faz a imagem cobrir todo o quadradinho */
 }
 
-.Inclusão-digital-real:before {
-    content: ""; /* Recria a caixa */
-    display: block;
-    width: 45px;
-    height: 45px;
-    border-radius: 10px;
-    background-color: #1a365d; /* Cor de fundo da caixa */
-    margin-bottom: 20px;
-    background-image: url('../assets/Elementos/imp-4-icon.png'); 
-    background-size: 50px; /* Tamanho do ícone */
-    background-position: center; /* Centraliza o ícone */
-    background-repeat: no-repeat; /* Não deixa a imagem repetir */
+/* 6. Imagem específica de CADA ícone */
+/* ATENÇÃO: Recomendo renomear seus arquivos para tirar os espaços e a barra invertida (\) */
+.Informação-acessível-e-localizada::before {
+    background-image: url('../assets/Elementos/Impacto\ Pretendido-\ img1.png');
+}
+.Decisões-mais-conscientes::before {
+    background-image: url('../assets/Elementos/Impacto\ Pretendido-\ img2.png');
+}
+.Valorização-das-comunidades::before {
+    background-image: url('../assets/Elementos/Impacto\ Pretendido-\ img3.png');
+}
+.Inclusão-digital-real::before {
+    background-image: url('../assets/Elementos/Impacto\ Pretendido-\ img4.png');
 }
 
-
-
-
-/* 6. Títulos dentro dos cards */
-.Informação-acessível-e-localizada h2 {
-     font-size: 20px;
-    color: #ffffff;
-    margin-bottom: 15px;
-    font-weight: 700;
-}
-.Decisões-mais-conscientes h2 {
-     font-size: 20px;
-    color: #ffffff;
-    margin-bottom: 15px;
-    font-weight: 700;
-}
-.Valorização-das-comunidades h2 {
-     font-size: 20px;
-    color: #ffffff;
-    margin-bottom: 15px;
-    font-weight: 700;
-}
+/* 7. Títulos dentro dos cards (Agrupado) */
+.Informação-acessível-e-localizada h2,
+.Decisões-mais-conscientes h2,
+.Valorização-das-comunidades h2,
 .Inclusão-digital-real h2 {
-    font-size: 20px;
-    color: #ffffff;
-    margin-bottom: 15px;
-    font-weight: 700;
+    font-size: 20px;           /* Tamanho do título */
+    color: #ffffff;            /* Cor branca */
+    margin-bottom: 15px;       /* Espaço abaixo do título */
+    font-weight: 700;          /* Negrito */
 }
 
-/* 7. Textos dentro dos cards */
-.Informação-acessível-e-localizada p {
-      font-size: 14px;
-    color: #a0aec0; /* Texto cinza azulado */
-    line-height: 1.6;
-}
-.Decisões-mais-conscientes p {
-      font-size: 14px;
-    color: #a0aec0; /* Texto cinza azulado */
-    line-height: 1.6;
-}
-.Valorização-das-comunidades p {
-      font-size: 14px;
-    color: #a0aec0; /* Texto cinza azulado */
-    line-height: 1.6;
-}
+/* 8. Textos dentro dos cards (Agrupado) */
+.Informação-acessível-e-localizada p,
+.Decisões-mais-conscientes p,
+.Valorização-das-comunidades p,
 .Inclusão-digital-real p {
-    font-size: 14px;
-    color: #a0aec0; /* Texto cinza azulado */
-    line-height: 1.6;
+    font-size: 14px;           /* Tamanho do texto descritivo */
+    color: #a0aec8;            /* Cor cinza azulado */
+    line-height: 1.6;          /* Espaçamento entre as linhas */
 }
 
 /* Pagína-7 (Fale Conosco)--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->*/
@@ -1356,194 +936,195 @@ nav ul li a:hover {
 
 /* 1. O fundo da seção (Cinza claro) */
 .Sessão-Quer-saber-mais-sobre-o-projeto {
-    width: 100%;
+    width: 100%;               /* Ocupa toda a largura da tela */
     background-color: #f4f7fb; /* Fundo cinza azulado bem clarinho */
-    padding: 80px 40px;
-    display: flex;
-    justify-content: center; /* Centraliza a caixa branca */
+    padding: 80px 40px;        /* Espaçamento: 80px cima/baixo, 40px laterais */
+    display: flex;             /* Ativa o Flexbox */
+    justify-content: center;   /* Centraliza a caixa branca no meio da tela */
 }
 
-/* 2. A caixa branca (O container) */
+/* 2. A caixa branca (O container principal) */
 .Mais-sobre-o-Projeto-Div-Pai {
-    width: 100%;
-    max-width: 1100px; /* Largura máxima da caixa */
+    width: 100%;               /* Ocupa 100% do espaço disponível */
+    max-width: 1100px;         /* Limita a largura máxima da caixa */
     background-color: #ffffff; /* Fundo branco */
-    padding: 40px 50px; /* Espaçamento interno */
-    border-radius: 16px; /* Bordas arredondadas */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Sombra suave */
+    padding: 40px 40px;        /* CORREÇÃO: Ajustei as laterais para 40px para alinhar com o padrão do site */
+    border-radius: 16px;       /* Bordas arredondadas */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Sombra suave para dar efeito de "flutuando" */
     
-    /* Coloca o texto e o botão lado a lado */
-    display: flex;
+    /* Organização interna */
+    display: flex;             /* Coloca o texto e o botão lado a lado */
     justify-content: space-between; /* Texto na esquerda, botão na direita */
-    align-items: center; /* Centraliza verticalmente */
-    gap: 40px;
+    align-items: center;       /* Centraliza os itens verticalmente */
+    gap: 40px;                 /* Espaço entre o texto e o botão */
 }
 
 /* 3. O bloco de texto (Título e Parágrafo) */
 .Descrição-Mais-sobre-o-Projeto {
-    max-width: 600px; /* Limita a largura do texto */
+    max-width: 600px;          /* Limita a largura do texto para não encostar no botão */
 }
 
 .Descrição-Mais-sobre-o-Projeto h2 {
-    font-size: 28px;
-    color: #001b3a; /* Azul escuro */
-    margin-bottom: 10px;
-    font-weight: 700;
+    font-size: 28px;           /* Tamanho do título */
+    color: #001b3a;            /* Azul escuro */
+    margin-bottom: 10px;       /* Espaço entre o título e o parágrafo */
+    font-weight: 700;          /* Negrito */
 }
 
 .Descrição-Mais-sobre-o-Projeto p {
-    font-size: 15px;
-    color: #555;
-    line-height: 1.6;
+    font-size: 15px;           /* Tamanho do texto */
+    color: #555;               /* Cinza escuro */
+    line-height: 1.6;          /* Espaçamento entre as linhas para leitura */
 }
 
 /* 4. O Botão */
 .Mais-Sobre-o-Projeto-Button-Fale-Conosco {
     background-color: #003366; /* Azul escuro do botão */
-    color: #ffffff;
-    padding: 14px 28px;
-    border: none;
-    border-radius: 8px;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    white-space: nowrap; /* Impede o texto do botão de quebrar em duas linhas */
+    color: #ffffff;            /* Texto branco */
+    padding: 14px 28px;        /* Espaçamento interno do botão */
+    border: none;              /* Remove a borda padrão do navegador */
+    border-radius: 8px;        /* Bordas arredondadas */
+    font-size: 15px;           /* Tamanho da fonte */
+    font-weight: 600;          /* Semi-negrito */
+    cursor: pointer;           /* Muda o cursor para "mãozinha" ao passar por cima */
+    transition: background-color 0.3s ease; /* Suaviza a transição de cor */
+    white-space: nowrap;       /* Impede o texto do botão de quebrar em duas linhas */
 }
 
 /* Efeito ao passar o mouse no botão */
 .Mais-Sobre-o-Projeto-Button-Fale-Conosco:hover {
-    background-color: #002244; /* Azul mais escuro */
+    background-color: #002244; /* Azul mais escuro ao passar o mouse */
 }
 
 /* Pagína-8 (Rodapé) --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->*/
 
 /* =========================================
-   RODAPÉ (CÓDIGO COMPLETO E LIMPO)
+   SEÇÃO: RODAPÉ
    ========================================= */
 
+/* 1. Fundo geral do rodapé */
 .Sessão-Rodapé {
-    width: 100%;
-    background-color: #001a33;
-    padding: 60px 40px 30px 40px;
-    display: flex;
-    justify-content: center;
+    width: 100%;               /* Ocupa toda a largura da tela */
+    background-color: #001a33; /* Azul marinho bem escuro */
+    padding: 60px 40px 30px 40px; /* Espaçamento: 60px topo, 40px lados, 30px embaixo */
+    display: flex;             /* Ativa o Flexbox */
+    justify-content: center;   /* Centraliza o conteúdo */
 }
 
-/* O container principal usa Grid para a parte de cima */
+/* 2. Container principal */
 .Rodapé-Div-Pai {
-    width: 100%;
-    max-width: 1200px;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr; 
-    gap: 40px;
+    width: 100%;               /* Ocupa 100% do espaço */
+    max-width: 1200px;         /* Largura máxima do conteúdo */
     
-    /* Flexbox para organizar a parte de baixo */
-    display: flex;
-    flex-wrap: wrap; 
-    justify-content: space-between; 
+    /* CORREÇÃO: Removi o 'display: grid' que estava conflitando com o flex */
+    display: flex;             /* Usa Flexbox para organizar os itens */
+    flex-wrap: wrap;           /* Permite que os itens quebrem para a linha de baixo */
+    justify-content: space-between; /* Empurra os itens para as pontas */
+    gap: 40px;                 /* Espaço entre os blocos */
 }
 
 /* --- PARTE DE CIMA (Logo e Links) --- */
 
+/* Bloco da Esquerda (Logo e Frase) */
 .Rodapé-Plataforma-de-informação {
-    width: 40%; 
-    max-width: 400px;
+    width: 90%;                /* Ocupa 40% da largura */
+    max-width: 400px;          /* Limita a largura máxima */
 }
 
 .Rodapé-Plataforma-de-informação img {
-    height: 40px;
-    margin-bottom: 20px;
-    display: block;
+    height: 60px;              /* Altura da logo */
+    margin-bottom: 20px;       /* Espaço abaixo da logo */
+    display: block;            /* Garante que a imagem se comporte como bloco */
 }
 
 .Rodapé-Plataforma-de-informação p {
-    font-size: 14px;
-    color: #a0c4e8;
-    line-height: 1.6;
+    font-size: 14px;           /* Tamanho do texto */
+    color: #a0c4e8;            /* Azul acinzentado claro */
+    line-height: 1.6;          /* Espaçamento entre linhas */
 }
 
-.Rodapé-Explorar {
-    width: 25%;
+/* Blocos de Links */
+.Rodapé-Explorar{
+    width: 15px;
+    margin-left: 50px; /* <-- ADICIONE ESTA LINHA (ajuste o valor como quiser) */
 }
 .Rodapé-Institucional {
-    width: 25%;
+    width: 15%; 
+                   /* Cada um ocupa 20% da largura */
 }
 
-.Rodapé-Explorar h2 {
-     font-size: 15px;
-    color: #ffffff;
-    margin-bottom: 20px;
-    font-weight: 700;
-}
+/* Títulos dos Links */
+.Rodapé-Explorar h2,
 .Rodapé-Institucional h2 {
-    font-size: 15px;
-    color: #ffffff;
-    margin-bottom: 20px;
-    font-weight: 700;
+    font-size: 15px;           /* Tamanho do título */
+    color: #ffffff;            /* Branco */
+    margin-bottom: 20px;       /* Espaço abaixo do título */
+    font-weight: 700;          /* Negrito */
 }
 
-.Rodapé-Explorar ul {
-     list-style: none;
-    padding: 0;
-}
+/* Listas */
+.Rodapé-Explorar ul,
 .Rodapé-Institucional ul {
-    list-style: none;
-    padding: 0;
+    list-style: none;          /* Remove as bolinhas da lista */
+    padding: 0;                /* Remove o recuo padrão */
 }
 
-.Rodapé-Explorar li {
-    margin-bottom: 12px;
-}
+.Rodapé-Explorar li,
 .Rodapé-Institucional li {
-    margin-bottom: 12px;
+    margin-bottom: 12px;       /* Espaço entre os itens da lista */
 }
 
+/* Links */
 .Rodapé-Explorar a,
 .Rodapé-Institucional a {
-    text-decoration: none;
-    color: #a0c4e8;
-    font-size: 14px;
+    text-decoration: none;     /* Remove o sublinhado */
+    color: #a0c4e8;            /* Azul acinzentado */
+    font-size: 14px;           /* Tamanho do link */
+    transition: color 0.3s;    /* Suaviza a mudança de cor */
 }
 
 .Rodapé-Explorar a:hover,
 .Rodapé-Institucional a:hover {
-    color: #ffffff;
+    color: #ffffff;            /* Fica branco ao passar o mouse */
 }
 
 /* --- PARTE DE BAIXO (Direitos Autorais) --- */
 
-.Rodapé-2026-Conexão-Segura-Todos-os-direitos-reservados {
-    width: 100%; /* Ocupa a linha toda */
-    border-top: 1px solid #1a3c64; /* Linha divisória */
-    padding-top: 20px;
-    margin-top: 40px;
-    font-size: 13px;
-    color: #a0c4e8;
+/* --- PARTE DE BAIXO (Direitos Autorais) --- */
+
+/* A nova div que segura os dois textos */
+.Rodapé-Base {
+    width: 100%;               /* Ocupa a linha toda do rodapé */
+    display: flex;             /* Coloca os textos lado a lado */
+    justify-content: space-between; /* Um na esquerda, outro na direita */
+    border-top: 1px solid #1a3c64; /* A linha divisória única e contínua */
+    padding-top: 20px;         /* Espaço entre a linha e o texto */
+    margin-top: 40px;          /* Espaço entre os links e a linha */
 }
+
+/* Remove a borda dos filhos, pois agora ela está na div pai */
+.Rodapé-2026-Conexão-Segura-Todos-os-direitos-reservados,
 .Rodapé-Desenvolvido-por-estudantes-do-Instituto-PROA {
-    width: 100%; /* Ocupa a linha toda */
-    border-top: 1px solid #1a3c64; /* Linha divisória */
-    padding-top: 20px;
-    margin-top: 40px;
+    width: 50%;                /* Cada um ocupa metade da linha */
+    border-top: none;          /* Remove a linha dupla */
+    padding-top: 0;            /* Remove o padding extra */
+    margin-top: 0;             /* Remove a margem extra */
     font-size: 13px;
     color: #a0c4e8;
 }
 
+/* Texto da Esquerda */
 .Rodapé-2026-Conexão-Segura-Todos-os-direitos-reservados {
     text-align: left;
-    order: 1;
+}
+
+/* Texto da Direita */
+.Rodapé-Desenvolvido-por-estudantes-do-Instituto-PROA {
+    text-align: right;
 }
 
 /* O amarelo do Instituto PROA */
 .Rodapé-Desenvolvido-por-estudantes-do-Instituto-PROA span {
     color: #fbbf24 !important;
     font-weight: bold !important;
-}
-
-.Rodapé-2026-Conexão-Segura-Todos-os-direitos-reservados {
-}
-
-.Rodapé-Desenvolvido-por-estudantes-do-Instituto-PROA {
-
 }
