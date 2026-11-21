@@ -1,284 +1,517 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    list-style: none;
-    overflow-x: hidden;
-    font-family: "Poppins";
-}
-
-main{
-
-    & header{
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        width: 100vw;
-        padding: 0 3.75rem;
-        background-color: rgba(0, 0, 0, 0.0);
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 10;
-
-        & a {
-            position: relative;
-            z-index: 11;
-        }
-
-
-        & nav{
-
-            & ul{
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 3.4375rem;
-                font-size: .875rem;
-                & li{
-                    & a{
-                        color: white;
-                    }
-                }
-            }
-        }
-
-        & .botoesHeader{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 4.0625rem;
-
-            & .entrar{
-                background-color: #1268F6;
-                padding: .625rem .3125rem;
-                border-radius: .625rem;
-                color: white;
-                font-weight: 700;
-            }
-        }
-    }
-
-    & .video{
-        padding: 0 3.75rem;
-        width: 100vw;
-        height: 100vh;
-        position: relative;
-
-        & .videovideo{
-            position: absolute; /* posição absoluta pro video */
-            top: 0; /*  zera a localização dele */
-            left: 0;
-            width: 100%;
-            height: 100%; /*  preenche a tela */
-            object-fit: cover; /* como o bg nao e uma img e sim um objeto ele cobre tudo */
-            object-position: center;
-            z-index: -1;
-        }
-
-        div{
-            width: 31.25rem;
-            margin-top: 8.125rem;
-
-            & h2{
-                font-size: 3rem;
-                font-weight: 900;
-                color: white;
-                
-                & p{
-                    color: #E7A22C;
-                }
-            }
-        }
-    }
-
-    & .sect2{
-        width: 100vw;
-        padding: 1.875rem 3.75rem;
-        
-
-        & .container{
-            background-color: #EDE9DE;
-            width: 100%;
-            height: 100%;
-            border-radius: .9375rem;
-            padding: .625rem 1.875rem;
-
-            display: flex;
-            flex-direction: column;
-
-            & .container2ajuste{
-                display: flex;
-                justify-content: space-between;
-
-                & .textos{
-                    height: 14.375rem;
-                    width: 28.125rem;
-                    margin-top: 4.8125rem;
-                    
-                    & p{
-                        font-size: .625rem;
-                        font-weight: 400;
-                    }
-                    & h2{
-                        font-size: 2.5rem;
-                        font-weight: 400;
-                        
-                    }
-                }
-                
-                & .mockup{
-                    
-                    & img{
-                        height: 33.125rem;
-                        width: 30rem;
-                    }
-                }
-                
-            }
-
-            & .scroll{
-                width: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: 30px 20px 30px 20px;
-        
-                & .cardscroll{
-                box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-                width: 545px;
-                height: 270px;
-                border-radius: 12px;
-                background-color: #437bd0;
-                box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-                }
-            }
-        }
-    }
-
-    & .infos{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        gap: 6.25rem;
-        margin-bottom: 1.875rem;
-        
-
-        & .h2text{
-            font-size: 3rem;
-            font-weight: 700;
-            padding: 0 3.75rem;
-            align-self: flex-start;
-        }
-
-        & .container{
-            height: 50rem;
-            width: 100vw;
-            display: flex;
-            align-items: center;
-            justify-content: space-evenly;
-            gap: 2.625rem;
-            padding-bottom: 90px;
-
-            & .noticia{
-                width: 22.5rem;
-                height: 28.4375rem;
-                background-color: #0E3361;
-                border-radius: 20px;
-                box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-            }
-
-            & .noticia.direita,
-            & .noticia.esquerda{
-                align-self: flex-end;
-            }
-        }
-
-        & .tdsNoticias{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 500;
-            color: black;
-            padding: 0 1.5625rem;
-            height: 4.0625rem;
-            border: #002AFF solid 1px;
-            border-radius: 20px;
-
-        }
-    }
-
-    & footer{
-        width: 100%;
-        height: 27.625rem;
-        background-image: url('../assets/index/footer.svg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        padding: 15.375rem 6rem 1.625rem 6rem;
-        overflow-y: hidden;
-
-        & .container{
-            display: flex;
-            flex-direction: column;
-
-            & .footerdiv{
-                display: flex;
-                gap: 4rem;
-
-                & .textdiv{
-
-                    & h2{
-                        font-size: 1.375rem;
-                        font-weight: 700;
-                        color: white;
-                    }
-
-                    & p{
-                        font-size: .875rem;
-                        color: #CFDEED;
-                    }
-                }
-            }
-
-            & .navegacao{
-                color: white;
-
-                & h3{
-                    font-size: .875rem;
-                    font-weight: 600;
-                    margin-bottom: .75rem;
-                }
-
-                & ul li a{
-                    color: #CFDEED;
-                    font-size: 14px;
-                }
-
-                & ul li .contato{
-                    color: white;
-                    font-weight: 600;
-                }
-            }
-        }
-
-        & .finalfooter{
-            margin-top: 22px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #CFDEED;
-
-            & div{
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                gap: 1.3125rem;
-            }
-        }
-
-    }
-}
+* { /* Padroniza as medidas e retira os espaços automáticos do navegador. */
+    box-sizing: border-box; /* Inclui bordas e preenchimentos na largura declarada. */
+    margin: 0; /* Remove as margens padrão. */
+    padding: 0; /* Remove os preenchimentos padrão. */
+} /* Encerra a padronização geral. */
+html { /* Define as configurações gerais de leitura. */
+    font-size: 100%; /* Respeita o tamanho de texto escolhido no navegador. */
+    color-scheme: light; /* Mantém os controles nativos no tema claro da página. */
+} /* Encerra as configurações da raiz. */
+body { /* Reúne a fonte, as cores e a margem adaptável da página. */
+    --margem: clamp(1rem, 4.166667vw, 3.75rem); /* Reduz as margens em celulares e limita o espaçamento em monitores grandes. */
+    color: #111; /* Mantém os textos principais escuros. */
+    background-color: #fff; /* Mantém o fundo branco original. */
+    font-family: "Poppins", Arial, sans-serif; /* Mantém Poppins com fontes alternativas durante o carregamento. */
+    line-height: 1.5; /* Evita que as linhas de texto fiquem apertadas. */
+} /* Encerra a configuração do corpo. */
+img { /* Impede que uma imagem fique maior do que a área que a contém. */
+    display: block; /* Remove o espaço reservado à linha de base de imagens. */
+    max-width: 100%; /* Limita a largura ao contêiner. */
+    height: auto; /* Preserva a proporção original da imagem. */
+} /* Encerra os ajustes compartilhados das imagens. */
+a { /* Padroniza os links sem alterar suas funções. */
+    text-decoration: none; /* Mantém o visual sem sublinhado usado no projeto. */
+} /* Encerra os ajustes gerais dos links. */
+ul { /* Padroniza as listas usadas nos menus. */
+    list-style: none; /* Remove os marcadores visuais dos menus. */
+} /* Encerra os ajustes das listas. */
+a, summary, .lista-noticias { /* Seleciona os controles que recebem navegação por teclado. */
+    &:focus-visible { /* Mostra em qual controle a pessoa está usando o teclado. */
+        outline: 0.1875rem solid #e7a22c; /* Cria um contorno visível com a cor de destaque do site. */
+        outline-offset: 0.1875rem; /* Afasta o contorno do texto e das bordas. */
+    } /* Encerra o estado de foco visível. */
+} /* Encerra os ajustes compartilhados do foco. */
+.pular-conteudo { /* Mantém o atalho de teclado disponível sem ocupar espaço no desenho. */
+    position: absolute; /* Retira o atalho da organização normal da página. */
+    width: 1px; /* Reduz a área visual enquanto o atalho não recebe foco. */
+    height: 1px; /* Evita alterar a altura do cabeçalho. */
+    overflow: hidden; /* Esconde somente o texto deste atalho. */
+    clip-path: inset(50%); /* Recorta visualmente o atalho sem impedir sua leitura. */
+    white-space: nowrap; /* Mantém seu texto em uma linha. */
+    &:focus { /* Mostra o atalho quando a pessoa chega a ele pelo teclado. */
+        position: fixed; /* Mantém o atalho no topo da janela. */
+        top: 1rem; /* Afasta o atalho da borda superior. */
+        left: 1rem; /* Afasta o atalho da borda esquerda. */
+        z-index: 30; /* Coloca o atalho acima do cabeçalho. */
+        width: auto; /* Permite exibir o texto inteiro. */
+        height: auto; /* Permite exibir toda a altura do texto. */
+        padding: 0.75rem 1rem; /* Facilita a leitura e o clique. */
+        clip-path: none; /* Retira o recorte enquanto o atalho está em uso. */
+        color: #0e3361; /* Mantém contraste com o fundo claro. */
+        background-color: #fff; /* Destaca o atalho sobre o vídeo. */
+        border-radius: 0.5rem; /* Suaviza os cantos do atalho. */
+    } /* Encerra a apresentação do atalho em foco. */
+} /* Encerra os estilos do atalho. */
+.cabecalho-principal { /* Distribui a marca, o menu e a conta em telas grandes. */
+    position: absolute; /* Mantém o cabeçalho sobre o vídeo no desktop. */
+    top: 0; /* Alinha o cabeçalho ao topo da página. */
+    left: 50%; /* Usa o centro da tela como referência horizontal. */
+    z-index: 10; /* Coloca a navegação acima do vídeo e do texto. */
+    display: grid; /* Distribui as três áreas sem espremer seus conteúdos. */
+    grid-template-columns: auto minmax(0, 1fr) auto; /* Reserva espaço para marca, menu e conta. */
+    align-items: center; /* Centraliza as áreas na vertical. */
+    gap: clamp(1rem, 2vw, 2.5rem); /* Adapta os espaços entre as áreas. */
+    width: 100%; /* Usa a largura disponível sem incluir a barra de rolagem. */
+    max-width: 90rem; /* Evita afastar demais os links em monitores grandes. */
+    padding: 0.75rem var(--margem); /* Mantém as margens laterais proporcionais. */
+    transform: translateX(-50%); /* Centraliza o cabeçalho usando a referência de 50%. */
+    & .marca { /* Preserva o espaço e o tamanho da marca. */
+        width: 7.75rem; /* Mantém a largura original de 124 pixels no desktop. */
+    } /* Encerra o ajuste da marca. */
+    & nav a { /* Padroniza a leitura e o toque nos links dos dois menus. */
+        display: flex; /* Permite centralizar o texto em uma área de toque confortável. */
+        align-items: center; /* Centraliza o texto verticalmente. */
+        min-height: 2.75rem; /* Reserva pelo menos 44 pixels para o toque. */
+        color: #fff; /* Mantém os links claros sobre o fundo escuro. */
+        font-size: 0.875rem; /* Preserva o tamanho dos links do menu. */
+    } /* Encerra os estilos dos links de navegação. */
+    & .menu-desktop ul { /* Mantém a navegação completa na mesma linha. */
+        display: flex; /* Coloca os destinos lado a lado. */
+        justify-content: center; /* Centraliza o grupo no espaço do menu. */
+        gap: clamp(1rem, 2vw, 3.4375rem); /* Reduz os espaços antes de faltar largura. */
+    } /* Encerra a disposição do menu completo. */
+    & .botoesHeader { /* Reúne o ícone da conta e o botão de entrada. */
+        display: flex; /* Coloca os acessos lado a lado. */
+        align-items: center; /* Centraliza os acessos verticalmente. */
+        justify-content: flex-end; /* Mantém a conta no lado direito do cabeçalho. */
+        gap: clamp(1rem, 2vw, 4.0625rem); /* Adapta a distância entre ícone e botão. */
+        min-width: 0; /* Permite adaptar o grupo sem ampliar a página. */
+        & .icone-conta { /* Reserva uma área de toque para o acesso por ícone. */
+            display: grid; /* Centraliza a imagem do usuário. */
+            place-items: center; /* Centraliza o ícone nos dois eixos. */
+            min-width: 2.75rem; /* Evita que o ícone seja espremido. */
+            min-height: 2.75rem; /* Mantém o acesso confortável para toque. */
+        } /* Encerra os ajustes do acesso por ícone. */
+        & .entrar { /* Mantém o botão azul de acesso à conta. */
+            display: flex; /* Centraliza o texto dentro do botão. */
+            align-items: center; /* Centraliza o texto verticalmente. */
+            justify-content: center; /* Centraliza o texto horizontalmente. */
+            min-height: 2.75rem; /* Reserva uma altura confortável para o toque. */
+            padding: 0.625rem 0.75rem; /* Deixa espaço ao redor do texto. */
+            border-radius: 0.625rem; /* Mantém o arredondamento original. */
+            color: #fff; /* Mantém o texto branco sobre o azul. */
+            background-color: #1268f6; /* Preserva a cor do botão original. */
+            font-size: 0.875rem; /* Mantém o texto legível sem ampliar demais o botão. */
+            font-weight: 700; /* Preserva o destaque do acesso à conta. */
+            text-align: center; /* Mantém o texto centralizado se precisar quebrar. */
+        } /* Encerra os estilos do botão de conta. */
+    } /* Encerra o grupo de acessos à conta. */
+    & .menu-mobile { /* Reserva o menu compacto para as telas que precisam dele. */
+        display: none; /* Evita duplicar a navegação visível no desktop. */
+    } /* Encerra o estado inicial do menu compacto. */
+} /* Encerra os estilos do cabeçalho. */
+.video { /* Organiza o vídeo e o título de apresentação. */
+    position: relative; /* Define a referência para o vídeo e a camada de contraste. */
+    isolation: isolate; /* Mantém as camadas do banner dentro desta seção. */
+    min-height: 36rem; /* Reserva espaço para o título em janelas de pouca altura. */
+    height: 100vh; /* Oferece uma altura de tela como alternativa para navegadores antigos. */
+    height: 100svh; /* Considera o espaço ocupado pelas barras do navegador no celular. */
+    max-height: 60rem; /* Evita um banner excessivamente alto em monitores grandes. */
+    padding: 8.125rem var(--margem) 3rem; /* Mantém o título abaixo do cabeçalho. */
+    background: #0e3361 url('../assets/index/background-desktop.png') center / cover no-repeat; /* Mantém uma imagem de fundo quando o vídeo não aparece. */
+    &::before { /* Acrescenta contraste para o texto sobre diferentes cenas do vídeo. */
+        content: ""; /* Cria a camada visual sem adicionar conteúdo à leitura. */
+        position: absolute; /* Sobrepõe a camada à área do vídeo. */
+        inset: 0; /* Faz a camada cobrir todo o banner. */
+        z-index: -1; /* Mantém a camada atrás do título. */
+        background: linear-gradient(90deg, rgb(0 0 0 / 48%), rgb(0 0 0 / 12%)); /* Escurece mais o lado em que fica o texto. */
+        pointer-events: none; /* Evita que a camada bloqueie interações. */
+    } /* Encerra a camada de contraste. */
+    & .videovideo { /* Faz o vídeo ocupar a área do banner sem deformar. */
+        position: absolute; /* Retira o vídeo da organização do texto. */
+        inset: 0; /* Alinha o vídeo às quatro bordas do banner. */
+        z-index: -2; /* Coloca o vídeo atrás da camada de contraste. */
+        width: 100%; /* Preenche a largura da seção. */
+        height: 100%; /* Preenche a altura da seção. */
+        object-fit: cover; /* Recorta o excesso sem esticar o vídeo. */
+        object-position: center; /* Mantém o centro da cena visível. */
+    } /* Encerra os estilos do vídeo. */
+    & .texto-video { /* Limita a mensagem à largura da tela. */
+        width: 100%; /* Permite reduzir o bloco em celulares. */
+        max-width: 31.25rem; /* Mantém a largura original de leitura no desktop. */
+    } /* Encerra o limite do texto. */
+    & h1 { /* Apresenta o título principal com tamanho flexível. */
+        color: #fff; /* Mantém o texto branco sobre o vídeo. */
+        font-size: clamp(2rem, 4vw, 3rem); /* Reduz o título antes que ele ultrapasse a tela. */
+        font-weight: 900; /* Preserva o destaque forte do design original. */
+        line-height: 1.35; /* Mantém as linhas próximas sem cortar as letras. */
+        & span { /* Destaca a palavra final da mensagem. */
+            display: block; /* Mantém SEGURO em uma linha própria. */
+            color: #e7a22c; /* Preserva o destaque dourado do site. */
+        } /* Encerra o destaque do título. */
+    } /* Encerra os estilos do título principal. */
+} /* Encerra o banner de apresentação. */
+.sect2 { /* Define as margens da apresentação com os celulares. */
+    width: 100%; /* Usa o espaço disponível sem criar largura extra. */
+    max-width: 90rem; /* Limita o comprimento da composição em monitores grandes. */
+    margin-inline: auto; /* Centraliza a seção quando sobra espaço lateral. */
+    padding: 1.875rem var(--margem); /* Mantém a distância do banner e as margens laterais. */
+    & .container { /* Mantém o cartão de fundo claro do design original. */
+        padding: clamp(1rem, 2.1vw, 1.875rem); /* Reduz o espaço interno em celulares. */
+        border-radius: 0.9375rem; /* Preserva os cantos arredondados. */
+        background-color: #ede9de; /* Preserva o fundo claro da seção. */
+    } /* Encerra os estilos do cartão claro. */
+    & .container2ajuste { /* Organiza o texto e a imagem em duas colunas flexíveis. */
+        display: grid; /* Permite trocar as colunas por uma pilha no celular. */
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); /* Impede que as colunas forcem uma largura maior que a seção. */
+        align-items: start; /* Mantém o texto e a imagem alinhados pelo começo. */
+        gap: clamp(1rem, 3vw, 3rem); /* Adapta a distância entre as colunas. */
+        & .textos { /* Organiza o texto sem limitar sua altura. */
+            max-width: 28.125rem; /* Preserva a largura de leitura do desenho original. */
+            margin-top: clamp(1.5rem, 5.3vw, 4.8125rem); /* Adapta a distância superior do texto. */
+            & h2 { /* Ajusta o título à largura da coluna. */
+                font-size: clamp(1.75rem, 3.2vw, 2.5rem); /* Diminui o título gradualmente em telas menores. */
+                font-weight: 400; /* Mantém o peso original deste título. */
+                line-height: 1.25; /* Melhora a leitura das linhas do título. */
+            } /* Encerra os estilos do título da apresentação. */
+            & p { /* Mantém a descrição legível em todas as telas. */
+                margin-top: 1rem; /* Separa a descrição do título. */
+                font-size: 0.9375rem; /* Evita o texto de apenas 10 pixels usado anteriormente. */
+                line-height: 1.65; /* Deixa espaço para ler a descrição com conforto. */
+            } /* Encerra os estilos da descrição. */
+        } /* Encerra a área de textos. */
+        & .mockup { /* Centraliza a imagem dentro da sua coluna. */
+            display: grid; /* Permite centralizar a imagem sem medidas fixas. */
+            place-items: center; /* Centraliza a imagem nos dois eixos. */
+            min-width: 0; /* Permite que a coluna diminua sem estourar a tela. */
+            & img { /* Adapta a imagem dos celulares sem distorcer. */
+                width: 100%; /* Faz a imagem acompanhar a largura disponível. */
+                max-width: 30rem; /* Preserva o limite de tamanho do desktop. */
+                height: auto; /* Mantém a proporção dos celulares. */
+            } /* Encerra os estilos da imagem dos celulares. */
+        } /* Encerra a área do mockup. */
+    } /* Encerra a composição de duas colunas. */
+    & .scroll { /* Reserva espaço para o cartão azul existente. */
+        display: flex; /* Permite centralizar o cartão. */
+        justify-content: center; /* Centraliza o cartão na seção. */
+        padding: 1.875rem clamp(0rem, 2vw, 1.25rem); /* Evita desperdiçar largura lateral no celular. */
+        & .cardscroll { /* Faz o cartão azul diminuir junto com a tela. */
+            display: grid; /* Centraliza a logo dentro do cartão. */
+            place-items: center; /* Alinha a marca nos dois eixos. */
+            width: 100%; /* Usa a largura disponível no contêiner. */
+            max-width: 34.0625rem; /* Mantém o limite original de 545 pixels. */
+            aspect-ratio: 545 / 270; /* Preserva a proporção sem uma altura fixa. */
+            padding: 1rem; /* Mantém espaço entre a marca e as bordas. */
+            border-radius: 0.75rem; /* Preserva o arredondamento do cartão. */
+            background-color: #437bd0; /* Mantém a cor do cartão original. */
+            box-shadow: inset 0 -1.5rem 3rem rgb(0 0 0 / 17%), 0 0.5rem 1rem rgb(0 0 0 / 12%); /* Mantém profundidade sem uma sombra excessiva nas telas pequenas. */
+        } /* Encerra os estilos do cartão azul. */
+    } /* Encerra a área do cartão. */
+} /* Encerra a apresentação com os celulares. */
+.infos { /* Organiza os elementos da seção de notícias. */
+    display: flex; /* Mantém título, cartões, pontos e acesso em sequência. */
+    flex-direction: column; /* Coloca os grupos um abaixo do outro. */
+    align-items: center; /* Centraliza os elementos menores. */
+    gap: clamp(1.5rem, 6vw, 6.25rem); /* Adapta o espaço vertical sem grandes vazios no celular. */
+    width: 100%; /* Mantém a seção dentro da tela. */
+    max-width: 90rem; /* Limita a composição em monitores grandes. */
+    margin: 0 auto 1.875rem; /* Centraliza a seção e separa o rodapé. */
+    padding: 1rem var(--margem); /* Alinha o conteúdo às margens do restante da página. */
+    & .h2text { /* Mantém o título alinhado à esquerda. */
+        align-self: flex-start; /* Alinha o título ao começo da seção. */
+        min-width: 0; /* Permite que o bloco se ajuste à largura pequena. */
+        & h2 { /* Ajusta o título de notícias sem ultrapassar a tela. */
+            font-size: clamp(2rem, 5vw, 4.5rem); /* Mantém o destaque do desktop e reduz o título no celular. */
+            font-weight: 700; /* Preserva o negrito da seção. */
+            line-height: 1.2; /* Mantém as quebras de linha legíveis. */
+        } /* Encerra os estilos do título de notícias. */
+    } /* Encerra a área do título. */
+    & .container { /* Distribui as setas e os cartões nas telas grandes. */
+        display: grid; /* Reserva as laterais para as setas decorativas. */
+        grid-template-columns: 2.75rem minmax(0, 1fr) 2.75rem; /* Impede que a lista amplie a largura da página. */
+        align-items: center; /* Centraliza as setas em relação aos cartões. */
+        gap: clamp(0.75rem, 2vw, 2.625rem); /* Adapta os espaços laterais da lista. */
+        width: 100%; /* Limita a composição à largura da seção. */
+        padding-bottom: 5.625rem; /* Preserva o espaço reservado às sombras dos cartões. */
+    } /* Encerra a distribuição dos cartões e setas. */
+    & .seta-noticias { /* Mantém as setas apenas como parte visual. */
+        display: grid; /* Centraliza a imagem da seta. */
+        place-items: center; /* Alinha a seta nos dois eixos. */
+    } /* Encerra os ajustes das setas. */
+    & .lista-noticias { /* Mantém os três cartões lado a lado no desktop. */
+        display: flex; /* Permite ajustar os cartões e rolar a lista em telas menores. */
+        align-items: center; /* Mantém o cartão central elevado no desenho original. */
+        gap: clamp(1rem, 2.5vw, 2.625rem); /* Adapta a distância entre os cartões. */
+        min-width: 0; /* Permite reduzir a lista dentro da coluna. */
+        height: 44.375rem; /* Preserva a composição vertical dos cartões no desktop. */
+    } /* Encerra a lista de notícias. */
+    & .noticia { /* Mantém os cartões reservados para notícias futuras. */
+        flex: 1 1 0; /* Divide a largura disponível entre os três cartões. */
+        min-width: 0; /* Impede uma largura mínima maior que a coluna. */
+        height: 28.4375rem; /* Mantém a altura original nas telas grandes. */
+        border-radius: 1.25rem; /* Preserva os cantos arredondados. */
+        background-color: #0e3361; /* Mantém o fundo azul original. */
+        box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 40%), 0 0.4375rem 0.8125rem -0.1875rem rgb(0 0 0 / 30%); /* Preserva a profundidade dos cartões. */
+        &.direita, &.esquerda { /* Seleciona os dois cartões das extremidades. */
+            align-self: flex-end; /* Mantém a posição inferior usada no desktop. */
+        } /* Encerra o posicionamento dos cartões laterais. */
+    } /* Encerra os estilos dos cartões de notícias. */
+    & .tdsNoticias { /* Mantém o acesso à página de notícias em destaque. */
+        display: flex; /* Permite centralizar o texto do link. */
+        align-items: center; /* Centraliza o texto verticalmente. */
+        justify-content: center; /* Centraliza o texto horizontalmente. */
+        max-width: 100%; /* Impede que o botão ultrapasse a tela. */
+        min-height: 4.0625rem; /* Mantém a área de toque do botão original. */
+        padding: 0.75rem 1.5625rem; /* Permite que o botão cresça se o texto quebrar. */
+        border: 1px solid #002aff; /* Preserva a borda azul do botão. */
+        border-radius: 1.25rem; /* Preserva o arredondamento original. */
+        color: #111; /* Mantém contraste com o fundo branco. */
+        font-size: clamp(1rem, 2vw, 1.5rem); /* Adapta o texto às telas pequenas. */
+        font-weight: 500; /* Mantém o peso original do texto. */
+        text-align: center; /* Centraliza o texto quando houver mais de uma linha. */
+    } /* Encerra os estilos do acesso às notícias. */
+} /* Encerra a seção de notícias. */
+footer { /* Organiza o rodapé sem limitar a altura do seu conteúdo. */
+    position: relative; /* Define a referência para a onda decorativa. */
+    isolation: isolate; /* Mantém a onda atrás do conteúdo deste rodapé. */
+    width: 100%; /* Mantém o rodapé dentro da largura da tela. */
+    min-height: 27.625rem; /* Preserva a altura mínima do desenho original. */
+    padding: clamp(5.5rem, 17.083333vw, 15.375rem) clamp(1rem, 6.666667vw, 6rem) 1.625rem; /* Adapta o espaço da onda e as margens sem cortar as colunas. */
+    background-color: #081f38; /* Prolonga a cor escura da arte quando o conteúdo exige mais altura. */
+    color: #cfdeed; /* Mantém a cor clara de apoio nos textos do rodapé. */
+    &::before { /* Mantém a onda proporcional mesmo quando o rodapé cresce. */
+        content: ""; /* Cria uma camada decorativa sem acrescentar texto. */
+        position: absolute; /* Separa a altura da arte da altura necessária para os links. */
+        top: 0; /* Mantém a onda no início do rodapé. */
+        left: 0; /* Alinha a arte à borda esquerda. */
+        z-index: -1; /* Mantém a arte atrás dos textos e links. */
+        width: 100%; /* Faz a onda acompanhar a largura da tela. */
+        aspect-ratio: 1440 / 442; /* Preserva a proporção do SVG usado no projeto. */
+        background: #fff url('../assets/index/footer.svg') center / 100% 100% no-repeat; /* Mantém branco o trecho transparente acima da onda. */
+        mask-image: linear-gradient(#000 75%, transparent); /* Mistura o fim da imagem com o fundo para evitar uma emenda visível. */
+        pointer-events: none; /* Evita que a camada decorativa bloqueie os links. */
+    } /* Encerra os ajustes da onda decorativa. */
+    & .container, & .finalfooter { /* Limita os conteúdos do rodapé em monitores largos. */
+        width: 100%; /* Usa a largura disponível entre as margens. */
+        max-width: 78rem; /* Mantém as colunas próximas e legíveis em monitores grandes. */
+        margin-inline: auto; /* Centraliza os grupos do rodapé. */
+    } /* Encerra o limite do conteúdo do rodapé. */
+    & .footerdiv { /* Distribui as colunas institucionais. */
+        display: grid; /* Permite reorganizar as colunas conforme a tela. */
+        grid-template-columns: minmax(0, 1.7fr) repeat(3, minmax(0, 1fr)); /* Dá mais espaço à descrição sem forçar uma largura fixa. */
+        gap: clamp(1.25rem, 4vw, 4rem); /* Adapta a distância entre as colunas. */
+    } /* Encerra a grade de colunas. */
+    & .textdiv { /* Mantém a descrição do projeto em uma largura confortável. */
+        max-width: 26rem; /* Evita linhas longas na descrição. */
+        & h2 { /* Destaca o nome do projeto no rodapé. */
+            margin-bottom: 0.5rem; /* Separa o nome da descrição. */
+            color: #fff; /* Mantém o título branco sobre o azul. */
+            font-size: 1.375rem; /* Preserva o tamanho original do nome. */
+            font-weight: 700; /* Mantém o destaque do projeto. */
+        } /* Encerra os estilos do nome do projeto. */
+        & p { /* Apresenta a descrição sem cortar suas linhas. */
+            color: #cfdeed; /* Preserva a cor clara de apoio. */
+            font-size: 0.875rem; /* Mantém a descrição legível. */
+            line-height: 1.6; /* Deixa espaço entre as linhas. */
+        } /* Encerra os estilos da descrição. */
+    } /* Encerra a área de descrição do projeto. */
+    & .navegacao { /* Padroniza as colunas de links do rodapé. */
+        min-width: 0; /* Permite que textos longos quebrem dentro da coluna. */
+        & h3 { /* Identifica cada grupo de links. */
+            margin-bottom: 0.75rem; /* Separa o título da lista. */
+            color: #fff; /* Destaca o título sobre o fundo azul. */
+            font-size: 0.875rem; /* Mantém o tamanho original dos títulos. */
+            font-weight: 600; /* Preserva o destaque dos grupos. */
+        } /* Encerra os estilos dos títulos de grupo. */
+        & a { /* Mantém os links acessíveis sem cortar o texto. */
+            display: inline-flex; /* Permite alinhar textos que quebram em mais de uma linha. */
+            align-items: center; /* Centraliza o conteúdo na área do link. */
+            min-height: 2rem; /* Separa os destinos para facilitar o clique. */
+            color: #cfdeed; /* Mantém a cor de apoio do rodapé. */
+            font-size: 0.875rem; /* Mantém os links legíveis. */
+            overflow-wrap: anywhere; /* Evita transbordamento caso um texto longo não tenha espaços. */
+            &.contato { /* Destaca o convite principal de contato. */
+                color: #fff; /* Mantém o destaque em branco. */
+                font-weight: 600; /* Mantém o peso original do convite. */
+            } /* Encerra o destaque do contato. */
+        } /* Encerra os estilos dos links do rodapé. */
+    } /* Encerra as colunas de navegação. */
+    & .finalfooter { /* Distribui os direitos e os textos legais. */
+        display: flex; /* Mantém os dois grupos lado a lado quando cabe. */
+        flex-wrap: wrap; /* Permite distribuir os grupos em outra linha. */
+        justify-content: space-between; /* Separa os direitos dos textos legais. */
+        align-items: center; /* Alinha os grupos verticalmente. */
+        gap: 1rem; /* Mantém separação quando houver quebra de linha. */
+        margin-top: 1.375rem; /* Separa a linha final das colunas. */
+        color: #cfdeed; /* Mantém a cor clara dos textos finais. */
+        font-size: 0.875rem; /* Evita que os textos finais fiquem grandes no celular. */
+        & div { /* Agrupa os dois textos legais. */
+            display: flex; /* Mantém os textos lado a lado quando possível. */
+            flex-wrap: wrap; /* Permite uma linha extra se faltar espaço. */
+            gap: 0.5rem 1.3125rem; /* Mantém espaço entre os textos em ambas as direções. */
+        } /* Encerra o grupo dos textos legais. */
+    } /* Encerra a linha final do rodapé. */
+} /* Encerra os estilos do rodapé. */
+@media (max-width: 74.99rem) { /* Ativa o menu compacto antes que os links do cabeçalho fiquem apertados. */
+    .cabecalho-principal { /* Reorganiza o cabeçalho para tablets e celulares. */
+        position: relative; /* Faz o cabeçalho ocupar seu espaço antes do banner. */
+        left: auto; /* Retira a referência horizontal usada no desktop. */
+        grid-template-columns: auto minmax(0, 1fr) auto; /* Reserva marca, conta e botão de menu. */
+        gap: 0.75rem; /* Reduz o espaço entre os grupos sem cortar seus conteúdos. */
+        max-width: none; /* Permite que o fundo do cabeçalho ocupe toda a tela. */
+        background-color: #0e3361; /* Mantém contraste para os controles fora do vídeo. */
+        transform: none; /* Retira a centralização absoluta usada no desktop. */
+        & .marca { /* Adapta a marca ao espaço do cabeçalho compacto. */
+            width: clamp(5.5rem, 16vw, 7.75rem); /* Preserva uma marca visível sem ocupar a linha inteira. */
+        } /* Encerra o ajuste da marca compacta. */
+        & .menu-desktop { /* Retira o menu completo quando há pouco espaço. */
+            display: none; /* Deixa apenas o menu compacto disponível nesta largura. */
+        } /* Encerra a ocultação do menu completo. */
+        & .botoesHeader .icone-conta { /* Retira o acesso repetido por ícone nas telas menores. */
+            display: none; /* Preserva o botão escrito de acesso à conta. */
+        } /* Encerra o ajuste do ícone da conta. */
+        & .menu-mobile { /* Disponibiliza a navegação compacta nativa. */
+            display: block; /* Mostra o controle de abrir e fechar. */
+            & summary { /* Cria uma área de toque confortável para o menu. */
+                display: grid; /* Centraliza o desenho do botão. */
+                place-items: center; /* Centraliza o desenho nos dois eixos. */
+                width: 2.75rem; /* Mantém 44 pixels de largura para o toque. */
+                height: 2.75rem; /* Mantém 44 pixels de altura para o toque. */
+                border: 1px solid rgb(255 255 255 / 45%); /* Delimita o botão sobre o fundo azul. */
+                border-radius: 0.625rem; /* Acompanha o arredondamento dos botões da página. */
+                list-style: none; /* Retira o marcador padrão do elemento summary. */
+                cursor: pointer; /* Indica que este controle pode ser acionado. */
+                &::-webkit-details-marker { /* Trata o marcador nos navegadores que usam esta forma. */
+                    display: none; /* Mantém somente o desenho de três linhas. */
+                } /* Encerra a ocultação do marcador alternativo. */
+            } /* Encerra os estilos do botão de menu. */
+            & .icone-menu { /* Desenha a linha central do ícone sem uma imagem adicional. */
+                position: relative; /* Define a referência para as outras duas linhas. */
+                width: 1.25rem; /* Mantém o ícone dentro do botão. */
+                height: 2px; /* Define a espessura da linha central. */
+                background-color: #fff; /* Deixa o desenho claro sobre o azul. */
+                &::before, &::after { /* Desenha as linhas superior e inferior. */
+                    content: ""; /* Cria linhas decorativas sem texto adicional. */
+                    position: absolute; /* Posiciona as linhas em relação à linha central. */
+                    left: 0; /* Alinha as três linhas horizontalmente. */
+                    width: 100%; /* Mantém a mesma largura em todas as linhas. */
+                    height: 2px; /* Mantém a mesma espessura em todas as linhas. */
+                    background-color: currentColor; /* Herda a cor branca definida no botão aberto e fechado. */
+                } /* Encerra os estilos compartilhados das linhas externas. */
+                &::before { /* Posiciona a linha superior do ícone. */
+                    top: -0.375rem; /* Afasta a linha superior da central. */
+                } /* Encerra a posição da linha superior. */
+                &::after { /* Posiciona a linha inferior do ícone. */
+                    top: 0.375rem; /* Afasta a linha inferior da central. */
+                } /* Encerra a posição da linha inferior. */
+                color: #fff; /* Define a cor usada pelas linhas externas. */
+            } /* Encerra o desenho do ícone de menu. */
+            &[open] summary { /* Destaca o botão enquanto o menu está aberto. */
+                background-color: rgb(255 255 255 / 15%); /* Indica visualmente o estado aberto. */
+            } /* Encerra o destaque do botão aberto. */
+            & nav { /* Posiciona os links abaixo da linha principal do cabeçalho. */
+                position: absolute; /* Mantém o menu ancorado ao cabeçalho. */
+                top: 100%; /* Abre os destinos logo abaixo dos controles. */
+                left: 0; /* Alinha o painel ao lado esquerdo da tela. */
+                right: 0; /* Limita o painel ao lado direito da tela. */
+                padding: 0.75rem var(--margem) 1rem; /* Mantém espaço para os links e seus focos. */
+                background-color: #0e3361; /* Mantém o texto legível sobre o vídeo. */
+                box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 20%); /* Separa o painel do conteúdo de fundo. */
+                & ul { /* Organiza os destinos em duas colunas. */
+                    display: grid; /* Permite que os links se ajustem ao espaço disponível. */
+                    grid-template-columns: repeat(2, minmax(0, 1fr)); /* Mantém as colunas dentro da largura do painel. */
+                    gap: 0.25rem 1rem; /* Separa os links sem deixar o menu muito alto. */
+                } /* Encerra a grade de destinos. */
+            } /* Encerra os estilos do painel de navegação. */
+        } /* Encerra o menu compacto. */
+    } /* Encerra o cabeçalho de telas menores. */
+    .video { /* Ajusta o banner ao espaço que sobra abaixo do cabeçalho. */
+        min-height: 26rem; /* Evita cortar o título em telas baixas ou na horizontal. */
+        height: calc(100svh - 5.75rem); /* Desconta aproximadamente a altura do cabeçalho compacto. */
+        padding-top: clamp(2.5rem, 7vw, 5rem); /* Adapta a distância superior do título. */
+        & h1 { /* Mantém o título legível nos tablets e celulares. */
+            font-size: clamp(2rem, 6vw, 3rem); /* Ajusta o tamanho usando o espaço da tela. */
+            line-height: 1.25; /* Mantém o título compacto sem cortar o texto. */
+        } /* Encerra os ajustes do título. */
+    } /* Encerra o banner em telas menores. */
+} /* Encerra o ponto de adaptação do cabeçalho. */
+@media (max-width: 64rem) { /* Adapta notícias e rodapé quando as colunas ficam estreitas. */
+    .infos { /* Reduz os espaços ao redor das notícias. */
+        & .container { /* Deixa a lista ocupar a largura das setas que saem do desenho. */
+            grid-template-columns: minmax(0, 1fr); /* Mantém apenas a coluna da lista. */
+            padding-bottom: 0; /* Retira a grande reserva de espaço do desktop. */
+        } /* Encerra a grade compacta das notícias. */
+        & .seta-noticias { /* Retira as setas decorativas no modo de rolagem por toque. */
+            display: none; /* Reserva mais espaço para os cartões. */
+        } /* Encerra a ocultação das setas. */
+        & .lista-noticias { /* Permite percorrer os cartões sem alargar a página. */
+            align-items: stretch; /* Deixa os cartões com o mesmo alinhamento. */
+            gap: 1rem; /* Mantém distância entre os cartões. */
+            height: auto; /* Deixa a altura acompanhar os cartões. */
+            padding: 0.5rem 0.5rem 1.5rem; /* Reserva espaço para as sombras e a rolagem. */
+            overflow-x: auto; /* Limita a rolagem horizontal a esta lista. */
+            scroll-snap-type: x proximity; /* Ajuda a acomodar cada cartão depois do gesto. */
+            overscroll-behavior-inline: contain; /* Evita transferir o gesto lateral para a página. */
+        } /* Encerra os ajustes da lista rolável. */
+        & .noticia { /* Mantém cartões legíveis em vez de espremer os três. */
+            flex: 0 0 min(80%, 20rem); /* Mostra parte do próximo cartão para indicar que a lista continua. */
+            height: 22rem; /* Reduz a altura da composição em telas menores. */
+            scroll-snap-align: start; /* Usa o começo do cartão como referência de encaixe. */
+            &.direita, &.esquerda { /* Retira o desnível dos cartões laterais neste modo. */
+                align-self: stretch; /* Mantém todos os cartões na mesma linha. */
+            } /* Encerra o ajuste dos cartões laterais. */
+        } /* Encerra os estilos compactos dos cartões. */
+    } /* Encerra os ajustes das notícias. */
+    footer { /* Reorganiza as informações institucionais no tablet. */
+        & .footerdiv { /* Divide os links em três colunas abaixo da descrição. */
+            grid-template-columns: repeat(3, minmax(0, 1fr)); /* Mantém as colunas proporcionais ao espaço disponível. */
+        } /* Encerra a grade do rodapé no tablet. */
+        & .textdiv { /* Destaca a descrição antes dos grupos de links. */
+            grid-column: 1 / -1; /* Ocupa toda a primeira linha da grade. */
+        } /* Encerra o ajuste da descrição. */
+        & .navegacao a { /* Aumenta a área de toque dos links nas telas menores. */
+            min-height: 2.75rem; /* Reserva pelo menos 44 pixels por destino. */
+        } /* Encerra os ajustes dos links por toque. */
+    } /* Encerra os ajustes do rodapé no tablet. */
+} /* Encerra o ponto de adaptação de notícias e rodapé. */
+@media (max-width: 47.99rem) { /* Empilha a apresentação e reorganiza o rodapé no celular. */
+    .cabecalho-principal { /* Preserva espaço para os três controles do cabeçalho. */
+        gap: 0.5rem; /* Evita espremer os controles nos celulares menores. */
+        & .botoesHeader .entrar { /* Permite que o texto do acesso à conta ocupe duas linhas. */
+            max-width: 8.25rem; /* Limita o botão sem esconder seu texto. */
+            padding-inline: 0.5rem; /* Mantém espaço interno mesmo nas telas estreitas. */
+            line-height: 1.35; /* Mantém duas linhas legíveis dentro do botão. */
+        } /* Encerra o botão de conta no celular. */
+    } /* Encerra o cabeçalho do celular. */
+    .sect2 { /* Reduz os espaços externos da apresentação no celular. */
+        padding-block: 1.25rem; /* Aproxima a seção do restante da página. */
+        & .container2ajuste { /* Exibe o texto antes da imagem quando não cabem lado a lado. */
+            grid-template-columns: minmax(0, 1fr); /* Usa uma única coluna sem largura fixa. */
+            gap: 1.5rem; /* Mantém a separação entre o texto e os celulares. */
+            & .textos { /* Permite aproveitar a largura inteira da coluna. */
+                max-width: none; /* Retira o limite de desktop que não é necessário neste tamanho. */
+                margin-top: 0.5rem; /* Evita um grande vazio antes do título. */
+            } /* Encerra o ajuste do texto no celular. */
+            & .mockup img { /* Limita a imagem quando a coluna ocupa a tela inteira. */
+                max-width: 22rem; /* Mantém os celulares proporcionais sem dominar a seção. */
+            } /* Encerra o limite da imagem no celular. */
+        } /* Encerra a apresentação empilhada. */
+    } /* Encerra os ajustes da apresentação. */
+    footer { /* Organiza os links finais em duas colunas no celular. */
+        & .footerdiv { /* Distribui os grupos sem cortar os textos. */
+            grid-template-columns: repeat(2, minmax(0, 1fr)); /* Divide a largura disponível em duas partes flexíveis. */
+        } /* Encerra a grade do rodapé no celular. */
+        & .navegacao-contato { /* Deixa a área de contato em uma linha própria. */
+            grid-column: 1 / -1; /* Usa a largura inteira para os textos de contato. */
+        } /* Encerra o ajuste do contato. */
+        & .finalfooter { /* Evita apertar direitos e informações legais na mesma linha. */
+            flex-direction: column; /* Coloca os dois grupos um abaixo do outro. */
+            align-items: flex-start; /* Alinha os textos à esquerda. */
+        } /* Encerra a organização final do rodapé. */
+    } /* Encerra o rodapé do celular. */
+} /* Encerra o ponto de adaptação do celular. */
+@media (prefers-reduced-motion: reduce) { /* Respeita quem prefere uma interface sem movimento. */
+    .video .videovideo { /* Seleciona o vídeo decorativo da apresentação. */
+        display: none; /* Mostra somente a imagem estática de fundo nesta preferência. */
+    } /* Encerra o ajuste da apresentação sem movimento. */
+} /* Encerra a preferência de movimento reduzido. */

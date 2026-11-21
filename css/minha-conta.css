@@ -137,6 +137,15 @@ button, a, input, select { /* Seleciona os elementos que podem receber foco pelo
                     width: 100%; /* Preserva a largura da moldura dentro do círculo. */
                     height: 100%; /* Preserva a altura da moldura dentro do círculo. */
                 } /* Encerra o posicionamento da moldura. */
+                & #foto-perfil { /* Ajusta a imagem escolhida pelo JavaScript dentro do avatar. */
+                    position: absolute; /* Sobrepõe a foto à moldura sem deixar o tamanho original aumentar o avatar. */
+                    inset: 3%; /* Afasta a foto das bordas para manter a moldura branca visível. */
+                    width: 94%; /* Limita a largura ao espaço que sobra entre as duas margens de 3%. */
+                    height: 94%; /* Limita a altura ao mesmo espaço para manter o recorte quadrado. */
+                    border-radius: 50%; /* Arredonda o recorte da foto para acompanhar o círculo do perfil. */
+                    object-fit: cover; /* Preenche o círculo sem esticar a foto, cortando o excesso quando necessário. */
+                    object-position: center; /* Mantém o centro da imagem visível dentro do recorte. */
+                } /* Encerra os estilos da foto de perfil. */
                 & .iniciais-avatar { /* Destaca as iniciais que representam o perfil. */
                     position: relative; /* Mantém as letras sobre a moldura do avatar. */
                     font-size: calc(var(--medida) * 4.482421875); /* Reproduz o tamanho das iniciais no Figma. */
