@@ -84,7 +84,7 @@ a, summary, .lista-noticias { /* Seleciona os controles que recebem navegação 
         display: flex; /* Coloca os acessos lado a lado. */
         align-items: center; /* Centraliza os acessos verticalmente. */
         justify-content: flex-end; /* Mantém a conta no lado direito do cabeçalho. */
-        gap: clamp(1rem, 2vw, 4.0625rem); /* Adapta a distância entre ícone e botão. */
+        gap: clamp(0.5rem, 1vw, 0.875rem); /* Adapta a distância entre ícone e botão. */
         min-width: 0; /* Permite adaptar o grupo sem ampliar a página. */
         & .icone-conta { /* Reserva uma área de toque para o acesso por ícone. */
             display: grid; /* Centraliza a imagem do usuário. */
@@ -191,22 +191,6 @@ a, summary, .lista-noticias { /* Seleciona os controles que recebem navegação 
             } /* Encerra os estilos da imagem dos celulares. */
         } /* Encerra a área do mockup. */
     } /* Encerra a composição de duas colunas. */
-    & .scroll { /* Reserva espaço para o cartão azul existente. */
-        display: flex; /* Permite centralizar o cartão. */
-        justify-content: center; /* Centraliza o cartão na seção. */
-        padding: 1.875rem clamp(0rem, 2vw, 1.25rem); /* Evita desperdiçar largura lateral no celular. */
-        & .cardscroll { /* Faz o cartão azul diminuir junto com a tela. */
-            display: grid; /* Centraliza a logo dentro do cartão. */
-            place-items: center; /* Alinha a marca nos dois eixos. */
-            width: 100%; /* Usa a largura disponível no contêiner. */
-            max-width: 34.0625rem; /* Mantém o limite original de 545 pixels. */
-            aspect-ratio: 545 / 270; /* Preserva a proporção sem uma altura fixa. */
-            padding: 1rem; /* Mantém espaço entre a marca e as bordas. */
-            border-radius: 0.75rem; /* Preserva o arredondamento do cartão. */
-            background-color: #437bd0; /* Mantém a cor do cartão original. */
-            box-shadow: inset 0 -1.5rem 3rem rgb(0 0 0 / 17%), 0 0.5rem 1rem rgb(0 0 0 / 12%); /* Mantém profundidade sem uma sombra excessiva nas telas pequenas. */
-        } /* Encerra os estilos do cartão azul. */
-    } /* Encerra a área do cartão. */
 } /* Encerra a apresentação com os celulares. */
 .infos { /* Organiza os elementos da seção de notícias. */
     display: flex; /* Mantém título, cartões, pontos e acesso em sequência. */
@@ -367,9 +351,6 @@ footer { /* Organiza o rodapé sem limitar a altura do seu conteúdo. */
         & .menu-desktop { /* Retira o menu completo quando há pouco espaço. */
             display: none; /* Deixa apenas o menu compacto disponível nesta largura. */
         } /* Encerra a ocultação do menu completo. */
-        & .botoesHeader .icone-conta { /* Retira o acesso repetido por ícone nas telas menores. */
-            display: none; /* Preserva o botão escrito de acesso à conta. */
-        } /* Encerra o ajuste do ícone da conta. */
         & .menu-mobile { /* Disponibiliza a navegação compacta nativa. */
             display: block; /* Mostra o controle de abrir e fechar. */
             & summary { /* Cria uma área de toque confortável para o menu. */
@@ -515,3 +496,176 @@ footer { /* Organiza o rodapé sem limitar a altura do seu conteúdo. */
         display: none; /* Mostra somente a imagem estática de fundo nesta preferência. */
     } /* Encerra o ajuste da apresentação sem movimento. */
 } /* Encerra a preferência de movimento reduzido. */
+
+
+
+
+.cabecalho-principal { /* Seleciona o cabeçalho da página inicial. */
+    position: fixed; /* Mantém o cabeçalho visível enquanto você rola a página. */
+    inset: 0 0 auto; /* Encosta o cabeçalho no topo e nas laterais, deixando a parte de baixo livre. */
+    width: 100%; /* Faz o cabeçalho ocupar toda a largura da janela. */
+    max-width: none; /* Remove o limite de largura definido no CSS original. */
+    transform: none; /* Desativa o deslocamento horizontal usado na centralização antiga. */
+
+    background: rgb(5 14 24 / 40%); /* Aplica um azul-escuro com 40% de opacidade, deixando o vídeo aparecer atrás. */
+    box-shadow: inset 0 -1px rgb(255 255 255 / 30%); /* Cria uma linha branca translúcida de 1 px na parte interna da borda inferior. */
+    -webkit-backdrop-filter: blur(2px) saturate(120%); /* Aplica o desfoque e realça as cores atrás do cabeçalho em navegadores que exigem o prefixo WebKit. */
+    backdrop-filter: var(--filtro-vidro, blur(2px) saturate(120%)); /* Usa a refração definida pelo JavaScript. Se a variável estiver vazia ou ausente, usa o desfoque e a saturação. */
+} /* Encerra os estilos do cabeçalho. */
+
+@media (max-width: 74.99rem) { /* Aplica os ajustes abaixo apenas em janelas de até 74,99 rem de largura. */
+    .video { /* Seleciona a seção que contém o vídeo de fundo e o título. */
+        height: 100svh; /* Define a altura com base na área visível quando as barras do navegador estão abertas. */
+        padding-top: clamp(7rem, 13vw, 10rem); /* Afasta o título do cabeçalho fixo. Usa 13% da largura da janela, com mínimo de 7 rem e máximo de 10 rem. */
+    } /* Encerra os ajustes da seção de vídeo. */
+} /* Encerra os ajustes para telas menores. */
+
+.cabecalho-principal .botoesHeader :is(.icone-conta, .entrar) {
+    border: 1px solid rgb(255 255 255 / 30%);
+    border-radius: 0.75rem;
+    color: #fff;
+}
+
+.cabecalho-principal .botoesHeader .icone-conta {
+    flex: 0 0 2.75rem; /* Mantém a área de toque visível em telas estreitas. */
+    background-color: rgb(14 51 97 / 80%);
+}
+
+.cabecalho-principal .botoesHeader .entrar {
+    padding-inline: clamp(0.625rem, 1.2vw, 1rem);
+    background-color: #0e3361;
+    font-weight: 600;
+}
+
+.cabecalho-principal .botoesHeader :is(.icone-conta, .entrar):focus-visible {
+    outline: 2px solid #e7a22c;
+    outline-offset: 3px;
+}
+
+@media (hover: hover) {
+    .cabecalho-principal .botoesHeader :is(.icone-conta, .entrar):hover {
+        background-color: #174b83;
+        border-color: #e7a22c;
+    }
+}
+
+.carrossel-videos {
+    margin-top: clamp(1.5rem, 5vw, 4rem);
+}
+
+.carrossel-videos-pilha {
+    position: relative;
+    width: 65.4%;
+    margin-left: 26.8%;
+    aspect-ratio: 801 / 312;
+    isolation: isolate;
+}
+
+.carrossel-video {
+    position: absolute;
+    border-radius: 0.75rem;
+    background: #0e3361;
+    box-shadow: 0.55rem 0.35rem 0.75rem rgb(0 0 0 / 50%);
+}
+
+.carrossel-video-ativo {
+    inset: 0 auto 0 0;
+    width: 68%;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    z-index: 3;
+}
+
+.carrossel-video-ativo video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.carrossel-video-ativo [hidden] {
+    display: none;
+}
+
+.carrossel-video-meio,
+.carrossel-video-fundo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-inline: clamp(0.3rem, 1.5vw, 1rem);
+    border: 1px solid rgb(128 167 214 / 24%);
+    background: radial-gradient(circle at 92% 0%, #103564 0 44%, #091e38 45%);
+    color: #fff;
+    font: 600 clamp(0.75rem, 1.35vw, 1rem) / 1 Poppins, sans-serif;
+    cursor: pointer;
+}
+
+.carrossel-video-meio {
+    inset: 6.1% auto 6.4% 27.1%;
+    width: 61.5%;
+    z-index: 2;
+}
+
+.carrossel-video-fundo {
+    inset: 10.6% 0 10.9% auto;
+    width: 54.4%;
+    z-index: 1;
+}
+
+.carrossel-video-meio:focus-visible,
+.carrossel-video-fundo:focus-visible {
+    outline: 2px solid #e7a22c;
+    outline-offset: -3px;
+}
+
+@media (hover: hover) {
+    .carrossel-video-meio:hover,
+    .carrossel-video-fundo:hover {
+        border-color: #e7a22c;
+    }
+}
+
+.carrossel-video-indisponivel,
+.carrossel-videos-estado {
+    padding: 0.5rem;
+    text-align: center;
+    font-size: 0.875rem;
+}
+
+.carrossel-video-indisponivel {
+    color: #fff;
+}
+
+.carrossel-videos-estado {
+    margin-top: 0.75rem;
+}
+
+.infos .noticia {
+    padding: clamp(0.5rem, 1.6vw, 1.75rem);
+    overflow: hidden;
+}
+
+.infos .noticia img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 64rem) {
+    .carrossel-videos-pilha {
+        width: min(100%, 44rem);
+        margin-inline: auto;
+    }
+}
+
+@media (max-width: 35rem) {
+    .carrossel-videos-pilha {
+        aspect-ratio: 2 / 1;
+    }
+
+    .carrossel-video-meio {
+        width: 70%;
+        left: 16%;
+    }
+}
