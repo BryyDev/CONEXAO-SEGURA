@@ -7,13 +7,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/noticias.css?v=3">
+  <link rel="shortcut icon" href="../assets/Favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="../css/noticias.css?v=10">
 </head>
 <body>
 
   <header class="header">
     <!-- Link do logo: leva para a página inicial -->
-    <a href="../index.html" class="logo"><img src="../assets/noticias-mapa/logo_header.png" alt="Conexão Segura"></a>
+    <a href="../index.html" class="logo"><img src="../assets/index/logo.svg" width="124" height="67" alt="Conexão Segura"></a>
     <!-- Abre o menu de navegação; aria-label descreve o menu para leitores de tela -->
     <nav class="nav" aria-label="Principal">
       <!-- Link para a página inicial -->
@@ -30,14 +31,16 @@
       <a href="#contato">Contato</a>
     <!-- Fecha o menu -->
     </nav>
-    <!-- Botão redondo que leva para a página da conta do usuário -->
-    <a href="minha-conta.html" class="user-btn" aria-label="Minha conta">
-      <!-- Ícone de pessoa desenhado em SVG: um círculo (cabeça) e um corpo -->
-      <svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7z"/></svg>
-    <!-- Fecha o botão da conta -->
-    </a>
-    <!-- Botão de ação principal do cabeçalho -->
-    <a href="#ferramentas" class="btn-trajeto">Planejar meu trajeto</a>
+    <div class="botoesHeader"> <!-- Reúne os acessos à conta. -->
+        <a class="icone-conta" href="minha-conta.html" aria-label="Minha conta">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
+                <circle cx="12" cy="8" r="3.25" />
+                <path d="M5 21v-1.5a7 7 0 0 1 14 0V21" />
+            </svg>
+        </a>
+        <a class="entrar" href="login.html">Entrar</a>
+    </div>
   <!-- Fecha o cabeçalho -->
   </header>
 
