@@ -390,19 +390,33 @@ footer { /* Organiza o rodapé sem limitar a altura do seu conteúdo. */
             &[open] summary { /* Destaca o botão enquanto o menu está aberto. */
                 background-color: rgb(255 255 255 / 15%); /* Indica visualmente o estado aberto. */
             } /* Encerra o destaque do botão aberto. */
-            & nav { /* Posiciona os links abaixo da linha principal do cabeçalho. */
-                position: absolute; /* Mantém o menu ancorado ao cabeçalho. */
-                top: 100%; /* Abre os destinos logo abaixo dos controles. */
-                left: 0; /* Alinha o painel ao lado esquerdo da tela. */
-                right: 0; /* Limita o painel ao lado direito da tela. */
-                padding: 0.75rem var(--margem) 1rem; /* Mantém espaço para os links e seus focos. */
-                background-color: #0e3361; /* Mantém o texto legível sobre o vídeo. */
-                box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 20%); /* Separa o painel do conteúdo de fundo. */
-                & ul { /* Organiza os destinos em duas colunas. */
-                    display: grid; /* Permite que os links se ajustem ao espaço disponível. */
-                    grid-template-columns: repeat(2, minmax(0, 1fr)); /* Mantém as colunas dentro da largura do painel. */
-                    gap: 0.25rem 1rem; /* Separa os links sem deixar o menu muito alto. */
-                } /* Encerra a grade de destinos. */
+            & nav { /* Abre o painel suspenso abaixo do cabeçalho. */
+                position: absolute;
+                inset: 100% 4% auto;
+                padding: 0.75rem;
+                border: 1px solid rgb(255 255 255 / 25%);
+                border-radius: 0.75rem;
+                background-color: #081a30;
+                box-shadow: 0 0.5rem 1.25rem rgb(0 0 0 / 25%);
+
+                & ul {
+                    display: grid;
+                    grid-template-columns: repeat(3, minmax(0, 1fr));
+                    gap: 0.5rem;
+                }
+
+                & a {
+                    justify-content: center;
+                    border-bottom: 2px solid transparent;
+                    text-align: center;
+                    font-size: 0.8125rem;
+                    font-weight: 600;
+                    overflow-wrap: anywhere;
+                }
+
+                & a[aria-current="page"] {
+                    border-bottom-color: #e7a22c;
+                }
             } /* Encerra os estilos do painel de navegação. */
         } /* Encerra o menu compacto. */
     } /* Encerra o cabeçalho de telas menores. */
