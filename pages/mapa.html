@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/map.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        
+        <aside>
+            <div class="miniHeader">
+                <img src="../assets/mapTrue/Logo.png" alt="">
+            </div>
+        </aside>
+
+        <section>
+
+            <header>
+                <input type="text" placeholder="Buscar endereço, bairro ou ponto de referência...">
+                
+                <select name="City">
+                    <option value="São Paulo">São Paulo</option>
+                    <option value="Brasilandia">Brasilandia</option>
+                </select>
+                
+                <button>
+                    <img src="../assets/mapTrue/IconAtiv.svg" alt="bell icon">
+                </button>
+                
+                <div class="user">
+                    <div class="usericon">
+                        <p>JP</p>
+                    </div>
+                    
+                    <p>Olá, juninho play</p>
+                    
+                </div>
+            </header>
+            
+            <div id="map" class="map-canvas">
+                
+            </div>
+
+        </section>
+        
+    </main>
+     <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
+     <script src="../js/map.js"></script>
+    
+</body>
+</html>
