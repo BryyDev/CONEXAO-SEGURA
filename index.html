@@ -28,8 +28,14 @@
             </ul> <!-- Encerra a lista de destinos. -->
         </nav> <!-- Encerra o menu para telas grandes. -->
         <div class="botoesHeader"> <!-- Reúne os acessos à conta. -->
-            <a class="icone-conta" href="./pages/login.html" aria-label="Acessar minha conta"><img src="./assets/index/usuario.svg" width="35" height="35" alt=""></a> <!-- Oferece o acesso por ícone sem repetir o texto para leitores de tela. -->
-            <a href="./pages/login.html" class="entrar">Entrar ou Criar conta</a> <!-- Mantém a ação principal de acesso à conta. -->
+            <a class="icone-conta" href="./pages/minha-conta.html" aria-label="Minha conta">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
+                    <circle cx="12" cy="8" r="3.25" />
+                    <path d="M5 21v-1.5a7 7 0 0 1 14 0V21" />
+                </svg>
+            </a>
+            <a class="entrar" href="./pages/login.html">Entrar</a>
         </div> <!-- Encerra os acessos à conta. -->
         <details class="menu-mobile"> <!-- Usa um controle nativo que abre e fecha o menu sem JavaScript. -->
             <summary aria-label="Menu de navegação"><span class="icone-menu" aria-hidden="true"></span></summary> <!-- Disponibiliza um botão de menu que também funciona pelo teclado. -->
@@ -65,11 +71,17 @@
                         <img src="./assets/index/celulares.svg" width="472" height="529" alt="Prévia do Conexão Segura em dois celulares" loading="lazy" decoding="async"> <!-- Mantém a proporção da imagem e adia seu carregamento fora da primeira tela. -->
                     </div> <!-- Encerra a área dos celulares. -->
                 </div> <!-- Encerra a composição de texto e imagem. -->
-                <div class="scroll"> <!-- Mantém a área do cartão que já estava na página. -->
-                    <div class="cardscroll"> <!-- Adapta a largura do cartão ao espaço disponível. -->
-                        <img src="./assets/index/logo.svg" width="124" height="67" alt="Conexão Segura" loading="lazy" decoding="async"> <!-- Reaproveita a marca já usada no cartão. -->
-                    </div> <!-- Encerra o cartão existente. -->
-                </div> <!-- Encerra a área do cartão. -->
+                <section class="carrossel-videos" aria-label="Carrossel de vídeos">
+                    <div class="carrossel-videos-pilha">
+                        <button class="carrossel-video carrossel-video-fundo" type="button" data-video="3" aria-label="Selecionar vídeo 3"><span aria-hidden="true">03</span></button>
+                        <button class="carrossel-video carrossel-video-meio" type="button" data-video="2" aria-label="Selecionar vídeo 2"><span aria-hidden="true">02</span></button>
+                        <div class="carrossel-video carrossel-video-ativo">
+                            <video src="./assets/index/conexao-segura-pitch.mp4" controls playsinline preload="none" aria-label="Pitch do Conexão Segura"></video>
+                            <p class="carrossel-video-indisponivel" aria-hidden="true" hidden>Vídeo indisponível</p>
+                        </div>
+                    </div>
+                    <p class="carrossel-videos-estado" role="status">Vídeo 1 de 3</p>
+                </section>
             </div> <!-- Encerra o fundo claro da seção. -->
         </section> <!-- Encerra a apresentação das ferramentas. -->
         <section class="infos" id="noticias" aria-labelledby="titulo-noticias"> <!-- Organiza a área de notícias sem alterar seu conteúdo pendente. -->
@@ -79,9 +91,9 @@
             <div class="container"> <!-- Alinha as setas decorativas e a lista de cartões. -->
                 <span class="seta-noticias" aria-hidden="true"><img src="./assets/index/esquerda.svg" width="24" height="24" alt="" loading="lazy"></span> <!-- Mantém a seta visual sem apresentar uma ação que ainda não foi implementada. -->
                 <div class="lista-noticias" role="region" aria-label="Cartões de notícias; em telas menores, role para os lados" tabindex="0"> <!-- Permite rolar os cartões por toque e pelo teclado em telas menores. -->
-                    <div class="noticia direita" aria-hidden="true"></div> <!-- Preserva o primeiro cartão vazio para o conteúdo futuro. -->
-                    <div class="noticia" aria-hidden="true"></div> <!-- Preserva o cartão central vazio para o conteúdo futuro. -->
-                    <div class="noticia esquerda" aria-hidden="true"></div> <!-- Preserva o último cartão vazio para o conteúdo futuro. -->
+                    <div class="noticia direita"><img src="./assets/index/noticia-escolas.png" alt="Travessias próximas a escolas recebem reforço" loading="lazy" decoding="async"></div>
+                    <div class="noticia"><img src="./assets/index/noticia-onibus.png" alt="Pontos de ônibus recebem melhorias" loading="lazy" decoding="async"></div>
+                    <div class="noticia esquerda"><img src="./assets/index/noticia-pracas.png" alt="Praças recebem reforço na iluminação" loading="lazy" decoding="async"></div>
                 </div> <!-- Encerra a lista que pode rolar sem mover a página inteira. -->
                 <span class="seta-noticias" aria-hidden="true"><img src="./assets/index/direita.svg" width="24" height="24" alt="" loading="lazy"></span> <!-- Mantém a seta decorativa do design original. -->
             </div> <!-- Encerra a composição dos cartões. -->
@@ -130,5 +142,6 @@
             </div> <!-- Encerra os textos legais. -->
         </div> <!-- Encerra a linha final do rodapé. -->
     </footer> <!-- Encerra o rodapé do site. -->
+    <script src="./js/carrossel-inicio.js" defer></script>
 </body> <!-- Encerra o conteúdo visível. -->
 </html> <!-- Encerra o documento HTML. -->

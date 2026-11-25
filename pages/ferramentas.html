@@ -7,47 +7,58 @@
     <title>Ferramentas | Conexão Segura</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/ferramentas.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/ferramentas.css?v=3">
 
 </head>
 
 <body>
-    <header>
-    <div class="in">
-
-        <a class="logo" href="../index.html" aria-label="Conexão Segura">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                <circle cx="20" cy="20" r="14" stroke="#12c48b" stroke-width="2" stroke-dasharray="4 3"/>
-                <path d="M20 7l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10v-5z" fill="#0f2e5c" stroke="#fff" stroke-width="2"/>
-                <circle cx="20" cy="15" r="2.5" fill="#fff"/>
+  <header class="header">
+    <!-- Link do logo: leva para a página inicial -->
+    <a href="../index.html" class="logo"><img src="../assets/index/logo.svg" width="124" height="67" alt="Conexão Segura"></a>
+    <!-- Abre o menu de navegação; aria-label descreve o menu para leitores de tela -->
+    <nav class="nav" aria-label="Principal">
+      <!-- Link para a página inicial -->
+      <a href="../index.html">Início</a>
+      <!-- Rola a página até a seção com id="ferramentas" -->
+      <a href="./ferramentas.html" aria-current="page">Ferramentas</a>
+      <!-- Link da página atual; aria-current avisa que é a página onde o usuário está -->
+      <a href="./noticias.html">Notícias</a>
+      <!-- Rola até a seção do mapa (id="mapa") -->
+      <a href="./noticias.html#mapa">Mapa</a>
+      <!-- Leva para a página "Sobre nós" -->
+      <a href="./SobreNós.html">Sobre</a>
+      <!-- Rola até o rodapé (id="contato") -->
+      <a href="../index.html#contato">Contato</a>
+    <!-- Fecha o menu -->
+    </nav>
+    <div class="botoesHeader"> <!-- Reúne os acessos à conta. -->
+        <a class="icone-conta" href="minha-conta.html" aria-label="Minha conta">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
+                <circle cx="12" cy="8" r="3.25" />
+                <path d="M5 21v-1.5a7 7 0 0 1 14 0V21" />
             </svg>
-
-            <span>Conexão<b>Segura</b></span>
         </a>
-
-        <nav class="main" aria-label="Principal">
-            <a href="../index.html">Início</a>
-            <a href="./ferramentas.html" class="on">Ferramentas</a>
-            <a href="./noticias.html">Notícias</a>
-            <a href="./noticias.html#mapa">Mapa</a>
-            <a href="./sobrenos.html">Sobre</a>
-            <a href="../index.html#contato">Contato</a>
-        </nav>
-
-        <a class="avatar" href="./minha-conta.html" aria-label="Minha conta">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff">
-                <circle cx="12" cy="8" r="4.5"/>
-                <path d="M3.5 21c0-4.5 3.8-7 8.5-7s8.5 2.5 8.5 7z"/>
-            </svg>
-        </a>
-
-        <a class="btn hdr" href="./login.html">
-            Entrar ou Criar conta
-        </a>
-
+        <a class="entrar" href="login.html">Entrar</a>
     </div>
-</header>
+  <!-- Fecha o cabeçalho -->
+    <details class="menu-mobile">
+      <summary aria-label="Menu de navegação">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </summary>
+      <nav class="nav" aria-label="Principal">
+        <a href="../index.html">Início</a>
+        <a href="./ferramentas.html" aria-current="page">Ferramentas</a>
+        <a href="./noticias.html">Notícias</a>
+        <a href="./noticias.html#mapa">Mapa</a>
+        <a href="./SobreNós.html">Sobre</a>
+        <a href="../index.html#contato">Contato</a>
+      </nav>
+    </details>
+  </header>
 
     <main>
         <div class="wrap">

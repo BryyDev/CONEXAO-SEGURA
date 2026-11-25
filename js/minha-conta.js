@@ -428,30 +428,82 @@ botaoSalvar.addEventListener("click", function () { // Executa quando a pessoa c
 }) // Encerra a função e o evento do botão de salvar.
 
 
-/* Escolher uma foto pela câmera e mostrar no perfil. */
-
+/* Foto do perfil com prévia e salvamento no navegador. */
 const botaoFoto = document.querySelector(".botao-foto") // Pega o botão da câmera.
-const arquivoFoto = document.querySelector("#arquivo-foto") // Pega o campo de arquivo escondido.
-const fotoPerfil = document.querySelector("#foto-perfil") // Pega a imagem do círculo.
-const iniciaisAvatar = document.querySelector(".iniciais-avatar") // Pega a letra U.
+const arquivoFoto = document.querySelector("#arquivo-foto") // Pega o seletor de arquivos.
+const fotoPerfil = document.querySelector("#foto-perfil") // Pega a imagem do avatar.
+const iniciaisAvatar = document.querySelector(".iniciais-avatar") // Pega a inicial exibida sem foto.
+const ajusteFoto = document.querySelector("#ajuste-foto") // Pega a janela de prévia.
+const previaFoto = document.querySelector("#previa-foto") // Pega a imagem da janela de prévia.
+const aplicarFoto = document.querySelector("#aplicar-foto") // Pega o botão que confirma a foto.
+const chaveFoto = "conexao-segura:foto-perfil" // Define o nome da chave no localStorage.
 
-let enderecoFotoPerfil = "" // Guarda o endereço temporário da foto atual.
+function mostrarFoto(endereco) { // Recebe a imagem pronta para exibição.
+    fotoPerfil.src = endereco // Coloca a imagem dentro do avatar.
+    fotoPerfil.hidden = false // Mostra o avatar com a foto.
+    iniciaisAvatar.hidden = true // Esconde a inicial.
+} // Encerra a atualização do avatar.
 
-botaoFoto.addEventListener("click", function () {
-    arquivoFoto.click() // Abre o seletor de fotos.
-})
+function carregarFotoSalva() { // Restaura a imagem quando a página abre.
+    try { // Tenta ler o armazenamento do navegador.
+        const fotoSalva = localStorage.getItem(chaveFoto) // Busca a imagem pela chave.
+        if (fotoSalva) mostrarFoto(fotoSalva) // Exibe a imagem quando houver uma foto salva.
+    } catch { // Trata o caso em que o armazenamento está indisponível.
+        console.warn("Não foi possível ler a foto de perfil salva.") // Registra o problema sem fechar a página.
+    } // Encerra a leitura protegida.
+} // Encerra a restauração da foto.
 
-arquivoFoto.addEventListener("change", function () {
-    const fotoEscolhida = arquivoFoto.files[0] // Pega a foto que você escolheu.
-    if (!fotoEscolhida) return // Se você cancelou, mantém o avatar como está.
+carregarFotoSalva() // Carrega a foto salva assim que o script roda.
 
-    if (enderecoFotoPerfil) {
-        URL.revokeObjectURL(enderecoFotoPerfil) // Libera o endereço da foto anterior.
-    }
+async function prepararFoto(arquivo) { // Lê e reduz o tamanho da imagem escolhida.
+    const enderecoTemporario = URL.createObjectURL(arquivo) // Cria um endereço temporário para ler o arquivo.
+    try { // Garante que o endereço temporário será liberado.
+        const imagem = new Image() // Cria uma imagem fora da página.
+        imagem.src = enderecoTemporario // Carrega o arquivo escolhido nessa imagem.
+        await imagem.decode() // Espera o navegador decodificar a imagem ou indicar um erro.
+        const lado = Math.min(imagem.naturalWidth, imagem.naturalHeight) // Define o lado do recorte quadrado.
+        const x = (imagem.naturalWidth - lado) / 2 // Calcula o início do recorte na horizontal.
+        const y = (imagem.naturalHeight - lado) / 2 // Calcula o início do recorte na vertical.
+        const tela = document.createElement("canvas") // Cria a superfície onde a imagem será redimensionada.
+        tela.width = tela.height = Math.min(384, lado) // Limita a foto a 384 px por lado.
+        tela.getContext("2d").drawImage(imagem, x, y, lado, lado, 0, 0, tela.width, tela.height) // Copia o recorte central.
+        return tela.toDataURL("image/webp", 0.85) // Converte a foto em texto comprimido, pronto para salvar.
+    } finally { // Executa mesmo quando a leitura falha.
+        URL.revokeObjectURL(enderecoTemporario) // Libera o endereço temporário e a memória associada a ele.
+    } // Encerra a limpeza.
+} // Encerra a preparação da imagem.
 
-    enderecoFotoPerfil = URL.createObjectURL(fotoEscolhida) // Cria um endereço para a nova foto.
-    fotoPerfil.src = enderecoFotoPerfil // Coloca a foto na imagem do perfil.
-    fotoPerfil.hidden = false // Mostra a foto.
-    iniciaisAvatar.hidden = true // Esconde o U.
-    arquivoFoto.value = "" // Permite escolher a mesma foto outra vez.
-})
+botaoFoto.addEventListener("click", function () { // Escuta o clique no botão da câmera.
+    arquivoFoto.click() // Abre o seletor de arquivos do navegador.
+}) // Encerra o evento do botão.
+
+arquivoFoto.addEventListener("change", async function () { // Executa após a escolha de um arquivo.
+    const fotoEscolhida = arquivoFoto.files[0] // Pega o primeiro arquivo selecionado.
+    if (!fotoEscolhida) return // Mantém a foto atual se a escolha foi cancelada.
+    arquivoFoto.value = "" // Permite escolher o mesmo arquivo novamente.
+    botaoFoto.disabled = true // Evita abrir outro seletor enquanto a imagem está sendo preparada.
+    try { // Trata possíveis erros ao abrir a imagem.
+        previaFoto.src = await prepararFoto(fotoEscolhida) // Preenche a prévia com a imagem reduzida.
+        ajusteFoto.showModal() // Abre a janela e espera a confirmação do usuário.
+    } catch { // Trata arquivos que o navegador não consegue abrir como imagem.
+        alert("Não foi possível abrir essa imagem. Escolha outra foto.") // Mantém a foto anterior e informa o erro.
+    } finally { // Executa quando a preparação termina.
+        botaoFoto.disabled = false // Libera o botão para uma nova escolha.
+    } // Encerra a leitura do arquivo.
+}) // Encerra o evento do seletor de arquivos.
+
+aplicarFoto.addEventListener("click", function () { // Executa quando o usuário confirma a prévia.
+    const novaFoto = previaFoto.src // Pega a imagem convertida em texto.
+    try { // Tenta salvar antes de atualizar o perfil.
+        localStorage.setItem(chaveFoto, novaFoto) // Guarda a foto para as próximas visitas.
+    } catch { // Trata bloqueio do localStorage ou falta de espaço.
+        alert("Não foi possível salvar a foto neste navegador.") // Informa que a foto não foi salva.
+        return // Mantém o avatar anterior se o salvamento falhar.
+    } // Encerra a tentativa de salvamento.
+    mostrarFoto(novaFoto) // Atualiza o avatar imediatamente depois de salvar.
+    ajusteFoto.close() // Fecha a janela de prévia.
+}) // Encerra o evento do botão Aplicar.
+
+ajusteFoto.addEventListener("close", function () { // Executa ao aplicar, cancelar ou pressionar Esc.
+    previaFoto.removeAttribute("src") // Limpa a prévia sem alterar a foto que já foi salva.
+}) // Encerra o evento de fechamento.

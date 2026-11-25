@@ -7,13 +7,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/noticias.css?v=3">
+  <link rel="shortcut icon" href="../assets/Favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="../css/noticias.css?v=10">
+  <!-- MAPA: estilos padrão da biblioteca MapLibre + o CSS do mapa deste site -->
+  <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/mapa.css?v=1">
 </head>
 <body>
 
   <header class="header">
     <!-- Link do logo: leva para a página inicial -->
-    <a href="../index.html" class="logo"><img src="../assets/noticias-mapa/logo_header.png" alt="Conexão Segura"></a>
+    <a href="../index.html" class="logo"><img src="../assets/index/logo.svg" width="124" height="67" alt="Conexão Segura"></a>
     <!-- Abre o menu de navegação; aria-label descreve o menu para leitores de tela -->
     <nav class="nav" aria-label="Principal">
       <!-- Link para a página inicial -->
@@ -30,14 +34,16 @@
       <a href="#contato">Contato</a>
     <!-- Fecha o menu -->
     </nav>
-    <!-- Botão redondo que leva para a página da conta do usuário -->
-    <a href="minha-conta.html" class="user-btn" aria-label="Minha conta">
-      <!-- Ícone de pessoa desenhado em SVG: um círculo (cabeça) e um corpo -->
-      <svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7z"/></svg>
-    <!-- Fecha o botão da conta -->
-    </a>
-    <!-- Botão de ação principal do cabeçalho -->
-    <a href="#ferramentas" class="btn-trajeto">Planejar meu trajeto</a>
+    <div class="botoesHeader"> <!-- Reúne os acessos à conta. -->
+        <a class="icone-conta" href="minha-conta.html" aria-label="Minha conta">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
+                <circle cx="12" cy="8" r="3.25" />
+                <path d="M5 21v-1.5a7 7 0 0 1 14 0V21" />
+            </svg>
+        </a>
+        <a class="entrar" href="login.html">Entrar</a>
+    </div>
   <!-- Fecha o cabeçalho -->
   </header>
 
@@ -307,14 +313,28 @@
       </div>
     <!-- Fecha a seção da comunidade -->
     </section>
-
-    <!-- MAPA  DA REGIÃO VAMOS COLOCAR AQUI -->
     <!-- Seção do mapa; id="mapa" é o destino do link "Mapa" do menu -->
     <section class="section" id="mapa">
       <!-- Título da seção -->
       <h2>MAPA DA REGIÃO</h2>
       <!-- Imagem do mapa. ATENÇÃO: src está vazio, então ainda não aparece nada; coloque o caminho da imagem ou troque por um mapa incorporado -->
-      <img class="map" src="" alt="Mapa da região">
+      <!-- MAPA INTERATIVO (MapLibre): o ../js/mapa.js desenha o mapa dentro da div id="map". O CSS está em ../css/mapa.css. -->
+      <!-- Caixa que agrupa o mapa e a busca; a busca fica flutuando por cima do mapa -->
+      <div class="mapa-regiao">
+        <!-- Div onde o mapa é desenhado; role="region" + aria-label descrevem o mapa para leitores de tela -->
+        <div id="map" class="mapa-regiao-canvas" role="region" aria-label="Mapa da região"></div>
+        <!-- Formulário de busca de lugares (canto superior esquerdo do mapa) -->
+        <form class="mapa-busca" id="map-search-form">
+          <!-- Campo de busca; aria-label descreve o campo para leitores de tela -->
+          <input id="map-search-input" type="search" placeholder="Procurar lugar..." aria-label="Procurar lugar no mapa">
+          <!-- Botão que envia a busca -->
+          <button type="submit">Buscar</button>
+          <!-- Mensagens de status ("Procurando...", erros); role="status" anuncia para leitores de tela e some quando está vazia -->
+          <p id="map-search-status" class="mapa-status" role="status"></p>
+        <!-- Fecha o formulário de busca -->
+        </form>
+      <!-- Fecha a caixa do mapa -->
+      </div>
     <!-- Fecha a seção do mapa -->
     </section>
   <!-- Fecha a área principal -->
@@ -491,6 +511,9 @@
 
   <!-- Carrega o JavaScript no fim do body (assim o HTML já existe quando o script roda). Ele cuida dos filtros, curtidas, comentários e barra ao vivo -->
   <script src="../js/noticias.js?v=3"></script>
+  <!-- MAPA: primeiro a biblioteca MapLibre e depois o mapa.js (a biblioteca precisa vir ANTES) -->
+  <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
+  <script src="../js/mapa.js?v=1"></script>
 <!-- Fecha o corpo -->
 </body>
 <!-- Fecha o documento -->
