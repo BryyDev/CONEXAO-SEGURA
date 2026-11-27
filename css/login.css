@@ -91,7 +91,16 @@ body {
 }
 
 .lembrar-senha input { accent-color: #1e9e6b; } /* Usa o verde do botão principal. */
-.lembrar-senha a, .criar-conta { color: #fff; } /* Mantém os links legíveis sobre o fundo. */
+.lembrar-senha a, .criar-conta {
+    color: #fff; /* Mantém os links legíveis sobre o fundo. */
+    text-decoration: none; /* Remove o sublinhado no estado normal. */
+}
+
+@media (hover: hover) {
+    .lembrar-senha a:hover, .criar-conta:hover {
+        text-decoration: underline; /* Mostra o sublinhado ao passar o mouse. */
+    }
+}
 
 .entrar, .entrar-google, .criar-conta {
     display: flex; /* Alinha texto e ícone dos controles. */
