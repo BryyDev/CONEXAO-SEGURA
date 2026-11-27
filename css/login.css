@@ -162,6 +162,7 @@ form {
 
     .lembrar-senha {
         margin-top: 17px;
+<<<<<<< Updated upstream
         width: 100%;
         max-width: 400px;
         display: flex;
@@ -171,6 +172,26 @@ form {
 
         & label {
             accent-color: #1E9E6B;
+=======
+        width: 250px;
+        display: flex;
+        margin-left: 10px;
+        justify-content: space-between;
+        height: 20px;
+        font-size: 14px;
+
+        & a {
+            font-size: 12px;
+            text-decoration: underline;
+        }
+
+
+
+
+        & label {
+            accent-color: #1E9E6B;
+
+>>>>>>> Stashed changes
 
             & input {
                 cursor: pointer;
@@ -180,7 +201,7 @@ form {
 
         & a {
             color: #fff;
-            text-decoration: none;
+            
             font-size: 14px;
         }
     }
@@ -201,8 +222,43 @@ form {
     }
 
     & .entrar-google {
+<<<<<<< Updated upstream
         width: 100%;
         /* Ocupa a largura útil do formulário. */
+=======
+        width: 14.8125rem;
+        /* Altera a largura do botão( 237px = 14rem) */
+        height: 2.875rem;
+        /* altera a altura do botão (  46px= 2.875rem)*/
+        border-radius: .75rem;
+        border: none;
+        /* Tira a borda do botão */
+        cursor: pointer;
+        /* muda o cursor, quando ele passar por cima do botão */
+        margin-top: 20px;
+        background-repeat: no-repeat;
+        /* Faz com que a imagem não se repita */
+        background-position: left center;
+        /* ajusta a posição da imagem */
+        display: flex;
+        /* Permite organizar e alinhar os elementos filhos */
+        align-items: center;
+        /* Centraliza os elementos filhos verticalmente */
+        justify-content: center;
+        /* Centraliza os elementos filhos horizontalmente */
+        gap: 10px;
+        flex-direction: row-reverse;/* Inverte a ordem dos elementos, colocando a logo após o texto. */
+
+
+
+
+
+    }
+
+    & .criar-conta {
+        width: 14.8125rem;
+        /* Altera a largura do botão( 237px = 14rem) */
+>>>>>>> Stashed changes
         height: 2.875rem;
         /* altera a altura do botão (  46px= 2.875rem)*/
         border-radius: .75rem;
@@ -211,6 +267,7 @@ form {
         cursor: pointer;
         /* muda o cursor, quando ele passar por cima do botão */
         margin-top: 1.25rem;
+<<<<<<< Updated upstream
         background-repeat: no-repeat;
         /* Faz com que a imagem não se repita */
         background-position: left center;
@@ -244,6 +301,10 @@ form {
         text-decoration: none;
     }
 
+=======
+    }
+
+>>>>>>> Stashed changes
     #senha-lembrar {}
 
 
@@ -257,8 +318,125 @@ form {
     margin: 12px 0;
 }
 
+<<<<<<< Updated upstream
 @media (max-width: 500px) {
     .container {
         padding: 25px 50px;
     }
 }
+=======
+@media (max-width:600px) {
+    body {
+        padding: 16px;
+    }
+
+    .container {
+        padding: 1.5625rem 1.5rem;
+    }
+
+    .container form {
+        max-width: 15.125rem;
+        margin-inline: auto;
+    }
+
+    .input {
+        width: 100%;
+    }
+}
+
+@media (max-height: 42.5rem) {
+
+    /* Mantém o formulário acessível em janelas baixas. (Notebook) */
+    body {
+        /* Ajusta o alinhamento quando falta altura na janela. */
+        align-items: flex-start;
+        /* Mantém o topo acessível em telas muito baixas. */
+        padding-block: 1rem;
+        /* Reserva espaço para rolar até o fim do cartão. */
+    }
+
+    /* Encerra o ajuste de alinhamento da página. */
+
+    body .container {
+        /* Ajusta as margens internas do cartão. */
+        padding-block: 1rem;
+        /* Reduz o espaço acima e abaixo do conteúdo. */
+    }
+
+    /* Encerra o ajuste do cartão em janelas baixas. */
+}
+
+/* Encerra as regras de altura para todas as larguras. */
+
+@media (width > 37.5rem) and (max-height: 42.5rem) {
+
+    /* Compacta o cadastro em notebooks com até 680px de altura útil. */
+    body {
+        /* Ajusta a posição do cartão na janela do notebook. */
+        align-items: center;
+        /* Centraliza o cartão na altura disponível quando ele cabe. */
+        padding-block: .75rem;
+        /* Reserva 12px acima e abaixo do cartão no tamanho padrão. */
+    }
+
+    /* Encerra o ajuste da página no notebook. */
+
+    body .container form .imgDiv img {
+        /* Ajusta o tamanho do logo no notebook. */
+        display: block;
+        /* Remove a folga de linha abaixo do logo. */
+        width: 6.375rem;
+        /* Reduz a largura do logo para 102px no tamanho padrão. */
+        height: auto;
+        /* Mantém a proporção original do logo. */
+    }
+
+    /* Encerra o ajuste do logo no notebook. */
+
+    body .container form h1 {
+        /* Ajusta o título em janelas mais baixas. */
+        margin-block: .75rem;
+        /* Reduz o espaço entre logo, título e campos. */
+        font-size: 1.75rem;
+        /* Mantém o título destacado em 28px no tamanho padrão. */
+        line-height: 1.2;
+        /* Evita altura excessiva na linha do título. */
+    }
+
+    /* Encerra o ajuste do título no notebook. */
+
+    body .container form div.containerr {
+        /* Seleciona o grupo que reúne campos e botões. */
+        gap: .75rem;
+        /* Aproxima o último campo do primeiro botão. */
+    }
+
+    /* Encerra o ajuste entre campos e botões. */
+
+    body .container form div.containerr .inputs {
+        /* Seleciona o grupo dos quatro campos. */
+        gap: .625rem;
+        /* Reduz a distância entre os campos para 10px no tamanho padrão. */
+    }
+
+    /* Encerra o ajuste entre os campos. */
+
+    body .container form div.containerr .inputs>div {
+        /* Seleciona cada conjunto de rótulo e campo. */
+        gap: .25rem;
+        /* Mantém cada rótulo próximo da respectiva entrada. */
+    }
+
+    /* Encerra o ajuste entre cada rótulo e campo. */
+
+    body .container .btoes {
+        /* Seleciona o grupo de botões do cadastro. */
+        gap: .625rem;
+        /* Diminui o espaço entre Criar Conta e Já tenho uma conta. */
+    }
+
+    /* Encerra o ajuste do grupo de botões. */
+}
+
+/* Encerra as regras para notebooks. */
+>>>>>>> Stashed changes
