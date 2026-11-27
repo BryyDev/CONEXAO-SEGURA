@@ -1,26 +1,29 @@
+const formulario = document.querySelector('form'); // Seleciona o formulário de entrada.
+const email = document.getElementById('email'); // Identifica o campo de e-mail.
+const lembrar = document.getElementById('lembrar'); // Identifica se o visitante quer relembrar o e-mail.
+const statusLogin = document.querySelector('.login-status'); // Localiza o retorno exibido no cartão.
+const chaveEmail = 'conexao-segura:login-email'; // Nome do registro local, que contém somente o e-mail.
 
-// Select the form
-const formulario = document.querySelector('form');
+try {
+    const salvo = localStorage.getItem(chaveEmail); // Recupera o endereço lembrado neste navegador.
+    if (salvo) {
+        email.value = salvo; // Preenche o campo sem recuperar senha.
+        lembrar.checked = true; // Indica que o e-mail está sendo lembrado.
+    }
+} catch {
+    // O formulário também funciona quando o navegador bloqueia o armazenamento.
+}
 
-// Select the input fields
-const nome = document.querySelector('#nome');
-const email = document.querySelector('#email');
-const senha = document.querySelector('#password');
+formulario.addEventListener('submit', () => { // Mantém o fluxo de demonstração para Minha conta.
+    try {
+        if (lembrar.checked) localStorage.setItem(chaveEmail, email.value.trim()); // Guarda só o e-mail.
+        else localStorage.removeItem(chaveEmail); // Retira o e-mail salvo quando a opção é desmarcada.
+    } catch {
+        // O armazenamento é opcional e não bloqueia a navegação.
+    }
+});
 
-// Select the checkbox
-const lembrarSenha = document.querySelector('#lembrar-senha');
-
-// Select the buttons
-const botaoEntrar = document.querySelector('.entrar');
-const botaoGoogle = document.querySelector('.entrar-google');
-const botaoCriarConta = document.querySelector('.criar-conta');
-
-// Capture the input values
-const nomeDigitado = nome.value;
-const emailDigitado = email.value;
-const senhaDigitada = senha.value;
-
-// Display the input values in the console
-console.log(nomeDigitado);
-console.log(emailDigitado);
-console.log(senhaDigitada);
+document.querySelector('.entrar-google').addEventListener('click', () => { // Explica o estado do botão Google.
+    statusLogin.textContent = 'O login com Google ainda não está conectado.'; // Informa o status sem enviar o formulário.
+    statusLogin.hidden = false; // Mostra o aviso no próprio cartão.
+});

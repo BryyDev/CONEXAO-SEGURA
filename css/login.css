@@ -1,442 +1,122 @@
-/* Remove os espaçamentos padrão e inclui padding e borda nas dimensões. */
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-
+    box-sizing: border-box; /* Inclui borda e espaçamento nas dimensões. */
 }
 
 body {
-    /* Garante que o fundo ocupe pelo menos a altura da tela. */
-    min-height: 100vh;
-
-    /* O caminho parte da pasta css, por isso usamos ../. */
-    background-image: url("../assets/login-screen/background-desktop.png");
-
-    /* Preenche a tela; partes da imagem podem ser cortadas. */
-    background-size: cover;
-
-    /* Centraliza a imagem de fundo. */
-    background-position: center;
-
-    /* Impede que a imagem se repita. */
-    background-repeat: no-repeat;
-    /* Faz com que o fundo não se repita e cubra a tela toda */
-    align-items: center;
-    /* Centraliza na vertical */
-    display: flex;
-    /* Permite organizar e alinhar os elementos filhos */
-    justify-content: center;
-    /* 
-  Justifica no eixo X */
-    color: #fff;
-
-
-
+    display: grid; /* Permite centralizar o cartão nos dois eixos. */
+    place-items: center; /* Centraliza o cartão no espaço disponível. */
+    min-height: 100vh; /* Reserva a altura da tela como fallback. */
+    min-height: 100svh; /* Respeita a área visível do navegador no celular. */
+    margin: 0; /* Remove a margem padrão do documento. */
+    padding: 16px; /* Mantém o cartão afastado das bordas da tela. */
+    background: #09254a url("../assets/login-screen/background-desktop.png") center / cover no-repeat; /* Mantém o fundo original. */
+    color: #fff; /* Aplica contraste sobre o fundo escuro. */
+    font: 400 16px/1.45 Poppins, sans-serif; /* Mantém a tipografia da tela. */
 }
 
 .container {
-    /* Seleciona o cartão principal de recuperação de senha. */
-    width: 478px;
-    /* Define a largura do cartão conforme o Figma (478px = 29.875rem). */
-    max-width: 100%;
-    /* Impede que o cartão ultrapasse a largura disponível dentro da página. */
-    min-height: 310px;
-    /* Preserva a altura mínima do cartão indicada no layout (310px = 19.375rem). */
-    padding: 25px 100px;
-    /* Define o preenchimento vertical e horizontal do cartão, respectivamente. */
-    border: .0625rem solid #fff;
-    /* Desenha a borda branca de 1 pixel mostrada no Figma. */
-    border-radius: 40px;
-    /* Arredonda os cantos do cartão (40px = 2.5rem). */
-    background-color: transparent;
-    /* Mantém a imagem da cidade visível através do cartão. */
-    -webkit-backdrop-filter: blur(0);
-    /* Mantém o fundo sem desfoque no estado normal em navegadores que utilizam o prefixo WebKit. */
-    backdrop-filter: blur(0);
-    /* Mantém a imagem da cidade nítida enquanto o ponteiro está fora do cartão. */
-    transition: backdrop-filter 180ms ease, -webkit-backdrop-filter 180ms ease;
-    /* Suaviza a aplicação e a remoção do desfoque de fundo. */
+    width: min(100%, 478px); /* Preserva a largura do cartão e permite encolher no celular. */
+    padding: 24px clamp(20px, 7vw, 100px); /* Reduz as margens internas em telas estreitas. */
+    border: 1px solid #fff; /* Mantém o contorno claro do cartão. */
+    border-radius: clamp(20px, 5vw, 40px); /* Ajusta o arredondamento à largura da tela. */
+    background: rgb(4 28 60 / 36%); /* Escurece o fundo atrás dos campos. */
+    -webkit-backdrop-filter: blur(2px); /* Aplica o vidro em navegadores com prefixo WebKit. */
+    backdrop-filter: blur(2px); /* Desfoca levemente a imagem atrás do cartão. */
 }
 
-/* Encerra a regra do cartão principal. */
-
-@media (hover: hover) and (pointer: fine) {
-
-    /* Aplica o efeito apenas em dispositivos com ponteiro preciso e suporte a passar o mouse. */
-    .container:hover {
-        /* Seleciona o cartão enquanto o ponteiro está sobre ele. */
-        -webkit-backdrop-filter: blur(.4688rem);
-        /* Aplica o desfoque no hover em navegadores que utilizam o prefixo WebKit. */
-        backdrop-filter: blur(.125rem);
-        /* Desfoca apenas a imagem atrás do cartão enquanto o mouse está sobre ele. */
-    }
-
-    /* Encerra a regra de hover do cartão. */
+.container form {
+    display: grid; /* Organiza logo, campos e ações em sequência. */
+    gap: 12px; /* Mantém o espaçamento entre os blocos. */
 }
 
-/* Encerra a condição de suporte ao efeito de hover. */
-
-/*
-    Seletores sem aninhamento para facilitar a leitura.
-    Mantida a posição original do formulário na página.
-*/
-.container .inputs label {
-    /* Coloca o rótulo em uma linha acima do campo. */
-    display: block;
+.container form > a:first-child {
+    justify-self: center; /* Centraliza o link da marca. */
 }
 
-.container .pai-de-todos,
-.container .inputs {
-    width: 100%;
+.imgDiv {
+    display: block; /* Remove o espaço de linha abaixo da marca. */
+    width: 124px; /* Mantém a largura original da logo. */
+    height: auto; /* Preserva a proporção da imagem. */
 }
 
-.container .input {
-    /* Faz o ícone absoluto usar esta caixa como referência. */
-    position: relative;
-
-    /* Ocupa a largura útil do formulário, sem ultrapassar o cartão. */
-    width: 100%;
-    max-width: 100%;
+.inputs {
+    display: grid; /* Empilha os grupos de rótulo e entrada. */
+    gap: 10px; /* Separa os grupos de entrada. */
 }
 
-.container .input>img {
-    /* Permite posicionar o ícone dentro da caixa. */
-    position: absolute;
-
-    /* Distância da lateral esquerda. */
-    left: 12px;
-
-    /* Posiciona o topo do ícone no meio da altura da caixa. */
-    top: 50%;
-
-    /* Sobe metade da altura do ícone para centralizá-lo. */
-    transform: translateY(-50%);
-
-    /* Dimensões do ícone. */
-    width: 20px;
-    height: 20px;
-
-    /* Permite clicar no campo mesmo sobre o ícone. */
-    pointer-events: none;
+.inputs label {
+    display: block; /* Exibe o rótulo acima da entrada. */
+    margin-bottom: 5px; /* Mantém o rótulo próximo do campo. */
+    font-weight: 500; /* Destaca o rótulo sobre o fundo. */
 }
 
-.container .input>input {
-    /* Remove o espaço de linha para alinhar o ícone ao centro do campo. */
-    display: block;
-    /* Ocupa toda a largura da caixa .input. */
-    width: 100%;
-    height: 37px;
-
-    /* Mantém a aparência original do campo. */
-    border: 1px solid white;
-    border-radius: 10px;
-    background-color: white;
-
-    /*
-        Reserva espaço à esquerda para o ícone.
-        O padding vertical fica zerado porque a altura já está definida.
-    */
-    padding: 0 12px 0 44px;
+.input {
+    position: relative; /* Usa o campo como referência para o ícone. */
 }
 
-form {
-    display: flex;
-    /* Organiza os filhos diretos do formulário com Flexbox. */
-    flex-direction: column;
-    /* Distribui os filhos do formulário em uma coluna. */
-    justify-content: center;
-    /* Centraliza os filhos no eixo principal, vertical nesta configuração. */
-    align-items: center;
-    width: 100%;
-
-    /* Centraliza os filhos no eixo transversal, horizontal nesta configuração. */
-    & .imgDiv {
-        width: 124px;
-        /* Altera a largura da imagem ( 7.75 rem =7.75rem */
-        height: 67px;
-        /* Altera a altura da imagem ( 4.1875 rem= 4.1875rem) */
-
-    }
-
-    .lembrar-senha {
-        margin-top: 17px;
-<<<<<<< Updated upstream
-        width: 100%;
-        max-width: 400px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        height: 20px;
-
-        & label {
-            accent-color: #1E9E6B;
-=======
-        width: 250px;
-        display: flex;
-        margin-left: 10px;
-        justify-content: space-between;
-        height: 20px;
-        font-size: 14px;
-
-        & a {
-            font-size: 12px;
-            text-decoration: underline;
-        }
-
-
-
-
-        & label {
-            accent-color: #1E9E6B;
-
->>>>>>> Stashed changes
-
-            & input {
-                cursor: pointer;
-            }
-
-        }
-
-        & a {
-            color: #fff;
-            
-            font-size: 14px;
-        }
-    }
-
-    & .entrar {
-        width: 100%;
-        /* Ocupa a largura útil do formulário. */
-        height: 46px;
-        /* altera a altura do botão (  46px= 2.875rem)*/
-        border-radius: .75rem;
-        background-color: #1E9E6B;
-        border: none;
-        /* tira a borda do botão */
-        cursor: pointer;
-        /* muda o cursor, quando ele passar por cima do botão */
-        margin-top: 39px;
-
-    }
-
-    & .entrar-google {
-<<<<<<< Updated upstream
-        width: 100%;
-        /* Ocupa a largura útil do formulário. */
-=======
-        width: 14.8125rem;
-        /* Altera a largura do botão( 237px = 14rem) */
-        height: 2.875rem;
-        /* altera a altura do botão (  46px= 2.875rem)*/
-        border-radius: .75rem;
-        border: none;
-        /* Tira a borda do botão */
-        cursor: pointer;
-        /* muda o cursor, quando ele passar por cima do botão */
-        margin-top: 20px;
-        background-repeat: no-repeat;
-        /* Faz com que a imagem não se repita */
-        background-position: left center;
-        /* ajusta a posição da imagem */
-        display: flex;
-        /* Permite organizar e alinhar os elementos filhos */
-        align-items: center;
-        /* Centraliza os elementos filhos verticalmente */
-        justify-content: center;
-        /* Centraliza os elementos filhos horizontalmente */
-        gap: 10px;
-        flex-direction: row-reverse;/* Inverte a ordem dos elementos, colocando a logo após o texto. */
-
-
-
-
-
-    }
-
-    & .criar-conta {
-        width: 14.8125rem;
-        /* Altera a largura do botão( 237px = 14rem) */
->>>>>>> Stashed changes
-        height: 2.875rem;
-        /* altera a altura do botão (  46px= 2.875rem)*/
-        border-radius: .75rem;
-        border: none;
-        /* Tira a borda do botão */
-        cursor: pointer;
-        /* muda o cursor, quando ele passar por cima do botão */
-        margin-top: 1.25rem;
-<<<<<<< Updated upstream
-        background-repeat: no-repeat;
-        /* Faz com que a imagem não se repita */
-        background-position: left center;
-        /* ajusta a posição da imagem */
-        font-size: .875rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 11px;
-
-        & img {}
-
-
-    }
-
-    & .criar-conta {
-        width: 100%;
-        /* Ocupa a largura útil do formulário. */
-        height: 2.875rem;
-        /* altera a altura do botão (  46px= 2.875rem)*/
-        border-radius: .75rem;
-        border: none;
-        /* Tira a borda do botão */
-        cursor: pointer;
-        /* muda o cursor, quando ele passar por cima do botão */
-        margin-top: 1.25rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #fff;
-        text-decoration: none;
-    }
-
-=======
-    }
-
->>>>>>> Stashed changes
-    #senha-lembrar {}
-
-
-
-
-
+.input img {
+    position: absolute; /* Coloca o ícone sobre o fundo da entrada. */
+    inset: 50% auto auto 12px; /* Posiciona o ícone na lateral esquerda. */
+    width: 20px; /* Mantém o ícone discreto. */
+    height: 20px; /* Mantém o espaço quadrado do ícone. */
+    transform: translateY(-50%); /* Centraliza o ícone na vertical. */
+    pointer-events: none; /* Deixa cliques chegarem ao campo. */
 }
 
-.labell {
-    display: block;
-    margin: 12px 0;
+.input input {
+    display: block; /* Usa toda a linha do grupo. */
+    width: 100%; /* Faz os campos acompanharem a largura do cartão. */
+    min-height: 40px; /* Mantém os campos fáceis de tocar. */
+    padding: 8px 12px 8px 42px; /* Reserva espaço para o ícone à esquerda. */
+    border: 1px solid #fff; /* Mantém o contorno original dos campos. */
+    border-radius: 10px; /* Arredonda as entradas. */
+    background: #fff; /* Preserva o fundo branco dos campos. */
+    color: #122844; /* Mantém o texto da entrada legível. */
+    font: inherit; /* Usa a fonte do formulário. */
 }
 
-<<<<<<< Updated upstream
-@media (max-width: 500px) {
-    .container {
-        padding: 25px 50px;
-    }
-}
-=======
-@media (max-width:600px) {
-    body {
-        padding: 16px;
-    }
-
-    .container {
-        padding: 1.5625rem 1.5rem;
-    }
-
-    .container form {
-        max-width: 15.125rem;
-        margin-inline: auto;
-    }
-
-    .input {
-        width: 100%;
-    }
+.lembrar-senha {
+    display: flex; /* Coloca a opção e o link na mesma linha quando há espaço. */
+    flex-wrap: wrap; /* Permite quebrar a linha em telas pequenas. */
+    justify-content: space-between; /* Distribui as duas ações. */
+    align-items: center; /* Alinha as ações na vertical. */
+    gap: 5px 10px; /* Separa os controles em qualquer largura. */
+    font-size: 13px; /* Ajusta o tamanho do texto auxiliar. */
 }
 
-@media (max-height: 42.5rem) {
-
-    /* Mantém o formulário acessível em janelas baixas. (Notebook) */
-    body {
-        /* Ajusta o alinhamento quando falta altura na janela. */
-        align-items: flex-start;
-        /* Mantém o topo acessível em telas muito baixas. */
-        padding-block: 1rem;
-        /* Reserva espaço para rolar até o fim do cartão. */
-    }
-
-    /* Encerra o ajuste de alinhamento da página. */
-
-    body .container {
-        /* Ajusta as margens internas do cartão. */
-        padding-block: 1rem;
-        /* Reduz o espaço acima e abaixo do conteúdo. */
-    }
-
-    /* Encerra o ajuste do cartão em janelas baixas. */
+.lembrar-senha label {
+    display: inline-flex; /* Mantém a caixa de seleção e o texto juntos. */
+    align-items: center; /* Centraliza a caixa com o texto. */
+    gap: 6px; /* Separa a caixa do rótulo. */
 }
 
-/* Encerra as regras de altura para todas as larguras. */
+.lembrar-senha input { accent-color: #1e9e6b; } /* Usa o verde do botão principal. */
+.lembrar-senha a, .criar-conta { color: #fff; } /* Mantém os links legíveis sobre o fundo. */
 
-@media (width > 37.5rem) and (max-height: 42.5rem) {
-
-    /* Compacta o cadastro em notebooks com até 680px de altura útil. */
-    body {
-        /* Ajusta a posição do cartão na janela do notebook. */
-        align-items: center;
-        /* Centraliza o cartão na altura disponível quando ele cabe. */
-        padding-block: .75rem;
-        /* Reserva 12px acima e abaixo do cartão no tamanho padrão. */
-    }
-
-    /* Encerra o ajuste da página no notebook. */
-
-    body .container form .imgDiv img {
-        /* Ajusta o tamanho do logo no notebook. */
-        display: block;
-        /* Remove a folga de linha abaixo do logo. */
-        width: 6.375rem;
-        /* Reduz a largura do logo para 102px no tamanho padrão. */
-        height: auto;
-        /* Mantém a proporção original do logo. */
-    }
-
-    /* Encerra o ajuste do logo no notebook. */
-
-    body .container form h1 {
-        /* Ajusta o título em janelas mais baixas. */
-        margin-block: .75rem;
-        /* Reduz o espaço entre logo, título e campos. */
-        font-size: 1.75rem;
-        /* Mantém o título destacado em 28px no tamanho padrão. */
-        line-height: 1.2;
-        /* Evita altura excessiva na linha do título. */
-    }
-
-    /* Encerra o ajuste do título no notebook. */
-
-    body .container form div.containerr {
-        /* Seleciona o grupo que reúne campos e botões. */
-        gap: .75rem;
-        /* Aproxima o último campo do primeiro botão. */
-    }
-
-    /* Encerra o ajuste entre campos e botões. */
-
-    body .container form div.containerr .inputs {
-        /* Seleciona o grupo dos quatro campos. */
-        gap: .625rem;
-        /* Reduz a distância entre os campos para 10px no tamanho padrão. */
-    }
-
-    /* Encerra o ajuste entre os campos. */
-
-    body .container form div.containerr .inputs>div {
-        /* Seleciona cada conjunto de rótulo e campo. */
-        gap: .25rem;
-        /* Mantém cada rótulo próximo da respectiva entrada. */
-    }
-
-    /* Encerra o ajuste entre cada rótulo e campo. */
-
-    body .container .btoes {
-        /* Seleciona o grupo de botões do cadastro. */
-        gap: .625rem;
-        /* Diminui o espaço entre Criar Conta e Já tenho uma conta. */
-    }
-
-    /* Encerra o ajuste do grupo de botões. */
+.entrar, .entrar-google, .criar-conta {
+    display: flex; /* Alinha texto e ícone dos controles. */
+    align-items: center; /* Centraliza o conteúdo verticalmente. */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente. */
+    min-height: 44px; /* Mantém uma área de interação confortável. */
+    gap: 10px; /* Separa o ícone do texto do Google. */
+    padding: 6px 12px; /* Dá espaço ao texto dentro do controle. */
+    border: 0; /* Remove a borda padrão dos botões. */
+    border-radius: 12px; /* Padroniza o arredondamento dos controles. */
+    font: 600 14px/1.4 Poppins, sans-serif; /* Mantém os rótulos consistentes. */
+    cursor: pointer; /* Indica que o controle pode ser acionado. */
 }
 
-/* Encerra as regras para notebooks. */
->>>>>>> Stashed changes
+.entrar { background: #1e9e6b; color: #082337; } /* Preserva o verde da ação principal. */
+.entrar:hover { background: #31b77d; } /* Dá retorno visual ao passar o ponteiro. */
+.entrar-google { background: #fff; color: #122844; } /* Preserva o botão branco do Google. */
+.entrar-google:hover { background: #e8f0fa; } /* Dá retorno visual no botão secundário. */
+.entrar-google img { width: 20px; height: 20px; object-fit: contain; } /* Mantém o ícone proporcional. */
+.criar-conta { min-height: 32px; } /* Deixa o link de cadastro compacto. */
+.login-status { margin: 0; font-size: 13px; } /* Exibe feedback abaixo dos controles. */
+:focus-visible { outline: 2px solid #f1c45c; outline-offset: 3px; } /* Destaca o foco do teclado. */
+
+@media (max-height: 680px) {
+    .container { padding-block: 15px; } /* Compacta o cartão em janelas baixas. */
+    .container form { gap: 8px; } /* Aproxima os elementos sem sobreposição. */
+    .imgDiv { width: 108px; } /* Ajusta a logo à altura útil. */
+}
