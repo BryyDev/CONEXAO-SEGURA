@@ -1,13 +1,27 @@
-// Página Termos de Uso
-const cards = [['#e8effc', '#1763f0', 'Apoio, não garantia', 'Rotas e alertas ajudam você a decidir, mas não eliminam riscos.', 'life'],
-['#fdecea', '#c0392b', 'Emergência? Ligue 190, 192 ou 193', 'O Conexão Segura não substitui polícia, SAMU ou bombeiros.', 'phone'],
-['#fdf2dc', '#b7791f', 'Alertas da comunidade', 'Podem estar incompletos, atrasados ou errados. Confira antes de decidir.', 'bell'],
-['#e3f6ee', '#0f9d6e', 'Sua localização é sua', 'Só usamos com a sua permissão, e você pode desligar quando quiser.', 'life'],
-['#e8effc', '#1763f0', 'Respeito acima de tudo', 'Nada de ameaças, exposição de pessoas ou conteúdo ilegal.', 'flag']];
-document.getElementById('cards5').innerHTML = cards.map(c => `<div class="mini"><i style="background:${c[0]}">${svg(c[4], c[1], 16)}</i><b>${c[2]}</b><p>${c[3]}</p></div>`).join('');
+const pastaIconesTermos = '../assets/Elementos/termos-'; // Usa os ícones exportados do Figma.
 
-const ch = '<span class="chip"><b>190</b>Polícia Militar</span><span class="chip"><b>192</b>SAMU</span><span class="chip"><b>193</b>Bombeiros</span><span class="chip"><b>199</b>Defesa Civil</span>';
-document.getElementById('chipsTop').innerHTML = ch;
+function iconeTermos(nome) {
+    return `<img src="${pastaIconesTermos}${nome}.svg" alt="">`; // Carrega ícones decorativos locais.
+}
+
+const cards = [
+    ['iconeshield', 'Apoio, não garantia', 'Rotas e alertas ajudam você a decidir, mas não eliminam riscos.'],
+    ['iconephone', 'Emergência? Ligue 190, 192 ou 193', 'O Conexão Segura não substitui polícia, SAMU ou bombeiros.'],
+    ['iconeusers', 'Alertas da comunidade', 'Podem estar incompletos, atrasados ou errados. Confira antes de decidir.'],
+    ['iconelock', 'Sua localização é sua', 'Só usamos com a sua permissão, e você pode desligar quando quiser.'],
+    ['iconeflag', 'Respeito acima de tudo', 'Nada de ameaças, exposição de pessoas ou conteúdo ilegal.'],
+]; // Define os cinco cartões do resumo.
+document.getElementById('cards5').innerHTML = cards.map(([icone, titulo, texto]) =>
+    `<article class="mini"><span>${iconeTermos(icone)}</span><h3>${titulo}</h3><p>${texto}</p></article>`).join('');
+
+const numeros = [['190', 'Polícia Militar'], ['192', 'SAMU'], ['193', 'Bombeiros'], ['199', 'Defesa Civil']];
+function linksEmergencia(classe = '') {
+    return numeros.map(([numero, servico]) =>
+        `<a class="${classe}" href="tel:${numero}"><strong>${numero}</strong> · ${servico}</a>`).join('');
+}
+const ch = linksEmergencia('chip');
+document.getElementById('chipsTop').innerHTML = ch; // Mostra os atalhos no aviso principal.
+document.getElementById('emergencia-numeros').innerHTML = linksEmergencia(); // Repete os números no painel lateral.
 
 const S = [
     ['Sobre o serviço e aceitação', 'Ao usar o Conexão Segura, você concorda com estas regras.', 0, [
@@ -65,6 +79,19 @@ const S = [
         ['Estes termos são regidos pelas leis da República Federativa do Brasil.'],
         ['Fica eleito o foro da comarca de [cidade/UF] para resolver dúvidas decorrentes destes termos, ressalvado o direito do consumidor de propor ação no foro do seu domicílio, quando aplicável.'],
         ['Dúvidas, denúncias e solicitações podem ser enviadas para [e-mail de contato oficial].']]]];
-const pad = n => String(n).padStart(2, '0');
-document.getElementById('toc').innerHTML = S.map((s, i) => `<a href="#sec-${i + 1}" data-s="${i + 1}"><em>${pad(i + 1)}</em>${s[0]}</a>`).join('');
-document.getElementById('secs').innerHTML = S.map((s, i) => `<section class="sec ${s[2] ? 'risk' : ''}" id="sec-${i + 1}"><h3><span>${i + 1}</span>${s[0]}</h3><div class="resumo">Em resumo: ${s[1]}</div>${s[3].map((c, j) => `<div class="cl"><b>${i + 1}.${j + 1}</b><div>${c[0]}${c[1] ? '<ul>' + c[1].map(x => '<li>' + x + '</li>').join('') + '</ul>' : ''}</div></div>`).join('')}</section>`).join('');
+const pad = numero => String(numero).padStart(2, '0'); // Exibe a numeração com dois dígitos no índice.
+document.getElementById('toc').innerHTML = S.map(([titulo], indice) =>
+    `<a href="#sec-${indice + 1}"><em>${pad(indice + 1)}</em>${titulo}</a>`).join('');
+
+document.getElementById('secs').innerHTML = S.map(([titulo, resumo, risco, clausulas], indice) => {
+    const numero = indice + 1; // Usa a mesma numeração do índice.
+    const itens = clausulas.map(([texto, lista], posicao) => {
+        const detalhes = lista ? `<ul>${lista.map(item => `<li>${iconeTermos(risco ? 'marcador1' : 'marcador')}${item}</li>`).join('')}</ul>` : '';
+        return `<div class="cl"><b>${numero}.${posicao + 1}</b><div>${texto}${detalhes}</div></div>`;
+    }).join('');
+    return `<section class="sec${risco ? ' risk' : ''}" id="sec-${numero}" aria-labelledby="termos-titulo-${numero}">
+        <h3 id="termos-titulo-${numero}"><span>${numero}</span>${titulo}</h3>
+        <div class="resumo">${iconeTermos(risco ? 'icone1' : 'icone')}<span>Em resumo: ${resumo}</span></div>
+        ${itens}
+    </section>`;
+}).join('');
